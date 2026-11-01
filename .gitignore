@@ -1,0 +1,29 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+
+# Virtual environments
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Temporary and test database files (valideer.db is tracked for standalone run)
+data/*_backup.db
+data/test_*.db
+data/knowledge_base.db
+data/raw_supplier_products.json
+data/invaru_variant_cache.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
