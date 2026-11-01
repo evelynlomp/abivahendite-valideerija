@@ -252,16 +252,18 @@ if df_input is not None:
         wrong_iso = status_counts.get(Validator.STATUS_WRONG_ISO, 0)
         wrong_stat = status_counts.get(Validator.STATUS_WRONG_NAME, 0)
         wrong_both = status_counts.get(Validator.STATUS_WRONG_BOTH, 0)
+        restriction_violations = status_counts.get(Validator.STATUS_RESTRICTION, 0)
         unknown = status_counts.get(Validator.STATUS_UNKNOWN, 0)
         needs_review = status_counts.get(Validator.STATUS_REVIEW, 0)
 
-        m1, m2, m3, m4, m5, m6 = st.columns(6)
+        m1, m2, m3, m4, m5, m6, m7 = st.columns(7)
         m1.metric("KOKKU RIDU", total_rows)
         m2.metric("✅ Vastab", valid_count, f"{int(valid_count/total_rows*100)}%" if total_rows else "")
         m3.metric("⚠️ Vale ISO", wrong_iso)
         m4.metric("⚠️ Vale nimetus", wrong_stat)
         m5.metric("❌ Vale mõlemad", wrong_both)
-        m6.metric("❓ Käsitsi kontroll", needs_review + unknown)
+        m6.metric("🛑 Ei vasta kitsendusele", restriction_violations)
+        m7.metric("❓ Käsitsi kontroll", needs_review + unknown)
 
         st.divider()
 
@@ -274,20 +276,24 @@ if df_input is not None:
         df_filtered = df_res[df_res["Valideerimise staatus"].isin(selected_status)]
 
         # Tulemuste tabel
+        table_cols = [
+            "Rida",
+            "Valideerimise staatus",
+            "Abivahendi nimetus (Excel)",
+            "Tuvastatud ametlik toode",
+            "Tootja",
+            "Usaldusskoor",
+            "ISO kood (Excel)",
+            "Ametlik ISO kood",
+            "Määrusejärgne nimetus (Excel)",
+            "Ametlik määrusejärgne nimetus",
+            "Kitsenduse kontroll",
+            "Selgitus"
+        ]
+        available_cols = [c for c in table_cols if c in df_filtered.columns]
+
         st.dataframe(
-            df_filtered[[
-                "Rida",
-                "Valideerimise staatus",
-                "Abivahendi nimetus (Excel)",
-                "Tuvastatud ametlik toode",
-                "Tootja",
-                "Usaldusskoor",
-                "Tuvastuse allikas",
-                "ISO kood (Excel)",
-                "Ametlik ISO kood",
-                "Määrusejärgne nimetus (Excel)",
-                "Ametlik määrusejärgne nimetus"
-            ]],
+            df_filtered[available_cols],
             use_container_width=True,
             height=400
         )
@@ -309,6 +315,7 @@ if df_input is not None:
         st.write("Spetsialisti kinnitatud kirjed salvestatakse teadmistebaasi ja neid kasutatakse järgmistel kuudel automaatselt.")
 
         unresolved = df_res[df_res["Valideerimise staatus"].isin([
+            Validator.STATUS_RESTRICTION,
             Validator.STATUS_REVIEW,
             Validator.STATUS_UNKNOWN,
             Validator.STATUS_WRONG_ISO,

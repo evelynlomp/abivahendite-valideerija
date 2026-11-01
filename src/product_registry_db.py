@@ -330,9 +330,13 @@ def infer_iso_and_statutory_name(
             return "22.03.09", "luubid ja nägemise abivahendid"
         return "24.09.00", "igapäevaelu abivahendid"
 
-    # 10. Nahahooldus
-    if "nahahooldus" in type_lower:
-        return "09.30.80", "nahahooldus- ja hügieenivahendid"
+    # 10. Nahahooldus ja hügieen (09.21.06 nahapesemisvahendid, 09.21.18 nahakaitsevahendid)
+    if any(x in type_lower for x in ["nahahooldus", "nahapesu", "hügieen", "pesuvahend"]) or any(w in name_upper for w in ["TSINKSALV", "TSINKKREEM", "TSINKSPREI", "PESUVAHT", "PESUKREEM", "WASH MOUSSE", "WASH CREAM"]):
+        if any(w in name_upper for w in ["TSINK", "TSINGI", "ZINC", "KAITSE", "BARRIER"]):
+            return "09.21.18", "nahakaitsevahendid"
+        elif any(w in name_upper for w in ["PESU", "WASH", "VAHT"]):
+            return "09.21.06", "nahapesemisvahendid"
+        return "09.21.18", "nahakaitsevahendid"
 
     return None, None
 

@@ -4,25 +4,29 @@ Teostab ajutise igakuise Exceli faili valideerimise mälus (andmeid kettale ei s
 """
 
 import pandas as pd
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 from src.normalizer import compare_iso, compare_statutory_names, format_iso_display
 from src.matcher import ProductMatcher
+from src.restriction_engine import RestrictionEngine
 
 
 class Validator:
     """
     Valideerib igakuiseid Exceli andmeridu:
     1. Tuvastab toote Tootetuvastuse agendi (või teadmistebaasi) abil.
-    2. Seob Sotsiaalministeeriumi ametliku klassifikaatoriga.
-    3. Võrdleb esitatud Exceli väärtusi ja määrab staatuse.
+    2. Tagab, et toode vastab alati täpselt ühele kanoonilisele ISO koodile.
+    3. Kontrollib määruse veergude C ja M tootekitsendusi (koostis, välistused).
+    4. Võrdleb esitatud Exceli väärtusi ja määrab staatuse.
     """
 
     STATUS_MATCH = "Vastab"
     STATUS_WRONG_ISO = "Vale ISO"
     STATUS_WRONG_NAME = "Vale määrusejärgne nimetus"
     STATUS_WRONG_BOTH = "Vale ISO ja määrusejärgne nimetus"
+    STATUS_RESTRICTION = "Ei vasta määruse kitsendusele"
     STATUS_UNKNOWN = "Tundmatu toode"
     STATUS_REVIEW = "Vajab käsitsi kontrolli"
+
 
     def __init__(self, matcher: ProductMatcher):
         self.matcher = matcher
@@ -52,32 +56,46 @@ class Validator:
         evidence_sources = match_res.get("evidence_sources", [])
         alternative_matches = match_res.get("alternative_matches", [])
 
-        # 1. Kui toode tuvastati (kas teadmistebaasist või agendi poolt)
-        if official_product and official_iso and official_statutory:
+        # 0. Kontrolli toote tehnilist ja sisulist vastavust määruse kitsendustele (Tulbad C ja M)
+        # Kasutatakse arve ISO-koodi või tuvastatud toote ametlikku koodi
+        check_iso = excel_iso or official_iso
+        is_compliant, restriction_warning, rule_code = RestrictionEngine.check_restrictions(
+            iso_code=check_iso,
+            product_name=excel_name,
+            official_name=official_product or "",
+            product_type=match_res.get("category_type") or match_res.get("product_type", "")
+        )
+
+        if not is_compliant:
+            status = self.STATUS_RESTRICTION
+            explanation = restriction_warning
+
+        # 1. Kui toode tuvastati (kas teadmistebaasist või agendi poolt) ja kitsendust ei rikutud
+        elif official_product and official_iso and official_statutory:
             iso_ok = compare_iso(excel_iso, official_iso)
             name_ok = compare_statutory_names(excel_statutory_name, official_statutory)
 
             if iso_ok and name_ok:
                 if in_kb:
                     status = self.STATUS_MATCH
-                    explanation = f"Kinnitatud toode '{official_product}': ISO-kood ja määrusejärgne nimetus on ametliku klassifikaatoriga kooskõlas."
+                    explanation = f"Kinnitatud toode '{official_product}': ISO-kood ja määrusejärgne nimetus on ametliku klassifikaatoriga kooskõlas ning vastab kitsendustele."
                 else:
                     # Tuvastatud agendi poolt esmakordselt, klapib, vajab kinnitust teadmistebaasi lisamiseks
                     status = self.STATUS_MATCH
                     explanation = (
                         f"Agent tuvastas toote '{official_product}' ({int(confidence*100)}% usaldus). "
-                        f"ISO-kood ja määrusejärgne nimetus klapivad esitatud andmetega."
+                        f"ISO-kood ja määrusejärgne nimetus klapivad esitatud andmetega ning vastavad kitsendustele."
                     )
             elif not iso_ok and name_ok:
                 status = self.STATUS_WRONG_ISO
-                explanation = f"Exceli ISO '{excel_iso}' ei vasta ametlikule koodile '{official_iso}'."
+                explanation = f"Exceli ISO '{excel_iso}' ei vasta toote ainsale ametlikule koodile '{official_iso}'."
             elif iso_ok and not name_ok:
                 status = self.STATUS_WRONG_NAME
                 explanation = f"Exceli määrusejärgne nimetus ei vasta ametlikule nimetusele '{official_statutory}'."
             else:
                 status = self.STATUS_WRONG_BOTH
                 explanation = (
-                    f"Vale ISO ('{excel_iso}' vs ametlik '{official_iso}') JA "
+                    f"Vale ISO ('{excel_iso}' vs toote ametlik kood '{official_iso}') JA "
                     f"vale määrusejärgne nimetus ('{official_statutory}')."
                 )
 
@@ -129,6 +147,8 @@ class Validator:
             "Kandidaadid": match_res.get("kandidaadid", []),
             "Normaliseeritud nimetus": match_res.get("normaliseeritud_nimetus", ""),
             "Teadmistebaasis olemas": in_kb,
+            "Kitsenduse kontroll": "Rikutud (Ei vasta määrusele)" if not is_compliant else "Nõuetele vastav",
+            "Kitsenduse selgitus": restriction_warning or "",
             "Abivahendi nimetus (Excel)": excel_name,
             "ISO kood (Excel)": excel_iso,
             "Määrusejärgne nimetus (Excel)": excel_statutory_name

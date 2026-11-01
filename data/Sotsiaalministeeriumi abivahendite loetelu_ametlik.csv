@@ -1,0 +1,2563 @@
+"Sotsiaalkaitseministri 21. detsembri 2015. a määrus nr 74
+„Abivahendite loetelu, tasu maksmise kohustuse ülevõtmise
+tingimused ning abivahendi tõendi ja kaardi andmed""
+Lisa
+(sotsiaalministri 24.09.2026 määruse nr 37 sõnastuses)",,,,,,,,,,,,,,,,,
+,Abivahendite loetelu,,,,,,,,,,,,,,,,
+"Abivahendi
+ISO-kood
+ehk
+abivahendit
+täpsustav
+kood","Abivahendite rühma ja abivahendi
+nimetus","Abivahendi täpsustus või abivahendi grupi
+kitsendus","Abivahendi
+kasutusaeg","Tehingu
+liik:
+Müük (M) /
+Üür (Ü)","Koguseline
+piirlimiit aastate
+või kuude
+arvestuses","Individuaalne
+abivahend (I)","Abivahend,
+mis on
+otseselt
+seotud
+hooldus-
+teenuse
+osutamise või
+teenuse
+osutamiseks
+kasutatava
+hoonega (H)","Piirmäär
+(õigustatud
+isikult
+ülevõetava
+tasu
+maksmise
+kohustuse
+piirmäär ehk
+%
+piirhinnast)","Piirhind
+(üür / kuu)","Piirhind
+(müük)",Ühik,"Abistav kirjeldus, millise funktsioonipiirangu või
+terviseprobleemi korral abivahend sobib (sh soodustingimuste
+rakendamine)","Eelduskood (SKA
+soodustingimustel teostatud
+tehing, mis peab oleme eelnevalt
+tehtud märgitud abivahendi
+saamiseks).","Välistav kood (SKA
+soodustingimustel
+teostatud tehing, mille
+tõttu ei võimaldata
+märgitud abivahendit)","Hoolduse
+minimaalne
+sagedus
+üüritava
+abivahendi
+puhul",Abivahendi vajaduse tuvastaja,"Abivahendi müümiseks või üürimiseks sobiva
+kvalifikatsiooni ja vajaliku ettevalmistusega spetsialist,
+kes on võrdsustatud abivahendi spetsialisti kutset omava
+isikuga"
+04,ABIVAHENDID INIMESE RAVIKS,,,,,,,,,,,,,,,,
+04.33,Lamatiste vältimise abivahendid,,,,,,,,,,,,,,,,
+04.33.03.01,istmepadjad lamatiste vältimiseks,"ratastooli istmele asetamiseks lamatisi ennetavad
+istmepadjad",2 a,M,1 tk/2 a jooksul,,,0.9,,400,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• lamatiste tekkimise risk on hinnatud (nt Braden skaala alusel)
+• esineb raske või täielik probleem naha kaitse- ja
+paranemisfunktsioonides
+• esineb püsiv raske või täielik probleem keha põhiasendi
+muutmisel.","koodiga 12.22
+(käsiratastoolid),12.23 (elektrilised
+ratastoolid), tehingu teostanud isik",,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+04.33.06,madratsid lamatiste vältimiseks,,,,1 tk,,,,,,,,,,,,
+04.33.06.01,"püsiva survejaotusega lamatisi
+ennetavad madratsid","püsiva survejaotusega lamatisi ennetavad madratsid:
+erineva täitematerjali või pinnastruktuuriga (geel-, helme-
+või, õhkmadratsid, sektsioonideks jagatud
+vahtmadratsid, madratsid, mille sisemuses survejaotus
+ei muutu)
+(hüvitamisele ei kuulu standardsed poroloonmadratsid)",3 a,M,,,H,0.9,,265,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• lamatiste tekkimise risk on hinnatud (nt Braden skaala alusel)
+• esineb raske või täielik probleem naha kaitse- ja
+paranemisfunktsioonides
+• esineb püsiv raske või täielik probleem keha põhiasendi
+muutmisel.
+Tõend laieneb koodile 18.12.10 (elektrilise reguleerimisega voodid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+04.33.06.02,"muutuva survejaotusega lamatisi
+ennetavad madratsid","muutuva survejaotusega lamatisi ennetavad madratsid:
+ühes ja/või mitmes kihis õhuga täituvaid ja tühjenevaid
+kambreid sisaldavad madratsid",3 a,M/Ü,,,H,90% / 90%,85,245,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• lamatiste tekkimise risk on hinnatud (nt Braden skaala alusel)
+• esineb raske või täielik probleem naha kaitse- ja
+paranemisfunktsioonides
+• esineb püsiv raske või täielik probleem keha põhiasendi
+muutmisel.
+Tõend laieneb koodile 18.12.10 (elektrilise reguleerimisega voodid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+04.48,"Püstitõusmis- või
+seismisfunktsiooni võimaldavad
+abivahendid",,,,,,,,,,,,,,,,
+04.48.08,seisuraamid ja -toed,"seisuraamid, -toed, püstitõusmisfunktsiooniga
+ratastoolid",,,1 tk/lapsed 2 tk,,,0.9,,,,,,,,,
+04.48.08.01,laste seisuraamid ja -toed,"individuaalsete kohandamisvõimalustega seisulauad
+lastele",8 a,Ü,,,,0.9,150,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb püsiv raske või täielik probleem püstiasendi säilitamisel.",,,"1 kord 4
+aasta jooksul","eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+04.48.08.02,täiskasvanute seisuraamid,"lisavarustusega vertikaliseerimisfunktsiooniga
+seisuraamid
+(hüvitamisele ei kuulu trenažöörid ja treeningseadmed)",8 a,Ü,,,,0.9,117,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb püsiv raske või täielik probleem püstiasendi säilitamisel.",,,"1 kord 4
+aasta jooksul","eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+04.48.08.03,püstitõusmisfunktsiooniga ratastoolid,,8 a,Ü,,,,0.9,140,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb püsiv raske või täielik probleem püstiasendi säilitamisel.",,,"1 kord 4
+aasta jooksul","eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+06.,PROTEESID,,,,,,,,,,,,,,,,
+06.18,Ülajäsemeproteesid,,,,,,,,,,,,,,,,
+06.18.03,käeosade proteesid,"tellimusmeditsiiniseade
+sõrmeproteesid, osalised käelaba proteesid
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,6780,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon labakäest või sõrmedest.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.18.09,randme- ja küünarvarreproteesid,"tellimus- ja kohandatav meditsiiniseade
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1300,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud randmeliigese eksartikulatsioon või amputatsioon altpoolt
+küünarliigest.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.18.12,küünarliigeseproteesid,"tellimusmeditsiiniseade
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1275,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud küünarliigese eksartikulatsioon.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.18.15,õlavarreproteesid,"tellimusmeditsiiniseade
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,5900,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon altpoolt õlaliigest.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.18.18,õlaproteesid,"tellimusmeditsiiniseade
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,6590,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud õlaliigese eksartikulatsioon.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.18.00,ülajäseme hülsid,,,,,,,,,,,,,,,,
+06.18.00.01,proteesihülsid ülajäsemeproteesidele,tellimusmeditsiiniseade,3 a,M,"2 tk/3 ajooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1270,tk,,,,,,
+06.18.00.02,"proteesi sisevoodrid (lainerid)
+ülajäsemeproteesidele",,3 a,M,"2 tk/3 ajooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1320,tk,,,,,,
+06.24,Alajäsemeproteesid,,,,,,,,,,,,,,,,
+06.24.03,jalaosade proteesid,"tellimusmeditsiiniseade
+varbaproteesid, osalised jalalaba proteesid
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,3200,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon hüppeliigese või jalalaba piirkonnas.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.09,sääreproteesid,tellimusmeditsiiniseade,,,"1 tk/ühe kehapoole
+kohta /lapsed
+vastavalt
+vajadusele",,,,,,,"Isiku kirjeldused põhinevad rahvusvahelisel K-taseme
+hindamissüsteemil",,,,,
+06.24.09.01,sääreproteesid - aktiivsusgrupp I,"tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,2650,tk,"K-tase 1 (siseruumides liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon allpool põlve
+• võimeline või potentsiaalselt võimeline kasutama proteesi
+siirdumisteks või liikumiseks tasastel pindadel piiratud aja jooksul
+läbides vahemaid ühtlase kõnnirütmiga
+• proteesi abil võimeline liikuma oma majapidamises ja kodu piires.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemele 2, 3 või
+4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.09.02,sääreproteesid - aktiivsusgrupp II,"tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,3900,tk,"K-tase 2 (piirangutega välistingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon allpool põlve
+• võimeline või potentsiaalselt võimeline ületama proteesiga
+madalaid keskkonnatakistusi nagu äärekivid, trepid või ebatasased
+pinnad
+• proteesi abil võimeline toime tulema lähiümbruskonnas.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemele 3 või 4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.09.03,sääreproteesid - aktiivsusgrupp III,"tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,7600,tk,"K-tase 3 (välistingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon allpool põlve
+• võimeline või potentsiaalselt võimeline liikuma proteesiga muutuva
+kõnnirütmiga erinevates keskkondades ületades enamikke
+keskkonnatakistusi
+• proteesi abil võimeline toime tulema kõikides töö, hobi või õppega
+seotud tegevustes.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemele 4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.09.04,sääreproteesid - aktiivsusgrupp IV,"tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,"9500,00 erandi
+taotluse alusel",tk,"K-tase 4 (võimekas välitingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud amputatsioon allpool põlve
+• võimeline või potentsiaalselt võimeline liikuma proteesiga muutuva
+kõnnirütmiga erinevates keskkondades ületades kõiki
+keskkonnatakitusi
+• proteesi abil võimeline liikuma piiranguteta, kõndimise aeg ja
+vahemaa ei ole piiratud
+• väga vilunud ja aktiivne kasutaja.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.15,põlve- ja reieproteesid,tellimusmeditsiiniseade,,,"1 tk/ühe kehapoole
+kohta /lapsed
+vastavalt
+vajadusele",,,,,,,"Isiku kirjeldused põhinevad rahvusvahelisel K-taseme
+hindamissüsteemil",,,,,
+06.24.15.01,"põlve- ja reieproteesid -
+aktiivsusgrupp I","tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,4300,tk,"K-tase 1 (siseruumides liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud põlveliigese eksartikulatsioon või amputatsioon ülaltpoolt
+põlve
+• võimeline või potentsiaalselt võimeline kasutama proteesi
+siirdumisteks või liikumiseks tasastel pindadel piiratud aja jooksul
+läbides vahemaid ühtlase kõnnirütmiga
+• proteesi abil võimeline liikuma oma majapidamises ja kodu piires.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemele 2, 3 või
+4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.15.02,"põlve- ja reieproteesid -
+aktiivsusgrupp II","tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,6200,tk,"K-tase 2 (piirangutega välistingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud põlveliigese eksartikulatsioon või amputatsioon ülaltpoolt
+põlve
+• võimeline või potentsiaalselt võimeline ületama proteesiga
+madalaid keskkonnatakistusi nagu äärekivid, trepid või ebatasased
+pinnad
+• proteesi abil võimeline toime tulema lähiümbruskonnas.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemetele 3 või 4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.15.03,"põlve- ja reieproteesid -
+aktiivsusgrupp III","tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,14800,tk,"K-tase 3 (välistingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud teostatud põlveliigese eksartikulatsioon või amputatsioon
+ülaltpoolt põlve
+• võimeline või potentsiaalselt võimeline liikuma proteesiga muutuva
+kõnnirütmiga erinevates keskkondades ületades enamikke
+keskkonnatakistusi
+• proteesi abil võimeline toime tulema kõikides töö, hobi või õppega
+seotud tegevustes.
+Sobib ka isikule, kelle aktiivsustase on hinnatud K-tasemele 4",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.15.04,"põlve- ja reieproteesid -
+aktiivsusgrupp IV","tellimusmeditsiiniseade
+piirhind sisaldab valmis proteesi proteesihülsiga
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,,I,,0.9,,"20000,00
+erandi taotluse
+alusel",tk,"K-tase 4 (võimekas välitingimustes liikuja)
+Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud põlveliigese eksartikulatsioon või amputatsioon ülaltpoolt
+põlve
+• võimeline või potentsiaalselt võimeline liikuma proteesiga muutuva
+kõnnirütmiga erinevates keskkondades ületades kõiki
+keskkonnatakitusi
+• proteesi abil võimeline liikuma piiranguteta, kõndimise aeg ja
+vahemaa ei ole piiratud
+• väga vilunud ja aktiivne kasutaja.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.18,puusaproteesid,"tellimusmeditsiiniseade
+(hüvitamisele ei kuulu spordialaspetsiifilised proteesid)",7 a,M,"1 tk/7 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,10680,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• teostatud puusaliigese eksartikulatsioon.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+06.24.41,alajäseme hülsid,,,,,,,,,,,,,,,,
+06.24.41.05,proteesihülsid sääreproteesidele,tellimusmeditsiiniseade,3 a,M,"3tk/3 a jooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,2000,tk,,,,,,
+06.24.41.06,"proteesihülsid põlve- ja
+reieproteesidele",tellimusmeditsiiniseade,3 a,M,"3tk/3 a jooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,2600,tk,,,,,,
+06.24.41.07,"proteesi sisevoodrid (lainerid)
+sääreproteesidele",,3 a,M,"4tk/3 a jooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1300,tk,,,,,,
+06.24.41.08,"proteesi sisevoodrid (lainerid) põlve-
+ja reieproteesidele",,3 a,M,"4tk/3 a jooksul ühe
+kehapoole kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,1550,tk,,,,,,
+06.00.02,mansetid,tellimusmeditsiiniseade,5 a,M,"1 tk/5 a jooksul
+ühe kehapoole
+kohta",I,,0.9,,823,tk,,,,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+06.00.03,proteeside varuosad/hooldus/remont,"proteeside varuosad, hooldus ja remont, v.a
+garantiiperioodi jooksul",5 a,M,"kogus piirhinna
+ulatuses 5 a
+jooksul ühe
+kehapoole kohta",I,,0.9,,1000,summa,,"koodiga 06.18 (ülajäseme
+proteesid), 06.24 (alajäseme
+proteesid) tehingu teostanud isik",,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+06.30,Muud proteesid,,,,,,,,,,,,,,,,
+06.30.03,juukseproteesid ja parukad,juukseproteesid ja parukad juuste pikkusega kuni 40cm,2 a,M,1 tk/2 a jooksul,,,0.9,,1900,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb ulatuslike kolletega või täielik alopeetsia või peanaha
+armistumisega seotud ulatuslik juuksetus
+Soodustingimused ei rakendu ravist tingitud ajutise alopeetsia,
+juuste hõrenemise ega androgeense alopeetsia korral.",,,,"naha- ja suguhaiguste arst
+(dermatoveneroloog)
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",
+06.30.18,rinnaproteesid,,4 a,M,"2 tk/4 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,144,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb rinna osaline või täielik puudumine.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut"
+06.30.21,silmaproteesid,,,,"2 tk/ühe kehapoole
+kohta /lapsed
+vastavalt
+vajadusele",,,,,,,,,,,,
+06.30.21.01,silmaproteesid (masstooted),,3 a,M,,I,,0.9,,150,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb silmamuna täielik puudumine.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi",oftalmoloog
+06.30.21.02,"silmaproteesid
+(tellimusmeditsiiniseadmed)",tellimusmeditusiiniseade,3 a,M,,I,,0.9,,950,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb silmamuna täielik puudumine.",,,,"perearst,v üälldjaasrtsat,m airnset)-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",oftalmoloog
+06.33,Ortopeedilised jalatsid,,,,,,,,,,,,,,,,
+06.33.00,ortopeedilised jalatsid,,,,"2 paari/
+lapsed 3 paari",,,,,,,,,,,"Abivahendi vajaduse tuvastamine
+ja tõendi väljastamine iga 2 aasta
+tagant",
+06.33.00.01,"ortopeedilised jalatsid - kategooria I
+(tellimusmeditsiiniseadmed lastele ja
+täiskasvanutele)",tellimusmeditsiiniseade,kalendriaasta,M,,I,,0.9,,274,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• labajala haigusseisundid ei võimalda kanda masstoodanguna
+valmistatud ortopeedilisi jalatseid või masstoodanguna valmistatud
+eritellimus ortopeedilisi jalatseid
+• esineb üks või mitu järgnevat haigusseisundit: komppöidus, välja-
+ja sissepöördpöid, varvaste ja/või labajala osaline puudumine,
+lihasdüstroofia ja -atroofia, alajäseme parees (sh ripppöidsus), raske
+hüpermobiilsuse sündroom, lümfödeem/tursed, raskete
+neuroloogiliste ja neurotroofiliste probleemidega seotud seisundid,
+traumajärgsed rasked deformatsioonid, ebavõrdne alajäsemete
+pikkus alates 1 cm.
+Tõend laieneb koodile 06.33.00.02 (ortopeedilised jalatsid -
+kategooria II (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.03 (ortopeedilised jalatsid -
+kategooria III (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.04 (ortopeedilised jalatsid -
+kategooria II (laste ortopeedilised
+jalatsid)), 06.33.00.05 (ortopeedilised jalatsid - kategooria III (laste
+ortopeedilised
+jalatsid)), 06.33.00.00 (jalatsite kohandus).",,,,"eriarst, füsioterapeut,
+rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",füsioterapeut
+06.33.00.02,"ortopeedilised jalatsid - kategooria II
+(täiskasvanute ortopeedilised
+jalatsid)","ortopeedilised jalatsid (ainult CE-märgistusega
+masstoodangu jalatsid - meditsiiniseade EL määruse
+2017/745 artikkel 2 tähenduses), sh eritellimusel
+valmistatud masstoodangu jalats
+hüvitamisele kuuluvad jalatsid, millel on vähemalt kaks
+omadust: vahetatav ortopeediline sisetald, laiem liist,
+kõrgem ja sügavam päkaosa, hõõrdumise ja haavandite
+vältimiseks pehmendatud materjalidest (sh spetsiaalselt
+diabeetikute jaoks toodetud jalatsid), tugevdatud
+kannaosa ja hüppeliigese toestus, sh anti varus jalatsid,
+ortoosijalatsid, laiema liistuga jalatsid labajala
+derformatsioonide/haavandite/tursete korral",kalendriaasta,M,,I,,0.9,,274,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• deformatsioonide, haavandite, tursete, lümfodeemi ja/või jalgade
+erineva suuruse tõttu vajab anti varus jalatseid, ortoosijalatseid,
+tugeva kannaosa ja hüppeliigese toestusega jalatseid, laiema liistu
+ja pehmendatud päkaosaga ja/või eritellimusel toodetud jalatseid
+• esineb üks või mitu järgnevat haigusseisundit: komppöidus, välja-
+ja sissepöördpöid, varvaste ja/või labajala osaline puudumine,
+lihasdüstroofia ja -atroofia, alajäseme parees (sh ripppöidsus), raske
+hüpermobiilsuse sündroom, lümfödeem/tursed, raskete
+neuroloogiliste ja neurotroofiliste probleemidega seotud seisundid,
+traumajärgsed rasked deformatsioonid, ebavõrdne alajäsemete
+pikkus (vahe alates 1 cm).
+Tõend laieneb koodile 06.33.00.01 (ortopeedilised jalatsid -
+kategooria I (tellimusmeditsiiniseadmed lastele ja täiskasvanutele)),
+06.33.00.03 (ortopeedilised jalatsid - kategooria III (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.04 (ortopeedilised jalatsid -
+kategooria II (laste ortopeedilised
+jalatsid)), 06.33.00.05 (ortopeedilised jalatsid - kategooria III (laste
+ortopeedilised
+jalatsid)), 06.33.00.00 (jalatsite kohandus).",,,,"eriarst, füsioterapeut,
+rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",füsioterapeut
+06.33.00.03,"ortopeedilised jalatsid - kategooria III
+(täiskasvanute ortopeedilised
+jalatsid)","masstoodanguna valmistatud ortopeedilised jalatsid
+(ainult CE-märgistusega masstoodangu jalatsid -
+meditsiiniseade EL määruse 2017/745 artikkel 2
+tähenduses)
+hüvitamisele kuuluvad jalatsid, millel on vähemalt kaks
+omadust: vahetatav sisetald, laiem liist, kõrgem ja
+sügavam päkaosa, hõõrdumise ja haavandite
+vältimiseks on kasutatud pehmendatud materjale (sh
+spetsiaalselt diabeetikute jaoks toodetud jalatsid),
+tugevdatud kannaosa ja hüppeliigese toestus",kalendriaasta,M,,I,,0.9,,130,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb üks või mitu järgnevat haigusseisundit: vähenenud jalgade
+tundlikkus ning haavandite tekkerisk, labajala derformatsioon (nt.
+haamervarbad, hallux valgus või varus), hüppeliigese ebastabiilsus,
+hüppeliigese valgus asend, hüppeliigese varus asend.
+Tõend laieneb koodile 06.33.00.01 (ortopeedilised jalatsid -
+kategooria I (tellimusmeditsiiniseadmed lastele ja täiskasvanutele)),
+06.33.00.02 (ortopeedilised jalatsid - kategooria II (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.04 (ortopeedilised jalatsid -
+kategooria II (laste ortopeedilised
+jalatsid), 06.33.00.05 (ortopeedilised jalatsid - kategooria III (laste
+ortopeedilised
+jalatsid)), 06.33.00.00 (jalatsite kohandus).",,,,"eriarst, füsioterapeut,
+rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",füsioterapeut
+06.33.00.04,"ortopeedilised jalatsid - kategooria II
+(laste ortopeedilised jalatsid)","laste ortopeedilised jalatsid (ainult CE-märgistusega
+masstoodangu jalatsid - meditsiiniseade EL määruse
+2017/745 artikkel 2 tähenduses), sh eritellimusel
+valmistatud masstoodangu jalatsid
+Tugevdatud kannaosa ja hüppeliigese toestusega,
+sisetalla vahetamise või individuaalse sisetalla lisamise
+võimalusega, reguleeritavate kinnitustega, avara ja
+laiema kingasuudmega, laiema liistuga ja stabiilsete
+mittelibisevate taldadega jalatsid, sh anti varus jalatsid,
+ortoosijalatsid, laiema liistuga jalatsid labajala
+derformatsioonide/haavandite/tursete korral",kalendriaasta,M,,I,,0.9,,274,paar,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• deformatsioonide, haavandite, tursete, lümfodeemi ja/või jalgade
+erineva suuruse tõttu vajab anti varus jalatseid, ortoosijalatseid,
+tugeva kannaosa ja hüppeliigese toestusega jalatseid, laiema liistu
+ja pehmendatud päkaosaga ja/või eritellimusel toodetud jalatseid
+• esineb üks või mitu järgnevat haigusseisundit: komppöidus, välja-
+ja sissepöördpöid, varvaste ja/või labajala osaline puudumine,
+lihasdüstroofia ja -atroofia, alajäseme parees (sh ripppöidsus), raske
+hüpermobiilsuse sündroom, lümfödeem/tursed, raskete
+neuroloogiliste ja neurotroofiliste probleemidega seotud seisundid,
+traumajärgsed rasked deformatsioonid, ebavõrdne alajäsemete
+pikkus (vahe alates 1 cm).
+Tõend laieneb koodile 06.33.00.01 (ortopeedilised jalatsid -
+kategooria I (tellimusmeditsiiniseadmed lastele ja täiskasvanutele)),
+06.33.00.02 (ortopeedilised jalatsid - kategooria II (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.03 (ortopeedilised jalatsid -
+kategooria III (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.05 (ortopeedilised jalatsid -
+kategooria III (laste ortopeedilised
+jalatsid)), 06.33.00.00 (jalatsite kohandus).",,,,"eriarst, füsioterapeut,
+rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",füsioterapeut
+06.33.00.05,"ortopeedilised jalatsid - kategooria III
+(laste ortopeedilised jalatsid)","laste masstoodanguna valmistatud ortopeedilised
+jalatsid (ainult CE-märgistusega masstoodangu jalatsid -
+meditsiiniseade EL määruse 2017/745 artikkel 2
+tähenduses)
+tugevdatud kannaosa ja hüppeliigese toestusega,
+sisetalla vahetamise või individuaalse sisetalla lisamise
+võimalusega, reguleeritavate kinnitustega ja stabiilsete
+mittelibisevate taldadega jalatsid",kalendriaasta,M,,I,,0.9,,105,paar,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb üks või mitu järgnevat haigusseisundit: hüppeliigese valgus
+asend, hüppeliigese varus asend, hüppeliigese ebastabiilsus,
+labajala deformatsioon, pikivõlvi sügav lamenemine.
+Tõend laieneb koodile 06.33.00.01 (ortopeedilised jalatsid -
+kategooria I (tellimusmeditsiiniseadmed lastele ja täiskasvanutele)),
+06.33.00.02 (ortopeedilised jalatsid - kategooria II (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.03 (ortopeedilised jalatsid -
+kategooria III (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.04 (ortopeedilised jalatsid -
+kategooria II (laste ortopeedilised
+jalatsid)), 06.33.00.00 (jalatsite kohandus).",,,,"eriarst, füsioterapeut,
+rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine: perearst)",füsioterapeut
+06.33.00.00,jalatsite kohandus,"jalatsite kohandamine (tallatõste alates 1 cm, ninaosa
+täitmine)",kalendriaasta,M,"2
+paari/kalendriaasta
+jooksul
+/
+lapsed 3
+paari/kalendriaasta
+jooksul",,,0.9,,60,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb üks või mitu järgnevat haigusseisundit: ebavõrdne
+alajäsemete pikkus (vahe alates 1 cm), varvaste osaline puudumine,
+jalalaba osaline puudumine.","koodiga 06.33.00.01 (ortopeedilised
+jalatsid - kategooria I)
+(tellimusmeditsiiniseadmed lastele
+ja täiskasvanutele)), 06.33.00.02
+(ortopeedilised jalatsid - kategooria
+II (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.03
+(ortopeedilised jalatsid - kategooria
+III (täiskasvanute
+ortopeedilised jalatsid)), 06.33.00.04
+(ortopeedilised jalatsid - kategooria
+II (laste ortopeedilised
+jalatsid)), 06.33.00.05
+(ortopeedilised jalatsid - kategooria
+III (laste ortopeedilised
+jalatsid)) tehingu teostanud isik",,,,
+09,"ENESEHOOLDE- JA
+KAITSEABIVAHENDID",,,,,,,,,,,,,,,,
+09.03,Rõivad ja jalatsid,,,,,,,,,,,,,,,,
+09.03.39,söögipõlled,,kuu,M,120 tk/kuus,,H,0.5,,0.13,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem toidu manustamise või
+söömise funktsioonides.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut, õde,
+ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.09,"Abivahendid
+riietumiseks/lahtiriietumiseks",,,,,,,,,,,,,,,,
+09.09.03,suka- ja sokijalgatõmbajad,,2 a,M,1 tk/2 a jooksul,,,0.9,,27,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb raske või täielik probleem liigeste liikuvuse funktsioonides,
+mis takistab soki ja/või suka jalgapanemist
+• esineb raske või täielik probleem tasakaalu hoidmisel
+• esineb alakeha halvatus.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.12,Tualeti kasutamise abivahendid,,,,,,,,,,,,,,,,
+09.12.03,tualetitoolid,,,,1 tk,,,,,,,,,,,,
+09.12.03.01,tualetitoolid,"tualetitoolid ratastega ja ilma, ratasteta kaks ühes poti-ja
+dušitoolid",4 a,M / Ü,,,H,90% / 90%,15,176,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem keha põhiasendi
+muutmisel
+• esineb mõõdukas, raske või täielik probleem käimisel
+Tõend laieneb koodile 09.12.15 (potikõrgendused), 09.33.03 (vanni-
+ja dušitoolid), 09.33.12 (vanni-, duši- ja mähkimislauad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.12.03.02,poti- ja dušitoolid,"kogumismahutiga ratastega kaks ühes poti- ja
+dušitoolid",4 a,M / Ü,,,H,90% / 90%,28,360,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem keha põhiasendi
+muutmisel
+• esineb mõõdukas, raske või täielik probleem käimisel
+• esineb mõõdukas, raske või täielik probleem enda pesemisel.
+Tõend laieneb koodile 09.12.15 (potikõrgendused), 09.33.03 (vanni-
+ja dušitoolid), 09.33.12 (vanni-, duši- ja mähkimislauad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.12.15,potikõrgendused,,4 a,M,1 tk/4 a jooksul,,H,0.9,,96,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem alajäseme liigeste
+liikuvuse ja lihasjõu funktsioonides.
+Tõend laieneb koodile 09.12.03.01 (tualetitoolid), 09.12.03.02 (poti-
+ja dušitoolid), 09.33.03 (vanni- ja dušitoolid), 09.33.12 (vanni-, duši-
+ja mähkimislauad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand (ühekordne
+abivahendi vajaduse tuvastamine
+ja tõendi väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.12.27,tualettpaberitangid,,4 a,M,1 tk/4 a jooksul,,,0.9,,31,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem kehatüve
+painutamisel ja roteerimisel
+• esineb mõõdukas, raske või täielik probleem tualettruumi
+toimingutel.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand (ühekordne
+abivahendi vajaduse tuvastamine
+ja tõendi väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.12.33,siibrid,,4 a,M,1 tk/4 a jooksul,,H,0.9,,13,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• puudub võimekus kasutada tualetti, potitooli või potidušitooli
+• esineb probleem tualettruumi ligipääsetavusega.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.21,"Naha kaitse ja puhastamise
+vahendid",,,,,,,,,,,,,,,,
+09.21.06,nahapesemisvahendid,"veevabad pesuvahendid uriinipidamatuse korral naha
+puhastamiseks: pesukreem ja -vaht, veevabad
+niisutava toimega ja/või barjääri tekitavad
+intiimpiirkonna pesuvahendid pH tasemega 5,5
+(hüvitamisele ei kuulu šampoonid, veega
+mahapestavad seebid, dušigeelid, dušiõlid)",kuu,M,"kogus piirhinna
+ulatuses kuus",,H,0.5,,6,ml,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb raske või täielik probleem lihasjõu ja lihastoonuse
+funktsioonides
+• esineb raske või täielik probleem enesehoolduse valdkondades.","koodiga 09.30 (uriini absorbeerivad
+abivahendid) tehingu teostanud isik
+Tervisekassa rahastusega
+kateetreid ja uriinikotte või peenise
+katteid soetanud isik",,,,"proviisor, farmatseut"
+09.21.18,nahakaitsevahendid,"tsinkoksiidi põhised vahendid uriinipidamatuse korral
+intiimpiirkonna naha kaitsmiseks ja hooldamiseks",kuu,M,"kogus piirhinna
+ulatuses kuus",,H,0.5,,6.3,ml/g,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• inkontinentsustoodete kasutamise tõttu vajavad nahahooldusel
+spetsiaalseid nahakaitsevahendeid
+• raske või täielik probleem lihasjõu ja lihastoonuse funktsioonides
+• esineb raske või täielik probleem enesehoolduse valdkondades.","koodiga 09.30 (uriini absorbeerivad
+abivahendid) tehingu teostanud isik
+Tervisekassa rahastusega
+kateetreid ja uriinikotte või peenise
+katteid soetanud isik",,,,"proviisor, farmatseut"
+09.30,Uriini absorbeerivad abivahendid,,,,,,,,,,,,,,,,
+09.30,uriini absorbeerivad abivahendid,,kuu,M,,,,,,,,,,,,"perearst, üldarst, arst-resident,
+eriarst,
+rehabilitatsioonimeeskond, õde,
+ämmaemand (korduva
+abivajaduse tuvastamine ja tõendi
+väljastamine lapsed iga 2 aasta
+tagant;
+tööealisel
+isikul alates 18. a ühekordne
+abivajaduse tuvastamine ja tõendi
+väljastamine;
+riikliku pensionikindlustuse
+seaduse §-s 7 sätestatud
+vanaduspensioniikka jõudnud
+isikul puudub abivajaduse
+tuvastamise ja tõendi väljastamise
+vajadus).","proviisor, farmatseut"
+09.30.24,"laste ja täiskasvanute ühekordsed
+sidemed ja mähkmed",,,,120 tk/kuus,,"Tasu
+maksmise
+kohustuse
+ülevõtmise
+taotlemise
+õigus ei laiene
+riigieelarvest
+rahastataval
+ööpäevaringsel
+erihooldusteen
+usel viibivale
+isikule",0.5,,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem
+kuseeritussüsteemi struktuurides
+• esineb püsiv mõõdukas, raske või täielik probleem urineerimise
+ja/või defekatsiooni reguleerimisel.
+Lapsed vajadust tõendava/põhjendava diagnoosiga alates 3
+aastaseks saamisest
+Tõend laieneb koodile 09.21 (naha kaitse ja puhastamise vahendid),
+09.30.00 (ühekordsed imavad aluslinad), 09.30.39 (uriini
+absorbeerivate kehalkantavate
+abivahendite kinnitusvahendid), 09.30.45 (veekindlad
+madratsikatted, sh pestavad
+aluslinad), 09.33.30 (keha pesemise või küürimise vahendid).",,,,,
+09.30.24.01,laste püksmähkmed Mini 3 - 6 kg,,,,,,,,,0.25,,,,,,,
+09.30.24.02,laste püksmähkmed Midi 4 - 9 kg,,,,,,,,,0.3,,,,,,,
+09.30.24.03,laste püksmähkmed Maxi 7 - 18 kg,,,,,,,,,0.36,,,,,,,
+09.30.24.04,laste püksmähkmed Junior 11 - 26 kg,,,,,,,,,0.41,,,,,,,
+09.30.24.05,laste püksmähkmed XL 15 - 30 kg,,,,,,,,,0.47,,,,,,,
+09.30.24.06,"laste püksmähkmed Night XL - XXL
+20 - 60 kg",,,,,,,,,1.03,,,,,,,
+09.30.24.07,laste imavad püksid Maxi 7 - 18 kg,,,,,,,,,0.46,,,,,,,
+09.30.24.08,laste imavad püksid Junior 11 - 26 kg,,,,,,,,,0.52,,,,,,,
+09.30.24.09,laste imavad püksid XL 15 - 30 kg,,,,,,,,,0.65,,,,,,,
+09.30.24.10,laste imavad püksid 27 - 57 kg,,,,,,,,,1,,,,,,,
+09.30.24.11,"inkontinentsisidemed meestele kuni
+399 ml",,,,,,,,,0.4,,,,,,,
+09.30.24.12,"inkontinentsisidemed meestele 400 -
+599 ml",,,,,,,,,0.48,,,,,,,
+09.30.24.13,"inkontinentsisidemed meestele üle
+600 ml",,,,,,,,,0.55,,,,,,,
+09.30.24.14,"inkontinentsisidemed naistele 201-
+299 ml",,,,,,,,,0.22,,,,,,,
+09.30.24.15,"inkontinentsisidemed naistele 300 -
+599 ml",,,,,,,,,0.29,,,,,,,
+09.30.24.16,"inkontinentsisidemed naistele 600 -
+999 ml",,,,,,,,,0.44,,,,,,,
+09.30.24.17,"inkontinentsisidemed naistele 1000 -
+1499 ml",,,,,,,,,0.45,,,,,,,
+09.30.24.18,"inkontinentsisidemed naistele 1500 -
+1999 ml",,,,,,,,,0.45,,,,,,,
+09.30.24.19,"inkontinentsisidemed naistele 2000 -
+2499 ml",,,,,,,,,0.51,,,,,,,
+09.30.24.20,"inkontinentsisidemed naistele 2500 -
+2999 ml",,,,,,,,,0.66,,,,,,,
+09.30.24.21,"inkontinentsisidemed naistele üle
+3000 ml",,,,,,,,,0.78,,,,,,,
+09.30.24.22,vormmähkmed 201- 299 ml,,,,,,,,,0.42,,,,,,,
+09.30.24.23,vormmähkmed 300 - 599 ml,,,,,,,,,0.29,,,,,,,
+09.30.24.24,vormmähkmed 600 - 999 ml,,,,,,,,,0.33,,,,,,,
+09.30.24.25,vormmähkmed 1000 - 1499 ml,,,,,,,,,0.38,,,,,,,
+09.30.24.26,vormmähkmed 1500 - 1999 ml,,,,,,,,,0.45,,,,,,,
+09.30.24.27,vormmähkmed 2000 - 2499 ml,,,,,,,,,0.55,,,,,,,
+09.30.24.28,vormmähkmed 2500 - 2999 ml,,,,,,,,,0.7,,,,,,,
+09.30.24.29,vormmähkmed üle 3000 ml,,,,,,,,,0.78,,,,,,,
+09.30.24.30,püksmähkmed kuni 1899 ml XXS-XS,,,,,,,,,0.62,,,,,,,
+09.30.24.31,püksmähkmed kuni 1899 ml S,,,,,,,,,0.71,,,,,,,
+09.30.24.32,püksmähkmed kuni 1899 ml M,,,,,,,,,0.55,,,,,,,
+09.30.24.35,püksmähkmed 1900 - 2499 ml S,,,,,,,,,0.82,,,,,,,
+09.30.24.36,püksmähkmed 1900 - 2499 ml M,,,,,,,,,0.84,,,,,,,
+09.30.24.37,püksmähkmed 1900 - 2499 ml L,,,,,,,,,0.83,,,,,,,
+09.30.24.38,püksmähkmed 1900 - 2499 ml XL,,,,,,,,,3.07,,,,,,,
+09.30.24.41,püksmähkmed 2500 - 2999 ml S,,,,,,,,,0.95,,,,,,,
+09.30.24.42,püksmähkmed 2500 - 2999 ml M,,,,,,,,,0.75,,,,,,,
+09.30.24.43,püksmähkmed 2500 - 2999 ml L,,,,,,,,,0.96,,,,,,,
+09.30.24.44,püksmähkmed 2500 - 2999 ml XL,,,,,,,,,1.03,,,,,,,
+09.30.24.45,püksmähkmed 2500 - 2999 ml XXL,,,,,,,,,1.56,,,,,,,
+09.30.24.47,püksmähkmed 3000 - 3699 ml M,,,,,,,,,0.97,,,,,,,
+09.30.24.48,püksmähkmed 3000 - 3699 ml L,,,,,,,,,1.1,,,,,,,
+09.30.24.49,püksmähkmed 3000 - 3699 ml XL,,,,,,,,,1.15,,,,,,,
+09.30.24.52,püksmähkmed üle 3700 ml M,,,,,,,,,1.35,,,,,,,
+09.30.24.53,püksmähkmed üle 3700 ml L,,,,,,,,,1.02,,,,,,,
+09.30.24.54,püksmähkmed üle 3700 ml XL,,,,,,,,,1.19,,,,,,,
+09.30.24.55,vöömähkmed kuni 1899 ml XS-S,,,,,,,,,0.8,,,,,,,
+09.30.24.58,vöömähkmed kuni 1899 ml M,,,,,,,,,0.73,,,,,,,
+09.30.24.59,vöömähkmed kuni 1899 ml L,,,,,,,,,0.65,,,,,,,
+09.30.24.62,vöömähkmed 1900 - 2499 ml XS-S,,,,,,,,,0.76,,,,,,,
+09.30.24.63,vöömähkmed 1900 - 2499 ml M,,,,,,,,,0.78,,,,,,,
+09.30.24.64,vöömähkmed 1900 - 2499 ml L,,,,,,,,,0.92,,,,,,,
+09.30.24.67,vöömähkmed 2500 - 2999 ml XS-S,,,,,,,,,0.98,,,,,,,
+09.30.24.68,vöömähkmed 2500 - 2999 ml M,,,,,,,,,1.06,,,,,,,
+09.30.24.69,vöömähkmed 2500 - 2999 ml L,,,,,,,,,0.95,,,,,,,
+09.30.24.70,vöömähkmed 2500 - 2999 ml XL,,,,,,,,,1.27,,,,,,,
+09.30.24.73,vöömähkmed 3000 - 3699 ml M,,,,,,,,,1.33,,,,,,,
+09.30.24.74,vöömähkmed 3000 - 3699 ml L,,,,,,,,,1.2,,,,,,,
+09.30.24.75,vöömähkmed 3000 - 3699 ml XL,,,,,,,,,1.16,,,,,,,
+09.30.24.78,vöömähkmed üle 3700 ml XL,,,,,,,,,1.47,,,,,,,
+09.30.24.81,imavad püksid kuni 1399 ml XS-S,,,,,,,,,0.9,,,,,,,
+09.30.24.82,imavad püksid kuni 1399 ml M,,,,,,,,,1.05,,,,,,,
+09.30.24.83,imavad püksid kuni 1399 ml L,,,,,,,,,1.19,,,,,,,
+09.30.24.84,imavad püksid kuni 1399 ml XL,,,,,,,,,1.27,,,,,,,
+09.30.24.87,imavad püksid 1400 - 1699 ml XS-S,,,,,,,,,1.2,,,,,,,
+09.30.24.88,imavad püksid 1400 - 1699 ml M,,,,,,,,,1.12,,,,,,,
+09.30.24.89,imavad püksid 1400 - 1699 ml L,,,,,,,,,1.12,,,,,,,
+09.30.24.90,imavad püksid 1400 - 1699 ml XL,,,,,,,,,1.3,,,,,,,
+09.30.24.91,imavad püksid 1400 - 1699 ml XXL,,,,,,,,,2.39,,,,,,,
+09.30.24.93,imavad püksid üle 1700 ml XS-S,,,,,,,,,1.41,,,,,,,
+09.30.24.94,imavad püksid üle 1700 ml M,,,,,,,,,1.25,,,,,,,
+09.30.24.95,imavad püksid üle 1700 ml L,,,,,,,,,1.44,,,,,,,
+09.30.24.96,imavad püksid üle 1700 ml XL - XXL,,,,,,,,,1.63,,,,,,,
+09.30.00,ühekordsed imavad aluslinad,,,,30 tk/kuus,,H,0.5,,,tk,"Tõend laieneb koodile 09.21 (naha kaitse ja puhastamise vahendid),
+09.33.30 (keha pesemise või küürimise vahendid).",,,,,
+09.30.00.01,"ühekordsed imavad aluslinad 40 x 60
+cm",,,,,,,,,0.22,,,,,,,
+09.30.00.02,"ühekordsed imavad aluslinad 60 x 60
+cm",,,,,,,,,0.35,,,,,,,
+09.30.00.03,"ühekordsed imavad aluslinad 60 x 90
+cm",,,,,,,,,0.45,,,,,,,
+09.30.00.04,"ühekordsed imavad aluslinad 80-90 x
+140-180 cm",,,,,,,,,0.82,,,,,,,
+09.30.00.05,"ühekordsed imavad aluslinad 70-90 x
+210 cm",,,,,,,,,1.31,,,,,,,
+09.30.00.06,"ühekordsed imavad aluslinad 90 x 80
+cm",,,,,,,,,0.65,,,,,,,
+09.30.45,"veekindlad madratsikatted, sh
+pestavad aluslinad",,,,2 tk/kuus,,H,0.5,,23,tk,"Lapsed alates 3 aastaseks saamisest.
+Tõend laieneb koodile 09.21 (naha kaitse ja puhastamise vahendid),
+09.33.30 (keha pesemise või küürimise vahendid).",,,,,
+09.30.39,"uriini absorbeerivate kehalkantavate
+abivahendite kinnitusvahendid",,,,5 tk/kuus,,,0.5,,,tk,"Tõend laieneb koodile 09.21 (naha kaitse ja puhastamise vahendid),
+09.33.30 (keha pesemise või küürimise vahendid).",,,,,
+09.30.39.01,püksid mähkmete fikseerimiseks S,,,,,,,,,1.05,,,,,,,
+09.30.39.02,püksid mähkmete fikseerimiseks M,,,,,,,,,1,,,,,,,
+09.30.39.03,püksid mähkmete fikseerimiseks L,,,,,,,,,1.05,,,,,,,
+09.30.39.04,püksid mähkmete fikseerimiseks XL,,,,,,,,,1.2,,,,,,,
+09.30.39.05,"püksid mähkmete fikseerimiseks
+XXL+",,,,,,,,,1.05,,,,,,,
+09.33,"Abivahendid pesemiseks,
+vannitamiseks ja duši
+kasutamiseks",,,,,,,,,,,,,,,,
+09.33.03,vanni- ja dušitoolid,"dušitoolid, -istmed, seljatoega vanniistmed
+(hüvitamisele ei kuulu vannid, vanniliftid, vanni astmed)",4 a,M / Ü,1 tk/4 a jooksul,,H,90% / 90%,30,97,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem keha põhiasendi
+muutmisel
+• esineb mõõdukas, raske või täielik probleem enda pesemisel.
+Tõend laieneb koodile 09.12.03.01 (tualetitoolid), 09.12.03.02 (poti-
+ja dušitoolid), 09.12.15 (potikõrgendused) ja 09.33.12 (vanni-, duši-
+ja mähkimislauad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.33.12,"vanni-, duši- ja mähkimislauad",laste pesemisalused,4 a,Ü,1 tk/4 a jooksul,,H,0.9,46,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem keha põhiasendi
+muutmisel
+• esineb mõõdukas, raske või täielik probleem enda pesemisel.
+Tõend laieneb koodile 09.12.03.01 (tualetitoolid), 09.12.03.02 (poti-
+ja dušitoolid), 09.12.15 (potikõrgendused), 09.33.03 (vanni- ja
+dušitoolid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.33.30,"keha pesemise või küürimise
+vahendid",,,,,,,,,,,,,,,,
+09.33.30.01,niisutatud salvrätid,"alkoholi- ja lõhnaainetevabad niisutatud salvrätikud
+intiimpiirkonna naha puhastamiseks",kuu,M,"kogus piirhinna
+ulatuses kuus",,H,0.5,,5.3,pk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem
+kuseeritussüsteemi struktuurides
+• esineb püsiv mõõdukas, raske või täielik probleem urineerimise
+ja/või defekatsiooni reguleerimisel.
+Lapsed alates 3 aastaseks saamisest.","koodiga 09.30 (uriini absorbeerivad
+abivahendid) tehingu teostanud isik
+Tervisekassa rahastusega
+kateetreid ja uriinikotte või peenise
+katteid soetanud isik",,,,"proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.33.30.02,pesukindad,niisutatud või kuivad pesukindad,kuu,M,120 tk/kuus,,H,0.5,,0.11,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem
+kuseeritussüsteemi struktuurides
+• esineb püsiv mõõdukas, raske või täielik probleem urineerimise
+ja/või defekatsiooni reguleerimisel.","koodiga 09.30 (uriini absorbeerivad
+abivahendid) tehingu teostanud isik",,,,"proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+09.33.30.03,peapesumütsid,veevabad peapesumütsid,kuu,M,4 tk/kuus,,H,0.5,,4.1,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• isikud, kellel on mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides, keha põhiasendi muutmisel ja käimisel
+• isikud, kes vajavad täielikku kõrvalabi enda pesemisel","koodiga 09.30 (uriini absorbeerivad
+abivahendid) tehingu teostanud isik",,,,"proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+12,LIIKUMISE ABIVAHENDID,,,,,,,,,,,,,,,,
+12.03,"Käimisabivahendid ühe käega
+käsitsemiseks",,,,,,,,,,,,,,,,
+12.03.03,käimiskepid,,4 a,M,1 tk/4 a jooksul,,,0.9,,23,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.03.06 (küünarkargud), 12.03.12
+(kaenlakargud), 12.03.16 (harkkepid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+12.03.06,küünarkargud,,4 a,M,2 tk/4 a jooksul,,,0.9,,14,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.03.03 (käimiskepid), 12.03.12
+(kaenlakargud), 12.03.16 (harkkepid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+12.03.12,kaenlakargud,,4 a,M,2 tk/4 a jooksul,,,0.9,,16,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.03.03 (käimiskepid), 12.03.06
+(küünarkargud), 12.03.16 (harkkepid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+12.03.16,harkkepid,"käimisabivahendid kolme või enama tugipunktiga ja
+käepideme või küünarvarretoega",4 a,M,2 tk/4 a jooksul,,,0.9,,45,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.03.03 (käimiskepid), 12.03.06
+(küünarkargud), 12.03.12 (kaenlakargud).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+12.06,"Käimisabivahendid kahe käega
+käsitsemiseks",,,,,,,,,,,,,,,,
+12.06.03,käimisraamid,"nelja tugipunktiga, sh kuni 4 väikese rattaga
+käimisraamid",4 a,Ü,1 tk/4 a jooksul,,,0.9,10,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.06.06 (rulaatorid), 12.06.09 (käimistoolid),
+12.06.12 (käimislauad)",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.06.06,rulaatorid,"käepidemetega, vähemalt 3 rattaga ees lükatavad
+käimisraamid",4 a,M / Ü,1 tk/4 a jooksul,,,90% / 90%,18,260,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.06.03 (käimisraamid), 12.06.09
+(käimistoolid), 12.06.12 (käimislauad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.06.09,käimistoolid,istme või istmeta keha toestavad ratastel raamid,5 a,Ü,"1 tk/5 a jooksul
+/
+lapsed 2 tk/5 a
+jooksul",,,0.9,77,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevale kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.06.03 (käimisraamid), 12.06.06
+(rulaatorid), 12.06.12 (käimislauad).",,,"1 kord 2,5
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.06.12,käimislauad,"ratastel, küünarvarte toetusega käimislauad, mille
+lükkamisel kasutatakse ülakeha abi",5 a,Ü,1 tk/5 a jooksul,,,0.9,26,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem käimisel tulenevalt
+lihasjõu, liigeste liikuvuse, liigeste stabiilsuse ja/või tasakaaluelundi
+funktsioonihäirest
+• esineb vajadus toetuspinna suurendamiseks ja/või koormuse
+vähendamiseks.
+Tõend laieneb koodile 12.06.03 (käimisraamid), 12.06.06
+(rulaatorid), 12.06.09 (käimistoolid).",,,"1 kord 2,5
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.12,Autokohandused,,,,,,,,,,,,,,,,
+12.12.04,"auto kohandused mootori
+käsitsemiseks","käsijuhtimisseadmed: mehhaaniline pidur, gaas või
+kombineeritult
+kiiruse muutmisega seotud abivahendid:
+püsikiirusehoidja
+pedaalide kohandused: pedaalipikendus, vasaku jala
+gaasipedaal",5 a,M,1 tk/5 a jooksul,,,0.9,,1500,tk,,"koodiga 06.24.09 (sääreproteesid),
+06.24.15 (põlve- ja reieproteesid),
+06.24.18 (puusaproteesid),
+12.22.03 (kahekäeratastoolid)
+tehingu teostanud isik
+Isik, kes omab või on omandamas
+auto juhtimisõigust.",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.12.05,"auto kohandused käsipiduri
+käsitsemiseks",,5 a,M,1 tk,,,0.9,,"erandi taotluse
+alusel",tk,,"koodidega 06.24.09
+(sääreproteesid), 06.24.15 (põlve- ja
+reieproteesid), 06.24.18
+(puusaproteesid)
+või 12.22.03 (kahekäeratastoolid)
+tehingu teostanud isik, kehtivat auto
+juhtimisõiguse luba omav isik",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut","füsioterapeut, tegevusterapeut"
+12.12.07,"auto kohandused roolisüsteemi
+käsitsemiseks","rooliratta kohandused: mehhaanilised hargid,
+pööramisnupud ja -kangid",5 a,M,1 tk,,,0.9,,"erandi taotluse
+alusel",tk,,"koodiga 12.22.03
+(kahekäeratastoolid) tehingu
+teostanud isik, kehtivat auto
+juhtimisõiguse luba omav isik",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut","füsioterapeut, tegevusterapeut"
+12.12.09,"mootorsõidukite turvavööd ja -
+rakmed","turvavööd ja kinnitusvahendid ratastoolis reisija
+turvalisuse tagamiseks",5 a,M,1 tk/5 a jooksul,,,0.9,,"erandi taotluse
+alusel",tk,,"koodiga 12.22 (käsiratastoolid),
+12.23 (elektrilised ratastoolid), 12.27
+(kärud, toaraamid, õueraamid),
+18.09.21 (eriistmed) tehingu
+teostanud isik",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","füsioterapeut, tegevusterapeut"
+12.12.12,"erikonstruktsiooniga autoistmed ja -
+padjad",laste turvatoolid,5 a,M,1 tk/5 a jooksul,,,0.9,,"erandi taotluse
+alusel",tk,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem kehatüve ja tahtlike
+liigutuste kontrollimisel.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","füsioterapeut, tegevusterapeut"
+12.12.18,"abivahendid ratastoolis istuva
+inimese sõidukisse või sealt välja
+tõstmiseks","tõstesüsteemid, sõidukisse paigaldatud kaldteed,
+tõsteplatvormid",5 a,M,1 tk/5 a jooksul,,,0.9,,"erandi taotluse
+alusel",tk,,"koodiga 12.22 (käsiratastoolid),
+12.23 (elektrilised ratastoolid), 12.27
+(kärud, toaraamid, õueraamid),
+18.09.21 (eriistmed) tehingu
+teostanud isik",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut
+(ühekordne abivajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.18,Jalgrattad,,,,,,,,,,,,,,,,
+12.18.06,"kolmerattalised jalgrattad
+pedaalidega",,,,,,,,,,,,,,,,
+12.18.06.02,"kolmerattalised jalgrattad
+pedaalidega","kolme- või enamrattalised kohandamisvõimaluste ja
+lisadega jalgrattad",6 a,Ü,1 tk/6 a jooksul,,,0.9,83,,tk,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+ühele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem tasakaaluelundi
+funktsioonides
+• esineb mõõdukas, raske või täielik probleem lihasjõu ja
+lihastoonuse funktsioonides
+• esineb mõõdukas, raske või täielik probleem kehatüve ja tahtlike
+liigutuste kontrollimisel
+• esineb raske või täielik probleem haaramisel.",,,"1 kord 3
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22,Käsiratastoolid,,,,,,,,,,,,,,,,
+12.22.03,kahekäeratastoolid,,,,1 tk,,,,,,,,,,,,
+12.22.03.01,kahekäeratastoolid - aktiivsusgrupp I,"minimaalsete reguleerimisvõimalustega standardsed
+kahekäeratastoolid.",6 a,Ü,,,,0.9,36,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab lühi- või pikaajaliselt ratastooli
+• ratastool on kasutusel valdavalt ühes liikumiskeskkonnas, valdavalt
+siseruumides, sh võib kasutaja olla ratastoolis transporditav
+• ratastooli kasutaja suudab iseseisvalt ratastoolis liikuda ainult
+tasasel pinnal, ületada siseruumides minimaalseid takistusi
+(lävepakud jm), väliskeskkonnas võib vajada kõrvalabi
+• ratastooli kasutaja suudab ratastoolis liikuda vaid aeglase
+tempoga, kuni 500m
+• ratastooli kasutaja vajab valdavalt kõrvalabi ratastooliga liikumisel,
+siirdumisel, ebatasasuste ületamisel, ratastooli siirdamisel autosse.
+Tõend laieneb koodile 12.22.09 (ühekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.09
+(ühekäeratastoolid).",,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.03.02,kahekäeratastoolid - aktiivsusgrupp II,"rohkete reguleerimis- ja kohandamisvõimalustega
+kahekäeratastoolid
+v.a. abistajajuhitavad, passiiv- ja komfortratastoolid",6 a,Ü,,,,0.9,104,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt kahele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel vähemalt kahes liikumiskeskkonnas,
+regulaarselt nii siseruumides kui ka väliskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada
+minimaalseid takistusi (uksepiidad, madalad äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda keskmise
+tempoga, 500m kuni 1 km
+• ratastooli kasutaja suudab siseruumides ratastoolis iseseisvalt
+liikuda, võib vajada osalist kõrvalabi või juhendamist välikeskkonnas
+liikumisel, siirdumisel, ebatasasuste ületamisel, ratastooli siirdamisel
+autosse
+• võib vajada ratastoolile individuaalseid kohandusi tulenevalt
+füüsilistest seisundist.
+Tõend laieneb koodile 12.22.09 (ühekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.09
+(ühekäeratastoolid).","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.03.03,kahekäeratastoolid - aktiivsusgrupp III,"kerge kaaluga kahekäeratastoolid, mis on mitmete
+reguleerimise võimalustega ning kohandatavad individuaalselt
+vastavalt kasutaja mõõtmetele (ratastooli on võimalik
+kohandada sobivaks mitmetele erinevatele kasutajatele).",4 a,M/Ü,,,,0.9,162,3700,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt kolmele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel igapäevaselt, vähemalt kolmes
+liikumiskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada kõik
+standardsed takistused (uksepiidad, äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda nii aeglase,
+keskmise kui kiire tempoga, 1 km ja rohkem
+• ratastooli kasutaja suudab ratastooliga liikumisel olla üldiselt
+iseseisev, võib vajada osalist kõrvalabi siirdumisel, ebastandardsete
+takistuste ületamisel ja ratastooli siirdamisel autosse
+• võib vajada ratastoolile individuaalseid kohandusi
+• vilunud ratastooli kasutaja.
+Tõend laieneb koodile 12.22.09 (ühekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.09
+(ühekäeratastoolid).","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.03.04,"kahekäeratastoolid - aktiivsusgrupp
+IV","ülikerge kaaluga (transpordikaal kuni 5 kg) kõrgtehnoloogilistest
+materjalidest kahekäeratastoolid, mis on väheste reguleerimise
+võimalustega ning valmistatud individuaalselt vastavalt kasutaja
+mõõtmetele",4 a,M/Ü,,,,0.9,198,5300,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel igapäevaselt, vähemalt kolmes
+liikumiskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada kõik
+standardsed takistused (uksepiidad, äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda nii aeglase,
+keskmise kui kiire tempoga, 1 km ja rohkem
+• ratastooli kasutaja on ratastoolis liikumisel iseseisev, ei vaja
+kõrvalabi siirdumistel, ebastandardsete takistuste ületamisel ega
+ratastooli siirdamisel autosse
+• võib vajada ratastoolile individuaalseid kohandusi
+• vilunud ratastooli kasutaja
+• ei kasuta täiendavaid liikumisabivahendeid.
+Tõend laieneb koodile 12.22.09 (ühekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.09
+(ühekäeratastoolid).","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.09,ühekäeratastoolid,,,,1 tk,,,,,,,,,,,,
+12.22.09.01,ühekäeratastoolid - aktiivsusgrupp I,"minimaalsete reguleerimisvõimalustega standardsed
+ühekäeratastoolid",6 a,Ü,,,,0.9,52,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes on
+suutelised juhtima ratastooli vaid ühe käe abil ja vastavad kõigile
+järgnevatele kriteeriumitele:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab lühi- või pikaajaliselt ratastooli
+• ratastool on kasutusel valdavalt ühes liikumiskeskkonnas, valdavalt
+siseruumides, sh võib kasutaja olla ratastoolis transporditav
+• ratastooli kasutaja suudab iseseisvalt ratastoolis liikuda ainult
+tasasel pinnal, ületada siseruumides minimaalseid takistusi
+(lävepakud jm), väliskeskkonnas võib vajada kõrvalabi
+• ratastooli kasutaja suudab ratastoolis liikuda vaid aeglase
+tempoga, kuni 500m
+• ratastooli kasutaja vajab valdavalt kõrvalabi ratastooliga liikumisel,
+siirdumisel, ebatasasuste ületamisel, ratastooli siirdamisel autosse.
+Tõend laieneb koodile 12.22.03 (kahekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.03
+(kahekäeratastoolid).",,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.09.02,ühekäeratastoolid - aktiivsusgrupp II,"rohkete reguleerimis- ja kohandamisvõimalustega
+ühekäeratastoolid
+v.a. abistajajuhitavad, passiiv- ja komfortratastoolid",6 a,Ü,,,,0.9,108,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes on
+suutelised juhtima ratastooli vaid ühe käe abil ja vastavad vähemalt
+kahele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel vähemalt kahes liikumiskeskkonnas,
+regulaarselt nii siseruumides kui ka väliskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada
+minimaalseid takistusi (uksepiidad, madalad äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda keskmise
+tempoga, 500m kuni 1 km
+• ratastooli kasutaja suudab siseruumides ratastoolis iseseisvalt
+liikuda, võib vajada osalist kõrvalabi või juhendamist välikeskkonnas
+liikumisel, siirdumisel, ebatasasuste ületamisel, ratastooli siirdamisel
+autosse
+• võib vajada ratastoolile individuaalseid kohandusi tulenevalt
+füüsilistest seisundist.
+Tõend laieneb koodile 12.22.03 (kahekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.03
+(kahekäeratastoolid).","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.09.03,ühekäeratastoolid - aktiivsusgrupp III,"kerge kaaluga ühekäeratastoolid, mis on mitmete
+reguleerimise võimalustega ning kohandatavad
+individuaalselt vastavalt kasutaja mõõtmetele (ratastooli
+on võimalik kohandada sobivaks mitmetele erinevatele
+kasutajatele).",4 a,M / Ü,,,,0.9,171,4700,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes on
+suutelised juhtima ratastooli vaid ühe käe abil ja vastavad vähemalt
+kolmele järgnevale kriteeriumile:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel igapäevaselt, vähemalt kolmes
+liikumiskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada kõik
+standardsed takistused (uksepiidad, äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda nii aeglase,
+keskmise kui kiire tempoga, 1 km ja rohkem
+• ratastooli kasutaja suudab ratastooliga liikumisel olla üldiselt
+iseseisev, võib vajada osalist kõrvalabi siirdumisel, ebastandardsete
+takistuste ületamisel ja ratastooli siirdamisel autosse
+• võib vajada ratastoolile individuaalseid kohandusi
+• vilunud ratastooli kasutaja.
+Tõend laieneb koodile 12.22.03 (kahekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.03
+(kahekäeratastoolid).","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.09.04,ühekäeratastoolid - aktiivsusgrupp IV,"ülikerge kaaluga kõrgtehnoloogilistest materjalidest
+ühekäeratastoolid, mis on väheste reguleerimise
+võimalustega ning valmistatud individuaalselt vastavalt
+kasutaja mõõtmetele",4 a,M / Ü,,,,0.9,196,6300,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes on
+suutelised juhtima ratastooli vaid ühe käe abil ja vastavad kõigile
+järgnevatele kriteeriumitele:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab pikaajaliselt ratastooli
+• ratastool on kasutusel igapäevaselt, vähemalt kolmes
+liikumiskeskkonnas
+• ratastooli kasutaja suudab ratastoolis iseseisvalt ületada kõik
+standardsed takistused (uksepiidad, äärekivid, kaldteed jm)
+• ratastooli kasutaja suudab ratastoolis iseseisvalt liikuda nii aeglase,
+keskmise kui kiire tempoga, 1 km ja rohkem
+• ratastooli kasutaja on ratastoolis liikumisel iseseisev, ei vaja
+kõrvalabi siirdumistel, ebastandardsete takistuste ületamisel ega
+ratastooli siirdamisel autosse
+• võib vajada ratastoolile individuaalseid kohandusi
+• vilunud ratastooli kasutaja
+• ei kasuta täiendavaid liikumisabivahendeid.
+Tõend laieneb koodile 12.22.03 (kahekäeratastoolid) ja 12.22.18
+(abistaja juhitavad käsiratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.22.03
+(kahekäeratastoolid).","1 kord 1
+aasta jooksul","perearst,üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.22.18,"abistaja juhitavad ja
+komfortratastoolid","peatoe võimaluse ja kõrge seljatoega abistaja juhitavad
+või tagumiste hooratastega komfortratastoolid; täielikult
+abistaja juhitavad ratastoolid",6 a,Ü,1 tk/6 aasta jooksul,,,0.9,96,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõikidele järgnevatele kriteeriumitele:
+• esineb mõõdukas, raske või täielik probleem liikumisel, mille tõttu
+vajab lühi- või pikaajaliselt ratastooli
+• võib vajada ratastoolile individuaalseid kohandusi ja asendi
+muutmise võimalusi
+• ratastooli kasutaja suudab ratastooli juhtida vaid toetatud asendis
+või ei ole suuteline iseseisvalt ratastooli juhtima.
+Tõend laieneb koodile 12.22.03 (kahekäeratastoolid), 12.22.09
+(ühekäeratastoolid).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.23,Elektrilised ratastoolid,,,,,,,,,,,,,,,,
+12.23.03,invarollerid,"ühekohalised, ilma katuseta, elektrilised kolme- või
+neljarattalised käsijuhtimisega Medical Device
+Regulation - 2017/745 või sellele eelnenud Medical
+Device Directive - Council Directive 93/42/EEC
+direktiivile vastavad invarollerid",7 a,Ü,1 tk/7 a jooksul,,,0.9,135,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõikidele järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem käimisel, mis on tingitud
+tasakaalu, koormustaluvuse, liigeste liikuvuse ja/või lihasjõu
+funktsioonihäirest
+• abivahendi kasutamise vajadus valdavalt väliskeskkonnas.
+Soodustingimused ei rakendu, kui isikul esineb vähemalt üks
+järgmistest vastunäidustustest:
+• raske või täielik probleem teadvuse, orienteerumise, kõrgemate
+kognitiivsete, mälu ja/või tähelepanu koondamise funktsioonides
+• esineb raskekujuline väljendunud kognitiivse häirega psüühika-,
+isiksuse- või käitumishäire ja/või mõõdukas või raske vaimne
+alaareng, mis tõendi väljastaja hinnangul alandab juhtimisvõimet ja
+mõjutab ohutu sõitmise võimet
+• esineb alkoholi, narkootiliste, psühhotroopsete ja/või teiste
+sõltuvust tekitavate ainete liig- või kuritarvitamine
+• raske või täielik probleem nägemisfunktsioonides
+• esineb raske või täielik probleem motoorsete reflekside
+funktsioonides (nt sihtliigutustel süvenev treemor)
+• esineb raske või täielik probleem enda ühest kohast teise
+nihutamisega või kehasendi säilitamisega
+• esineb mõlema käe kasutamise raske või täielik probleem.
+Tõend laieneb koodile 12.23.06 (elektrilised ratastoolid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.23.06
+(elektrilised ratastoolid)
+ja 12.24.09 (käsitsi
+juhitavate ratastoolide
+käiturseadmed)","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","füsioterapeut, tegevusterapeut"
+12.23.06,elektrilised ratastoolid,elektrilise mootorjuhtimisega ratastoolid,,,1 tk,,,,,,,,,,,,
+12.23.06.01,"elektrilised ratastoolid -
+aktiivsusgrupp I","ilma elektriliste lisadeta, kiirusega kuni 6km/h sh
+kokkupandavad elektrilised ratastoolid",7 a,Ü,,,,0.9,142,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõikidele järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem käimisel ja pikemate
+vahemaade läbimisel manuaalse ratastooliga, mis on tingitud
+tasakaalu, koormustaluvuse, liigeste liikuvuse, lihasjõu ja/või
+tahtmatute ja tahtlike liigutuste kontrollimise funktsioonihäirest
+• abivahendi kasutamise vajadus valdavalt ühes liikumiskeskkonnas,
+valdavalt siseruumides või väliskeskkonnas mittenõudlikul pinnasel
+(tasane, ühtlase kattega tee jm)
+• suuteline istumisasendit säilitama ega vaja erikohandusi
+abivahendile.
+Soodustingimused ei rakendu, kui isikul esineb vähemalt üks
+järgmistest vastunäidustustest:
+• esineb alkoholi, narkootiliste, psühhotroopsete ja/või teiste
+sõltuvust tekitavate ainete liig- või kuritarvitamine
+• raske või täielik probleem nägemisfunktsioonides.
+Tõend laieneb koodile 12.23.03 (invarollerid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.23.03
+(invarollerid) ja 12.24.09
+(käsitsi juhitavate
+ratastoolide
+käiturseadmed)","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.23.06.02,"elektrilised ratastoolid -
+aktiivsusgrupp II","elektriliste lisadega, kiirusega alates 6km/h elektrilised
+ratastoolid",7 a,Ü,,,,0.9,215,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõikidele järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem käimisel ja pikemate
+vahemaade läbimisel manuaalse ratastooliga, mis on tingitud
+tasakaalu, koormustaluvuse, liigeste liikuvuse, lihasjõu ja/või
+tahtmatute ja tahtlike liigutuste kontrollimise funktsioonihäirest
+• abivahendi kasutamise võimekus iseseisvalt vähemalt kahes
+liikumiskeskkonnas, siseruumides ning väliskeskkonnas keskmise
+nõudlikkusega pinnasel (võivad esineda pinnase vaheldumine,
+vähesed takistused jm)
+• füüsiline seisund seab vähesel määral erinõudeid istmele ja
+reguleerimisfunktsioonidele.
+Soodustingimused ei rakendu, kui isikul esineb vähemalt üks
+järgmistest vastunäidustustest:
+• esineb alkoholi, narkootiliste, psühhotroopsete ja/või teiste
+sõltuvust tekitavate ainete liig- või kuritarvitamine
+• raske või täielik probleem nägemisfunktsioonides.
+Tõend laieneb koodile 12.23.03 (invarollerid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.23.03
+(invarollerid) ja 12.24.09
+(käsitsi juhitavate
+ratastoolide
+käiturseadmed)","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.23.06.03,"elektrilised ratastoolid -
+aktiivsusgrupp III","keerulisemate elektriliste lisadega (nt istmelift,
+vertikaliseerimise võimalus), kiirusega alates 6km/h,
+istme reguleerimisvõimalustega (nt istme sügavus,
+laius), amortidega ja muude individuaalsete
+kohandamisvõimalustega elektrilised ratastoolid",7 a,M / Ü,,,,0.9,250,9800,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõikidele järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem käimisel ja pikemate
+vahemaade läbimisel manuaalse ratastooliga, mis on tingitud
+tasakaalu, koormustaluvuse, liigeste liikuvuse, lihasjõu ja/või
+tahtmatute ja tahtlike liigutuste kontrollimise funktsioonihäirest
+• abivahendi kasutamise võimekus vähemalt kolmes
+liikumiskeskkonnas, siseruumides ning väliskeskkonnas nõudlikul
+pinnasel (mitmete tõusude ja langustega, künklik või auklik pinnas,
+metsarajad, kaldteed, äärekivid jm)
+• füüsiline seisund seab istmele ja reguleerimisfunktsioonidele
+erinõudeid
+• esineb probleeme istumisasendi säilitamisega.
+Soodustingimused ei rakendu, kui isikul esineb vähemalt üks
+järgmistest vastunäidustustest:
+• esineb alkoholi, narkootiliste, psühhotroopsete ja/või teiste
+sõltuvust tekitavate ainete liig- või kuritarvitamine
+• raske või täielik probleem nägemisfunktsioonides.
+Tõend laieneb koodile 12.23.03 (invarollerid).",,"v.a isikud, kes on
+teostanud tehingu
+koodiga 12.23.03
+(invarollerid) ja 12.24.09
+(käsitsi juhitavate
+ratastoolide
+käiturseadmed)","1 kord 1
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.24,Liikumisabivahendite tarvikud,,,,,,,,,,,,,,,,
+12.24.09,"käsitsi juhitavate ratastoolide
+käiturseadmed","käsiratastooli raamile kinnituvad käiturseadmed
+liikumise lihtsustamiseks; Medical Device Regulation -
+2017/745 või sellele eelnenud Medical Device Directive -
+Council Directive 93/42/EEC direktiivile vastavad
+käiturseadmed",6 a,Ü,1 tk / 6 a jooksul,,,0.9,210,,tk,,"koodidega 12.22 (käsiratastoolid)
+tehingu teostanud isik","v.a isikud, kes on
+teostanud tehingu
+koodiga 12.23.03
+(invarollerid), 12.23.06
+(elektrilised ratastoolid)","1 kord 1
+aasta jooksul","perearst,üldarst, arst-resident,
+eriarst, füsioterapeut,
+tegevusterapeut
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",
+12.24.21,rehvid ja rattad,"ratastoolide, elektriliste ratastoolide, kärude, õue- ja
+toaraamide, invarollerite, rulaatorite ja käiturseadmete
+rehvid ja rattad",kalendriaasta,M,"kogus piirhinna
+ulatuses
+kalendriaasta
+jooksul",,,0.9,,308,summa,,"koodiga 12.22.03
+(kahekäeratastoolid), 12.22.09
+(ühekäeratastoolid), 12.22.18
+(abistaja juhitavad ja
+komfortratastoolid), 12.23.03
+(invarollerid), 12.23.06 (elektrilised
+ratastoolid), 12.27.07.00 (kärud),
+12.27.07.01 (toaraamid),
+12.27.07.02 (õueraamid), 12.24.09
+(käsitsi juhitavate ratastoolide
+käiturseadmed) ja 12.06.06
+(rulaatorid) müügitehingu teostanud
+isik",,,,
+12.24.24,akud ja akulaadijad,"elektriliste ratastoolide, invarollerite ja käiturseadmete
+akud ja akulaadijad",2 a,M,2 tk/2 a jooksul,,,0.9,,480,tk,,"koodiga 12.23.03 (invarollerid),
+12.23.06 (elektrilised ratastoolid),
+12.24.09 (käsitsi juhitavate
+ratastoolide käiturseadmed)
+müügitehingu teostanud isik",,,,
+12.24.30,asendirihmad,"turvavööd, rihmad ja rakmed kehaasendi fikseerimiseks
+ja turvalisuse tagamiseks",3 a,M,2 tk/3 a jooksul,,,0.9,,107,tk,,"koodiga 12.22.03
+(kahekäeratastoolid), 12.22.09
+(ühekäeratastoolid), 12.22.18
+(abistaja juhitavad ja
+komfortratastoolid), 12.23.03
+(invarollerid), 12.23.06 (elektrilised
+ratastoolid), 12.27.07.00 (kärud),
+18.09.21 (eriistmed) müügitehingu
+teostanud isik",,,,
+12.24.00,muud liikumisabivahendite varuosad,"kõik muud varuosad, v.a rehvid, rattad, akud,
+akulaadijad ja asendirihmad.",kalendriaasta,M,"kogus piirhinna
+ulatuses
+kalendriaasta
+jooksul",,,0.9,,400,summa,,"koodiga 12.22.03
+(kahekäeratastoolid), 12.22.09
+(ühekäeratastoolid), 12.22.18
+(abistaja juhitavad ja
+komfortratastoolid), 12.23.03
+(invarollerid), 12.23.06 (elektrilised
+ratastoolid),12.27.07.00 (kärud),
+12.27.07.01 (toaraamid),
+12.27.07.02 (õueraamid), 18.09.21
+(eriistmed), 12.24.09 (käsitsi
+juhitavate ratastoolide
+käiturseadmed) müügitehingu
+teostanud isik",,,,
+12.24.39,trepironijad,"ratastoolis oleva inimese treppidel transportimiseks
+mõeldud seadmed",7 a,Ü,1tk/7 a jooksul,,H,0.9,140,,tk,,,,"1 kord 1
+aasta jooksul",,"füsioterapeut, tegevusterapeut"
+12.27,Muud sõiduriistad,,,,,,,,,,,,,,,,
+12.27.07.00,kärud,"individuaalsete kohandamisvõimalustega käru istmed
+koos toa- või õueraamiga",4 a,Ü,2 tk/4 a jooksul,,,0.9,163,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt kahele järgnevale kriteeriumile:
+• esineb püsiv raske või täielik probleem istumisasendi säilitamisel
+ja korrigeerimisel
+• esineb püsiv raske või täielik probleem erinevates keskkondades
+liikumisel
+• esineb püsiv raske või täielik probleem teadvuse ja/või
+orienteerumise funktsioonides
+• esineb püsiv raskekujuline väljendunud kognitiivse häirega
+psüühika-, isiksuse- või käitumishäire ja/või mõõdukas või raske
+vaimne alaareng.
+Tõend laieneb koodile 18.09.21 (eriistmed).",,,"1 kord 1
+aasta jooksul","eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.27.07.01,toaraamid,lisaraamid kärule või eriistmele,5 a,Ü,2 tk/5 a jooksul,,,0.9,45,,tk,,"koodiga 12.27.07.00 (kärud),
+18.09.21 (eriistmed) tehingu
+teostanud isik","v.a koodiga 12.27.07.02
+(õueraamid) tehingu
+teostanud isik","1 kord 2
+aasta jooksul",,
+12.27.07.02,õueraamid,lisaraamid kärule või eriistmele,4 a,Ü,1 tk/4 a jooksul,,,0.9,86,,tk,,"koodiga 12.27.07.00 (kärud),
+18.09.21 (eriistmed) tehingu
+teostanud isik","v.a koodiga 12.27.07.01
+(toaraamid) tehingu
+teostanud isik","1 kord 2
+aasta jooksul",,
+12.31,"Siirdumis- ja
+teisaldamisabivahendid",,,,,,,,,,,,,,,,
+12.31.03,libistamislauad ja -matid,,,,,,,,,,,,,,,,
+12.31.03.01,libistamislauad,,4 a,M,1 tk/4 a jooksul,,H,0.9,,120,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem siirdumisel.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.31.03.02,libilinad,libilinad ja -kindad,2 a,M,2 tk/2 a jooksul,,H,0.9,,59,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem siirdumisel.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.31.09,teisaldatavad käsipuud,"jalaga voodiohjad, voodile kinnitatavad käsipuud
+siirdumiseks ja tõusmiseks",6 a,Ü,1 tk/6 a jooksul,,H,0.9,12,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem siirdumisel.",,"v.a koodiga 18.12.10
+(elektrilise
+reguleerimisega voodid)
+tehingu teostanud isikud",,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.31.15,tõsterihmad ja -rakmed,"tõstevööd koduhoolduses, v.a lingud ja tõsteraamid",4 a,M,1 tk/4 a jooksul,,H,0.9,,123,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem siirdumisel.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.36,Tõstmisabivahendid,,,,,,,,,,,,,,,,
+12.36.03,lingtõstukid,lingtõstukid linguga,6 a,Ü,1 tk/6 a jooksul,,H,0.9,59,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv täielik probleem keha põhiasendi muutmisel ja
+siirdumisel.
+Tõend laieneb koodile 12.36.21 (lingtõstuki kehatoed)",,,"1 kord 4
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.36.21,lingtõstuki kehatoed,lisalingud lingtõstukile,3 a,Ü,1 tk/3 a jooksul,,H,0.9,13,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv täielik probleem keha põhiasendi muutmisel ja
+siirdumisel.
+Tõend laieneb koodile 12.36.03 (lingtõstukid)",,,,"perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+12.39,Orienteerumise abivahendid,,,,,,,,,,,,,,,,
+12.39.03,valged kepid,,4 a,M,6 tk/4 a jooksul,,,0.9,,110,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb raske või täielik probleem nägemisfunktsioonides.",,,,,"füsioterapeut, tegevusterapeut"
+12.39.00,juhtkoer,"kahe aasta jooksul makstakse summa välja kolmes
+etapis (vastavalt teenuse kirjeldusele)",,,,I,,,,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumile:
+• täisealised isikud, kellel esineb püsiv raske või täielik probleem
+nägemisfunktsioonides.",,,,erandi taotluse alusel hinnatav,
+12.39.00.01,juhtkoera I etapp,"etapp sisaldab: kutsika väljavalimist, soetamist,
+kasvuperesse paigutamist ja kasvatust",1 a,M,1tk/1 a jooksul,,,0.9,,"2045,00
+erandi taotluse
+alusel",,,,,,,
+12.39.00.02,juhtkoera II etapp,"etapp sisaldab: koera väljaõppega seotud koolitus-,
+toidu ja veterinaarkulusid",6 kuud,M,1tk/ 6 kuu jooksul,,,0.9,,"4905,00
+erandi taotluse
+alusel",,,,,,,
+12.39.00.03,juhtkoera III etapp,"etapp sisaldab: koera ja juhtkoera kasutaja kokkuõpet ja
+kokkuõppe eksami sooritamist",6 kuud,M,1tk/ 6 kuu jooksul,,,0.9,,"1226,00
+erandi taotluse
+alusel",,,,,,,
+12.39.00.04,veterinaarkulud,"üldkliiniline läbivaatus, hammaste raviga seotud kulu,
+parasiitide põhjustatud ravi, krooniliste haiguste ravi,
+pärilikke ja kaasasündinud haiguste ravi,
+kaitsesüstimised, küünte lõikamised, kõrvade
+puhastamised jne",2 a,M,"kogus piirhinna
+ulatuses 2 a
+jooksul",,,0.9,,600,summa,,"koodiga 12.39.00.03 (juhtkoera III
+etapp) tehingu teostanud isik või
+kokkuõppe eksami läbinud isik",,,,
+12.39.00.06,õppepäev,"teenuseosutaja poolt vajaduse korral uute marsruutide
+õpetamise korraldamine, kokkuõppe parandamine,
+nõustamine jms",1 a,M,"kogus piirhinna
+ulatuses aasta
+jooksul",,,0.9,,100,summa,,"koodiga 12.39.00.03 (juhtkoera III
+etapp) tehingu teostanud isik või
+kokkuõppe eksami läbinud isik",,,,
+12.39.00.07,lemmikloomakindlustus,,1 a,M,"kogus piirhinna
+ulatuses aasta
+jooksul",,,0.9,,278,summa,,"koodiga 12.39.00.03 (juhtkoera III
+etapp) tehingu teostanud isik või
+kokkuõppe eksami läbinud isik",,,,
+12.39.00.08,juhtkoera teenuselt väljumine,"veterinaari poolt töökõlbmatuks hinnatud riiklikku
+süsteemi kantud juhtkoer",,M,1 kord,,,0.9,,700,summa,,"koodiga 12.39.00.03 (juhtkoera III
+etapp) tehingu teostanud isik või
+kokkuõppe eksami läbinud isik",,,,
+18,"KODU JA MUUDE RUUMIDE
+SISUSTUS JA KOHANDUSED",,,,,,,,,,,,,,,,
+18.03,Lauad,,,,,,,,,,,,,,,,
+18.03.15,voodilauad,"nii kõrguse kui kaldenurga reguleerimise võimalusega
+voodile asetatavad lauad; voodi kohal ja kõrval
+kasutatavad statiivil lauad
+(hüvitamisele ei kuulu voodikandikud, voodikapid)",6 a,Ü,1 tk/6 a jooksul,,H,0.9,15.3,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem keha põhiasendi muutmisel
+ja siirdumisel
+• osaline või püsiv vajadus sooritada igapäeva toiminguid ja/või
+töökohustusi voodis.",,,,"perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.09,Istemööbel,,,,,,,,,,,,,,,,
+18.09.21,eriistmed,inimese erivajadustele vastavad eriistmed,,,2 tk,,,,,,,,,,,,
+18.09.21.01,eriistmed - kategooria I,"väheste kohandamisvõimalustega eriistmed,
+vaakumpadjad ja kiilud istumisasendi korrigeerimiseks",4 a,Ü,,,,0.9,35,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem kehatüve lihaste
+jõu ja lihastoonuse funktsioonides
+• ei ole võimeline iseseisvalt istumisasendit säilitama.",,,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.09.21.02,eriistmed - kategooria II,"toas või õues kasutatavad, sh. alusraamiga eriistmed
+istumisasendi individuaalseks korrigeerimiseks, istmel
+on mõõtude reguleerimise võimalus ning istme
+kohandamise võimalus toestava lisavarustusega",4 a,Ü,,,,0.9,116,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem kehatüve lihaste
+jõu ja lihastoonuse funktsioonides
+• ei ole võimeline iseseisvalt istumisasendit säilitama
+• vajadus mitme individuaalse kohanduse järele (istumisasendi
+saavutamine, säilitamine ja/või korrigeerimine).
+Tõend laieneb koodile 12.27.07.00 (kärud).",,,"1 kord 1
+aasta jooksul","eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.09.21.03,eriistmed - kategooria III,tellimusmeditsiiniseade,4 a,M,,I,,0.9,,4900,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv mõõdukas, raske või täielik probleem kehatüve lihaste
+jõu ja lihastoonuse funktsioonides
+• ei ole võimeline iseseisvalt istumisasendit säilitama
+• esinevad skeletilihassüsteemi deformatsioonid või on kõrge
+deformatsioonide tekkerisk.
+Tõend laieneb koodile 12.27.07.00 (kärud).",,,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.10,Lisavarustus ratastoolidele,,,,,,,,,,,,,,,,
+18.10.03,seljatoed,ratastooli seljatoed ja lumbaarpadjad,3 a,M,1 tk/3 a jooksul,,,0.9,,976,tk,,"koodiga 12.22 (käsiratastoolid),
+12.23 (elektrilised ratastoolid)
+tehingu teostanud isik",,,"eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.10.06,ratastoolipadjad,"padjad ja alused ratastooliistmele asetamiseks, v.a
+lamatistevastased padjad",2 a,M,1 tk/2 a jooksul,,,0.9,,26,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• ratastooli kasutamisel vajalik ratastoolipadi
+• lamatiste tekkerisk ei ole tuvastatud.","koodiga 12.22 (käsiratastoolid),
+12.23 (elektrilised ratastoolid)
+tehingu teostanud isik",,,,"füsioterapeut, tegevusterapeut"
+18.12,Voodid,,,,,,,,,,,,,,,,
+18.12.10,elektrilise reguleerimisega voodid,"vähemalt 4-osalise elektrilise reguleerimisega
+funktsionaalvoodi, koos voodipiirete ja voodiohjaga",8 a,Ü,1 tk/8 a jooksul,,H,0.9,46.8,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem keha põhiasendi muutmisel
+ning kes vajavad kõrvalabi siirdumisel.
+Tõend laieneb koodile 12.31.03.02 (libilinad) ja 18.03.15
+(voodilauad).",,,"1 kord 4
+aasta jooksul","perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.18,Toetusabivahendid,,,,,,,,,,,,,,,,
+18.18.06,tugikäepidemed,"tugikäepidemed eluruumides kasutamiseks, sh
+pesuruumides",4 a,M,3 tk/4 a jooksul,,H,0.9,,16,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem
+tasakaalufunktsioonides
+• vajab kodus liikumisel ja keha põhiasendi muutmisel lisatuge.
+Tõend laieneb koodile 18.18.11 (hingedega tugipuud ja käetoed)",,,,"perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.18.11,hingedega tugipuud ja käetoed,"hingedega tugipuud ja käetoed eluruumides
+kasutamiseks, sh pesuruumides",6 a,M,2 tk/6 a jooksul,,H,0.9,,102,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv kerge või mõõdukas probleem
+tasakaalufunktsioonides
+• vajab kodus liikumisel ja keha põhiasendi muutmisel lisatuge.
+Tõend laieneb koodile 18.18.06 (tugikäepidemed).",,,,"perearst, üldarst, arst-resident,
+eriarst, õde, ämmaemand,
+rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+18.30,Vertikaalkonveierid,,,,,,,,,,,,,,,,
+18.30.15,kaasaskantavad kaldteed,"üks teisaldatav suur/lai kaldtee või teisaldatav kahe
+eraldi kaldteega komplektid
+(hüvitamisele ei kuulu lävepaku kaldteed)",6 a,M,1 tk/6 a jooksul,,H,0.9,,560,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv vajadus kasutada ratastega liikumisabivahendit.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","füsioterapeut, tegevusterapeut"
+22,"SUHTLUS- JA TEABEVAHETUSE
+ABIVAHENDID",,,,,,,,,,,,,,,,
+22.03,Optilised abivahendid,,,,,,,,,,,,,,,,
+22.03.03,valgusfiltrid,"filterprillid, meditsiinilised valgusfiltrid, sh prillidele
+paigaldatavad klipid",2 a,M,1 paar/2 a jooksul,I,,0.9,,152,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.03.06,prilliklaasid,,,,"2 paari/lapsed
+vastavalt
+vajadusele",,,,,,,,,,,,
+22.03.06.01,"prilliklaasid Dsph, cyl",,2 a,M,,I,,0.9,,184,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.03.06.02,"prillidesse monteeritud optilised
+süsteemid","prismaprillid, luupprillid",2 a,M,,I,,0.9,,149,paar,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.03.09,suurendusklaasid,"alates 3x suurendusega valgustusega, sisseehitatud
+valgustusega või valgustuseta luubid",3 a,M,2 tk/3 a jooksul,,,0.9,,86,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.03.12,binoklid ja teleskoobid,,6 a,M,1 tk/6 a jooksul,I,,0.9,,240,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.03.18,suurendavad videosüsteemid,"suurendavad videosüsteemid, sh kaasaskantavad",5 a,M,1 tk/5 a jooksul,,,0.9,,740,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgmistest kriteeriumitest:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.",,,,"optometrist, silmaarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",optometrist
+22.06,Kuulmisabivahendid,,,,,,,,,,,,,,,,
+22.06.06,kommunikatsioonivõimendid,"riiete külge kinnitatavad, kõrvadel või kaelas kantavad
+helivõimendusseadmed",5 a,M,1 tk/5 a jooksul,,,0.9,,"200,00 erandi
+taotluse alusel",tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB.",,"v.a koodiga 22.06.12
+(kõrvasisesed
+kuulmisabivahendid),
+22.06.15 (kõrvatagused
+kuulmisabivahendid),
+22.06.21
+(kuulmisimplantaadi
+kõneprotsessorid)
+tehingu teostanud isik",,"eriarst, rehabilitatsioonimeeskond,
+audioloog
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.12,kõrvasisesed kuulmisabivahendid,"kuulmisaparaadi väljastamisel audiogramm (sh luu-,
+õhukuulmine, ebamugavusläve testimine),
+kuuldeaparaadi seadistamine ja selle
+dokumenteerimine, järelkontroll 30 päeva pärast, v.a
+analoog tehnoloogiaga kuuldeaparaadid",,,"1 tk/ühe kehapoole
+kohta",,,,,,,,,,,,
+22.06.12.01,"kõrvasisesed kuulmisabivahendid -
+aktiivsusgrupp I",,4 a,M,,I,,0.9,,500,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus keskmiselt 1-5 päeva nädalas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevategevustes
+lihtsat suulist suhtlust.
+Tõend laieneb koodile 22.06.15 (kõrvatagused kuulmisabivahendid).",,"v.a koodiga 22.06.15
+(kõrvatagused
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.12.02,"kõrvasisesed kuulmisabivahendid -
+aktiivsusgrupp II",,4 a,M,,I,,0.9,,850,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus vähemalt 5 päeva nädalas,
+iganädalaselt vähemalt kolmes kasutuskeskkonnas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevaselt vähemalt
+4h suulist suhtlust, sh keerukamates suhtlussituatsioonides
+(õppetöö, töö vm raames)
+• osaleb tehingu tegemise hetkel tööturul (töötamise registrisse
+kantud isik, Eesti Töötukassas töötuna või tööotsijana registreeritud
+isik) või omandab põhi-, kesk- või kõrgharidust.
+Tõend laieneb koodile 22.06.15 (kõrvatagused kuulmisabivahendid).",,"v.a koodiga 22.06.15
+(kõrvatagused
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.12.03,"kõrvasisesed kuulmisabivahendid -
+lapsed",,3a,M,,I,,0.9,,736,tk,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus vähemalt 5 päeva nädalas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevaselt vähemalt
+4h suulist suhtlust, sh keerukamates suhtlussituatsioonides
+(õppetöö, töö vm raames).
+Tõend laieneb koodile 22.06.15 (kõrvatagused kuulmisabivahendid).",,"v.a koodiga 22.06.15
+(kõrvatagused
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.12.05,"teise kõrva heli ülekande süsteemid
+(CROS)","standardse kuuldeaparaadi ja heli teise kõrva juhtiva
+aparaadi (CROS) komplekt",4 a,M,1 tk/4 a jooksul,I,,0.9,,685,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kahe kõrva vahelise kuulmise asümmeetria vähemalt 40 dB
+(millest ühe kõrva kuulmislangus on alates 30 dB).","koodiga 22.06.12 (kõrvasisesed
+kuulmisabivahendid) tehingu
+teostanud isik","v.a koodiga 22.06.15
+(kõrvatagused
+kuulmisabivahendid),
+22.06.21
+(kuulmisimplantaadi
+kõneprotsessorid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.15,kõrvatagused kuulmisabivahendid,"kuulmisaparaadi väljastamisel audiogramm (sh luu-,
+õhukuulmine, ebamugavusläve testimine),
+kuuldeaparaadi seadistamine ja selle
+dokumenteerimine, järelkontroll 30 päeva pärast v.a
+analoog tehnoloogiaga kuuldeaparaadid",,,"1 tk/ühe kehapoole
+kohta",,,,,,,,,,,,
+22.06.15.01,"kõrvatagused kuulmisabivahendid -
+aktiivsusgrupp I",,4 a,M,,I,,0.9,,380,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus keskmiselt 1-5 päeva nädalas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevategevustes
+lihtsat suulist suhtlust.
+Tõend laieneb koodile 22.06.12 (kõrvasisesed kuulmisabivahendid).",,"v.a koodiga 22.06.12
+(kõrvasisesed
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.15.02,"kõrvatagused kuulmisabivahendid -
+aktiivsusgrupp II",,4 a,M,,I,,0.9,,736,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus vähemalt 5 päeva nädalas,
+iganädalaselt vähemalt kolmes kasutuskeskkonnas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevaselt vähemalt
+4h suulist suhtlust, sh keerukamates suhtlussituatsioonides
+(õppetöö, töö vm raames)
+• osaleb tehingu tegemise hetkel tööturul (töötamise registrisse
+kantud isik, Eesti Töötukassas töötuna või tööotsijana registreeritud
+isik) või omandab põhi-, kesk- või kõrgharidust.
+Tõend laieneb koodile 22.06.12 (kõrvasisesed kuulmisabivahendid).",,"v.a koodiga 22.06.12
+(kõrvasisesed
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.15.03,"kõrvatagused kuulmisabivahendid -
+lapsed",,3 a,M,,I,,0.9,,736,tk,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 30 dB
+• kuulmisabivahendi eeldatav kasutus vähemalt 5 päeva nädalas
+• kuulmisabivahendi kasutuskeskkond eeldab igapäevaselt vähemalt
+4h suulist suhtlust, sh keerukamates suhtlussituatsioonides
+(õppetöö, töö vm raames).
+Tõend laieneb koodile 22.06.12 (kõrvasisesed kuulmisabivahendid)",,"v.a koodiga 22.06.12
+(kõrvasisesed
+kuulmisabivahendid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.15.05,"teise kõrva heli ülekande süsteemid
+(CROS)","standardse kuuldeaparaadi ja heli teise kõrva juhtiva
+aparaadi (CROS) komplektid",4 a,M,1 tk/4 a jooksul,I,,0.9,,685,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kahe kõrva vahelise kuulmise asümmeetria vähemalt 40 dB
+(millest ühe kõrva kuulmislangus on alates 30 dB).","koodiga 22.06.15 (kõrvatagused
+kuulmisabivahendid) tehingu
+teostanud isik","v.a koodiga 22.06.12
+(kõrvasisesed
+kuulmisabivahendid),
+22.06.21
+(kuulmisimplantaadi
+kõneprotsessorid)
+tehingu teostanud isik",,"audioloog, kõrva-nina-kurguarst
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",audioloog
+22.06.12.04,"kuuldeaparaadi individuaalsed
+otsakud",tellimusmeditsiiniseade,1 a,M,"1 tk/1 a jooksul
+ühe kehapoole
+kohta
+/
+lapsed vastavalt
+vajadusele",I,,0.9,,60,tk,,"koodiga 22.06.15 (kõrvatagused
+kuulmisabivahendid), 22.06.21.01
+(sisekõrva kuulmisimplantaadi
+kõneprotsessor) tehingu teostanud
+isik",,,,
+22.06.21,kuulmisimplantaadi kõneprotsessorid,,,,"1 tk/ühe kehapoole
+kohta",,,,,,,,,,,,
+22.06.21.01,"sisekõrva kuulmisimplantaadi
+kõneprotsessorid",,7 a,M,,I,,0.9,,11300,tk,,,,,"audioloog, kõrva-nina-kurguarst
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",audioloog
+22.06.21.02,"luukuulmisimplantaadi
+kõneprotsessorid",,5 a,M,,I,,0.9,,5265,tk,,,,,"audioloog, kõrva-nina-kurguarst
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",audioloog
+22.06.21.05,"ajutüve kuulmisimplantaadi
+kõneprotsessorid",,7 a,M,,I,,0.9,,11125,tk,,,,,"audioloog, kõrva-nina-kurguarst
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",audioloog
+22.06.21.03,"kuulmisimplantaadi
+kõneprotsessorite varuosad","kõneprotsessori juhtpuldid, saatjarõngad, juhtmed,
+magnetid, toiteplokid, hooldustarvikud,
+kinnitusvahendid, lisaseadmete juhtmed ja adapterid,
+peapaelad, väliskinnituse- ja patareikatted",kalendriaasta,M,"kogus piirhinna
+ulatuses
+kalendriaasta
+jooksul ühe
+kehapoole kohta",,,0.9,,375,summa,,,,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+22.06.21.04,"sisekõrva kuulmisimplantaadi
+kõneprotsessorite hooldusremont","sisekõrva kuulmisimplantaadi kõneprotsessorite
+hooldusremont, v.a garantiiperioodi jooksul",7 a,M,"kogus piirhinna
+ulatuses 7 a
+jooksul ühe
+kehapoole kohta",,,0.9,,545,summa,,,,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+22.06.21.06,"luukuulmisimplantaadi
+kõneprotsessori hooldusremont","luukuulmisimplantaadi kõneprotsessorite
+hooldusremont, v.a garantiiperioodi jooksul",5 a,M,"kogus piirhinna
+ulatuses 5 a
+jooksul ühe
+kehapoole kohta",,,0.9,,570,summa,,,,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+22.06.21.07,"ajutüve kuulmisimplantaadi
+kõneprotsessori hooldusremont","ajutüve kuulmisimplantaadi kõneprotsessorite
+hooldusremont, v.a garantiiperioodi jooksul",7 a,M,"kogus piirhinna
+ulatuses 7 a
+jooksul ühe
+kehapoole kohta",,,0.9,,450,summa,,,,,"abivajaduse tuvastamine ja tõendi
+väljastamine ei ole vajalik,
+abivahendi vajaduse tuvastab
+abivahendiettevõte",
+22.09,Häälevõimendid,,,,,,,,,,,,,,,,
+22.09.06,häälevõimendid isiklikuks kasutuseks,kõrimikrofonid,5 a,M,1 tk/5 a jooksul,I,,0.9,,"erandi taotluse
+alusel",tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb täielik probleem hääle ja kõnega seotud struktuurides.",,,,"rehabilitatsioonimeeskond, kõrva-
+nina-kurguarst, logopeed
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",
+22.12,"Abivahendid joonistamiseks ja
+kirjutamiseks",,,,,,,,,,,,,,,,
+22.12.12,punktkirjavarustus,"stiftid, raamid, joonlauad, mallid, sirklid, vihikud,
+paberid, ritmuff kiled ja kleepkiled
+(hüvitamisele ei kuulu printerid)",kalendriaasta,M,"kogus piirhinna
+ulatuses
+kalendriaasta
+jooksul",,,0.9,,300,summa,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem nägemisfunktsioonides.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.12.15,punktkirja kirjutusmasinad,,5 a,M,2 tk/5 a jooksul,,,0.9,,630,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem nägemisfunktsioonides.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.15,Arvutusabivahendid,,,,,,,,,,,,,,,,
+22.15.06,kalkulaatorid,kõnelevad kalkulaatorid,3 a,M,1 tk/3 a jooksul,,,0.9,,150,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+22.18,"Abivahendid audio- ja visuaalse
+teabe käitlemiseks",,,,,,,,,,,,,,,,
+22.18.03,helisalvestus- ja heliesitusseadmed,,,,,,,,,,,,,,,,
+22.18.03.01,daisypleierid,,5 a,M,1 tk/5 a jooksul,,,0.9,,496,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","audioloog, tegevusterapeut"
+22.18.03.02,hääljuhendavad diktofonid,,5 a,M,1 tk/5 a jooksul,,,0.9,,370,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","audioloog, tegevusterapeut"
+22.18.24,ülekandesüsteemid,"FM süsteemid, lisamikrofonid",7 a,M,1 tk/ 7 a jooksul,,,0.9,,"2250,00 /
+erandi taotluse
+alusel lapsed,
+kellel on
+diagnoositud
+autismispektrih
+äired, aktiivsus-
+ja
+tähelepanuhäir
+e või auditiivne
+neuropaatia,
+kuid kellel ei
+ole
+diagnoositud
+kuulmislangust
+≥30dB",tk,"Abivahend võimaldatakse soodustingimustel lastele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• püsiv raske või täielik probleem kuulmisfunktsioonides.","koodiga 22.06.12 (kõrvasisesed
+kuulmisabivahendid), 22.06.15
+(kõrvatagused kuulmisabivahendid),
+22.06.21 (kuulmisimplantaadi
+kõneprotsessor) tehingu teostanud
+laps",,,"audioloog, kõrva-nina-kurguarst
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",audioloog
+22.21,Lähisuhtluse abivahendid,,,,,,,,,,,,,,,,
+22.21.09,dialoogiseadmed,suulist ja/või kirjalikku suhtlust toetavad seadmed,,,,,,,,,,,,,,,
+22.21.09.00,"madaltehnoloogilised
+kommunikaatorid","suulist ja/või kirjalikku suhtlust toetavad ja/või
+asendavad vahendid, sh suhtlusraamatud, pildikaardid
+ja muud sümbolipõhised mitteelektroonilised vahendid;
+erinevad sisend- ja väljundtehnoloogiad, spetsiaalsed
+lülitid, alternatiivsed juhtimisviisid",2 a,M,"kogus piirhinna
+ulatuses 2 a
+jooksul",I,,0.9,,725,summa,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv täielik või raske probleem sõnade või lausete
+kasutamisel suhtlemise eesmärgil;
+• isik vajab igapäevases suhtluses alternatiivset või toetavat
+kommunikatsioonivahendit;
+• isik suudab kasutada visuaalseid sümboleid, pilte või kirjalikke
+märksõnu suhtlemise toetamiseks.
+Tõend laieneb koodile 22.21.09.01 (kõrgtehnoloogilised
+kommunikaatorid) ja 22.21.09.03 (silmajälgijad).",,,,"eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut, logopeed
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+22.21.09.01,kõrgtehnoloogilised kommunikaatorid,"suulist ja/või kirjalikku suhtlust toetavad ja/või
+asendavad elektroonilised seadmed ja
+suhtlustarkvaralahendused",5 a,M / Ü,1 tk,I,,0.9,,"erandi taotluse
+alusel",tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes
+vastavad kõigile järgnevatele kriteeriumitele:
+• esineb püsiv täielik või raske probleem sõnade või lausete
+iseseisval väljaütlemisel või suhtluseks kasutamisel;
+• madaltehnoloogilised kommunikatsioonivahendid ei kata piisavalt
+isiku suhtlusvajadust või ei ole funktsionaalselt piisavad;
+• isikul on kognitiivne ja funktsionaalne võimekus kasutada iseseivalt
+suhtluseks elektroonilist kommunikatsiooniseadet, sh on lubatud
+kõrvalabi kasutamine seadme sisse- ja väljalülitamisega, sobivasse
+asendisse paigutamisega, seadistamisega või muu tehnilise toega
+(nt puuteekraan või muu sisestusviis).
+Tõend laieneb koodile 22.21.09.00 (madaltehnoloogilised
+kommunikaatorid) ja 22.21.09.03 (silmajälgijad).",,,,"eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut, logopeed
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+22.21.09.02,silmajälgijad,pilguga juhitavad elektroonilised dialoogiseadmed,5 a,M,1 tk,I,,0.9,,"erandi taotluse
+alusel",tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv täielik probleem käte ja/või sõrmede kasutamisel
+suhtlemiseks (nt klaviatuuri, puuteekraani, hiire, lülitite jms
+kasutamisel)
+Tõend laieneb koodile 22.21.09.00 (madaltehnoloogilised
+kommunikaatorid) ja 22.21.09.01 (kõrgtehnoloogilised
+kommunikaatorid).",,,,"eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut, logopeed
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+22.24,"Telefonid ja
+telefoneerimisabivahendid",,,,,,,,,,,,,,,,
+22.24.21,helistamistarvikud,"võimendiga, kõnelevad või visuaalse signaaliga
+telefonid",5 a,M,1 tk/5 a jooksul,,,0.9,,439,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemale ühele järgnevale kriteeriumile:
+• nägemisteravus koos korrektsiooniga kuni 0,3
+• esineb kuulmislangus alates 30 dB.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)",tegevusterapeut
+22.27,"Häire-, osutamis-, meeldetuletus-
+ja signaliseerimisseadmed",,,,,,,,,,,,,,,,
+22.27.03,signaliseerimisvahendid,"seadmed, mis saadavad signaali vastuvõtjale, sh
+uksekell (sh veekindel), fonoluku saatja, sms vilkur",6 a,M,2 tk/6 a jooksul,,,0.9,,156,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 50 dB.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+audioloog
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","tegevusterapeut, audioloog"
+22.27.09,vastuvõtjad,"seadmed, mis võtavad signaali vastu, sh
+vibrapadi, vilkurkuubik, taskuvibratsiooniseade,
+fikseeritud seade pistikusse",6 a,M,3 tk/6 a jooksul,,,0.9,,216,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 50 dB.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+audioloog
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","tegevusterapeut, audioloog"
+22.27.12,kellad ja ajanäitajad,"vibratsioooniga kellad, sh käekellad, äratuskellad",3 a,M,2 tk/3 a jooksul,,,0.9,,156,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 50 dB.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+audioloog
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","tegevusterapeut, audioloog"
+22.27.21,keskkonnahäiresüsteemid,suitsu- ja vingugaasiandurid,6 a,M,3 tk/6 a jooksul,,H,0.9,,167,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 50 dB
+• abivahendi kasutaja on vähemalt 6-aastane.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+audioloog
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)","tegevusterapeut, audioloog"
+22.27.24,jälgimisseadmed,beebimonitorid,6 a,M,1 tk/6 a jooksul,,H,0.9,,139,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb probleem välis-, kesk- ja/või sisekõrva struktuurides
+• esineb kuulmislangus alates 50 dB
+• abivahendi kasutaja on alla 4-aastase lapse vanem.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+audioloog
+(korduv abivajaduse tuvastamine
+ja tõendi väljastamine)","tegevusterapeut, audioloog"
+22.39,Arvutite väljundseadmed,,,,,,,,,,,,,,,,
+22.39.04,arvuti ekraanisuurendustarkvarad,"arvutiteavet visuaalselt suurendavad seadmed + 2
+uuendust",18 a,M,2 tk/18 a jooksul,,,0.9,,700,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.39.05,punktkirjakuvarid,,5 a,M,1 tk/5 a jooksul,,,0.9,,1400,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.39.07,tekstituvastustarkvarad,kõnesüntesaatorid,5 a,M,1 tk/5 a jooksul,,,0.9,,1100,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.39.12,arvuti ekraanilugemisetarkvarad,ekraanilugejad + 2 uuendust,18 a,M,2 tk/18 a jooksul,,,0.9,,1100,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• nägemisteravus koos korrektsiooniga kuni 0,3.",,,,"perearst, üldarst, arst-resident,
+silmaarst,
+rehabilitatsioonimeeskond
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",
+22.39.00,tarkvara uuendused,,,,2 tk,,,,,,,,,,,,
+22.39.00.01,"arvuti ekraanisuurendustarkvara
+uuendused",,9 a,M,,,,0.9,,410,tk,,"koodiga 22.39.04 (arvuti
+ekraanisuurendustarkvarad) tehingu
+teostanud isik",,,,
+22.39.00.02,"arvuti ekraanilugemisetarkvara
+uuendused",,9 a,M,,,,0.9,,650,tk,,"koodiga 22.39.12 (arvuti
+ekraanilugemistarkvarad) tehingu
+teostanud isik",,,,
+24,"ESEMETE JA SEADMETE
+KÄSITSEMISE ABIVAHENDID",,,,,,,,,,,,,,,,
+24.18.12,statiivid,"dialoogiseadmete stabiilseks kinnitamiseks
+reguleeritavad statiivid",5 a,Ü,1 tk/5 a jooksul,,,0.9,103.2,,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+kõigile järgnevatele kriteeriumitele:
+• esineb püsiv raske või täielik probleem keha põhiasendi muutmisel
+ning siirdumisel","koodiga 22.21.09.02 (silmajälgijad)
+tehingu teostanud isik",,,,
+24.21,Pikendused,,,,,,,,,,,,,,,,
+24.21.03,haaramistangid,,4 a,M,1 tk/4 a jooksul,,,0.9,,27,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• esineb raske või täielik probleem peenmotoorikas
+• esineb raske või täielik probleem kummardamises ja küünitamises.",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+füsioterapeut, tegevusterapeut,
+õde, ämmaemand (korduv
+abivajaduse tuvastamine ja tõendi
+väljastamine)","proviisor, farmatseut, füsioterapeut, tegevusterapeut"
+27,"ABIVAHENDID JA SEADMED
+KESKKONNATEGURITE
+PARENDAMISEKS, TÖÖRIISTAD
+JA MASINAD",,,,,,,,,,,,,,,,
+27.06,Taktiilsed ja kõnelevad seaded,,,,,,,,,,,,,,,,
+27.06.01,"termomeetrid ja vedelikunivoo
+teatajad","taktiilsed, kõnelevad või suurte numbritega keha- õhu-
+ja toidutermomeetrid",6 a,M,3 tk/6 a jooksul,,,0.9,,81,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.
+Tõend laieneb koodile 27.06.02 (kellad ja ajanäitajad), 27.06.03
+(mõõteriistad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+27.06.02,kellad ja ajanäitajad,"taktiilsed, kõnelevad või suurte numbritega kellad,
+käekellad, äratuskellad",3 a,M,2 tk/3 a jooksul,,,0.9,,139,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.
+Tõend laieneb koodile 27.06.01 (termomeetrid ja vedelikunivoo
+teatajad), 27.06.03 (mõõteriistad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
+27.06.03,mõõteriistad,"taktiilsed, kõnelevad või suurte numbritega kaalud (sh
+köögikaalud), vererõhuaparaadid, glükomeeterid,
+mõõdulindid, värvimäärajad, kalkulaatorid",6 a,M,4 tk/6 a jooksul,,,0.9,,170,tk,"Abivahend võimaldatakse soodustingimustel isikutele, kes vastavad
+vähemalt ühele järgnevale kriteeriumile:
+• nägemisteravus paremini nägevas silmas koos korrektsiooniga 0,3
+(lastel 0,5) või alla selle
+• silmade vaateväli kitsam kui 30 kraadi.
+Tõend laieneb koodile 27.06.01 (termomeetrid ja vedelikunivoo
+teatajad), 27.06.02 (kellad ja ajanäitajad).",,,,"perearst, üldarst, arst-resident,
+eriarst, rehabilitatsioonimeeskond,
+tegevusterapeut
+(ühekordne abivahendi vajaduse
+tuvastamine ja tõendi
+väljastamine)",tegevusterapeut
