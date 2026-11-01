@@ -1,10 +1,11 @@
-"""Valideer — Abivahendite andmete kontroll & õppiv teadmistebaas.
+"""Valideer — Abivahendite andmete kontroll & otsustustugi.
 
-Spetsialistile suunatud töölaud:
-- Igakuiste Exceli/CSV failide kiire valideerimine
-- Probleemsete kirjete analüüs ja määruse kitsenduste kontroll
-- Valideerimise raporti kohene eksport
-- Püsivate registrite sirvimine (iseseisev haldusala)
+UX Sprint 2: Otsustamise lihtsustamine.
+- Selge järgmine samm ja tegevusplokk pärast valideerimist
+- Rahulik, mitteagressiivne värvipalett (punane ainult kriitilistele vigadele)
+- Kasutajakeskne terminoloogia (otsuste kinnitamine, mitte süsteemi õpetamine)
+- Madala kognitiivse koormusega probleemse kirje vaade
+- Kahe-tasemeline Exceli raport (Spetsialisti vaade vs Tehniline audit)
 """
 
 import os
@@ -26,6 +27,7 @@ from src.product_agent import ProductIdentificationAgent
 from src.product_registry_db import get_product_registry_db
 from src.matcher import ProductMatcher
 from src.validator import Validator
+from src.report import generate_validation_report, format_status_label, get_action_recommendation
 
 
 # --- LEHE SEADISTUS ---
@@ -83,7 +85,7 @@ if "input_source_name" not in st.session_state:
 
 # --- KÜLGRIBA NAVIGATSIOON ---
 with st.sidebar:
-    st.image("https://img.icons8.com/fluency/96/medical-clipboard.png", width=56)
+    st.image("https://img.icons8.com/fluency/96/medical-clipboard.png", width=54)
     st.title("Valideer")
     st.caption("Abivahendite tehinguridade kontrollisüsteem")
     st.divider()
@@ -100,7 +102,7 @@ with st.sidebar:
     st.caption("Püsivad tõeallikad:")
     st.markdown(f"- **Määrus nr 74:** {class_count} ISO koodi")
     st.markdown(f"- **Tooteregister:** {reg_stats['total_products']:,} toodet".replace(",", " "))
-    st.markdown(f"- **Teadmistebaas:** {kb_count} reeglit")
+    st.markdown(f"- **Kinnitatud reegleid:** {kb_count}")
 
     if st.session_state["df_input"] is not None:
         st.divider()
@@ -162,7 +164,7 @@ if app_mode == "📋 Valideerimise töölaud":
 
         col_act1, col_act2 = st.columns([1, 2])
         with col_act1:
-            load_sample = st.button("🧪 Proovi kohe näidisfailiga (vigadega tehingud)", use_container_width=True, type="secondary")
+            load_sample = st.button("🧪 Proovi kohe näidisfailiga (vigadega tehingud)", use_container_width=True)
 
         if uploaded_file is not None:
             try:
@@ -241,50 +243,69 @@ if app_mode == "📋 Valideerimise töölaud":
 
         problem_count = total_rows - valid_count
 
-        # Valmista ette Exceli raport allalaadimiseks
-        towrite_res = io.BytesIO()
-        df_res.to_excel(towrite_res, index=False, engine="openpyxl")
-        towrite_res.seek(0)
+        # Genereeri kahe-tasemeline Exceli raport (Spetsialisti vaade + Tehniline audit)
+        report_bytes = generate_validation_report(validation_results)
         report_filename = f"valideerimise_raport_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
 
         # --- PÄIS: TULEMUSED JA RAPORTI NUPP ---
         st.title("📊 Valideerimise kokkuvõte")
         st.caption(f"Töödeldud fail: **{st.session_state['input_source_name']}** ({total_rows} rida)")
 
-        # ÜLEMISED KOONDMÕÕDIKUD JA CTA (Raport kohe mõõdikute kõrval)
+        # ÜLEMISED KOONDMÕÕDIKUD JA CTA
         c_kpi1, c_kpi2, c_kpi3, c_cta = st.columns([1.5, 1.5, 1.8, 2.5])
         with c_kpi1:
             st.metric("Töödeldud ridu", total_rows)
         with c_kpi2:
             st.metric("✅ Kõik korras", valid_count, f"{int(valid_count/total_rows*100)}%" if total_rows else "")
         with c_kpi3:
-            st.metric("⚠️ Vajab tähelepanu", problem_count, f"{int(problem_count/total_rows*100)}%" if total_rows else "", delta_color="inverse")
+            st.metric("⚠️ Vajab otsust", problem_count, f"{int(problem_count/total_rows*100)}%" if total_rows else "")
         with c_cta:
             st.write("")  # nihutus joondamiseks
             st.download_button(
-                label="📥 Laadi valideerimise raport alla (.xlsx)",
-                data=towrite_res,
+                label="📥 Laadi valideerimise raport (.xlsx)",
+                data=report_bytes,
                 file_name=report_filename,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                type="primary",
-                use_container_width=True
+                use_container_width=True,
+                help="Sisaldab spetsialisti kokkuvõtet ja täielikku tehnilist auditit."
             )
 
-        # Probleemide detailne jaotus
-        st.markdown("**Probleemide detailne jaotus:**")
+        # Probleemide rahulik, astmeline jaotus
+        st.markdown("**Tähelepanu vajavate kirjete ülevaade:**")
         cp1, cp2, cp3, cp4, cp5 = st.columns(5)
-        cp1.metric("🛑 Ei vasta kitsendusele", restriction_violations)
-        cp2.metric("⚠️ Vale ISO", wrong_iso)
-        cp3.metric("⚠️ Vale nimetus", wrong_stat)
-        cp4.metric("❌ Vale mõlemad", wrong_both)
-        cp5.metric("❓ Käsitsi kontroll / Tundmatu", needs_review + unknown)
+        cp1.metric("🔴 Kitsenduse rikkumine", restriction_violations)
+        cp2.metric("🟠 Vale ISO kood", wrong_iso)
+        cp3.metric("🟠 Vale nimetus", wrong_stat)
+        cp4.metric("🔴 Vale ISO ja nimetus", wrong_both)
+        cp5.metric("🟡 Vajab kontrolli / Tundmatu", needs_review + unknown)
 
         st.divider()
 
+        # --- 1. TEGEVUSPLOKK: JÄRGMINE SAMM ILMSEKS ---
+        if problem_count > 0:
+            st.info(f"""
+            ### 📋 Spetsialisti tegevusjuhis (Leitud {problem_count} otsustamist vajavat kirjet)
+            
+            Failis leiti lahknevusi ametliku klassifikaatoriga või määruse nr 74 kitsenduste rikkumisi.
+            
+            **Sinu järgmised sammud:**
+            1. **Vaata üle vead:** Vahekaardil **"🔍 Probleemsete kirjete ülevaade"** on välja toodud täpne põhjus igale reale.
+            2. **Kinnita või korrigeeri:** Vahekaardil **"✍️ Paranda ja kinnita kirjed"** saad süsteemi pakutud vasteid kinnitada või muuta.
+            3. **Laadi alla raport:** Ülal asuvast nupust saad alla laadida parandustega Exceli raporti.
+            4. **Süsteem jätab meelde:** Sinu kinnitatud kirjed salvestatakse ja järgmisel kuul lahenduvad need automaatselt.
+            """)
+        else:
+            st.success(f"""
+            ### ✅ Kõik {total_rows} rida vastavad nõuetele!
+            Failis ei tuvastatud ühtegi viga ega määruse kitsenduste rikkumist. Fail on valmis kinnitamiseks ja arveldamiseks.
+            """)
+
         # --- TÖÖLAUA VAHEKAARDID: PROBLEEMID JA KINNITAMINE ---
+        unresolved = df_res[df_res["Valideerimise staatus"] != Validator.STATUS_MATCH]
+
         tab_prob, tab_queue = st.tabs([
-            f"🔍 Probleemsete kirjete analüüs ({problem_count})",
-            f"✍️ Lahenda kirjed ja õpeta teadmistebaasi ({len(df_res[df_res['Valideerimise staatus'] != Validator.STATUS_MATCH])})"
+            f"🔍 Probleemsete kirjete ülevaade ({problem_count})",
+            f"✍️ Paranda ja kinnita kirjed ({len(unresolved)})"
         ])
 
         with tab_prob:
@@ -305,7 +326,8 @@ if app_mode == "📋 Valideerimise töölaud":
                 )
 
             # Filtreeritud read
-            df_filtered = df_res[df_res["Valideerimise staatus"].isin(selected_status)]
+            df_filtered = df_res[df_res["Valideerimise staatus"].isin(selected_status)].copy()
+            df_filtered["Otsuse staatus"] = df_filtered["Valideerimise staatus"].apply(format_status_label)
 
             if not show_valid:
                 st.caption(f"Kuvatakse ainult tähelepanu vajavad kirjed ({len(df_filtered)} rida).")
@@ -315,8 +337,7 @@ if app_mode == "📋 Valideerimise töölaud":
             # Tabel otsustamiseks optimeeritud veergudega
             table_cols = [
                 "Rida",
-                "Valideerimise staatus",
-                "Kitsenduse kontroll",
+                "Otsuse staatus",
                 "Selgitus",
                 "Abivahendi nimetus (Excel)",
                 "Tuvastatud ametlik toode",
@@ -324,8 +345,7 @@ if app_mode == "📋 Valideerimise töölaud":
                 "ISO kood (Excel)",
                 "Ametlik ISO kood",
                 "Määrusejärgne nimetus (Excel)",
-                "Ametlik määrusejärgne nimetus",
-                "Usaldusskoor"
+                "Ametlik määrusejärgne nimetus"
             ]
             valid_cols = [c for c in table_cols if c in df_filtered.columns]
 
@@ -335,66 +355,92 @@ if app_mode == "📋 Valideerimise töölaud":
                 height=450
             )
 
+        # --- 4. PROBLEEMSETE KIRJETE LIHTSUSTATUD VAADE (MADAL KOGNITIIVNE KOORMUS) ---
         with tab_queue:
-            st.subheader("✍️ Kinnita uued seosed ja lahenda kahtlased kirjed")
-            st.write("Spetsialisti kinnitatud otsused salvestatakse teadmistebaasi ja süsteem jätab need tulevikuks meelde.")
-
-            unresolved = df_res[df_res["Valideerimise staatus"].isin([
-                Validator.STATUS_RESTRICTION,
-                Validator.STATUS_REVIEW,
-                Validator.STATUS_UNKNOWN,
-                Validator.STATUS_WRONG_ISO,
-                Validator.STATUS_WRONG_NAME,
-                Validator.STATUS_WRONG_BOTH
-            ])]
+            st.subheader("✍️ Paranda ja kinnita kirjed")
+            st.caption("Vaata üle süsteemi ettepanekud ja kinnita õiged väärtused. Süsteem jätab sinu kinnituse tulevikuks meelde.")
 
             if len(unresolved) == 0:
-                st.success("Kõik tooted vastavad nõuetele! Käsitsi ülevaatust vajavaid kirjeid ei ole.")
+                st.success("Kõik tooted vastavad nõuetele! Ühtegi lahendamist vajavat kirjet ei ole.")
             else:
-                st.info(f"Ülevaatust ja otsustamist vajab {len(unresolved)} kirjet.")
+                st.info(f"Otsustamist vajab {len(unresolved)} kirjet.")
 
                 for _, r in unresolved.iterrows():
-                    with st.expander(f"Rida {r['Rida']}: {r['Abivahendi nimetus (Excel)']} [Staatus: {r['Valideerimise staatus']}]"):
-                        col_e1, col_e2 = st.columns([1, 1])
+                    st_label = format_status_label(r['Valideerimise staatus'])
+                    row_id = r['Rida']
+                    raw_name = r['Abivahendi nimetus (Excel)']
 
-                        with col_e1:
-                            st.markdown("**Arve andmed:**")
-                            st.write(f"- Esitatud nimetus: **{r['Abivahendi nimetus (Excel)']}**")
-                            st.write(f"- Esitatud ISO: `{r['ISO kood (Excel)']}`")
-                            st.write(f"- Esitatud nimetus: {r['Määrusejärgne nimetus (Excel)']}")
-                            st.write(f"- Kitsenduse kontroll: **{r.get('Kitsenduse kontroll')}**")
-                            if r.get("Selgitus"):
-                                st.caption(f"💡 **Reegli selgitus:** {r['Selgitus']}")
+                    with st.expander(f"Rida {row_id}: {raw_name}  —  [{st_label}]"):
+                        # 1. ESITATUD VS SOOVITUS KÕRVUTI
+                        col_card1, col_card2 = st.columns(2)
 
-                        with col_e2:
-                            st.markdown("**Kinnitatavad väärtused (Teadmistebaasi):**")
-                            c_official = st.text_input(
-                                "Ametlik toode:",
-                                value=r["Tuvastatud ametlik toode"] or r["Abivahendi nimetus (Excel)"],
-                                key=f"q_off_{r['Rida']}"
-                            )
-                            c_iso = st.text_input(
-                                "Õige ISO kood:",
-                                value=r["Ametlik ISO kood"] or r["ISO kood (Excel)"],
-                                key=f"q_iso_{r['Rida']}"
-                            )
-                            c_stat = st.text_input(
-                                "Õige määrusejärgne nimetus:",
-                                value=r["Ametlik määrusejärgne nimetus"] or r["Määrusejärgne nimetus (Excel)"],
-                                key=f"q_stat_{r['Rida']}"
-                            )
+                        with col_card1:
+                            st.markdown("##### 📄 Esitatud arvel")
+                            st.write(f"• **Toode:** {raw_name}")
+                            st.write(f"• **ISO kood:** `{r['ISO kood (Excel)']}`")
+                            st.write(f"• **Nimetus:** {r['Määrusejärgne nimetus (Excel)']}")
 
-                            if st.button(f"💾 Kinnita ja salvesta teadmistebaasi (Rida {r['Rida']})", key=f"q_btn_{r['Rida']}", type="primary"):
+                        with col_card2:
+                            st.markdown("##### 💡 Süsteemi soovitus")
+                            s_prod = r['Tuvastatud ametlik toode'] or "Tundmatu toode"
+                            s_mfg = f" ({r['Tootja']})" if r.get('Tootja') else ""
+                            st.write(f"• **Toode:** **{s_prod}**{s_mfg}")
+                            st.write(f"• **Ametlik ISO:** `{r['Ametlik ISO kood'] or 'Määramata'}`")
+                            st.write(f"• **Ametlik nimetus:** {r['Ametlik määrusejärgne nimetus'] or 'Määramata'}")
+
+                        st.divider()
+
+                        # 2. LAHKNEVUSE PÕHJUS JA TEGEVUSJUHIS
+                        rec_action = get_action_recommendation(
+                            status=r['Valideerimise staatus'],
+                            excel_iso=str(r.get('ISO kood (Excel)', '')),
+                            official_iso=str(r.get('Ametlik ISO kood', '')),
+                            excel_statutory=str(r.get('Määrusejärgne nimetus (Excel)', '')),
+                            official_statutory=str(r.get('Ametlik määrusejärgne nimetus', '')),
+                            official_product=str(r.get('Tuvastatud ametlik toode', '')),
+                            restriction_warning=str(r.get('Selgitus', ''))
+                        )
+
+                        st.markdown(f"**Põhjus:** {r.get('Selgitus')}")
+                        st.caption(f"👉 **Soovitus:** {rec_action}")
+
+                        # 3. KINNITAMINE VÕI KÄSITSI PARANDUS
+                        col_btn, col_edit = st.columns([1, 1])
+                        with col_edit:
+                            manual_edit = st.checkbox("✏️ Soovin väärtusi käsitsi muuta enne kinnitamist", key=f"medit_{row_id}")
+
+                        if manual_edit:
+                            st.markdown("**Käsitsi korrigeerimine:**")
+                            c_off = st.text_input("Kinnitatud tootenimi:", value=r["Tuvastatud ametlik toode"] or raw_name, key=f"inp_off_{row_id}")
+                            c_iso = st.text_input("Kinnitatud ISO kood:", value=r["Ametlik ISO kood"] or r["ISO kood (Excel)"], key=f"inp_iso_{row_id}")
+                            c_stat = st.text_input("Kinnitatud määrusejärgne nimetus:", value=r["Ametlik määrusejärgne nimetus"] or r["Määrusejärgne nimetus (Excel)"], key=f"inp_stat_{row_id}")
+                        else:
+                            c_off = r["Tuvastatud ametlik toode"] or raw_name
+                            c_iso = r["Ametlik ISO kood"] or r["ISO kood (Excel)"]
+                            c_stat = r["Ametlik määrusejärgne nimetus"] or r["Määrusejärgne nimetus (Excel)"]
+
+                        with col_btn:
+                            btn_label = f"💾 Kinnita otsus (Rida {row_id})"
+                            if st.button(btn_label, key=f"q_btn_{row_id}"):
                                 kb.confirm_mapping(
-                                    raw_name=r["Abivahendi nimetus (Excel)"],
-                                    normalized_name=r.get("Normaliseeritud nimetus") or normalize_name(r["Abivahendi nimetus (Excel)"]),
-                                    official_product=c_official,
+                                    raw_name=raw_name,
+                                    normalized_name=r.get("Normaliseeritud nimetus") or normalize_name(raw_name),
+                                    official_product=c_off,
                                     iso_code=c_iso,
                                     statutory_name=c_stat,
                                     confidence=1.0
                                 )
-                                st.success("Kirje salvestatud teadmistebaasi! Järgmisel töötlemisel võetakse arvesse.")
+                                st.success("Otsus kinnitatud! Süsteem rakendab seda tulevastes failides automaatselt.")
                                 st.rerun()
+
+                        # 4. KOKKUKLAPITAV TEHNILINE AUDITINFO
+                        with st.expander("🔬 Vaata tehnilisi tuvastusandmeid (usaldusskoor, allikad, analüüs)"):
+                            st.write(f"- Usaldusskoor: **{r.get('Usaldusskoor', 0)*100:.1f}%**")
+                            st.write(f"- Tuvastuse allikas: {r.get('Tuvastuse allikas')}")
+                            st.write(f"- Kitsenduse reeglikontroll: {r.get('Kitsenduse kontroll')}")
+                            st.write(f"- Normaliseeritud nimetus: `{r.get('Normaliseeritud nimetus')}`")
+                            if r.get("Põhjendus"):
+                                st.write(f"- Agendi arutluskäik: {r.get('Põhjendus')}")
 
 
 # ==============================================================================
@@ -407,7 +453,7 @@ else:
     tab_reg, tab_class, tab_kb, tab_admin = st.tabs([
         f"📦 Tooteregister ({reg_stats['total_products']:,} toodet)".replace(",", " "),
         f"🏛️ Riiklik klassifikaator ({class_count} ISO koodi)",
-        f"🧠 Õppiv teadmistebaas ({kb_count} reeglit)",
+        f"🧠 Kinnitatud reeglid ({kb_count})",
         "⚙️ Haldus ja süsteemiinfo"
     ])
 
@@ -501,14 +547,14 @@ else:
             }
             st.dataframe(df_classes[valid_show].rename(columns=rename_classes), use_container_width=True, height=500)
 
-    # 3. TEADMISTEBAAS
+    # 3. KINNITATUD REEGLID (ENDINE TEADMISTEBAAS)
     with tab_kb:
-        st.subheader("🧠 Õppiv teadmistebaas")
-        st.caption("Spetsialisti poolt käsitsi kinnitatud reeglid ja erandid, mida rakendatakse eelisjärjekorras.")
+        st.subheader("🧠 Kinnitatud reeglid ja erandid")
+        st.caption("Spetsialisti poolt kinnitatud reeglid, mida süsteem rakendab automaatselt eelisjärjekorras.")
 
         all_entries = kb.get_all()
         if not all_entries:
-            st.info("Teadmistebaas on hetkel tühi. Reeglid lisanduvad siia, kui kinnitate töölaual lahknevustega kirjeid.")
+            st.info("Kinnitatud reegleid ei ole veel lisatud. Reeglid lisanduvad siia, kui kinnitate töölaual lahknevustega kirjeid.")
         else:
             kb_df = pd.DataFrame(all_entries)
 
@@ -518,9 +564,9 @@ else:
                 kb_df.to_excel(towrite_kb, index=False, engine="openpyxl")
                 towrite_kb.seek(0)
                 st.download_button(
-                    label="💾 Laadi teadmistebaas alla (.xlsx)",
+                    label="💾 Laadi reeglid alla (.xlsx)",
                     data=towrite_kb,
-                    file_name="valideer_teadmistebaas.xlsx",
+                    file_name="kinnitatud_reeglid.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     use_container_width=True
                 )
