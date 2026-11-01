@@ -1,7 +1,9 @@
 """Õppiva teadmistebaasi (Knowledge Base) moodul.
 
-Säilitab AINULT kasutaja kinnitatud teadmised ja valideerimise ajaloo,
-mitte töödeldud Exceli ridu ega isikuandmeid.
+PÕHIPRINTSIIP:
+Süsteem õpib AINULT aliasnimesid ja arvetel esinevaid kirjapilte seoses ametliku tootega.
+Süsteem EI ÕPI arvelt ISO-koode ega määrusejärgseid nimetusi: need pärinevad alati
+ametlikest tõeallikatest (ametlik_klassifikaator ja tooteregister).
 """
 
 import sqlite3
@@ -14,7 +16,7 @@ from contextlib import contextmanager
 
 class KnowledgeBase:
     """
-    Haldab kinnitatud toodete seoseid ja õppimise ajalugu.
+    Haldab arvetel esinevate tootenimede ja kanooniliste toodete vahelisi seoseid (aliased).
     """
 
     def __init__(self, db_path: str = "data/valideer.db"):
@@ -47,7 +49,7 @@ class KnowledgeBase:
                     kinnituste_arv INTEGER DEFAULT 1,
                     viimane_valideerimine TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     valideerimise_ajalugu TEXT DEFAULT '[]',
-                    CONSTRAINT unikaalne_kiri UNIQUE (normaliseeritud_nimetus, ametlik_toode, iso_kood)
+                    CONSTRAINT unikaalne_kiri UNIQUE (normaliseeritud_nimetus, ametlik_toode)
                 )
             """)
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_norm ON teadmistebaas(normaliseeritud_nimetus)")
@@ -70,10 +72,8 @@ class KnowledgeBase:
 
     def lookup(self, raw_name: str, normalized_name: str) -> Optional[Dict[str, Any]]:
         """
-        Otsib seost teadmistebaasist enne uut otsingut.
-        Eelistusjärjestus:
-        1. Täpne normaliseeritud vaste
-        2. Täpne algne vaste
+        Otsib toote seost (aliast) teadmistebaasist.
+        Tagastab kirje, kus on näidatud seos ametliku tootega ('ametlik_toode').
         """
         if not normalized_name and not raw_name:
             return None
@@ -112,23 +112,21 @@ class KnowledgeBase:
         algne_nimetus: str,
         normaliseeritud_nimetus: str,
         ametlik_toode: str,
-        iso_kood: str,
-        maarusejargne_nimetus: str
+        iso_kood: str = "",
+        maarusejargne_nimetus: str = ""
     ) -> Dict[str, Any]:
         """
-        Salvestab spetsialisti poolt kinnitatud uue seose või uuendab olemasolevat.
-        Salvestab valideerimise ajaloo ja tõstab usaldustaset.
+        Kinnitab arvel esitatud kirjapildi seose ametliku tootega (aliase õppimine).
         """
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         with self._connection() as conn:
             cursor = conn.cursor()
 
-            # Kontrollime, kas kirje juba eksisteerib
             cursor.execute("""
                 SELECT id, kinnituste_arv, valideerimise_ajalugu FROM teadmistebaas
-                WHERE normaliseeritud_nimetus = ? AND ametlik_toode = ? AND iso_kood = ?
-            """, (normaliseeritud_nimetus, ametlik_toode, iso_kood))
+                WHERE normaliseeritud_nimetus = ? AND ametlik_toode = ?
+            """, (normaliseeritud_nimetus, ametlik_toode))
             existing = cursor.fetchone()
 
             if existing:
@@ -136,7 +134,6 @@ class KnowledgeBase:
                 new_count = existing["kinnituste_arv"] + 1
                 new_confidence = self.calculate_confidence(new_count)
 
-                # Lisa ajaloo kirje
                 try:
                     history = json.loads(existing["valideerimise_ajalugu"] or "[]")
                 except Exception:
@@ -151,6 +148,7 @@ class KnowledgeBase:
                     UPDATE teadmistebaas 
                     SET kinnituste_arv = ?, 
                         usaldustase = ?, 
+                        iso_kood = ?,
                         maarusejargne_nimetus = ?,
                         viimane_valideerimine = ?,
                         valideerimise_ajalugu = ?
@@ -158,7 +156,8 @@ class KnowledgeBase:
                 """, (
                     new_count,
                     new_confidence,
-                    maarusejargne_nimetus,
+                    iso_kood or "",
+                    maarusejargne_nimetus or "",
                     now,
                     json.dumps(history, ensure_ascii=False),
                     record_id
@@ -168,7 +167,7 @@ class KnowledgeBase:
                 new_confidence = self.calculate_confidence(new_count)
                 history = [{
                     "aeg": now,
-                    "syndmus": "esmane_kinnitus_loodud",
+                    "syndmus": "esmane_seos_loodud",
                     "kinnitus_nr": 1
                 }]
 
@@ -188,8 +187,8 @@ class KnowledgeBase:
                     algne_nimetus,
                     normaliseeritud_nimetus,
                     ametlik_toode,
-                    iso_kood,
-                    maarusejargne_nimetus,
+                    iso_kood or "",
+                    maarusejargne_nimetus or "",
                     new_confidence,
                     new_count,
                     now,
@@ -201,6 +200,24 @@ class KnowledgeBase:
 
             cursor.execute("SELECT * FROM teadmistebaas WHERE id = ?", (record_id,))
             return dict(cursor.fetchone())
+
+    def confirm_mapping(
+        self,
+        raw_name: str,
+        normalized_name: str,
+        official_product: str,
+        iso_code: str = "",
+        statutory_name: str = "",
+        confidence: float = 1.0
+    ) -> Dict[str, Any]:
+        """Mugavusmeetod aliase kinnitamiseks."""
+        return self.confirm(
+            algne_nimetus=raw_name,
+            normaliseeritud_nimetus=normalized_name,
+            ametlik_toode=official_product,
+            iso_kood=iso_code,
+            maarusejargne_nimetus=statutory_name
+        )
 
     def record_validation(self, record_id: int, status: str) -> None:
         """Salvestab valideerimise ajatempli ja sündmuse ajalukku."""
@@ -214,7 +231,6 @@ class KnowledgeBase:
                     history = json.loads(row["valideerimise_ajalugu"] or "[]")
                 except Exception:
                     history = []
-                # Säilitame viimased 20 sündmust
                 history.append({"aeg": now, "syndmus": f"valideeritud_{status}"})
                 history = history[-20:]
 
@@ -234,14 +250,14 @@ class KnowledgeBase:
             return [dict(r) for r in cursor.fetchall()]
 
     def count(self) -> int:
-        """Tagastab teadmistebaasis olevate kirjete koguarvu."""
+        """Tagastab kinnitatud aliaste koguarvu."""
         with self._connection() as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT COUNT(*) FROM teadmistebaas")
             return cursor.fetchone()[0]
 
     def delete(self, record_id: int) -> bool:
-        """Kustutab konkreetse kirje (vajalik ekslike kinnituste tühistamiseks)."""
+        """Kustutab seose (vajalik ekslike kinnituste tühistamiseks)."""
         with self._connection() as conn:
             cursor = conn.cursor()
             cursor.execute("DELETE FROM teadmistebaas WHERE id = ?", (record_id,))

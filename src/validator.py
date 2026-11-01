@@ -68,7 +68,11 @@ class Validator:
 
         if not is_compliant:
             status = self.STATUS_RESTRICTION
-            explanation = restriction_warning
+            explanation = (
+                f"Tuvastatud toode: '{official_product or excel_name}'. "
+                f"Tõeallika kitsendus (Määrus nr 74): {restriction_warning}. "
+                f"Lahknevus: Toode või esitatud tehingurida ei vasta riikliku hüvitamise tingimustele."
+            )
 
         # 1. Kui toode tuvastati (kas teadmistebaasist või agendi poolt) ja kitsendust ei rikutud
         elif official_product and official_iso and official_statutory:
@@ -78,25 +82,41 @@ class Validator:
             if iso_ok and name_ok:
                 if in_kb:
                     status = self.STATUS_MATCH
-                    explanation = f"Kinnitatud toode '{official_product}': ISO-kood ja määrusejärgne nimetus on ametliku klassifikaatoriga kooskõlas ning vastab kitsendustele."
+                    explanation = (
+                        f"Tuvastatud toode: '{official_product}'. "
+                        f"Tõeallika ametlik ISO '{official_iso}' ja nimetus '{official_statutory}' "
+                        f"vastavad arvel esitatud andmetele ning määruse kitsendustele."
+                    )
                 else:
-                    # Tuvastatud agendi poolt esmakordselt, klapib, vajab kinnitust teadmistebaasi lisamiseks
                     status = self.STATUS_MATCH
                     explanation = (
-                        f"Agent tuvastas toote '{official_product}' ({int(confidence*100)}% usaldus). "
-                        f"ISO-kood ja määrusejärgne nimetus klapivad esitatud andmetega ning vastavad kitsendustele."
+                        f"Tuvastatud toode: '{official_product}' ({int(confidence*100)}% usaldus). "
+                        f"Tõeallika ametlik ISO '{official_iso}' ja nimetus '{official_statutory}' "
+                        f"klapivad arvel esitatud andmetega."
                     )
             elif not iso_ok and name_ok:
                 status = self.STATUS_WRONG_ISO
-                explanation = f"Exceli ISO '{excel_iso}' ei vasta toote ainsale ametlikule koodile '{official_iso}'."
+                explanation = (
+                    f"Tuvastatud toode: '{official_product}'. "
+                    f"Tõeallika ametlik ISO: '{official_iso}' ({official_statutory}). "
+                    f"Arvel esitatud ISO: '{excel_iso}'. "
+                    f"Lahknevus: Arvel esitatud ISO kood ei vasta toote ametlikule klassifikatsioonile."
+                )
             elif iso_ok and not name_ok:
                 status = self.STATUS_WRONG_NAME
-                explanation = f"Exceli määrusejärgne nimetus ei vasta ametlikule nimetusele '{official_statutory}'."
+                explanation = (
+                    f"Tuvastatud toode: '{official_product}'. "
+                    f"Tõeallika ametlik nimetus: '{official_statutory}'. "
+                    f"Arvel esitatud nimetus: '{excel_statutory_name}'. "
+                    f"Lahknevus: Arvel esitatud määrusejärgne nimetus ei vasta määrusele nr 74."
+                )
             else:
                 status = self.STATUS_WRONG_BOTH
                 explanation = (
-                    f"Vale ISO ('{excel_iso}' vs toote ametlik kood '{official_iso}') JA "
-                    f"vale määrusejärgne nimetus ('{official_statutory}')."
+                    f"Tuvastatud toode: '{official_product}'. "
+                    f"Tõeallika ametlikud andmed: ISO '{official_iso}', nimetus '{official_statutory}'. "
+                    f"Arvel esitatud: ISO '{excel_iso}', nimetus '{excel_statutory_name}'. "
+                    f"Lahknevus: Arvel on valed nii ISO kood kui ka määrusejärgne nimetus."
                 )
 
             # Salvesta valideerimise ajalugu teadmistebaasis, kui oli KB kirje
@@ -111,25 +131,40 @@ class Validator:
                 if cand:
                     status = self.STATUS_REVIEW
                     explanation = (
-                        f"Toode '{official_product}' tuvastati kõrge usaldusväärsusega ({int(confidence*100)}%). "
-                        f"Seos riikliku klassifikaatori koodiga '{excel_iso}' vajab spetsialisti kinnitust."
+                        f"Tuvastatud toode: '{official_product}' ({int(confidence*100)}% usaldus). "
+                        f"Arvel esitatud ISO: '{excel_iso}'. "
+                        f"Lahknevus: Toote täpne mudel ja seos riikliku klassifikaatoriga vajab spetsialisti kinnitust."
                     )
                 else:
                     status = self.STATUS_WRONG_ISO
-                    explanation = f"Toode tuvastati ('{official_product}'), kuid Exceli ISO '{excel_iso}' ei leidu riiklikus klassifikaatoris."
+                    explanation = (
+                        f"Tuvastatud toode: '{official_product}'. "
+                        f"Arvel esitatud ISO: '{excel_iso}'. "
+                        f"Lahknevus: Arvel esitatud ISO koodi ei eksisteeri riiklikus klassifikaatoris."
+                    )
             else:
                 status = self.STATUS_REVIEW
-                explanation = f"Toode '{official_product}' tuvastati ({int(confidence*100)}%), kuid vajab spetsialisti ülevaatust."
+                explanation = (
+                    f"Tuvastatud toode: '{official_product}' ({int(confidence*100)}% usaldus). "
+                    f"Lahknevus: Toote liigitus klassifikaatoris vajab spetsialisti ülevaatust."
+                )
 
         # 3. Kui toode tuvastati mõõduka usaldusväärsusega (>= 0.45)
         elif official_product and confidence >= 0.45:
             status = self.STATUS_REVIEW
-            explanation = f"Vajab käsitsi kontrolli: toote tuvastamise usaldusskoor on {int(confidence*100)}%."
+            explanation = (
+                f"Esitatud arvel: '{excel_name}'. "
+                f"Tuvastatud võimalik vaste: '{official_product}' (usaldusskoor {int(confidence*100)}%). "
+                f"Lahknevus: Toote vaste vajab spetsialisti kontrolli."
+            )
 
         # 4. Kui toote tuvastamine ebaõnnestus täielikult
         else:
             status = self.STATUS_UNKNOWN
-            explanation = "Tundmatu toode. Toote tuvastamise agent ei suutnud toodet ega tootjat usaldusväärselt tuvastada."
+            explanation = (
+                f"Esitatud arvel: '{excel_name}'. "
+                f"Lahknevus: Tooderegistrist ei leitud usaldusväärset ametlikku toodet. Toode vajab kataloogiga sidumist."
+            )
 
         ret = {
             "Rida": row_index if row_index is not None else 1,

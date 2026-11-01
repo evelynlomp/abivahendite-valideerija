@@ -65,13 +65,27 @@ class ProductMatcher:
                 "kandidaadid": []
             }
 
-        # 1. SAMM: Otsing Teadmistebaasist (Fast-path varem kinnitatud toodetele)
+        # 1. SAMM: Otsing Teadmistebaasist (Kinnitatud aliaste otsing)
         if self.kb:
             kb_match = self.kb.lookup(raw_name=raw_name, normalized_name=normalized)
             if kb_match:
-                iso_code = kb_match["iso_kood"]
-                statutory_name = kb_match["maarusejargne_nimetus"]
-                if self.classifier:
+                official_prod = kb_match["ametlik_toode"]
+                iso_code = kb_match.get("iso_kood")
+                statutory_name = kb_match.get("maarusejargne_nimetus")
+                manufacturer = None
+                category_type = None
+
+                # TÕEALLIKAS: Laadi toote kanoonilised andmed tooteregistrist
+                if self.product_agent and hasattr(self.product_agent, "registry_db") and self.product_agent.registry_db:
+                    prod_obj = self.product_agent.registry_db.find_exact_alias(official_prod)
+                    if prod_obj:
+                        iso_code = prod_obj.get("suggested_iso") or iso_code
+                        statutory_name = prod_obj.get("suggested_statutory_name") or statutory_name
+                        manufacturer = prod_obj.get("manufacturer")
+                        category_type = prod_obj.get("category_type")
+
+                # TÕEALLIKAS: Sünkroniseeri ametliku määrusejärgse nimetusega määrusest nr 74
+                if self.classifier and iso_code:
                     official_record = self.classifier.get_by_iso(iso_code)
                     if official_record:
                         statutory_name = official_record["maarusejargne_nimetus"]
@@ -81,20 +95,24 @@ class ProductMatcher:
                     "normaliseeritud_nimetus": normalized,
                     "in_kb": True,
                     "kb_id": kb_match["id"],
-                    "official_product": kb_match["ametlik_toode"],
-                    "ametlik_toode": kb_match["ametlik_toode"],
+                    "official_product": official_prod,
+                    "ametlik_toode": official_prod,
+                    "manufacturer": manufacturer,
+                    "category_type": category_type,
                     "iso_kood": iso_code,
                     "maarusejargne_nimetus": statutory_name,
+                    "soovituslik_iso": iso_code,
+                    "soovituslik_nimetus": statutory_name,
                     "usaldusskoor": float(kb_match["usaldustase"]),
                     "confidence_score": float(kb_match["usaldustase"]),
                     "kinnituste_arv": kb_match.get("kinnituste_arv", 1),
-                    "allikas": "Teadmistebaas",
+                    "allikas": "Kinnitatud tootealias",
                     "evidence_sources": [
-                        f"Spetsialisti varasem kinnitus teadmistebaasis ({kb_match.get('kinnituste_arv', 1)} korda).",
-                        f"Seos salvestatud: {kb_match.get('viimane_valideerimine', '')}"
+                        f"Spetsialisti kinnitatud tootealias ({kb_match.get('kinnituste_arv', 1)} korda).",
+                        f"Kanooniline toode: '{official_prod}'. Ametlik klassifikatsioon pärineb tõeallikast."
                     ],
                     "alternative_matches": [],
-                    "reasoning": f"Toode '{raw_name}' leiti varem kinnitatud teadmistebaasi kirjena.",
+                    "reasoning": f"Kirjapilt '{raw_name}' on kinnitatud alias ametlikule tootele '{official_prod}'. Tõeallika ametlik ISO: '{iso_code}'.",
                     "kandidaadid": []
                 }
 

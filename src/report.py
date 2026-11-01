@@ -3,6 +3,11 @@
 Loob kahe-tasemelise Exceli töövihiku:
 1. 'Spetsialisti raport' — lühike, selge, tegevusele suunatud (otsustamiseks).
 2. 'Tehniline audit' — täielik auditijälg (usaldusskoorid, tuvastusallikad, kandidaadid).
+
+PÕHIPRINTSIIP:
+Exceli arve andmed on esitatud väited.
+Tõeallikad on kanooniline tooderegister ja Sotsiaalministeeriumi määrus nr 74.
+Raport kõrvutab esitatud arve andmed tõeallikaga ja toob välja konkreetsed lahknevused.
 """
 
 import io
@@ -28,26 +33,26 @@ def get_action_recommendation(
     """Genereerib spetsialistile konkreetse inimkeelse tegevussoovituse."""
     if status == Validator.STATUS_RESTRICTION:
         if restriction_warning:
-            return f"Mittehüvitatav (Määruse välistus). Lükka arverida tagasi. Põhjus: {restriction_warning}"
+            return f"Mittehüvitatav (Määruse välistus). Lükka arverida tagasi. {restriction_warning}"
         return "Mittehüvitatav (Määruse kitsenduse rikkumine). Lükka arverida tagasi või nõua tarnijalt täpsustust."
 
     elif status == Validator.STATUS_WRONG_BOTH:
-        return f"Vajab parandamist: Asenda ISO '{excel_iso}' koodiga '{official_iso}' ja nimetus ametliku nimetusega '{official_statutory}'."
+        return f"Vajab arvel parandamist: Toote ametlikud andmed tõeallikas on ISO '{official_iso}' ja nimetus '{official_statutory}'. Arvel esitatud andmed tuleb korrigeerida."
 
     elif status == Validator.STATUS_WRONG_ISO:
-        return f"Vajab parandamist: Asenda esitatud ISO '{excel_iso}' ametliku koodiga '{official_iso}'."
+        return f"Vajab arvel parandamist: Toote ametlik kood tõeallikas on '{official_iso}'. Arvel esitatud ISO '{excel_iso}' ei vasta toote ametlikule klassifikatsioonile ja tuleb asendada."
 
     elif status == Validator.STATUS_WRONG_NAME:
-        return f"Vajab parandamist: Asenda esitatud nimetus ametliku määrusejärgse nimetusega '{official_statutory}'."
+        return f"Vajab arvel parandamist: Toote ametlik nimetus määruses nr 74 on '{official_statutory}'. Arvel esitatud nimetus tuleb korrigeerida."
 
     elif status == Validator.STATUS_REVIEW:
-        return f"Vajab ülevaatust: Tuvastati '{official_product}' (soovitatav ISO {official_iso}). Kinnita või paranda vaste."
+        return f"Vajab kontrolli: Tuvastati võimalik vaste '{official_product}' (ametlik ISO {official_iso}). Kinnita toote identiteet."
 
     elif status == Validator.STATUS_UNKNOWN:
-        return "Tundmatu toode: Nimetus ei kattu kataloogiga. Täpsusta tarnijaga toote täpne mudel ja parameetrid."
+        return "Tundmatu toode: Kirjet ei leitud tooderegistrist. Nõua tarnijalt toote täpne mudel ja tehnilised andmed."
 
     elif status == Validator.STATUS_MATCH:
-        return "Nõuetele vastav: Toode, ISO kood ja nimetus on korras. Täiendav tegevus pole vajalik."
+        return "Nõuetele vastav: Arvel esitatud andmed klapivad tõeallikaga ja vastavad hüvitamise nõuetele."
 
     return "Vaata üle ja otsusta."
 
@@ -90,15 +95,15 @@ def generate_validation_report(results: List[Dict[str, Any]]) -> bytes:
         specialist_rows.append({
             "Rida": r.get("Rida", 1),
             "Otsuse staatus": clean_status,
-            "Soovitatav tegevus": action,
-            "Põhjus ja määruse viide": r.get("Selgitus", ""),
             "Arvel esitatud tootenimi": r.get("Abivahendi nimetus (Excel)", ""),
             "Arvel esitatud ISO": r.get("ISO kood (Excel)", ""),
             "Arvel esitatud nimetus": r.get("Määrusejärgne nimetus (Excel)", ""),
-            "Tuvastatud toode": r.get("Tuvastatud ametlik toode", ""),
-            "Tootja": r.get("Tootja", ""),
-            "Ametlik ISO kood": r.get("Ametlik ISO kood", ""),
-            "Ametlik määrusejärgne nimetus": r.get("Ametlik määrusejärgne nimetus", "")
+            "Tõeallikas: Tuvastatud toode": r.get("Tuvastatud ametlik toode", ""),
+            "Tõeallikas: Tootja": r.get("Tootja", ""),
+            "Tõeallikas: Ametlik ISO": r.get("Ametlik ISO kood", ""),
+            "Tõeallikas: Ametlik nimetus": r.get("Ametlik määrusejärgne nimetus", ""),
+            "Tuvastatud lahknevus ja põhjus": r.get("Selgitus", ""),
+            "Soovitatav tegevus arve menetlejale": action
         })
 
     # 2. Koosta Tehnilise auditi andmed
@@ -173,7 +178,7 @@ def generate_validation_report(results: List[Dict[str, Any]]) -> bytes:
                 cell.font = Font(name="Calibri", size=10)
                 if key == "Rida":
                     cell.alignment = Alignment(horizontal="center", vertical="top")
-                elif key in ["Otsuse staatus", "Valideerimise staatus", "Arvel esitatud ISO", "Ametlik ISO kood", "Ametlik ISO"]:
+                elif key in ["Otsuse staatus", "Valideerimise staatus", "Arvel esitatud ISO", "Tõeallikas: Ametlik ISO", "Ametlik ISO"]:
                     cell.alignment = Alignment(horizontal="center", vertical="top")
                 else:
                     cell.alignment = Alignment(horizontal="left", vertical="top", wrap_text=True)
@@ -185,10 +190,9 @@ def generate_validation_report(results: List[Dict[str, Any]]) -> bytes:
             col_name = str(col[0].value or "")
             for cell in col:
                 val_str = str(cell.value or "")
-                # Arvesta lahtri pikkust
-                max_len = max(max_len, min(len(val_str), 50))
+                max_len = max(max_len, min(len(val_str), 55))
             calculated_width = max(max_len + 3, len(col_name) + 3, 10)
-            ws.column_dimensions[col_letter].width = min(calculated_width, 60)
+            ws.column_dimensions[col_letter].width = min(calculated_width, 65)
 
     write_sheet(ws1, specialist_rows, header_fill_1)
     write_sheet(ws2, audit_rows, header_fill_2)

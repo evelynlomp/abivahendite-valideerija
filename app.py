@@ -355,42 +355,45 @@ if app_mode == "📋 Valideerimise töölaud":
                 height=450
             )
 
-        # --- 4. PROBLEEMSETE KIRJETE LIHTSUSTATUD VAADE (MADAL KOGNITIIVNE KOORMUS) ---
+        # --- 4. PROBLEEMSETE KIRJETE LAHENDAMINE (TÕEALLIKA PÕHINE OTSUSTUSMUDEL) ---
         with tab_queue:
-            st.subheader("✍️ Paranda ja kinnita kirjed")
-            st.caption("Vaata üle süsteemi ettepanekud ja kinnita õiged väärtused. Süsteem jätab sinu kinnituse tulevikuks meelde.")
+            st.subheader("✍️ Probleemsete kirjete lahendamine")
+            st.caption(
+                "Kinnita arvel esitatud kirjapildi vastavus ametlikule tootele. "
+                "ISO kood, määrusejärgne nimetus ja kitsendused pärinevad alati tõeallikatest (tooteregister ja määrus nr 74), mitte arvelt."
+            )
 
             if len(unresolved) == 0:
                 st.success("Kõik tooted vastavad nõuetele! Ühtegi lahendamist vajavat kirjet ei ole.")
             else:
-                st.info(f"Otsustamist vajab {len(unresolved)} kirjet.")
+                st.info(f"Otsustamist ja toote seostamist vajab {len(unresolved)} kirjet.")
 
                 for _, r in unresolved.iterrows():
                     st_label = format_status_label(r['Valideerimise staatus'])
                     row_id = r['Rida']
                     raw_name = r['Abivahendi nimetus (Excel)']
+                    s_prod = r['Tuvastatud ametlik toode'] or "Tundmatu toode"
+                    s_mfg = f" ({r['Tootja']})" if r.get('Tootja') else ""
 
                     with st.expander(f"Rida {row_id}: {raw_name}  —  [{st_label}]"):
-                        # 1. ESITATUD VS SOOVITUS KÕRVUTI
+                        # 4-ASTMELINE VÕRDLUSMUDEL
                         col_card1, col_card2 = st.columns(2)
 
                         with col_card1:
-                            st.markdown("##### 📄 Esitatud arvel")
-                            st.write(f"• **Toode:** {raw_name}")
-                            st.write(f"• **ISO kood:** `{r['ISO kood (Excel)']}`")
-                            st.write(f"• **Nimetus:** {r['Määrusejärgne nimetus (Excel)']}")
+                            st.markdown("##### 1. 📄 Esitatud arvel (Kontrollitav väide)")
+                            st.write(f"• **Arvel olev tootenimi:** {raw_name}")
+                            st.write(f"• **Arvel esitatud ISO:** `{r['ISO kood (Excel)']}`")
+                            st.write(f"• **Arvel esitatud nimetus:** {r['Määrusejärgne nimetus (Excel)']}")
 
                         with col_card2:
-                            st.markdown("##### 💡 Süsteemi soovitus")
-                            s_prod = r['Tuvastatud ametlik toode'] or "Tundmatu toode"
-                            s_mfg = f" ({r['Tootja']})" if r.get('Tootja') else ""
-                            st.write(f"• **Toode:** **{s_prod}**{s_mfg}")
-                            st.write(f"• **Ametlik ISO:** `{r['Ametlik ISO kood'] or 'Määramata'}`")
-                            st.write(f"• **Ametlik nimetus:** {r['Ametlik määrusejärgne nimetus'] or 'Määramata'}")
+                            st.markdown("##### 2. 🏛️ Tõeallikas (Ametlik toode & klassifikatsioon)")
+                            st.write(f"• **Tuvastatud toode:** **{s_prod}**{s_mfg}")
+                            st.write(f"• **Tõeallika ametlik ISO:** `{r['Ametlik ISO kood'] or 'Määramata'}`")
+                            st.write(f"• **Tõeallika ametlik nimetus:** *{r['Ametlik määrusejärgne nimetus'] or 'Määramata'}*")
 
                         st.divider()
 
-                        # 2. LAHKNEVUSE PÕHJUS JA TEGEVUSJUHIS
+                        # 3. LAHKNEVUSE PÕHJUS JA TEGEVUSJUHIS
                         rec_action = get_action_recommendation(
                             status=r['Valideerimise staatus'],
                             excel_iso=str(r.get('ISO kood (Excel)', '')),
@@ -401,39 +404,61 @@ if app_mode == "📋 Valideerimise töölaud":
                             restriction_warning=str(r.get('Selgitus', ''))
                         )
 
-                        st.markdown(f"**Põhjus:** {r.get('Selgitus')}")
-                        st.caption(f"👉 **Soovitus:** {rec_action}")
+                        st.markdown(f"##### 3. 🔍 Tuvastatud lahknevus tõeallikaga")
+                        st.write(f"**Põhjus:** {r.get('Selgitus')}")
+                        st.caption(f"👉 **Soovitus menetlejale:** {rec_action}")
 
-                        # 3. KINNITAMINE VÕI KÄSITSI PARANDUS
-                        col_btn, col_edit = st.columns([1, 1])
-                        with col_edit:
-                            manual_edit = st.checkbox("✏️ Soovin väärtusi käsitsi muuta enne kinnitamist", key=f"medit_{row_id}")
+                        st.divider()
 
-                        if manual_edit:
-                            st.markdown("**Käsitsi korrigeerimine:**")
-                            c_off = st.text_input("Kinnitatud tootenimi:", value=r["Tuvastatud ametlik toode"] or raw_name, key=f"inp_off_{row_id}")
-                            c_iso = st.text_input("Kinnitatud ISO kood:", value=r["Ametlik ISO kood"] or r["ISO kood (Excel)"], key=f"inp_iso_{row_id}")
-                            c_stat = st.text_input("Kinnitatud määrusejärgne nimetus:", value=r["Ametlik määrusejärgne nimetus"] or r["Määrusejärgne nimetus (Excel)"], key=f"inp_stat_{row_id}")
+                        # 4. OTSUS: TOOTE IDENTITEEDI JA ALIASE KINNITAMINE
+                        st.markdown("##### 4. 🎯 Sinu otsus: Toote vaste kinnitamine")
+                        st.caption("Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Ametlikku ISO-koodi ega nimetust käsitsi ei määrata — need rakenduvad automaatselt valitud toote tõeallikast.")
+
+                        col_btn, col_change = st.columns([1.5, 1])
+                        with col_change:
+                            change_product = st.checkbox("🔍 Vali teine toode tooteregistrist", key=f"chg_{row_id}")
+
+                        chosen_product_name = s_prod
+                        chosen_iso = r["Ametlik ISO kood"]
+                        chosen_stat = r["Ametlik määrusejärgne nimetus"]
+
+                        if change_product:
+                            all_prods = registry_db.get_all_products()
+                            prod_options = [p['official_name'] for p in all_prods]
+                            def_idx = prod_options.index(s_prod) if s_prod in prod_options else 0
+                            selected_from_reg = st.selectbox(
+                                "Otsi ja vali korrektne toode registrist:",
+                                options=prod_options,
+                                index=def_idx,
+                                key=f"sel_p_{row_id}"
+                            )
+                            chosen_product_name = selected_from_reg
+                            chosen_obj = registry_db.find_exact_alias(chosen_product_name)
+                            if chosen_obj:
+                                chosen_iso = chosen_obj.get("suggested_iso", "")
+                                chosen_stat = chosen_obj.get("suggested_statutory_name", "")
+                                st.info(f"Valitud toote ametlik ISO: **`{chosen_iso}`** | Määrusejärgne nimetus: **{chosen_stat}** (pärineb tooderegistrist)")
                         else:
-                            c_off = r["Tuvastatud ametlik toode"] or raw_name
-                            c_iso = r["Ametlik ISO kood"] or r["ISO kood (Excel)"]
-                            c_stat = r["Ametlik määrusejärgne nimetus"] or r["Määrusejärgne nimetus (Excel)"]
+                            chosen_obj = registry_db.find_exact_alias(s_prod)
+                            if chosen_obj:
+                                chosen_iso = chosen_obj.get("suggested_iso", r["Ametlik ISO kood"])
+                                chosen_stat = chosen_obj.get("suggested_statutory_name", r["Ametlik määrusejärgne nimetus"])
 
                         with col_btn:
-                            btn_label = f"💾 Kinnita otsus (Rida {row_id})"
-                            if st.button(btn_label, key=f"q_btn_{row_id}"):
+                            btn_label = f"✅ Kinnita toote vaste: '{raw_name}' ➔ '{chosen_product_name}'"
+                            if st.button(btn_label, key=f"btn_confirm_{row_id}"):
                                 kb.confirm_mapping(
                                     raw_name=raw_name,
                                     normalized_name=r.get("Normaliseeritud nimetus") or normalize_name(raw_name),
-                                    official_product=c_off,
-                                    iso_code=c_iso,
-                                    statutory_name=c_stat,
+                                    official_product=chosen_product_name,
+                                    iso_code=chosen_iso,
+                                    statutory_name=chosen_stat,
                                     confidence=1.0
                                 )
-                                st.success("Otsus kinnitatud! Süsteem rakendab seda tulevastes failides automaatselt.")
+                                st.success(f"Toote vaste kinnitatud! Tulevastes failides tuvastatakse '{raw_name}' kui '{chosen_product_name}'. Ametlikud koodid pärinevad tõeallikast.")
                                 st.rerun()
 
-                        # 4. KOKKUKLAPITAV TEHNILINE AUDITINFO
+                        # 5. KOKKUKLAPITAV TEHNILINE AUDITINFO
                         with st.expander("🔬 Vaata tehnilisi tuvastusandmeid (usaldusskoor, allikad, analüüs)"):
                             st.write(f"- Usaldusskoor: **{r.get('Usaldusskoor', 0)*100:.1f}%**")
                             st.write(f"- Tuvastuse allikas: {r.get('Tuvastuse allikas')}")
