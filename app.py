@@ -33,10 +33,191 @@ from src.report import generate_validation_report, format_status_label, get_acti
 # --- LEHE SEADISTUS ---
 st.set_page_config(
     page_title="Valideer — Abivahendite andmete kontroll",
-    page_icon="🩺",
+    page_icon="assets/valideer_icon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# --- CVI & DISAINIPÕHIMÕTTED (DARK MODE WCAG 2.2 AA) ---
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Taustad */
+  --bg-dark-base: #0B0F19;      /* Peamine sügav tumesinine taust */
+  --bg-dark-surface: #121D32;   /* Kaardid, paneelid ja tabeliread */
+  --bg-dark-hover: #1A2E4C;     /* Interaktiivsete elementide hover-olek */
+  /* Brändi- ja aktsentvärvid */
+  --brand-primary: #2A9D8F;     /* Muted blue-green (kinnitused, primaarsed nupud) */
+  --brand-accent: #48CAE4;      /* Hele aktsentsinine (fookus, aktiivsed olekud, info) */
+  --brand-navy: #1D3557;        /* Tumesinine (tugevamad struktuurijooned) */
+  /* Tekstid */
+  --text-primary: #F4F6F9;      /* Selge, ligipääsetav valkjas tekst põhiinfole */
+  --text-secondary: #94A3B8;    /* Hallikas tekst lisainfole */
+  --text-success: #4ADC8C;      /* WCAG-sõbralik roheline staatuste jaoks */
+  /* Piirjooned ja fookus */
+  --border-subtle: #1E293B;     /* Peened eraldusjooned paneelide vahel */
+  --focus-outline: #48CAE4;     /* Kontrastne fookusäär klaviatuuriga navigeerimiseks */
+}
+
+/* Üldine tüpograafia ja taust */
+html, body, [class*="css"], [class*="st-"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+}
+
+.stApp {
+  background-color: var(--bg-dark-base) !important;
+}
+
+[data-testid="stSidebar"] {
+  background-color: var(--bg-dark-base) !important;
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+/* Pealkirjad */
+h1 {
+  font-size: 1.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--text-primary) !important;
+}
+
+h2 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-primary) !important;
+}
+
+h3, h4, h5 {
+  color: var(--text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.label-micro {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+/* Kaardid ja mõõdikud */
+div[data-testid="stMetric"] {
+  background-color: var(--bg-dark-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25) !important;
+}
+
+div[data-testid="stMetricLabel"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+div[data-testid="stMetricValue"] {
+  color: var(--text-primary) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+}
+
+/* Nupud */
+.stButton > button {
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border-subtle) !important;
+  background-color: var(--bg-dark-surface) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+.stButton > button:hover {
+  background-color: var(--bg-dark-hover) !important;
+  border-color: var(--brand-accent) !important;
+  color: var(--text-primary) !important;
+}
+
+.stButton > button:focus-visible {
+  outline: 3px solid var(--focus-outline) !important;
+  outline-offset: 2px !important;
+}
+
+/* Primaarsed tegevusnupud ja raporti laadimine */
+.stButton > button[kind="primary"], .stDownloadButton > button {
+  background-color: var(--brand-primary) !important;
+  color: #FFFFFF !important;
+  border: 1px solid transparent !important;
+}
+
+.stButton > button[kind="primary"]:hover, .stDownloadButton > button:hover {
+  background-color: #238579 !important;
+}
+
+/* Vahekaardid (Tabs) */
+.stTabs [data-baseweb="tab-list"] {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  gap: 8px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  padding: 10px 16px !important;
+}
+
+.stTabs [aria-selected="true"] {
+  color: var(--brand-accent) !important;
+  border-bottom: 2px solid var(--brand-accent) !important;
+}
+
+/* Laiendatavad paneelid (Expanders) */
+div[data-testid="stExpander"] {
+  background-color: var(--bg-dark-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+div[data-testid="stExpander"] summary {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+div[data-testid="stExpander"] summary:hover {
+  color: var(--brand-accent) !important;
+}
+
+/* Tabelid */
+div[data-testid="stDataFrame"] {
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 8px !important;
+  background-color: var(--bg-dark-surface) !important;
+}
+
+/* Teavituskastid ja juhised */
+div[data-testid="stAlert"] {
+  background-color: var(--bg-dark-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-left: 4px solid var(--brand-accent) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+}
+
+/* Eraldusjooned */
+hr {
+  border-color: var(--border-subtle) !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 # --- KOMPONENTIDE INITSIALISEERIMINE ---
@@ -85,9 +266,11 @@ if "input_source_name" not in st.session_state:
 
 # --- KÜLGRIBA NAVIGATSIOON ---
 with st.sidebar:
-    st.image("https://img.icons8.com/fluency/96/medical-clipboard.png", width=54)
-    st.title("Valideer")
-    st.caption("Abivahendite tehinguridade kontrollisüsteem")
+    if os.path.exists("assets/valideer_logo.png"):
+        st.image("assets/valideer_logo.png", width=190)
+    else:
+        st.title("Valideer")
+    st.caption("Abivahendite tehinguridade kontroll")
     st.divider()
 
     app_mode = st.radio(
@@ -120,8 +303,8 @@ if app_mode == "📋 Valideerimise töölaud":
 
     # --- 1. AVALEHT ENNE FAILI LAADIMIST ---
     if st.session_state["df_input"] is None:
-        st.title("🩺 Abivahendite andmete kontroll")
-        st.subheader("Sotsiaalministeeriumi määruse nr 74 tehinguridade automaatne vastavuskontroll")
+        st.title("Abivahendite andmete kontroll")
+        st.caption("Sotsiaalministeeriumi määruse nr 74 tehinguridade automaatne vastavuskontroll")
 
         # Selgitav väärtuskaart esmakordsele kasutajale
         with st.container():
@@ -248,7 +431,7 @@ if app_mode == "📋 Valideerimise töölaud":
         report_filename = f"valideerimise_raport_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
 
         # --- PÄIS: TULEMUSED JA RAPORTI NUPP ---
-        st.title("📊 Valideerimise kokkuvõte")
+        st.title("Valideerimise kokkuvõte")
         st.caption(f"Töödeldud fail: **{st.session_state['input_source_name']}** ({total_rows} rida)")
 
         # ÜLEMISED KOONDMÕÕDIKUD JA CTA
@@ -472,7 +655,7 @@ if app_mode == "📋 Valideerimise töölaud":
 # HARU B: REGISTRID JA HALDUS (ISESEISEV KESKKOND)
 # ==============================================================================
 else:
-    st.title("📚 Registrid ja haldus")
+    st.title("Registrid ja haldus")
     st.caption("Püsivad tõeallikad ja andmebaasid. Kasutatavad igal ajal, ilma faili üleslaadimata.")
 
     tab_reg, tab_class, tab_kb, tab_admin = st.tabs([
