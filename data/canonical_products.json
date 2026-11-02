@@ -1677,7 +1677,7 @@
         "confirmed_count": 10,
         "rejected_count": 0,
         "confidence_pct": 98.0,
-        "last_confirmed_at": "2026-11-02 15:45:55",
+        "last_confirmed_at": "2026-11-02 15:55:21",
         "last_rejected_at": null,
         "rationale": "Sobib aktiivsusgrupp I nõuetele"
       },
@@ -1688,7 +1688,7 @@
         "rejected_count": 1,
         "confidence_pct": 0.0,
         "last_confirmed_at": null,
-        "last_rejected_at": "2026-11-02 15:45:55",
+        "last_rejected_at": "2026-11-02 15:55:21",
         "rationale": "Kuuldeaparaat ei ole mähkmed ega side"
       }
     ]

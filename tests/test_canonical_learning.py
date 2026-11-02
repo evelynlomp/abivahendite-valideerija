@@ -60,6 +60,62 @@ class TestCanonicalLearning(unittest.TestCase):
         self.assertEqual(res_rej["usaldus_protsent"], 0.0)
         self.assertIsNotNone(res_rej["viimane_tagasilukatus_aeg"])
 
+    def test_get_candidate_products(self):
+        sample_prods = [
+            {
+                "canonical_id": "CP-1",
+                "canonical_name": "TEST LIKELY",
+                "manufacturer": "Test Mfg",
+                "brand": "Test Brand",
+                "sources": [{"source_name": "Pood A"}],
+                "aliases": ["Alias 1", "Alias 2"],
+                "images": ["https://example.com/pilt.png"],
+                "matching_isos": [["22.06.15.01", "kuuldeaparaadid", "kandidaat"]]
+            },
+            {
+                "canonical_id": "CP-2",
+                "canonical_name": "TEST UNCLASSIFIED",
+                "manufacturer": "Test Mfg 2",
+                "brand": "Test Brand 2",
+                "sources": [],
+                "aliases": ["Tarvik A"],
+                "images": [],
+                "matching_isos": []
+            }
+        ]
+
+        cands = self.service.get_candidate_products(sample_prods)
+        self.assertEqual(len(cands), 2)
+        
+        # Esimene peab olema LIKELY
+        self.assertEqual(cands[0]["status"], "LIKELY")
+        self.assertEqual(cands[0]["canonical_name"], "TEST LIKELY")
+        self.assertEqual(cands[0]["sources_count"], 1)
+        self.assertEqual(cands[0]["aliases_count"], 2)
+        self.assertEqual(cands[0]["image"], "https://example.com/pilt.png")
+        self.assertEqual(len(cands[0]["iso_candidates"]), 1)
+        self.assertEqual(cands[0]["confidence_score"], 50.0)
+
+        # Teine peab olema UNCLASSIFIED
+        self.assertEqual(cands[1]["status"], "UNCLASSIFIED")
+        self.assertEqual(cands[1]["sources_count"], 0)
+        self.assertEqual(cands[1]["aliases_count"], 1)
+        self.assertIsNone(cands[1]["image"])
+        self.assertEqual(len(cands[1]["iso_candidates"]), 0)
+        self.assertEqual(cands[1]["confidence_score"], 0.0)
+
+    def test_change_iso(self):
+        res = self.service.change_iso(
+            canonical_name="OTICON TEST",
+            new_iso_code="22.06.15.01",
+            new_statutory_name="kõrvatagused kuulmisabivahendid",
+            rationale="Spetsialisti määratud",
+            user="Spetsialist"
+        )
+        self.assertEqual(res["iso_kood"], "22.06.15.01")
+        self.assertEqual(res["kinnitatud_arv"], 1)
+        self.assertEqual(res["usaldus_protsent"], 80.0)
+
 
 if __name__ == "__main__":
     unittest.main()

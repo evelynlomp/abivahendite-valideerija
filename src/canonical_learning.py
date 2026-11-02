@@ -391,6 +391,134 @@ class CanonicalLearningService:
 
         self.sync_to_json()
 
+    def change_iso(
+        self,
+        canonical_name: str,
+        new_iso_code: str,
+        new_statutory_name: str,
+        rationale: str = "",
+        user: str = "Spetsialist"
+    ) -> Dict[str, Any]:
+        """Muudab toote ISO koodi või seob tootele uue ISO ning kinnitab selle."""
+        res = self.record_decision(
+            canonical_name=canonical_name,
+            iso_code=new_iso_code,
+            statutory_name=new_statutory_name,
+            action="CONFIRM",
+            rationale=rationale or f"Spetsialisti määratud uus ISO: {new_iso_code}",
+            user=user
+        )
+
+        if os.path.exists(CANONICAL_JSON_PATH):
+            try:
+                with open(CANONICAL_JSON_PATH, "r", encoding="utf-8") as f:
+                    prods = json.load(f)
+
+                for p in prods:
+                    if p.get("canonical_name") == canonical_name:
+                        existing_isos = [m[0] for m in p.get("matching_isos", [])]
+                        if new_iso_code not in existing_isos:
+                            p.setdefault("matching_isos", []).insert(0, [
+                                new_iso_code,
+                                new_statutory_name,
+                                "Spetsialisti määratud ISO"
+                            ])
+                            p["confidence"] = "KÕRGE KINDLUS"
+
+                with open(CANONICAL_JSON_PATH, "w", encoding="utf-8") as f:
+                    json.dump(prods, f, ensure_ascii=False, indent=2)
+            except Exception as e:
+                print("Viga canonical_products.json uuendamisel change_iso käigus:", e)
+
+        return res
+
+    def get_candidate_products(self, canonical_products: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Tagastab ainult LIKELY ja UNCLASSIFIED tooted spetsialisti kandidaattoodete töölauale.
+        
+        Iga toote juures tagatakse:
+        - kanooniline nimi
+        - tootja
+        - bränd
+        - allikate arv
+        - aliaste arv
+        - pilt
+        - ISO kandidaadid
+        - usaldusprotsent
+        - staatus (LIKELY vs UNCLASSIFIED)
+        """
+        candidates = []
+        all_learned = {(r["canonical_name"], r["iso_kood"]): r for r in self.get_all_learning_records()}
+
+        for p in canonical_products:
+            c_name = p.get("canonical_name", "")
+            mfg = p.get("manufacturer", "Määramata")
+            brand = p.get("brand", "Määramata")
+            sources = p.get("sources", [])
+            aliases = p.get("aliases", [])
+            images = p.get("images", [])
+            matching_isos = p.get("matching_isos", [])
+            conf_label = p.get("confidence", "")
+
+            # ISO kandidaatide koondamine koos õppimisandmetega
+            iso_candidates = []
+            for iso_entry in matching_isos:
+                iso_code = iso_entry[0]
+                iso_name = iso_entry[1] if len(iso_entry) > 1 else ""
+                note = iso_entry[2] if len(iso_entry) > 2 else ""
+
+                rec = all_learned.get((c_name, iso_code))
+                if rec:
+                    iso_conf = rec.get("usaldus_protsent", 50.0)
+                    c_cnt = rec.get("kinnitatud_arv", 0)
+                    r_cnt = rec.get("tagasi_lukatud_arv", 0)
+                    last_act = rec.get("viimane_kinnitus_aeg") or rec.get("viimane_tegevus_aeg")
+                else:
+                    iso_conf = 50.0
+                    c_cnt = 0
+                    r_cnt = 0
+                    last_act = None
+
+                iso_candidates.append({
+                    "iso_code": iso_code,
+                    "statutory_name": iso_name,
+                    "note": note,
+                    "confidence": iso_conf,
+                    "confirmed_count": c_cnt,
+                    "rejected_count": r_cnt,
+                    "last_action": last_act
+                })
+
+            # Tuvastame staatuse: LIKELY vs UNCLASSIFIED
+            if iso_candidates:
+                status = "LIKELY"
+                overall_conf = max([c["confidence"] for c in iso_candidates], default=50.0)
+            else:
+                status = "UNCLASSIFIED"
+                overall_conf = 0.0
+
+            candidates.append({
+                "canonical_id": p.get("canonical_id", "CP-" + c_name.replace(" ", "-")),
+                "canonical_name": c_name,
+                "manufacturer": mfg,
+                "brand": brand,
+                "category": p.get("category", ""),
+                "sources_count": len(sources),
+                "sources": sources,
+                "aliases_count": len(aliases),
+                "aliases": aliases,
+                "image": images[0] if images else None,
+                "images": images,
+                "descriptions": p.get("descriptions", []),
+                "price_str": p.get("price_range_str", "Täpsustamisel"),
+                "iso_candidates": iso_candidates,
+                "confidence_score": overall_conf,
+                "status": status,
+                "raw_product": p
+            })
+
+        return candidates
+
 
 _learning_service_instance: Optional[CanonicalLearningService] = None
 
