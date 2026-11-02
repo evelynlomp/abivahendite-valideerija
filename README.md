@@ -1,85 +1,154 @@
-# Valideer — Abivahendite andmete kontroll & Õppiv teadmistebaas
+# Valideer — Abivahendite andmete kontroll
 
-Valideer on spetsialiseeritud lahendus sotsiaal- ja tervishoiuvaldkonna abivahendite tehinguridade automaatseks kontrolliks ja vigade tuvastamiseks tuhandete ridadega Exceli failides.
+Valideer on spetsialiseeritud lahendus sotsiaal- ja tervishoiuvaldkonna abivahendite tehinguridade automaatseks kontrolliks ja vigade tuvastamiseks tuhandete ridadega failides (Excel, CSV) vastavalt **Sotsiaalministeeriumi määrusele nr 74**.
 
 GitHub repositoorium: **https://github.com/evelynlomp/abivahendite-valideerija**
 
 ---
 
-## Põhiprintsiibid
+## Tõeallika otsustusmudel ja põhiprintsiibid
 
-1. **1:1 determinism (Üks toode = Täpselt üks ISO kood)**:
-   - Iga toode registris vastab eranditult ainult **ühele** ametlikule ISO koodile ja määrusejärgsele nimetusele. Mitmele koodile vastavust ei lubata.
-2. **Määruse sisuliste kitsenduste automaatkontroll (RestrictionEngine)**:
-   - Sotsiaalministeeriumi määruse nr 74 loetelu veerg **C** (*"Abivahendi täpsustus või abivahendi grupi kitsendus"*) ja veerg **M** (*"Abistav kirjeldus, millise funktsioonipiirangu või terviseprobleemi korral abivahend sobib..."*).
-   - Tööriist kontrollib toote füüsikalis-keemilisi omadusi, koostist ja ametlikke välistusi (nt tsinkoksiidi kohustus nahakaitsevahendites, dušigeelide välistus, lävepaku kaldteede välistus, standardse poroloonmadratsi välistus).
-   - Kuna arveridadel puuduvad patsiendi meditsiinilised terviseandmed (nt Bradeni skaala punktid, diagnoosid), keskendub süsteem **toote enda reaalsetele omadustele ja spetsifikatsioonile**.
-3. **Andmeprivaatsus**:
-   - Valideeritavaid Exceli faile ja tehinguridu kettale ega välisserveritesse ei salvestata; töötlemine toimub sessioonimälus.
+Rakenduse äriloogika ja soovituste esitus tugineb neljaastmelisele hierarhilisele tõeallika mudelile:
 
----
+```
+[Arverida / Esitatud sisend]
+        ↓
+[Tuvastatud ametlik toode] (Tooteregister: 4 115 kanoonilist toodet)
+        ↓
+[Ametlikud andmed tõeallikast] (Määrus nr 74: 326 ISO koodi ja kitsendust)
+        ↓
+[Leitud lahknevus ja soovitus] (Võrdlus tõeallika ja arvel esitatu vahel)
+```
 
-## Peamised funktsionaalsused
+1. **Excel ei ole tõeallikas**:
+   - Esitatud tootenimi ja koodid on arvel esitatud sisend.
+   - Süsteem tuvastab sisendi põhjal **ametliku toote**, mis seotakse **riikliku klassifikaatoriga (Määrus nr 74)**.
+   - Ametlik ISO-kood, määrusejärgne nimetus ja piirangud pärinevad **eranditult tõeallikatest**.
+   - Süsteem võib kasutaja kinnitustest õppida tootenime kirjutusvariante (aliaseid), kuid **ei õpi ega muuda kunagi riikliku määruse tõde**.
 
-1. **Määruse kitsenduste mootor (`src/restriction_engine.py`)**:
-   - Kontrollib määruse tehnilisi ja sisulisi piiranguid:
-     - `09.21.18` (Nahakaitsevahendid): AINULT tsinkoksiidi baasil tooted. Muud kreemid/õlid blokeeritakse.
-     - `09.21.06` (Nahapesemisvahendid): Dušigeelid, šampoonid ja seebid on määrusega välistatud.
-     - `18.30.15` (Teisaldatavad kaldteed): Lävepaku kaldteed ei kuulu hüvitamisele.
+2. **1:1 determinism (Üks toode = Täpselt üks ISO kood)**:
+   - Iga toode vastab registris eranditult ainult **ühele** ametlikule ISO koodile ja määrusejärgsele nimetusele.
+
+3. **Määruse sisuliste kitsenduste automaatkontroll (`RestrictionEngine`)**:
+   - Kontrollib Sotsiaalministeeriumi määruse nr 74 loetelu veergude **C** (*kitsendused*) ja **M** (*abistav kirjeldus*) välistusi:
+     - `09.21.18` (Nahakaitsevahendid): AINULT tsinkoksiidi baasil tooted (mitte-tsink kreemid blokeeritakse).
+     - `09.21.06` (Nahapesemisvahendid): Dušigeelid, šampoonid ja seebid on välistatud.
+     - `18.30.15` (Teisaldatavad kaldteed): Lävepaku kaldteed on välistatud.
      - `04.33.06.01` (Lamatiste ennetamise madratsid): Standardsed poroloonmadratsid on välistatud.
      - `18.03.15` (Voodilauad): Öökapid ja voodikapid on välistatud.
      - `09.33.03` (Vanni- ja dušitoolid): Vannitõstukid ja -astmed on välistatud.
-     - `04.48.08.02` (Hingamistreeninguseadmed): Üldised treeninguseadmed on välistatud.
+     - `04.48.08.02` (Hingamistreeninguseadmed): Üldised treeningseadmed on välistatud.
      - `09.33.30.01` (Niisutatud rätikud): Alkoholi- ja lõhnavabad tooted.
-     - `22.12.12` (Ekraanilugemistarkvara ja skannerid): Tavaprinterid on välistatud.
-     - `06.30.03` (Parukad): Juuksepikkus ei tohi ületada 40 cm.
 
-2. **Arukas nimenormaliseerija (`src/normalizer.py`)**:
-   - Eemaldab pakendikoodid (`N30`, `14TK`, `10X30`).
-   - Eemaldab redundantsed tilga- ja imavussõnad (`4 TILKA` -> säilitab numbri `4`).
-   - Puhastab apteegispetsiifilised lisad (`SOODUSTUSEGA`, sulgudes koodid).
-   - Tulemus: `MOLICARE PAD 4`, `MOLICARE PAD 4 TILKA`, `MOLICARE PAD LADY 4` ja `MOLICARE PAD 4 N30` koonduvad samale kanoonilisele tootele.
-
-3. **Mitmeastmeline tuvastus ja usaldusskoor (`src/matcher.py`)**:
-   - **Aste 1: Teadmistebaas** (kui ametnik on varem seose kinnitanud -> usaldus 0.95–1.0).
-   - **Aste 2: Ametlik kataloog (täpne vaste)** -> usaldus 1.0.
-   - **Aste 3: RapidFuzz sarnasuse otsing** (Token Sort / Token Set Ratio).
-
-4. **Reeglimootor ja 7 valideerimise staatust (`src/validator.py`)**:
-   - ✅ **Vastab**: toode, ISO-kood ja määrusejärgne nimetus klapivad ning vastavad kitsendustele.
-   - 🛑 **Ei vasta määruse kitsendusele**: toode rikub määruse veergude C või M tingimust/välistust.
-   - ⚠️ **Vale ISO**: toode ja määrusejärgne nimetus klapivad, kuid ISO-kood on vale.
-   - ⚠️ **Vale määrusejärgne nimetus**: toode ja ISO klapivad, kuid määrusejärgne nimetus on vale.
-   - ❌ **Vale ISO ja määrusejärgne nimetus**: kumbki ei vasta toote ametlikele andmetele.
-   - ❓ **Tundmatu toode**: sarnasusskoor alla lävendi (< 50%).
-   - 🔍 **Vajab käsitsi kontrolli**: toode on sarnane (50% – 85%), kuid vajab spetsialisti kinnitust.
-
-5. **Õppiv teadmistebaas (`src/knowledge_base.py`)**:
-   - SQLite andmebaas (`data/knowledge_base.db`).
-   - Salvestab spetsialisti kinnitatud erandid ja õpitud seosed.
-
-6. **Interaktiivne veebiliides (`app.py`)**:
-   - Exceli lohistamine (`drag & drop`) või näidisfaili laadimine 1 klikiga.
-   - Reaalajas mõõdikud (sh eraldi mõõdik määruse kitsenduste rikkumistele).
-   - Filtreeritav ja värvikoodidega tulemuste tabel koos selgitustega.
-   - **Spetsialisti ülevaatuse järjekord (Review Queue)**.
-   - Valideerimistulemustega rikastatud Exceli allalaadimine.
+4. **Andmeprivaatsus**:
+   - Valideeritavaid faile kettale ega välisserveritesse ei salvestata; töötlemine toimub sessioonimälus.
 
 ---
 
-## Käivitamine
+## Kasutajaliides & Valideer Disainisüsteem 1.0
 
-Rakendus töötab lokaalselt aadressil:
-**http://localhost:8501**
+Kasutajaliides järgib **Valideer Disainisüsteem 1.0** (Dark Mode, WCAG 2.2 AA) põhimõtteid:
+- **Tüpograafia**: `IBM Plex Sans` (tekstid ja pealkirjad) ja `IBM Plex Mono` (koodid, mõõdikud, ISO-numbrid).
+- **Semantiline värvipalett**:
+  - Roheline (`#2EC4B6` / `#22C55E`): Korras, vastavuses.
+  - Merevaik / kollane (`#F59E0B`): Vajab tähelepanu / spetsialisti otsust.
+  - Punane (`#EF4444`): Kriitiline probleem / välistatud abivahend.
+  - Primaarne aktsent (`#66C7B8`): Nupud, fookus, aktiivsed olekud.
+- **Kahetasemeline infoarhitektuur**:
+  - **Töölaud**: Faili laadimine, valideerimine, lahendamist vajavate kirjete ülevaade, 2-tasemelise Exceli raporti allalaadimine.
+  - **Registrid ja haldus**: Tooteregister (4 115 toodet), Riiklik klassifikaator (Määrus nr 74), Kinnitatud reeglid ja süsteemiinfo.
 
-Käsitsi käivitamiseks:
-```bash
-cd "C:\Users\evely\.gemini\antigravity\scratch\valideer"
-.\.venv\Scripts\streamlit run app.py
+---
+
+## Projekti failistruktuur
+
+```
+valideer/
+├── app.py                           # Peamine Streamlit veebirakendus
+├── pyproject.toml                   # Projekti seadistus ja sõltuvused (uv)
+├── uv.lock                          # Lukustatud sõltuvuste versioonid
+├── README.md                        # Projekti dokumentatsioon
+│
+├── src/                             # Põhirakenduse moodulid
+│   ├── classifier.py                # Sotsiaalministeeriumi klassifikaatori haldur (Määrus nr 74)
+│   ├── knowledge_base.py            # Kinnitatud reeglite ja aliaste haldus (SQLite)
+│   ├── matcher.py                   # Mitmeastmeline toote ja koodi vastavuse tuvastaja
+│   ├── normalizer.py                # Teksti, nimetuste ja ISO-koodide normaliseerija
+│   ├── product_agent.py             # Toote tuvastamise agent ja argumenteeritud selgitused
+│   ├── product_registry.py          # Baaskataloogi konstandid ja tootjate spetsifikatsioonid
+│   ├── product_registry_db.py       # Tooteregistri andmebaasikiht (SQLite)
+│   ├── report.py                    # Kahetasemelise Exceli raporti genereerija
+│   ├── restriction_engine.py        # Määruse nr 74 sisuliste kitsenduste reeglimootor
+│   └── validator.py                 # Valideerimise põhireeglimootor (7 staatust)
+│
+├── data/                            # Püsivad andmefailid ja tõeallikad
+│   ├── valideer.db                  # Ühtne SQLite andmebaas (tooteregister, klassifikaator, reeglid)
+│   ├── naidis_sisend_vigadega.xlsx  # Demofail vigaste tehinguridadega testimiseks
+│   ├── Sotsiaalministeeriumi abivahendite loetelu.csv   # Ametlik määrus CSV-formaadis
+│   └── Sotsiaalministeeriumi abivahendite loetelu.xlsx  # Ametlik määrus Exceli formaadis
+│
+├── assets/                          # Disainisüsteemi visuaalsed varad
+│   ├── valideer-logo-flat.svg       # Ametlik lame vektorlogo
+│   ├── valideer-favicon-flat.svg    # Vektorfavicon
+│   ├── valideer_icon.png            # PNG ikoon
+│   └── icons/                       # 21 semantilist SVG ikooni
+│
+├── scripts/                         # Haldus-, sünkroonimis- ja auditiskriptid
+│   ├── cleanup_registry.py          # Registri duplikaatide puhastamine ja kanooniline liitmine
+│   ├── extract_suppliers.py         # Eesti 5 tarnija tootekataloogide sünkroniseerimine
+│   ├── audit_volume_ranges.py       # Imavusmahtude vahemike vastavuskontroll
+│   ├── audit_ml_registry.py         # Registri ml-mahtude ja ISO koodide audit
+│   ├── test_restrictions.py         # Kitsenduste mootori testid
+│   └── verify_restriction_integration.py # Kitsenduste integratsioonitestid
+│
+└── tests/                           # Automaattestid
+    └── test_valideer.py             # Agendi, normaliseerimise ja valideerimisahela testid
 ```
 
-Testide käivitamiseks:
+---
+
+## Kahetasemeline Exceli raport
+
+Valideerimise järgselt eksporditav Exceli raport on jaotatud kaheks selgeks leheks:
+
+1. **Spetsialisti raport** (Põhivaade):
+   - Sisaldab ainult otsuse tegemiseks vajalikku infot:
+     - Arvel esitatud tootenimi ja koodid
+     - Valideerimise staatus (Vastab, Vale ISO, Vale määrusejärgne nimetus, Ei vasta määruse kitsendusele jne)
+     - Tõeallikast tuvastatud ametlik toode ja ametlik ISO kood
+     - Selge tegevussoovitus (nt *"Asendada ISO 09.30.24.16 -> 09.30.24.15"*)
+     - Lahknevuse selgitus arusaadavas keeles
+2. **Tehniline audit** (Ekspertvaade):
+   - Sisaldab täielikku auditijälge:
+     - Tuvastamise usaldusskoor (Confidence score)
+     - Tuvastusviis (Reegel, Täpne vaste, Mudel)
+     - Tõendite allikad (kataloogid, veebiviited)
+     - Alternatiivsed kandidaadid
+     - Normaliseeritud stringid ja tehniline põhjendus
+
+---
+
+## Käivitamine ja testimine
+
+### Nõuded
+- Python 3.11+
+- [uv](https://github.com/astral-sh/uv) või `pip`
+
+### Rakenduse käivitamine
 ```bash
+# Aktiveeri virtuaalkeskkond ja käivita Streamlit
+.\.venv\Scripts\streamlit run app.py
+```
+Rakendus avaneb veebilehitsejas aadressil **http://localhost:8501**.
+
+### Testide käivitamine
+```bash
+# 1. Tuvastamisagendi ja valideerimisahela testid
+.\.venv\Scripts\python tests/test_valideer.py
+
+# 2. Määruse kitsenduste mootori ühiktestid
 .\.venv\Scripts\python scripts/test_restrictions.py
+
+# 3. Kitsenduste integratsioonitestid
 .\.venv\Scripts\python scripts/verify_restriction_integration.py
 ```
