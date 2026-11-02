@@ -1,0 +1,618 @@
+/* ==============================================================================
+   TEDI (TEHIK / VEERA) DISAINISÜSTEEM — DARK MODE TÖÖRIISTA STIILIKOMPLEKT
+   Põhineb TEDI ametlikel komponentidel ja spetsifikatsioonidel (storybook.tedi.ee):
+   - tedi-ready-layout-sidenav & header
+   - tedi-ready-content-card & textgroup
+   - tedi-ready-components-buttons-button & buttongroup
+   - tedi-ready-components-form-filedropzone
+   - tedi-ready-content-accordion
+   - tedi-ready-content-table
+   - tedi-ready-components-tag-statusbadge
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  color-scheme: dark;
+
+  /* 1. TEDI Värvitokenid Dark Mode paletis */
+  --canvas: #0F121C;              /* TEDI sügav tume taust */
+  --surface: #151926;             /* Külgriba (Sidenav) ja baaspinnad */
+  --surface-card: #1C2234;        /* Kaardid (TEDI Card) ja konteinerid */
+  --surface-raised: #242C42;      /* Päised, tõstetud plokid, tabelipäised */
+  --surface-hover: #2C3652;       /* Hõljuk (Hover) ja fookuse taust */
+  --surface-active: #344062;      /* Aktiivne vajutus */
+
+  /* 2. Piirjooned ja jaotajad */
+  --border: #2D364F;              /* Komponentide standardne piirjoon (1px) */
+  --border-subtle: #232B3F;       /* Kaartide sisesed pehmed eraldajad */
+  --border-dashed: #3E4B6E;       /* FileDropzone katkendlik joon */
+  --divider: #262E44;             /* Horisontaalsed sektsioonijaotajad */
+  --focus-ring: #0A78D1;          /* TEDI fookusringi indikaator */
+
+  /* 3. Tüpograafia värvid */
+  --text-primary: #F5F6F8;        /* Põhitekst (kõrge kontrast, WCAG AAA) */
+  --text-secondary: #9AA3B8;      /* Teisene selgitav tekst (WCAG AA) */
+  --text-muted: #758099;          /* Nõrgem abitekst ja sildid */
+  --text-inverse: #0F121C;        /* Tekst heledatel nuppudel */
+
+  /* 4. TEDI Aktsent & Interaktiivsus (TEDI Sapphire & Valideer Teal) */
+  --primary: #0A78D1;             /* TEDI Sapphire heledam (WCAG AA dark) */
+  --primary-hover: #168BEE;       /* Sapphire hõljuk */
+  --primary-pressed: #005AA3;     /* Sapphire algne põhivärv */
+  --brand-teal: #2A9D8F;          /* Valideer brändi rohekas aktsent */
+  --brand-teal-hover: #38B2A3;
+  --brand-cyan: #48CAE4;          /* Valideer brändi helesinine */
+
+  /* 5. TEDI Semantilised staatused (StatusBadge / Alert) */
+  --status-success-bg: rgba(40, 167, 69, 0.16);
+  --status-success-border: #28A745;
+  --status-success-text: #5CD685;
+
+  --status-warning-bg: rgba(230, 149, 0, 0.16);
+  --status-warning-border: #C8830E;
+  --status-warning-text: #FFB84D;
+
+  --status-danger-bg: rgba(223, 101, 101, 0.16);
+  --status-danger-border: #DF6565;
+  --status-danger-text: #FF8080;
+
+  --status-info-bg: rgba(10, 120, 209, 0.16);
+  --status-info-border: #0A78D1;
+  --status-info-text: #70B4E8;
+
+  /* 6. Tüpograafia reeglid (TEDI standard) */
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: 'Roboto Mono', 'SF Mono', Consolas, monospace;
+
+  /* 7. Mõõdud & Raadiused (TEDI standard = 4px raadius) */
+  --radius-sm: 2px;
+  --radius-md: 4px;               /* TEDI põhikomponentide raadius */
+  --radius-pill: 360px;           /* TEDI ümarad olekumärgid */
+  --control-height: 44px;
+
+  /* 8. Tagasiühilduvuse aliased */
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --panel: var(--surface-card);
+  --raised: var(--surface-raised);
+  --accent: var(--brand-teal);
+  --accent-hover: var(--brand-teal-hover);
+  --link: var(--brand-cyan);
+  --ink: var(--canvas);
+  --r-control: var(--radius-md);
+  --r-panel: var(--radius-md);
+}
+
+/* ==============================================================================
+   ÜLDINE TÖÖALA JA TÜPOGRAAFIA
+   ============================================================================== */
+html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, select,
+.stMarkdown, div[data-testid="stMarkdownContainer"], .stCaption {
+  font-family: var(--font-family) !important;
+  color: var(--text-primary) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stApp {
+  background-color: var(--canvas) !important;
+}
+
+/* TEDI Pealkirjade skaala */
+h1 {
+  font-family: var(--font-family) !important;
+  font-size: 2rem !important;        /* 32px / line-height 46px */
+  line-height: 1.44 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-primary) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h2 {
+  font-family: var(--font-family) !important;
+  font-size: 1.75rem !important;      /* 28px / line-height 36px */
+  line-height: 1.28 !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  font-family: var(--font-family) !important;
+  font-size: 1.5rem !important;       /* 24px / line-height 32px */
+  line-height: 1.33 !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h4, h5 {
+  font-family: var(--font-family) !important;
+  font-size: 1.25rem !important;      /* 20px / line-height 26px */
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+p, .stMarkdown p {
+  font-size: 1rem !important;         /* 16px / line-height 24px (150%) */
+  line-height: 1.5 !important;
+  color: var(--text-secondary) !important;
+}
+
+.stCaption, small {
+  font-size: 0.875rem !important;     /* 14px / line-height 20px (143%) */
+  line-height: 1.43 !important;
+  color: var(--text-muted) !important;
+}
+
+hr {
+  border: none !important;
+  border-top: 1px solid var(--divider) !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* ==============================================================================
+   IKONIDE KAITSE JA STREAMLIT KONTROLLID
+   ============================================================================== */
+.material-symbols-rounded,
+.material-symbols-outlined,
+[class*="material-symbols"],
+[data-testid="stIconMaterial"],
+[data-testid*="Icon"] {
+  font-family: 'Material Symbols Rounded', 'Material Icons', sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  direction: ltr !important;
+  -webkit-font-feature-settings: 'liga' !important;
+  font-feature-settings: 'liga' !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+[data-testid="StyledFullScreenButton"],
+button[title="View fullscreen"],
+button[aria-label="View fullscreen"],
+[data-testid="stImageActionButton"],
+div[data-testid="stImage"] button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ==============================================================================
+   TEDI KÜLGRIBA (SIDENAV — tedi-ready-layout-sidenav)
+   ============================================================================== */
+[data-testid="stSidebar"] {
+  background-color: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-brand-svg {
+  width: 190px;
+  max-width: 100%;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.sidebar-brand-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.sidebar-brand-sub {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+/* TEDI Sidenav Menüüelemendid */
+[data-testid="stRadio"] > label {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 8px !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] {
+  gap: 6px !important;
+}
+
+[data-testid="stRadio"] label {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-md) !important;
+  padding: 10px 14px !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  transition: all 0.15s ease-in-out !important;
+  cursor: pointer !important;
+}
+
+[data-testid="stRadio"] label:hover {
+  background-color: var(--surface-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Aktiivne menüüelement (TEDI Sidenav item active) */
+[data-testid="stRadio"] label[data-checked="true"],
+[data-testid="stRadio"] label:has(input:checked) {
+  background-color: var(--surface-card) !important;
+  color: var(--brand-cyan) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 4px solid var(--brand-teal) !important;
+  font-weight: 700 !important;
+}
+
+/* Tõeallikate Paneel Külgribal (TEDI Card) */
+.sidebar-sources {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-top: 12px;
+}
+.sidebar-sources-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand-teal);
+  margin-bottom: 10px;
+}
+.sidebar-source-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.sidebar-source-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.source-name {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.source-badge {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  background: var(--surface-raised);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* Külgriba sulgemisnupp */
+[data-testid="stSidebarCollapseButton"] {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+  border-radius: var(--radius-md) !important;
+}
+[data-testid="stSidebarCollapseButton"]:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--surface-card) !important;
+}
+
+/* ==============================================================================
+   TEDI KAARDID (tedi-ready-content-card) — 3-KAARDI RUUDUSTIK
+   ============================================================================== */
+.valideer-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  margin: 24px 0 32px 0;
+}
+@media (max-width: 960px) {
+  .valideer-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.valideer-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);    /* TEDI 4px standard */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.valideer-card:hover {
+  border-color: var(--primary);
+}
+
+.valideer-card h3 {
+  font-size: 1.125rem !important;     /* 18px */
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 14px 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.valideer-card p {
+  font-size: 0.9375rem !important;     /* 15px */
+  line-height: 1.55 !important;
+  color: var(--text-secondary) !important;
+  margin: 0 !important;
+}
+.valideer-card ul {
+  margin: 0 !important;
+  padding-left: 20px !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.55 !important;
+  color: var(--text-secondary) !important;
+}
+.valideer-card li {
+  margin-bottom: 8px !important;
+}
+.valideer-card li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ==============================================================================
+   TEDI FAILIKESKUS (tedi-ready-components-form-filedropzone)
+   ============================================================================== */
+[data-testid="stFileUploader"] {
+  background-color: var(--surface-card) !important;
+  border: 2px dashed var(--border-dashed) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  padding: 28px 24px !important;
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+[data-testid="stFileUploader"]:hover {
+  border-color: var(--brand-teal) !important;
+  background-color: var(--surface-raised) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"],
+[data-testid="stFileUploader"] small,
+[data-testid="stFileUploader"] span:not([class*="material-symbols"]):not([data-testid*="Icon"]) {
+  font-family: var(--font-family) !important;
+  font-size: 0.875rem !important;
+  color: var(--text-secondary) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Üleslaadimisnupp TEDI Primary stiilis */
+[data-testid="stFileUploader"] button {
+  min-height: var(--control-height) !important;
+  padding: 10px 20px !important;
+  background-color: var(--brand-teal) !important;
+  border: 1px solid var(--brand-teal) !important;
+  color: var(--canvas) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  font-family: var(--font-family) !important;
+  font-weight: 700 !important;
+  font-size: 0.9375rem !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease-in-out !important;
+}
+[data-testid="stFileUploader"] button:hover {
+  background-color: var(--brand-teal-hover) !important;
+  border-color: var(--brand-teal-hover) !important;
+  color: var(--canvas) !important;
+}
+
+/* ==============================================================================
+   TEDI NUPUD (tedi-ready-components-buttons-button)
+   ============================================================================== */
+.stButton > button {
+  min-height: var(--control-height) !important;
+  padding: 10px 20px !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  border: 1px solid var(--border) !important;
+  background-color: transparent !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-family) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  transition: all 0.15s ease-in-out !important;
+}
+.stButton > button:hover {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--primary) !important;
+  color: var(--text-primary) !important;
+}
+.stButton > button:focus-visible {
+  outline: 2px solid var(--focus-ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* TEDI Primary nupp & Allalaadimisnupp */
+.stButton > button[kind="primary"],
+.stDownloadButton > button {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--primary) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  font-weight: 700 !important;
+}
+.stButton > button[kind="primary"]:hover,
+.stDownloadButton > button:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: #FFFFFF !important;
+}
+
+/* ==============================================================================
+   TEDI MÕÕDIKUD (METRICS / STATISTIKAKAARDID)
+   ============================================================================== */
+div[data-testid="stMetric"] {
+  background-color: var(--surface-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  padding: 16px 20px !important;
+  box-shadow: none !important;
+}
+div[data-testid="stMetricLabel"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+div[data-testid="stMetricValue"] {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ==============================================================================
+   TEDI TABID (tedi-ready-components-navigation-tabs)
+   ============================================================================== */
+.stTabs [data-baseweb="tab-list"] {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  gap: 8px !important;
+}
+.stTabs [data-baseweb="tab"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  padding: 12px 18px !important;
+  border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+  transition: all 0.15s ease-in-out !important;
+}
+.stTabs [data-baseweb="tab"]:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--surface-card) !important;
+}
+.stTabs [aria-selected="true"] {
+  color: var(--brand-cyan) !important;
+  background-color: var(--surface-card) !important;
+  border-bottom: 3px solid var(--brand-teal) !important;
+  font-weight: 700 !important;
+}
+
+/* ==============================================================================
+   TEDI AKORDION (tedi-ready-content-accordion — LAHKNEVUSTE VAADE)
+   ============================================================================== */
+div[data-testid="stExpander"] {
+  background-color: var(--surface-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  margin-bottom: 12px !important;
+  box-shadow: none !important;
+}
+div[data-testid="stExpander"]:hover {
+  border-color: var(--surface-hover) !important;
+}
+div[data-testid="stExpander"] summary {
+  color: var(--text-primary) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  padding: 14px 18px !important;
+  border-radius: var(--radius-md) !important;
+}
+div[data-testid="stExpander"] summary:hover {
+  color: var(--brand-cyan) !important;
+  background-color: var(--surface-hover) !important;
+}
+div[data-testid="stExpander"] div[role="region"] {
+  padding: 16px 20px 24px 20px !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+/* ==============================================================================
+   TEDI TABELID (tedi-ready-content-table)
+   ============================================================================== */
+div[data-testid="stDataFrame"] {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;   /* TEDI 4px */
+  background-color: var(--surface-card) !important;
+}
+
+/* ==============================================================================
+   TEDI STATUS BADGES (tedi-ready-components-tag-statusbadge)
+   ============================================================================== */
+.tedi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.tedi-badge-success {
+  background-color: var(--status-success-bg);
+  border: 1px solid var(--status-success-border);
+  color: var(--status-success-text);
+}
+.tedi-badge-warning {
+  background-color: var(--status-warning-bg);
+  border: 1px solid var(--status-warning-border);
+  color: var(--status-warning-text);
+}
+.tedi-badge-danger {
+  background-color: var(--status-danger-bg);
+  border: 1px solid var(--status-danger-border);
+  color: var(--status-danger-text);
+}
+.tedi-badge-info {
+  background-color: var(--status-info-bg);
+  border: 1px solid var(--status-info-border);
+  color: var(--status-info-text);
+}
+
+/* ==============================================================================
+   TEDI TEAVITUSED (ALERTS — tedi-ready-components-notifications-alert)
+   ============================================================================== */
+div[data-testid="stAlert"] {
+  background-color: var(--surface-card) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 4px solid var(--primary) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--text-primary) !important;
+  padding: 14px 18px !important;
+}
+
+/* ==============================================================================
+   MONO- JA KOODIMÄRGENDID
+   ============================================================================== */
+.mono {
+  font-family: var(--font-mono) !important;
+}
+code {
+  font-family: var(--font-mono) !important;
+  background-color: var(--surface-raised) !important;
+  color: var(--brand-cyan) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 2px 6px !important;
+  font-size: 0.85em !important;
+}

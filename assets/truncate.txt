@@ -1,0 +1,3662 @@
+/* Truncate */
+
+box-sizing: border-box;
+
+position: relative;
+width: 1200px;
+height: 3120px;
+
+background: #D9D9D9;
+border: 24px solid #CFCFCF;
+border-radius: 24px;
+
+
+/* Truncate */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 124px;
+
+position: relative;
+width: 1080px;
+height: 2958px;
+left: 60px;
+top: 100px;
+
+
+
+/* Spec */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 1080px;
+height: 1962px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _header */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 1080px;
+height: 322px;
+
+border-radius: 24px 24px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Main status bar */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 464px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* _status badge */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 88px;
+min-width: 72px;
+height: 40px;
+
+background: #005AA3;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Outlined/check  */
+
+width: 24px;
+height: 24px;
+
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 14.58%;
+right: 14.69%;
+top: 23.96%;
+bottom: 24.17%;
+
+background: #FFFFFF;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 48px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Figma */
+
+width: 40px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* _status badge */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 145px;
+min-width: 72px;
+height: 40px;
+
+background: #005AA3;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Outlined/check  */
+
+width: 24px;
+height: 24px;
+
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 14.58%;
+right: 14.69%;
+top: 23.96%;
+bottom: 24.17%;
+
+background: #FFFFFF;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 105px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Figma */
+
+width: 97px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* _status badge */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 85px;
+min-width: 72px;
+height: 40px;
+
+background: #005AA3;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Outlined/check  */
+
+width: 24px;
+height: 24px;
+
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 14.58%;
+right: 14.69%;
+top: 23.96%;
+bottom: 24.17%;
+
+background: #FFFFFF;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 45px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Figma */
+
+width: 37px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* _status badge */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 98px;
+min-width: 72px;
+height: 40px;
+
+background: #005AA3;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Outlined/check  */
+
+width: 24px;
+height: 24px;
+
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 14.58%;
+right: 14.69%;
+top: 23.96%;
+bottom: 24.17%;
+
+background: #FFFFFF;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 58px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Figma */
+
+width: 50px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 64px;
+gap: 16px;
+
+width: 1080px;
+height: 266px;
+
+background: #005AA3;
+border-radius: 24px 24px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Top */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 952px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Origin */
+
+margin: 0 auto;
+width: 57px;
+height: 24px;
+
+/* Subtitles/Label/Bold */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* logo-valge */
+
+margin: 0 auto;
+width: 73px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 78.61%;
+top: 0%;
+bottom: 0%;
+
+background: #FFFFFF;
+
+
+/* Group */
+
+position: absolute;
+left: 28.37%;
+right: 0%;
+top: 5.79%;
+bottom: 1.59%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 28.37%;
+right: 52.3%;
+top: 25.02%;
+bottom: 1.59%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 50.86%;
+right: 33.62%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 70.41%;
+right: 9.87%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.47%;
+right: 0.26%;
+top: 31.36%;
+bottom: 1.59%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.16%;
+right: 0%;
+top: 5.79%;
+bottom: 77.45%;
+
+background: #FFFFFF;
+
+
+/* Title */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 125px;
+height: 46px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icons */
+
+width: 125px;
+height: 46px;
+
+/* Headings/H1 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 32px;
+line-height: 46px;
+/* identical to box height, or 144% */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+display: none;
+width: 72px;
+min-width: 72px;
+height: 36px;
+
+background: #EAF3EE;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Status info */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+align-content: center;
+padding: 0px;
+gap: 8px;
+
+width: 952px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+display: none;
+width: 113px;
+min-width: 72px;
+height: 36px;
+
+background: #FBECEC;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+display: none;
+width: 205px;
+min-width: 72px;
+height: 36px;
+
+background: #FFF0CF;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 86px;
+min-width: 72px;
+height: 36px;
+
+background: #EAF3EE;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Icon */
+
+display: none;
+width: 16px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 70px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Approved */
+
+width: 62px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #266B42;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+display: none;
+width: 142px;
+min-width: 72px;
+height: 36px;
+
+background: #FFF0CF;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+isolation: isolate;
+
+width: 181px;
+min-width: 72px;
+height: 36px;
+
+background: #FFE6CC;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* Icon */
+
+display: none;
+width: 16px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Text container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 4px;
+
+width: 165px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Approved */
+
+width: 157px;
+height: 20px;
+
+/* Body/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #994D00;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Status indicator
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusindicator--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+position: absolute;
+display: none;
+width: 12px;
+height: 12px;
+right: -2px;
+top: -2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+display: none;
+width: 95px;
+min-width: 72px;
+height: 36px;
+
+background: #D0E1EE;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+
+
+/* Documentation */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 32px;
+
+width: 1080px;
+height: 466px;
+
+background: #F9F9F9;
+border-bottom: 2px solid #E1E2E5;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Documentation */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 952px;
+height: 236px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Documentation */
+
+width: 952px;
+height: 36px;
+
+/* Headings/H2 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 36px;
+/* identical to box height, or 129% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _documentation */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px;
+gap: 8px;
+
+width: 952px;
+height: 184px;
+
+background: #FFFFFF;
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Figma */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+display: none;
+width: 121px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Zeroheight */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+width: 159px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* _logo_zeroheight */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 40px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 631dede060e214fb8440fd82_zh-duox600 1 */
+
+width: 24px;
+height: 24px;
+
+background: url(631dede060e214fb8440fd82_zh-duox600);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* link */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 8px;
+gap: 10px;
+
+width: 115px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Link
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 99px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon left */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+display: none;
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 77px;
+height: 24px;
+
+/* Link/Regular no underline */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-decoration-line: underline;
+
+color: #005AA3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icon right */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Filled/arrow_forward */
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 16.04%;
+right: 16.04%;
+top: 16.04%;
+bottom: 16.04%;
+
+background: #005AA3;
+
+
+/* Storybook */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+width: 199px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* _logo_storybook */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 40px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Storybook logo */
+
+width: 16px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Artboard */
+
+position: absolute;
+left: 9.5%;
+right: 10.8%;
+top: 0.35%;
+bottom: 0.35%;
+
+
+
+/* path-1 */
+
+position: absolute;
+left: 9.5%;
+right: 10.8%;
+top: 0.35%;
+bottom: 0.35%;
+
+background: #FF4785;
+
+
+/* path9_fill-path */
+
+position: absolute;
+left: 30.02%;
+right: 28.22%;
+top: 17.24%;
+bottom: 19.17%;
+
+background: #FFFFFF;
+
+
+/* Path */
+
+position: absolute;
+left: 68.35%;
+right: 21.18%;
+top: 0.7%;
+bottom: 86.67%;
+
+background: #FFFFFF;
+
+
+/* React-icon.svg 1 */
+
+width: 16.84px;
+height: 15px;
+
+background: url(React-icon.svg);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* _logo_storybook */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+display: none;
+width: 40px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* link */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 8px;
+gap: 10px;
+
+width: 155px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Link
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 139px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon left */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+display: none;
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 117px;
+height: 24px;
+
+/* Link/Regular no underline */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-decoration-line: underline;
+
+color: #005AA3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icon right */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Filled/arrow_forward */
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 16.04%;
+right: 16.04%;
+top: 16.04%;
+bottom: 16.04%;
+
+background: #005AA3;
+
+
+/* Storybook */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+width: 214px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* _logo_storybook */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 40px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Storybook logo */
+
+width: 16px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Artboard */
+
+position: absolute;
+left: 9.5%;
+right: 10.8%;
+top: 0.35%;
+bottom: 0.35%;
+
+
+
+/* path-1 */
+
+position: absolute;
+left: 9.5%;
+right: 10.8%;
+top: 0.35%;
+bottom: 0.35%;
+
+background: #FF4785;
+
+
+/* path9_fill-path */
+
+position: absolute;
+left: 30.02%;
+right: 28.22%;
+top: 17.24%;
+bottom: 19.17%;
+
+background: #FFFFFF;
+
+
+/* Path */
+
+position: absolute;
+left: 68.35%;
+right: 21.18%;
+top: 0.7%;
+bottom: 86.67%;
+
+background: #FFFFFF;
+
+
+/* angular_gradient 1 */
+
+width: 16px;
+height: 16px;
+
+background: url(angular_gradient);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* _logo_storybook */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+display: none;
+width: 40px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* link */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 8px;
+gap: 10px;
+
+width: 170px;
+height: 40px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Link
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 154px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon left */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+display: none;
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 132px;
+height: 24px;
+
+/* Link/Regular no underline */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-decoration-line: underline;
+
+color: #005AA3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icon right */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 3px 0px;
+gap: 10px;
+
+width: 18px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Filled/arrow_forward */
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 16.04%;
+right: 16.04%;
+top: 16.04%;
+bottom: 16.04%;
+
+background: #005AA3;
+
+
+/* _tips and tricks */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px;
+gap: 8px;
+
+width: 952px;
+height: 100px;
+
+background: #D0E1EE;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 904px;
+height: 52px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Illustrative background icon
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-base-icon--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-base-icon--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 12px;
+
+width: 48px;
+height: 48px;
+
+background: #FFFFFF;
+border-radius: 360px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Intersect */
+
+position: absolute;
+width: 14px;
+height: 20px;
+left: 5px;
+top: 2px;
+
+background: #005AA3;
+
+
+/* Outlined/lightbulb_2 */
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+border-radius: 0px;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* Vector */
+
+position: absolute;
+left: 20.83%;
+right: 20.83%;
+top: 8.33%;
+bottom: 8.33%;
+
+background: #151926;
+
+
+/* Fill */
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: 0.19px;
+
+background: #005AA3;
+border-radius: 0px;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 840px;
+height: 52px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Tips, tricks and restrictions */
+
+width: 213px;
+height: 20px;
+
+/* Subtitles/Small */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+text-transform: uppercase;
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* _tips_tricks_filler */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 840px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 840px;
+height: 24px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Badges */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+display: none;
+width: 100px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Frame 814943 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+display: none;
+width: 315px;
+height: 201px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Light mode */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 16px;
+
+width: 1080px;
+height: 476px;
+
+background: #F9F9F9;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Light mode */
+
+width: 141px;
+height: 36px;
+
+/* Headings/H2 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 36px;
+/* identical to box height, or 129% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text truncate show less */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 10px;
+
+width: 952px;
+height: 96px;
+
+background: #FFFFFF;
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam sapien, ultrices quis suscipit in, sodales vel justo. Curabitur lobortis quam dolor, vel dapibus dui pellentesque in. Maecenas auctor... Kuva rohkem */
+
+width: 904px;
+height: 48px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+color: #4B4E62;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text truncate show more */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 10px;
+
+width: 952px;
+height: 216px;
+
+background: #FFFFFF;
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam sapien, ultrices quis suscipit in, sodales vel justo. Curabitur lobortis quam dolor, vel dapibus dui pellentesque in. Maecenas auctor lacus elit, a vulputate ante cursus vitae. Proin mollis auctor ipsum nec malesuada. Aliquam turpis dui, dictum sit amet eros ac, iaculis mollis diam. Vivamus sed nulla ut justo fermentum ornare. Nam iaculis accumsan euismod. Sed efficitur risus a nisl interdum, placerat tincidunt velit sollicitudin. Donec ac tincidunt lorem, id ornare felis. Vestibulum sed lacinia diam. Donec vehicula mi maximus purus sollicitudin, at pulvinar lacus placerat.
+Kuva vähem */
+
+width: 904px;
+height: 168px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+color: #4B4E62;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Dark mode */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 16px;
+
+width: 1080px;
+height: 476px;
+
+background: #151926;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Dark mode */
+
+width: 136px;
+height: 36px;
+
+/* Headings/H2 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 36px;
+/* identical to box height, or 129% */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text truncate show less */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 10px;
+
+width: 952px;
+height: 96px;
+
+background: #151926;
+border: 1px solid #34394C;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam sapien, ultrices quis suscipit in, sodales vel justo. Curabitur lobortis quam dolor, vel dapibus dui pellentesque in. Maecenas auctor... Kuva rohkem */
+
+width: 904px;
+height: 48px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+color: #F0F0F2;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text truncate show more */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 10px;
+
+width: 952px;
+height: 216px;
+
+background: #151926;
+border: 1px solid #34394C;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam sapien, ultrices quis suscipit in, sodales vel justo. Curabitur lobortis quam dolor, vel dapibus dui pellentesque in. Maecenas auctor lacus elit, a vulputate ante cursus vitae. Proin mollis auctor ipsum nec malesuada. Aliquam turpis dui, dictum sit amet eros ac, iaculis mollis diam. Vivamus sed nulla ut justo fermentum ornare. Nam iaculis accumsan euismod. Sed efficitur risus a nisl interdum, placerat tincidunt velit sollicitudin. Donec ac tincidunt lorem, id ornare felis. Vestibulum sed lacinia diam. Donec vehicula mi maximus purus sollicitudin, at pulvinar lacus placerat.
+Kuva vähem */
+
+width: 904px;
+height: 168px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+color: #F0F0F2;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Figma components */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 16px;
+
+width: 1080px;
+height: 222px;
+
+background: #F9F9F9;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Figma assets */
+
+width: 168px;
+height: 36px;
+
+/* Headings/H2 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 36px;
+/* identical to box height, or 129% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Empty state
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-content-emptystate--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-content-emptystate--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 24px;
+
+width: 952px;
+height: 74px;
+
+background: #FFFFFF;
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Empty state content
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-content-emptystate--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-content-emptystate--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 902px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 902px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _Empty state icon */
+
+display: none;
+width: 36px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 902px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Choose new time */
+
+display: none;
+width: 389px;
+height: 32px;
+
+/* Headings/H3 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 32px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #005AA3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* You have no data to display */
+
+width: 902px;
+height: 24px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #4B4E62;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Actions slot */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+display: none;
+width: 146px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Examples */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 1080px;
+height: 374px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _header */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 64px;
+gap: 32px;
+
+width: 1080px;
+height: 174px;
+
+background: #F9F9F9;
+border-radius: 24px 24px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Icons */
+
+margin: 0 auto;
+width: 138px;
+height: 46px;
+
+/* Headings/H1 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 32px;
+line-height: 46px;
+/* identical to box height, or 144% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* logo-sinine */
+
+margin: 0 auto;
+width: 72px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 78.61%;
+top: 0%;
+bottom: 0%;
+
+background: #005AA3;
+
+
+/* Group */
+
+position: absolute;
+left: 28.37%;
+right: 0%;
+top: 5.79%;
+bottom: 1.59%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 28.37%;
+right: 52.3%;
+top: 25.02%;
+bottom: 1.59%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 50.86%;
+right: 33.62%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 70.41%;
+right: 9.87%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.47%;
+right: 0.26%;
+top: 31.36%;
+bottom: 1.59%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.16%;
+right: 0%;
+top: 5.79%;
+bottom: 77.45%;
+
+background: #005AA3;
+
+
+/* Page content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 16px;
+
+width: 1080px;
+height: 200px;
+
+background: #F9F9F9;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Example 8 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+gap: 16px;
+
+width: 952px;
+height: 104px;
+
+background: #FFFFFF;
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text group
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-content-textgroup--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-content-textgroup--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 920px;
+height: 72px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-content-label--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-content-label--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 2px;
+
+width: 81px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 81px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 81px;
+height: 24px;
+
+/* Subtitles/Label/Bold */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+color: #4B4E62;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* _Required field indicator */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 0px 0px 2px;
+
+display: none;
+width: 9px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Info icon container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+display: none;
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* _Text group value
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-content-textgroup--docs" rel="noreferrer noopener nofollow ugc" target="_blank">React</a><br><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-content-textgroup--docs" rel="noreferrer noopener nofollow ugc" target="_blank">Angular</a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 6px;
+
+width: 920px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Icon container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 4px 0px 0px;
+gap: 10px;
+
+display: none;
+width: 16px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Visible to doctor and representative */
+
+width: 920px;
+height: 48px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Separator vertical
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-helpers-separator--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-helpers-separator--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 4px 0px;
+gap: 8px;
+
+display: none;
+width: 1px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Link
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-navigation-link--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+display: none;
+width: 79px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Slot */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+display: none;
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Status badge
+
+<p><a href="https://storybook.tedi.ee/react/main/?path=/docs/tedi-ready-components-tag-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">React</span></a></p><p><a href="https://storybook.tedi.ee/angular/main/?path=/docs/tedi-ready-components-tags-statusbadge--docs" target="_blank" rel="noreferrer noopener nofollow ugc"><span style="white-space: pre-wrap;">Angular</span></a></p>
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 2px 4px;
+
+display: none;
+width: 81px;
+height: 24px;
+
+background: #D0E1EE;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Examples */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 1080px;
+height: 374px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _header */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 64px;
+gap: 32px;
+
+width: 1080px;
+height: 174px;
+
+background: #F9F9F9;
+border-radius: 24px 24px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Icons */
+
+margin: 0 auto;
+width: 198px;
+height: 46px;
+
+/* Headings/H1 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 32px;
+line-height: 46px;
+/* identical to box height, or 144% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* logo-sinine */
+
+margin: 0 auto;
+width: 72px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 78.61%;
+top: 0%;
+bottom: 0%;
+
+background: #005AA3;
+
+
+/* Group */
+
+position: absolute;
+left: 28.37%;
+right: 0%;
+top: 5.79%;
+bottom: 1.59%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 28.37%;
+right: 52.3%;
+top: 25.02%;
+bottom: 1.59%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 50.86%;
+right: 33.62%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 70.41%;
+right: 9.87%;
+top: 25.02%;
+bottom: 3.36%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.47%;
+right: 0.26%;
+top: 31.36%;
+bottom: 1.59%;
+
+background: #005AA3;
+
+
+/* Vector */
+
+position: absolute;
+left: 94.16%;
+right: 0%;
+top: 5.79%;
+bottom: 77.45%;
+
+background: #005AA3;
+
+
+/* Page content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 64px;
+gap: 16px;
+
+width: 1080px;
+height: 200px;
+
+background: #F9F9F9;
+border-radius: 0px 0px 24px 24px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 952px;
+height: 104px;
+
+border: 1px solid #E1E2E5;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Header */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 952px;
+height: 52px;
+
+border-top: 1px solid #E1E2E5;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Col 4 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 14px 16px;
+gap: 8px;
+
+width: 476px;
+height: 52px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Time */
+
+width: 444px;
+height: 24px;
+
+/* Body/Regular bold */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Col 6 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 14px 16px;
+gap: 8px;
+
+width: 476px;
+height: 52px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Changes */
+
+width: 444px;
+height: 24px;
+
+/* Body/Regular bold */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Row */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 952px;
+height: 52px;
+
+border-top: 1px solid #E1E2E5;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Col 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 14px 16px;
+gap: 8px;
+
+width: 476px;
+height: 52px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* 06.01.2025 */
+
+width: 444px;
+height: 24px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Col 5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 14px 16px;
+gap: 8px;
+
+width: 476px;
+height: 52px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Initial release */
+
+width: 444px;
+height: 24px;
+
+/* Body/Regular */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #151926;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
