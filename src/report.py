@@ -58,17 +58,33 @@ def get_action_recommendation(
 
 
 def format_status_label(status: str) -> str:
-    """Tagastab rahuliku ja selge staatuse sildi."""
+    """Tagastab puhta ja väärika staatuse sildi ilma emotikonideta."""
     mapping = {
-        Validator.STATUS_MATCH: "✅ Vastab nõuetele",
-        Validator.STATUS_RESTRICTION: "🔴 Kitsenduse rikkumine",
-        Validator.STATUS_WRONG_ISO: "🟠 Vale ISO kood",
-        Validator.STATUS_WRONG_NAME: "🟠 Vale määrusejärgne nimetus",
-        Validator.STATUS_WRONG_BOTH: "🔴 Vale ISO ja nimetus",
-        Validator.STATUS_REVIEW: "🟡 Vajab ülevaatust",
-        Validator.STATUS_UNKNOWN: "⚪ Tundmatu toode"
+        Validator.STATUS_MATCH: "Vastab nõuetele",
+        Validator.STATUS_RESTRICTION: "Kitsenduse rikkumine",
+        Validator.STATUS_WRONG_ISO: "Vale ISO kood",
+        Validator.STATUS_WRONG_NAME: "Vale määrusejärgne nimetus",
+        Validator.STATUS_WRONG_BOTH: "Vale ISO ja nimetus",
+        Validator.STATUS_REVIEW: "Vajab ülevaatust",
+        Validator.STATUS_UNKNOWN: "Tundmatu toode"
     }
     return mapping.get(status, status)
+
+
+def format_tedi_badge(status: str) -> str:
+    """Genereerib TEDI standardse ovaalse staatuse märgi (StatusBadge)."""
+    if status == Validator.STATUS_MATCH:
+        return '<span class="tedi-badge tedi-badge-success">Vastab nõuetele</span>'
+    elif status == Validator.STATUS_RESTRICTION:
+        return '<span class="tedi-badge tedi-badge-danger">Kitsenduse rikkumine</span>'
+    elif status == Validator.STATUS_WRONG_BOTH:
+        return '<span class="tedi-badge tedi-badge-danger">Vale ISO ja nimetus</span>'
+    elif status in (Validator.STATUS_WRONG_ISO, Validator.STATUS_WRONG_NAME, Validator.STATUS_REVIEW):
+        label = format_status_label(status)
+        return f'<span class="tedi-badge tedi-badge-warning">{label}</span>'
+    else:
+        label = format_status_label(status)
+        return f'<span class="tedi-badge tedi-badge-info">{label}</span>'
 
 
 def generate_validation_report(results: List[Dict[str, Any]]) -> bytes:

@@ -609,8 +609,228 @@ div[data-testid="stExpander"] div[role="region"] {
 }
 
 /* ==============================================================================
-   TEDI TABELID (Table.txt — tedi-ready-content-table)
+   TEDI TABELID (Table.txt & Table.pdf — tedi-ready-content-table)
    ============================================================================== */
+.tedi-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--tedi-surface-card);
+  border: 1px solid var(--tedi-border);
+  border-radius: var(--tedi-radius-md);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+table.tedi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family);
+  font-size: 14px;
+  text-align: left;
+}
+
+table.tedi-table thead th {
+  background-color: var(--tedi-surface-raised);
+  color: var(--tedi-text-primary);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--tedi-border);
+  border-right: 1px solid var(--tedi-border-subtle);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+table.tedi-table thead th:last-child {
+  border-right: none;
+}
+
+table.tedi-table tbody tr {
+  border-bottom: 1px solid var(--tedi-border-subtle);
+  transition: background-color 0.15s ease-in-out;
+}
+
+table.tedi-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+table.tedi-table tbody tr:hover {
+  background-color: var(--tedi-surface-hover);
+}
+
+table.tedi-table tbody td {
+  padding: 12px 16px;
+  color: var(--tedi-text-primary);
+  line-height: 20px;
+  border-right: 1px solid var(--tedi-border-subtle);
+  vertical-align: middle;
+}
+
+table.tedi-table tbody td:last-child {
+  border-right: none;
+}
+
+table.tedi-table td.cell-muted {
+  color: var(--tedi-text-secondary);
+  font-size: 13px;
+}
+
+table.tedi-table td.cell-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Leheküljestamise juhtriba */
+.tedi-pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: var(--tedi-surface-card);
+  border-top: 1px solid var(--tedi-border);
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--tedi-text-secondary);
+}
+
+/* ==============================================================================
+   TEDI SUMMARY CARDS (KPI paneel — Card.txt & Utilities)
+   ============================================================================== */
+.tedi-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px 0;
+}
+
+.tedi-summary-card {
+  background-color: var(--tedi-surface-card);
+  border: 1px solid var(--tedi-border);
+  border-radius: var(--tedi-radius-md);
+  padding: 16px 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.tedi-summary-card:hover {
+  border-color: var(--tedi-primary-light);
+}
+
+.tedi-summary-label {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tedi-text-secondary);
+  margin-bottom: 8px;
+}
+
+.tedi-summary-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.tedi-summary-value {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--tedi-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.tedi-summary-sub {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tedi-text-muted);
+}
+
+.tedi-summary-card.success {
+  border-top: 3px solid var(--tedi-status-success-border);
+}
+.tedi-summary-card.success .tedi-summary-value {
+  color: #5CD685;
+}
+
+.tedi-summary-card.danger {
+  border-top: 3px solid var(--tedi-status-danger-border);
+}
+.tedi-summary-card.danger .tedi-summary-value {
+  color: #FF8080;
+}
+
+.tedi-summary-card.warning {
+  border-top: 3px solid var(--tedi-status-warning-border);
+}
+.tedi-summary-card.warning .tedi-summary-value {
+  color: #FFB84D;
+}
+
+.tedi-summary-card.primary {
+  border-top: 3px solid var(--tedi-primary);
+}
+
+/* ==============================================================================
+   TEDI ALERT KOMPONENDID (Alerts — tedi-ready-components-notifications-alert)
+   ============================================================================== */
+.tedi-alert {
+  background-color: var(--tedi-surface-card);
+  border: 1px solid var(--tedi-border);
+  border-left: 4px solid var(--tedi-primary);
+  border-radius: var(--tedi-radius-md);
+  padding: 16px 20px;
+  margin: 16px 0;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.tedi-alert-info {
+  border-left-color: var(--tedi-primary);
+}
+
+.tedi-alert-success {
+  border-left-color: var(--tedi-status-success-border);
+}
+
+.tedi-alert-warning {
+  border-left-color: var(--tedi-status-warning-border);
+}
+
+.tedi-alert-danger {
+  border-left-color: var(--tedi-status-danger-border);
+}
+
+.tedi-alert-title {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tedi-text-primary);
+  margin: 0 0 8px 0;
+}
+
+.tedi-alert-body {
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--tedi-text-secondary);
+}
+
+.tedi-alert-body ol, .tedi-alert-body ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.tedi-alert-body li {
+  margin-bottom: 6px;
+}
+
 div[data-testid="stDataFrame"] {
   border: 1px solid var(--tedi-border) !important;
   border-radius: var(--tedi-radius-md) !important;

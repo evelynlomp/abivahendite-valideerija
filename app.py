@@ -1,16 +1,14 @@
-"""Valideer — Abivahendite andmete kontroll & otsustustugi.
+"""Valideer — Abivahendite andmete kontroll ja otsustustugi.
 
-UX Sprint 2: Otsustamise lihtsustamine.
-- Selge järgmine samm ja tegevusplokk pärast valideerimist
-- Rahulik, mitteagressiivne värvipalett (punane ainult kriitilistele vigadele)
-- Kasutajakeskne terminoloogia (otsuste kinnitamine, mitte süsteemi õpetamine)
-- Madala kognitiivse koormusega probleemse kirje vaade
-- Kahe-tasemeline Exceli raport (Spetsialisti vaade vs Tehniline audit)
+TEDI (TEHIK / Veera) Disainisüsteemil põhinev kasutajaliides.
+Visuaalne tõeallikas: assets/TEDI spetsifikatsioonid.
 """
 
 import os
 import io
 import json
+import math
+import html
 import pandas as pd
 import streamlit as st
 from datetime import datetime
@@ -27,7 +25,13 @@ from src.product_agent import ProductIdentificationAgent
 from src.product_registry_db import get_product_registry_db
 from src.matcher import ProductMatcher
 from src.validator import Validator
-from src.report import generate_validation_report, format_status_label, get_action_recommendation
+from src.report import (
+    generate_validation_report,
+    format_status_label,
+    get_action_recommendation,
+    format_tedi_badge
+)
+from src.tedi_table import render_tedi_table
 
 
 # --- LEHE SEADISTUS ---
@@ -63,16 +67,17 @@ def get_registry_db():
 
 @st.cache_resource
 def get_product_agent():
-    return ProductIdentificationAgent()
+    return ProductIdentificationAgent(db_path="data/valideer.db")
 
 
 classifier = get_classifier()
 kb = get_knowledge_base()
 registry_db = get_registry_db()
 product_agent = get_product_agent()
-reg_stats = registry_db.get_statistics()
-class_count = classifier.count()
-kb_count = kb.count()
+
+class_count = classifier.get_total_count()
+kb_count = kb.get_total_count()
+reg_stats = registry_db.get_stats()
 
 matcher = ProductMatcher(
     classifier=classifier,
@@ -87,9 +92,17 @@ if "df_input" not in st.session_state:
     st.session_state["df_input"] = None
 if "input_source_name" not in st.session_state:
     st.session_state["input_source_name"] = None
+if "page_val" not in st.session_state:
+    st.session_state["page_val"] = 1
+if "page_reg" not in st.session_state:
+    st.session_state["page_reg"] = 1
+if "page_class" not in st.session_state:
+    st.session_state["page_class"] = 1
+if "page_kb" not in st.session_state:
+    st.session_state["page_kb"] = 1
 
 
-# --- KÜLGRIBA NAVIGATSIOON ---
+# --- KÜLGRIBA NAVIGATSIOON (TEDI Sidenav spetsifikatsioon) ---
 with st.sidebar:
     logo_svg_path = "assets/valideer-logo-flat.svg"
     if os.path.exists(logo_svg_path):
@@ -105,13 +118,13 @@ with st.sidebar:
 
     app_mode = st.radio(
         "Töökeskkond:",
-        ["📋 Valideerimise töölaud", "📚 Registrid ja haldus"],
+        ["Valideerimise töölaud", "Registrid ja haldus"],
         index=0
     )
 
     st.divider()
 
-    # Süsteemi lühistatistika (valideer-disainisusteem-v1 kompaktne paneel)
+    # Süsteemi lühistatistika (TEDI Card formaadis paneel)
     st.markdown(f"""
     <div class="sidebar-sources">
       <div class="sidebar-sources-title">PÜSIVAD TÕEALLIKAD</div>
@@ -132,19 +145,20 @@ with st.sidebar:
 
     if st.session_state["df_input"] is not None:
         st.divider()
-        st.markdown(f'<div style="font-size: 0.8125rem; color: var(--muted); margin-bottom: 8px;">Aktiivne fail: <strong style="color: var(--text);">{st.session_state["input_source_name"]}</strong></div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="font-size: 0.8125rem; color: var(--tedi-text-secondary); margin-bottom: 8px;">Aktiivne fail: <strong style="color: var(--tedi-text-primary);">{st.session_state["input_source_name"]}</strong></div>', unsafe_allow_html=True)
         if st.button("Uus fail / Tühjenda", use_container_width=True):
             st.session_state["df_input"] = None
             st.session_state["input_source_name"] = None
             st.session_state.pop("cached_validation_results", None)
             st.session_state.pop("last_validation_key", None)
+            st.session_state["page_val"] = 1
             st.rerun()
 
 
 # ==============================================================================
 # HARU A: VALIDEERIMISE TÖÖLAUD (PÕHITÖÖVOOG)
 # ==============================================================================
-if app_mode == "📋 Valideerimise töölaud":
+if app_mode == "Valideerimise töölaud":
 
     # --- 1. AVALEHT ENNE FAILI LAADIMIST ---
     if st.session_state["df_input"] is None:
@@ -152,12 +166,12 @@ if app_mode == "📋 Valideerimise töölaud":
         st.caption("Sotsiaalministeeriumi määruse nr 74 tehinguridade automaatne vastavuskontroll")
 
         st.markdown("""
-        <p style="color: var(--muted); font-size: 1rem; line-height: 1.5; max-width: 68ch; margin-top: 8px; margin-bottom: 24px;">
+        <p style="color: var(--tedi-text-secondary); font-size: 1rem; line-height: 1.5; max-width: 68ch; margin-top: 8px; margin-bottom: 24px;">
         See tööriist kontrollib igakuiseid abivahendite tehingufaile (Excel, CSV) ja tuvastab automaatselt vead ning mittevastavused enne arve esitamist või kinnitamist.
         </p>
         """, unsafe_allow_html=True)
 
-        # Selgitavad väärtuskaardid esmakordsele kasutajale (3 võrdse kõrgusega kaarti!)
+        # Selgitavad väärtuskaardid (TEDI Card ruudustik)
         st.markdown("""
         <div class="valideer-card-grid">
           <div class="valideer-card">
@@ -186,7 +200,7 @@ if app_mode == "📋 Valideerimise töölaud":
 
         st.divider()
 
-        # HERO: Faili üleslaadimine (kõige silmapaistvam element lehel)
+        # HERO: Faili üleslaadimine (TEDI Dropzone)
         st.subheader("Laadi tehingufail valideerimiseks")
 
         uploaded_file = st.file_uploader(
@@ -202,7 +216,6 @@ if app_mode == "📋 Valideerimise töölaud":
         if uploaded_file is not None:
             try:
                 if uploaded_file.name.lower().endswith(".csv"):
-                    # Tuvastame automaatselt eraldaja (koma või semikoolon) ja toetame Eesti tähti (utf-8 / windows-1257)
                     try:
                         st.session_state["df_input"] = pd.read_csv(uploaded_file, sep=None, engine='python')
                     except Exception:
@@ -213,9 +226,10 @@ if app_mode == "📋 Valideerimise töölaud":
                 st.session_state["input_source_name"] = uploaded_file.name
                 st.session_state.pop("cached_validation_results", None)
                 st.session_state.pop("last_validation_key", None)
+                st.session_state["page_val"] = 1
                 st.rerun()
             except Exception as e:
-                st.error(f"Viga faili lugemisel: {e}")
+                st.markdown(f'<div class="tedi-alert tedi-alert-danger"><div class="tedi-alert-title">Viga faili lugemisel</div><div class="tedi-alert-body">{html.escape(str(e))}</div></div>', unsafe_allow_html=True)
 
         elif load_sample:
             sample_path = "data/naidis_sisend_vigadega.xlsx"
@@ -224,15 +238,16 @@ if app_mode == "📋 Valideerimise töölaud":
                 st.session_state["input_source_name"] = "naidis_sisend_vigadega.xlsx (näidis)"
                 st.session_state.pop("cached_validation_results", None)
                 st.session_state.pop("last_validation_key", None)
+                st.session_state["page_val"] = 1
                 st.rerun()
             else:
-                st.warning("Näidisfaili ei leitud kataloogist data/.")
+                st.markdown('<div class="tedi-alert tedi-alert-warning"><div class="tedi-alert-title">Näidisfail puudub</div><div class="tedi-alert-body">Näidisfaili ei leitud kataloogist data/.</div></div>', unsafe_allow_html=True)
 
     # --- 2. TÖÖTLEMINE JA TULEMUSED (PÄRAST FAILI LAADIMIST) ---
     else:
         df_input = st.session_state["df_input"]
 
-        # Tuvasta nõutud veerud paindlikult (sh eesti raamatupidamistarkvarade pealkirjad)
+        # Tuvasta nõutud veerud paindlikult
         col_map = {}
         for c in df_input.columns:
             c_clean = str(c).strip().lower()
@@ -246,7 +261,14 @@ if app_mode == "📋 Valideerimise töölaud":
                 col_map["statutory"] = c
 
         if "name" not in col_map or "iso" not in col_map:
-            st.error(f"Exceli failist ei leitud kohustuslikke veerge (tootenimi, ISO kood)! Tuvastatud veerud: {list(df_input.columns)}")
+            st.markdown(f"""
+            <div class="tedi-alert tedi-alert-danger">
+              <div class="tedi-alert-title">Kohustuslikud veerud puuduvad</div>
+              <div class="tedi-alert-body">
+                Exceli failist ei leitud tootenime ja ISO koodi veerge! Tuvastatud veerud failis: <code>{html.escape(str(list(df_input.columns)))}</code>.
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
             if st.button("Vali teine fail"):
                 st.session_state["df_input"] = None
                 st.session_state.pop("cached_validation_results", None)
@@ -258,7 +280,7 @@ if app_mode == "📋 Valideerimise töölaud":
         iso_col = col_map["iso"]
         stat_col = col_map.get("statutory")
 
-        # Valideeri read (vahemäluga, et vältida tarbetut uuestiarvutust igal filtriklikil)
+        # Valideeri read vahemäluga
         cache_key = f"{st.session_state['input_source_name']}_{len(df_input)}_{kb_count}"
         if st.session_state.get("last_validation_key") == cache_key and "cached_validation_results" in st.session_state:
             validation_results = st.session_state["cached_validation_results"]
@@ -294,7 +316,7 @@ if app_mode == "📋 Valideerimise töölaud":
 
         problem_count = total_rows - valid_count
 
-        # Genereeri kahe-tasemeline Exceli raport (Spetsialisti vaade + Tehniline audit)
+        # Genereeri kahe-tasemeline Exceli raport
         report_bytes = generate_validation_report(validation_results)
         report_filename = f"valideerimise_raport_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
 
@@ -302,16 +324,38 @@ if app_mode == "📋 Valideerimise töölaud":
         st.title("Valideerimise kokkuvõte")
         st.caption(f"Töödeldud fail: **{st.session_state['input_source_name']}** ({total_rows} rida)")
 
-        # ÜLEMISED KOONDMÕÕDIKUD JA CTA
-        c_kpi1, c_kpi2, c_kpi3, c_cta = st.columns([1.5, 1.8, 1.8, 2.5])
-        with c_kpi1:
-            st.metric("Töödeldud ridu", total_rows)
-        with c_kpi2:
-            st.metric("Vastab reeglitele", valid_count, f"{int(valid_count/total_rows*100)}%" if total_rows else "")
-        with c_kpi3:
-            st.metric("Vajab ülevaatust", problem_count, f"{int(problem_count/total_rows*100)}%" if total_rows else "")
+        # ÜLEMISED KOONDMÕÕDIKUD (TEDI SUMMARY CARDS) JA CTA NUPP
+        c_kpi_wrap, c_cta = st.columns([3, 1])
+        with c_kpi_wrap:
+            st.markdown(f"""
+            <div class="tedi-summary-grid" style="margin: 0;">
+              <div class="tedi-summary-card primary">
+                <div class="tedi-summary-label">Töödeldud kirjeid kokku</div>
+                <div class="tedi-summary-value-row">
+                  <span class="tedi-summary-value">{total_rows}</span>
+                  <span class="tedi-summary-sub">rida</span>
+                </div>
+              </div>
+              <div class="tedi-summary-card success">
+                <div class="tedi-summary-label">Vastab nõuetele</div>
+                <div class="tedi-summary-value-row">
+                  <span class="tedi-summary-value">{valid_count}</span>
+                  <span class="tedi-summary-sub">({int(valid_count/total_rows*100) if total_rows else 0}%)</span>
+                </div>
+              </div>
+              <div class="tedi-summary-card {'danger' if problem_count > 0 else 'success'}">
+                <div class="tedi-summary-label">Vajab ülevaatust / Vigu</div>
+                <div class="tedi-summary-value-row">
+                  <span class="tedi-summary-value">{problem_count}</span>
+                  <span class="tedi-summary-sub">({int(problem_count/total_rows*100) if total_rows else 0}%)</span>
+                </div>
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+
         with c_cta:
-            st.write("")  # nihutus joondamiseks
+            st.write("")
+            st.write("")
             st.download_button(
                 label="Laadi valideerimise raport (.xlsx)",
                 data=report_bytes,
@@ -321,42 +365,66 @@ if app_mode == "📋 Valideerimise töölaud":
                 help="Sisaldab spetsialisti kokkuvõtet ja täielikku tehnilist auditit."
             )
 
-        # Probleemide rahulik, astmeline jaotus
-        st.markdown("**Tähelepanu vajavate kirjete ülevaade:**")
-        cp1, cp2, cp3, cp4, cp5 = st.columns(5)
-        cp1.metric("Kitsenduse rikkumine", restriction_violations)
-        cp2.metric("Vale ISO kood", wrong_iso)
-        cp3.metric("Vale nimetus", wrong_stat)
-        cp4.metric("Vale ISO ja nimetus", wrong_both)
-        cp5.metric("Vajab kontrolli", needs_review + unknown)
-
-        st.divider()
-
-        # --- 1. TEGEVUSPLOKK: JÄRGMINE SAMM ILMSEKS ---
+        # Probleemide jaotus TEDI Summary Cards kujul
         if problem_count > 0:
-            st.info(f"""
-            ### 📋 Spetsialisti tegevusjuhis (Leitud {problem_count} otsustamist vajavat kirjet)
-            
-            Failis leiti lahknevusi ametliku klassifikaatoriga või määruse nr 74 kitsenduste rikkumisi.
-            
-            **Sinu järgmised sammud:**
-            1. **Vaata üle vead:** Vahekaardil **"🔍 Probleemsete kirjete ülevaade"** on välja toodud täpne põhjus igale reale.
-            2. **Kinnita või korrigeeri:** Vahekaardil **"✍️ Paranda ja kinnita kirjed"** saad süsteemi pakutud vasteid kinnitada või muuta.
-            3. **Laadi alla raport:** Ülal asuvast nupust saad alla laadida parandustega Exceli raporti.
-            4. **Süsteem jätab meelde:** Sinu kinnitatud kirjed salvestatakse ja järgmisel kuul lahenduvad need automaatselt.
-            """)
+            st.markdown(f"""
+            <div style="font-family: var(--font-family); font-size: 13px; font-weight: 700; color: var(--tedi-text-secondary); margin-top: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Tähelepanu vajavate kirjete jaotus:</div>
+            <div class="tedi-summary-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); margin-top: 4px; margin-bottom: 20px;">
+              <div class="tedi-summary-card danger" style="padding: 12px 14px;">
+                <div class="tedi-summary-label">Kitsenduse rikkumine</div>
+                <div class="tedi-summary-value" style="font-size: 24px;">{restriction_violations}</div>
+              </div>
+              <div class="tedi-summary-card warning" style="padding: 12px 14px;">
+                <div class="tedi-summary-label">Vale ISO kood</div>
+                <div class="tedi-summary-value" style="font-size: 24px;">{wrong_iso}</div>
+              </div>
+              <div class="tedi-summary-card warning" style="padding: 12px 14px;">
+                <div class="tedi-summary-label">Vale nimetus</div>
+                <div class="tedi-summary-value" style="font-size: 24px;">{wrong_stat}</div>
+              </div>
+              <div class="tedi-summary-card danger" style="padding: 12px 14px;">
+                <div class="tedi-summary-label">Vale ISO ja nimetus</div>
+                <div class="tedi-summary-value" style="font-size: 24px;">{wrong_both}</div>
+              </div>
+              <div class="tedi-summary-card primary" style="padding: 12px 14px;">
+                <div class="tedi-summary-label">Vajab kontrolli</div>
+                <div class="tedi-summary-value" style="font-size: 24px;">{needs_review + unknown}</div>
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        # Tegevusjuhised (TEDI Alert)
+        if problem_count > 0:
+            st.markdown(f"""
+            <div class="tedi-alert tedi-alert-info">
+              <div class="tedi-alert-title">Spetsialisti tegevusjuhis (Leitud {problem_count} otsustamist vajavat kirjet)</div>
+              <div class="tedi-alert-body">
+                Failis leiti lahknevusi ametliku klassifikaatoriga või määruse nr 74 kitsenduste rikkumisi.
+                <ol>
+                  <li><strong>Vaata üle vead:</strong> Vahekaardil <strong>"Probleemsete kirjete ülevaade"</strong> on välja toodud iga kirje täpne staatus ja lahknevuse selgitus.</li>
+                  <li><strong>Kinnita või korrigeeri:</strong> Vahekaardil <strong>"Paranda ja kinnita kirjed"</strong> saab süsteemi pakutud vasteid kinnitada või muuta.</li>
+                  <li><strong>Laadi alla raport:</strong> Ülal asuvast nupust saab alla laadida parandustega ametliku kahe-tasemelise Exceli raporti.</li>
+                  <li><strong>Õppiv teadmistebaas:</strong> Sinu kinnitatud kirjed salvestatakse ja järgmisel kuul lahenduvad need automaatselt.</li>
+                </ol>
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
         else:
-            st.success(f"""
-            ### ✅ Kõik {total_rows} rida vastavad nõuetele!
-            Failis ei tuvastatud ühtegi viga ega määruse kitsenduste rikkumist. Fail on valmis kinnitamiseks ja arveldamiseks.
-            """)
+            st.markdown(f"""
+            <div class="tedi-alert tedi-alert-success">
+              <div class="tedi-alert-title">Kõik {total_rows} rida vastavad nõuetele</div>
+              <div class="tedi-alert-body">
+                Failis ei tuvastatud ühtegi viga ega määruse kitsenduste rikkumist. Fail on valmis kinnitamiseks ja arveldamiseks.
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
 
         # --- TÖÖLAUA VAHEKAARDID: PROBLEEMID JA KINNITAMINE ---
         unresolved = df_res[df_res["Valideerimise staatus"] != Validator.STATUS_MATCH]
 
         tab_prob, tab_queue = st.tabs([
-            f"🔍 Probleemsete kirjete ülevaade ({problem_count})",
-            f"✍️ Paranda ja kinnita kirjed ({len(unresolved)})"
+            f"Probleemsete kirjete ülevaade ({problem_count})",
+            f"Paranda ja kinnita kirjed ({len(unresolved)})"
         ])
 
         with tab_prob:
@@ -370,73 +438,92 @@ if app_mode == "📋 Valideerimise töölaud":
                 else:
                     default_selected = available_statuses
 
-                selected_status = st.multiselect(
+                status_labels_map = {s: format_status_label(s) for s in available_statuses}
+                selected_status_labels = st.multiselect(
                     "Filtreeri staatuse järgi:",
-                    options=available_statuses,
-                    default=default_selected
+                    options=list(status_labels_map.values()),
+                    default=[status_labels_map[s] for s in default_selected if s in status_labels_map]
                 )
+                selected_status = [k for k, v in status_labels_map.items() if v in selected_status_labels]
 
-            # Filtreeritud read
             df_filtered = df_res[df_res["Valideerimise staatus"].isin(selected_status)].copy()
-            df_filtered["Otsuse staatus"] = df_filtered["Valideerimise staatus"].apply(format_status_label)
 
             if not show_valid:
                 st.caption(f"Kuvatakse ainult tähelepanu vajavad kirjed ({len(df_filtered)} rida).")
             else:
                 st.caption(f"Kuvatakse kõik valitud staatustega kirjed ({len(df_filtered)} rida).")
 
-            # Tabel otsustamiseks optimeeritud veergudega
-            table_cols = [
-                "Rida",
-                "Otsuse staatus",
-                "Selgitus",
-                "Abivahendi nimetus (Excel)",
-                "Tuvastatud ametlik toode",
-                "Tootja",
-                "ISO kood (Excel)",
-                "Ametlik ISO kood",
-                "Määrusejärgne nimetus (Excel)",
-                "Ametlik määrusejärgne nimetus"
+            # Leheküljestamise loogika
+            val_page_size = 20
+            total_val_rows = len(df_filtered)
+            total_val_pages = max(1, math.ceil(total_val_rows / val_page_size))
+            if st.session_state["page_val"] > total_val_pages:
+                st.session_state["page_val"] = 1
+
+            table_config = [
+                {"key": "Rida", "label": "Rida", "type": "mono", "width": "50px"},
+                {"key": "Valideerimise staatus", "label": "Otsuse staatus", "type": "badge", "width": "180px"},
+                {"key": "Abivahendi nimetus (Excel)", "label": "Tootenimi arvel", "type": "text"},
+                {"key": "Tuvastatud ametlik toode", "label": "Tuvastatud toode", "type": "bold"},
+                {"key": "ISO kood (Excel)", "label": "Esitatud ISO", "type": "code", "width": "100px"},
+                {"key": "Ametlik ISO kood", "label": "Ametlik ISO", "type": "code_highlight", "width": "100px"},
+                {"key": "Ametlik määrusejärgne nimetus", "label": "Määrusejärgne nimetus", "type": "text"},
+                {"key": "Selgitus", "label": "Lahknevuse selgitus", "type": "muted"}
             ]
-            valid_cols = [c for c in table_cols if c in df_filtered.columns]
 
-            st.dataframe(
-                df_filtered[valid_cols],
-                use_container_width=True,
-                height=450
+            # Autentne TEDI Semantiline HTML5 Tabel
+            tedi_html = render_tedi_table(
+                df=df_filtered,
+                columns_config=table_config,
+                current_page=st.session_state["page_val"],
+                page_size=val_page_size,
+                table_id="tedi_validation_table"
             )
+            st.markdown(tedi_html, unsafe_allow_html=True)
 
-        # --- 4. PROBLEEMSETE KIRJETE LAHENDAMINE (TÕEALLIKA PÕHINE OTSUSTUSMUDEL) ---
+            # Leheküljestamise nupud
+            if total_val_pages > 1:
+                col_vp1, col_vp2, col_vp3 = st.columns([1, 2, 1])
+                with col_vp1:
+                    if st.button("Eelmine leht", disabled=(st.session_state["page_val"] <= 1), key="btn_vp_prev", use_container_width=True):
+                        st.session_state["page_val"] -= 1
+                        st.rerun()
+                with col_vp3:
+                    if st.button("Järgmine leht", disabled=(st.session_state["page_val"] >= total_val_pages), key="btn_vp_next", use_container_width=True):
+                        st.session_state["page_val"] += 1
+                        st.rerun()
+
+        # --- 4. PROBLEEMSETE KIRJETE LAHENDAMINE (TEDI VORMID JA SISEKAARDID) ---
         with tab_queue:
-            st.subheader("✍️ Probleemsete kirjete lahendamine")
+            st.subheader("Probleemsete kirjete lahendamine")
             st.caption(
                 "Kinnita arvel esitatud kirjapildi vastavus ametlikule tootele. "
                 "ISO kood, määrusejärgne nimetus ja kitsendused pärinevad alati tõeallikatest (tooteregister ja määrus nr 74), mitte arvelt."
             )
 
             if len(unresolved) == 0:
-                st.success("Kõik tooted vastavad nõuetele! Ühtegi lahendamist vajavat kirjet ei ole.")
+                st.markdown('<div class="tedi-alert tedi-alert-success"><div class="tedi-alert-title">Kõik tooted vastavad nõuetele</div><div class="tedi-alert-body">Ühtegi lahendamist vajavat kirjet ei ole.</div></div>', unsafe_allow_html=True)
             else:
-                st.info(f"Otsustamist ja toote seostamist vajab {len(unresolved)} kirjet.")
+                st.markdown(f'<div style="font-size: 14px; color: var(--tedi-text-secondary); margin-bottom: 16px;">Otsustamist ja toote seostamist vajab <strong>{len(unresolved)}</strong> kirjet.</div>', unsafe_allow_html=True)
 
                 for _, r in unresolved.iterrows():
-                    st_label = format_status_label(r['Valideerimise staatus'])
+                    st_clean = format_status_label(r['Valideerimise staatus'])
                     row_id = r['Rida']
                     raw_name = r['Abivahendi nimetus (Excel)']
                     s_prod = r['Tuvastatud ametlik toode'] or "Tundmatu toode"
                     s_mfg = f" ({r['Tootja']})" if r.get('Tootja') else ""
 
-                    with st.expander(f"Rida {row_id}: {raw_name}  —  [{st_label}]"):
+                    with st.expander(f"Rida {row_id}: {raw_name}  —  [{st_clean}]"):
                         # 4-ASTMELINE VÕRDLUSMUDEL (TEDI Card.txt sisekaardid)
                         col_card1, col_card2 = st.columns(2)
 
                         with col_card1:
                             st.markdown(f"""
                             <div class="tedi-inner-card">
-                              <h5>1. 📄 Esitatud arvel (Kontrollitav väide)</h5>
-                              <div style="margin-bottom: 4px;">• <strong>Arvel olev tootenimi:</strong> {raw_name}</div>
-                              <div style="margin-bottom: 4px;">• <strong>Arvel esitatud ISO:</strong> <code class="mono">{r['ISO kood (Excel)']}</code></div>
-                              <div>• <strong>Arvel esitatud nimetus:</strong> {r['Määrusejärgne nimetus (Excel)']}</div>
+                              <h5>1. Esitatud arvel (Kontrollitav väide)</h5>
+                              <div style="margin-bottom: 4px;">• <strong>Arvel olev tootenimi:</strong> {html.escape(raw_name)}</div>
+                              <div style="margin-bottom: 4px;">• <strong>Arvel esitatud ISO:</strong> <code class="mono">{html.escape(str(r['ISO kood (Excel)']))}</code></div>
+                              <div>• <strong>Arvel esitatud nimetus:</strong> {html.escape(str(r['Määrusejärgne nimetus (Excel)']))}</div>
                             </div>
                             """, unsafe_allow_html=True)
 
@@ -445,10 +532,10 @@ if app_mode == "📋 Valideerimise töölaud":
                             off_stat = r['Ametlik määrusejärgne nimetus'] or 'Määramata'
                             st.markdown(f"""
                             <div class="tedi-inner-card">
-                              <h5>2. 🏛️ Tõeallikas (Ametlik toode & klassifikatsioon)</h5>
-                              <div style="margin-bottom: 4px;">• <strong>Tuvastatud toode:</strong> <strong>{s_prod}</strong>{s_mfg}</div>
-                              <div style="margin-bottom: 4px;">• <strong>Tõeallika ametlik ISO:</strong> <code class="mono">{off_iso}</code></div>
-                              <div>• <strong>Tõeallika ametlik nimetus:</strong> <em>{off_stat}</em></div>
+                              <h5>2. Tõeallikas (Ametlik toode ja klassifikatsioon)</h5>
+                              <div style="margin-bottom: 4px;">• <strong>Tuvastatud toode:</strong> <strong>{html.escape(s_prod)}</strong>{html.escape(s_mfg)}</div>
+                              <div style="margin-bottom: 4px;">• <strong>Tõeallika ametlik ISO:</strong> <code class="mono">{html.escape(str(off_iso))}</code></div>
+                              <div>• <strong>Tõeallika ametlik nimetus:</strong> <em>{html.escape(str(off_stat))}</em></div>
                             </div>
                             """, unsafe_allow_html=True)
 
@@ -465,16 +552,16 @@ if app_mode == "📋 Valideerimise töölaud":
 
                         st.markdown(f"""
                         <div class="tedi-inner-card" style="border-left: 4px solid var(--tedi-status-warning-border);">
-                          <h5>3. 🔍 Tuvastatud lahknevus tõeallikaga</h5>
-                          <div style="margin-bottom: 6px;"><strong>Põhjus:</strong> {r.get('Selgitus')}</div>
-                          <div style="color: var(--tedi-text-link);">👉 <strong>Soovitus menetlejale:</strong> {rec_action}</div>
+                          <h5>3. Tuvastatud lahknevus tõeallikaga</h5>
+                          <div style="margin-bottom: 6px;"><strong>Põhjus:</strong> {html.escape(str(r.get('Selgitus')))}</div>
+                          <div style="color: var(--tedi-text-link);"><strong>Soovitus menetlejale:</strong> {html.escape(rec_action)}</div>
                         </div>
                         """, unsafe_allow_html=True)
 
                         # 4. OTSUS: TOOTE IDENTITEEDI JA ALIASE KINNITAMINE
                         st.markdown("""
                         <div class="tedi-inner-card" style="border-left: 4px solid var(--tedi-primary); margin-bottom: 8px;">
-                          <h5>4. 🎯 Sinu otsus: Toote vaste kinnitamine</h5>
+                          <h5>4. Otsus: Toote vaste kinnitamine</h5>
                           <div style="font-size: 13px; color: var(--tedi-text-secondary);">
                             Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Reegleid salvestatakse vajaduspõhiselt (ainult madala süsteemikindluse või lahknevuse korral). Ametlikku ISO-koodi käsitsi ei määrata — see rakendub automaatselt valitud toote tõeallikast.
                           </div>
@@ -483,7 +570,7 @@ if app_mode == "📋 Valideerimise töölaud":
 
                         col_btn, col_change = st.columns([1.5, 1])
                         with col_change:
-                            change_product = st.checkbox("🔍 Vali teine toode tooteregistrist", key=f"chg_{row_id}")
+                            change_product = st.checkbox("Vali teine toode tooteregistrist", key=f"chg_{row_id}")
 
                         chosen_product_name = s_prod
                         chosen_iso = r["Ametlik ISO kood"]
@@ -504,7 +591,7 @@ if app_mode == "📋 Valideerimise töölaud":
                             if chosen_obj:
                                 chosen_iso = chosen_obj.get("suggested_iso", "")
                                 chosen_stat = chosen_obj.get("suggested_statutory_name", "")
-                                st.info(f"Valitud toote ametlik ISO: **`{chosen_iso}`** | Määrusejärgne nimetus: **{chosen_stat}** (pärineb tooderegistrist)")
+                                st.markdown(f'<div class="tedi-alert tedi-alert-info" style="margin: 8px 0; padding: 10px 14px;"><div class="tedi-alert-body">Valitud toote ametlik ISO: <strong><code class="mono">{chosen_iso}</code></strong> | Määrusejärgne nimetus: <strong>{chosen_stat}</strong></div></div>', unsafe_allow_html=True)
                         else:
                             chosen_obj = registry_db.find_exact_alias(s_prod)
                             if chosen_obj:
@@ -512,7 +599,7 @@ if app_mode == "📋 Valideerimise töölaud":
                                 chosen_stat = chosen_obj.get("suggested_statutory_name", r["Ametlik määrusejärgne nimetus"])
 
                         with col_btn:
-                            btn_label = f"✅ Kinnita toote vaste: '{raw_name}' ➔ '{chosen_product_name}'"
+                            btn_label = f"Kinnita toote vaste: '{raw_name}' -> '{chosen_product_name}'"
                             if st.button(btn_label, key=f"btn_confirm_{row_id}"):
                                 kb.confirm_mapping(
                                     raw_name=raw_name,
@@ -524,17 +611,17 @@ if app_mode == "📋 Valideerimise töölaud":
                                 )
                                 st.session_state.pop("cached_validation_results", None)
                                 st.session_state.pop("last_validation_key", None)
-                                st.toast(f"✅ Toote vaste kinnitatud: '{raw_name}' ➔ '{chosen_product_name}'!", icon="✅")
+                                st.toast(f"Toote vaste kinnitatud: '{raw_name}' -> '{chosen_product_name}'")
                                 st.rerun()
 
                         # 5. KOKKUKLAPITAV TEHNILINE AUDITINFO
-                        with st.expander("🔬 Vaata tehnilisi tuvastusandmeid (usaldusskoor, allikad, analüüs)"):
+                        with st.expander("Tehnilised tuvastusandmed (usaldusskoor, allikad, analüüs)"):
                             st.write(f"- Usaldusskoor: **{r.get('Usaldusskoor', 0)*100:.1f}%**")
                             st.write(f"- Tuvastuse allikas: {r.get('Tuvastuse allikas')}")
                             st.write(f"- Kitsenduse reeglikontroll: {r.get('Kitsenduse kontroll')}")
                             st.write(f"- Normaliseeritud nimetus: `{r.get('Normaliseeritud nimetus')}`")
                             if r.get("Põhjendus"):
-                                st.write(f"- Agendi arutluskäik: {r.get('Põhjendus')}")
+                                st.write(f"- Otsuse selgitus: {r.get('Põhjendus')}")
 
 
 # ==============================================================================
@@ -545,21 +632,33 @@ else:
     st.caption("Püsivad tõeallikad ja andmebaasid. Kasutatavad igal ajal, ilma faili üleslaadimata.")
 
     tab_reg, tab_class, tab_kb, tab_admin = st.tabs([
-        f"📦 Tooteregister ({reg_stats['total_products']:,} toodet)".replace(",", " "),
-        f"🏛️ Riiklik klassifikaator ({class_count} ISO koodi)",
-        f"🧠 Kinnitatud reeglid ({kb_count})",
-        "⚙️ Haldus ja süsteemiinfo"
+        f"Tooteregister ({reg_stats['total_products']:,} toodet)".replace(",", " "),
+        f"Riiklik klassifikaator ({class_count} ISO koodi)",
+        f"Kinnitatud reeglid ({kb_count})",
+        "Haldus ja süsteemiinfo"
     ])
 
     # 1. TOOTEREGISTER
     with tab_reg:
-        st.subheader("📦 Püsiv Tooteregister")
+        st.subheader("Püsiv Tooteregister")
         st.caption("Eesti abivahendite tarnijate kataloogidest ühendatud ja dublikaadivaba toodete baas.")
 
-        rkpi1, rkpi2, rkpi3 = st.columns(3)
-        rkpi1.metric("Tooteid registris", f"{reg_stats['total_products']:,}".replace(",", " "))
-        rkpi2.metric("Tootjaid", reg_stats['manufacturers_count'])
-        rkpi3.metric("Kategooriaid", len(reg_stats['categories']))
+        st.markdown(f"""
+        <div class="tedi-summary-grid">
+          <div class="tedi-summary-card primary">
+            <div class="tedi-summary-label">Tooteid registris</div>
+            <div class="tedi-summary-value">{reg_stats['total_products']:,}</div>
+          </div>
+          <div class="tedi-summary-card">
+            <div class="tedi-summary-label">Tootjaid kokku</div>
+            <div class="tedi-summary-value">{reg_stats['manufacturers_count']}</div>
+          </div>
+          <div class="tedi-summary-card">
+            <div class="tedi-summary-label">Tootekategooriaid</div>
+            <div class="tedi-summary-value">{len(reg_stats['categories'])}</div>
+          </div>
+        </div>
+        """.replace(",", " "), unsafe_allow_html=True)
 
         st.divider()
 
@@ -583,24 +682,47 @@ else:
 
         st.caption(f"Kuvatakse {len(filtered_reg)} toodet.")
         df_reg_view = pd.DataFrame(filtered_reg)
+
         if not df_reg_view.empty:
-            view_cols = ["official_name", "brand", "manufacturer", "category_type", "absorption_ml", "drops", "package_information", "source_supplier"]
-            valid_v_cols = [c for c in view_cols if c in df_reg_view.columns]
-            rename_map = {
-                "official_name": "Ametlik tootenimi",
-                "brand": "Bränd",
-                "manufacturer": "Tootja",
-                "category_type": "Kategooria",
-                "absorption_ml": "Imavus (ml)",
-                "drops": "Tilgad / Tase",
-                "package_information": "Pakendi info",
-                "source_supplier": "Tarnijad"
-            }
-            st.dataframe(df_reg_view[valid_v_cols].rename(columns=rename_map), use_container_width=True, height=500)
+            reg_page_size = 25
+            total_reg_rows = len(df_reg_view)
+            total_reg_pages = max(1, math.ceil(total_reg_rows / reg_page_size))
+            if st.session_state["page_reg"] > total_reg_pages:
+                st.session_state["page_reg"] = 1
+
+            reg_columns_config = [
+                {"key": "official_name", "label": "Ametlik tootenimi", "type": "bold"},
+                {"key": "brand", "label": "Bränd", "type": "text"},
+                {"key": "manufacturer", "label": "Tootja", "type": "text"},
+                {"key": "category_type", "label": "Kategooria", "type": "badge"},
+                {"key": "absorption_ml", "label": "Imavus (ml)", "type": "mono"},
+                {"key": "drops", "label": "Tilgad / Tase", "type": "mono"},
+                {"key": "source_supplier", "label": "Tarnijad", "type": "muted"}
+            ]
+
+            tedi_reg_html = render_tedi_table(
+                df=df_reg_view,
+                columns_config=reg_columns_config,
+                current_page=st.session_state["page_reg"],
+                page_size=reg_page_size,
+                table_id="tedi_registry_table"
+            )
+            st.markdown(tedi_reg_html, unsafe_allow_html=True)
+
+            if total_reg_pages > 1:
+                col_rp1, col_rp2, col_rp3 = st.columns([1, 2, 1])
+                with col_rp1:
+                    if st.button("Eelmine leht", disabled=(st.session_state["page_reg"] <= 1), key="btn_rp_prev", use_container_width=True):
+                        st.session_state["page_reg"] -= 1
+                        st.rerun()
+                with col_rp3:
+                    if st.button("Järgmine leht", disabled=(st.session_state["page_reg"] >= total_reg_pages), key="btn_rp_next", use_container_width=True):
+                        st.session_state["page_reg"] += 1
+                        st.rerun()
 
     # 2. RIIKLIK KLASSIFIKAATOR
     with tab_class:
-        st.subheader("🏛️ Sotsiaalkindlustusameti ja määruse nr 74 loetelu (alates 01.10.2026)")
+        st.subheader("Sotsiaalkindlustusameti ja määruse nr 74 loetelu (alates 01.10.2026)")
         st.caption("Ametlik tõeallikas koos valdkondade, liikide, tootekitsenduste ja piirhindadega.")
 
         search_q = st.text_input("Otsi klassifikaatorist (ISO kood, valdkond, liik või märksõna):", key="haldus_class_search")
@@ -618,49 +740,52 @@ else:
                     df_classes.get("liik", pd.Series(dtype=str)).str.upper().str.contains(q_up, na=False)
                 ]
 
-            show_cols = [
-                "iso_kood",
-                "valdkond",
-                "liik",
-                "maarusejargne_nimetus",
-                "tapsustus",
-                "kasutusaeg",
-                "tehingu_liik",
-                "piirlimiit",
-                "piirmaar",
-                "piirhind_muuk",
-                "piirhind_uur",
-                "omaosaluse_miinimum",
-                "uhik",
-                "hooldusteenus_h"
-            ]
-            valid_show = [c for c in show_cols if c in df_classes.columns]
-            rename_classes = {
-                "iso_kood": "ISO kood",
-                "valdkond": "Valdkond",
-                "liik": "Liik",
-                "maarusejargne_nimetus": "Määrusejärgne nimetus",
-                "tapsustus": "Kitsendus / Täpsustus (Veerg C)",
-                "kasutusaeg": "Kasutusaeg",
-                "tehingu_liik": "Tehingu liik",
-                "piirlimiit": "Piirlimiit",
-                "piirmaar": "Piirmäär",
-                "piirhind_muuk": "Müügi piirhind (€)",
-                "piirhind_uur": "Üüri piirhind (€/kuu)",
-                "omaosaluse_miinimum": "Omaosaluse miinimum",
-                "uhik": "Ühik",
-                "hooldusteenus_h": "Hooldekodu piirang (H)"
-            }
-            st.dataframe(df_classes[valid_show].rename(columns=rename_classes), use_container_width=True, height=500)
+            class_page_size = 25
+            total_class_rows = len(df_classes)
+            total_class_pages = max(1, math.ceil(total_class_rows / class_page_size))
+            if st.session_state["page_class"] > total_class_pages:
+                st.session_state["page_class"] = 1
 
-    # 3. KINNITATUD REEGLID (ENDINE TEADMISTEBAAS)
+            class_columns_config = [
+                {"key": "iso_kood", "label": "ISO kood", "type": "code_highlight", "width": "110px"},
+                {"key": "valdkond", "label": "Valdkond", "type": "text"},
+                {"key": "liik", "label": "Liik", "type": "text"},
+                {"key": "maarusejargne_nimetus", "label": "Määrusejärgne nimetus", "type": "bold"},
+                {"key": "tapsustus", "label": "Kitsendus / Täpsustus (Veerg C)", "type": "muted"},
+                {"key": "tehingu_liik", "label": "Tehingu liik", "type": "text"},
+                {"key": "piirhind_muuk", "label": "Müügi piirhind (€)", "type": "mono"},
+                {"key": "piirhind_uur", "label": "Üüri piirhind (€/kuu)", "type": "mono"},
+                {"key": "piirlimiit", "label": "Piirlimiit", "type": "text"}
+            ]
+
+            tedi_class_html = render_tedi_table(
+                df=df_classes,
+                columns_config=class_columns_config,
+                current_page=st.session_state["page_class"],
+                page_size=class_page_size,
+                table_id="tedi_classifier_table"
+            )
+            st.markdown(tedi_class_html, unsafe_allow_html=True)
+
+            if total_class_pages > 1:
+                col_cp1, col_cp2, col_cp3 = st.columns([1, 2, 1])
+                with col_cp1:
+                    if st.button("Eelmine leht", disabled=(st.session_state["page_class"] <= 1), key="btn_cp_prev", use_container_width=True):
+                        st.session_state["page_class"] -= 1
+                        st.rerun()
+                with col_cp3:
+                    if st.button("Järgmine leht", disabled=(st.session_state["page_class"] >= total_class_pages), key="btn_cp_next", use_container_width=True):
+                        st.session_state["page_class"] += 1
+                        st.rerun()
+
+    # 3. KINNITATUD REEGLID (VAJADUSPÕHINE KIHT)
     with tab_kb:
-        st.subheader("🧠 Kinnitatud reeglid ja erandid")
+        st.subheader("Kinnitatud reeglid ja erandid")
         st.caption("Vajaduspõhine õppiv kiht: Siia salvestatakse ainult need kirjapildid ja aliased, kus süsteemi automaatne tuvastuskindlus oli madal või vajas inimese kinnitust. 100% klappivaid tooteid siia ei dubleerita.")
 
         all_entries = kb.get_all()
         if not all_entries:
-            st.info("Kinnitatud reegleid ei ole veel lisatud. Reeglid lisanduvad siia vajaduspõhiselt, kui kinnitate töölaual madala kindlusega või lahknevustega kirjeid.")
+            st.markdown('<div class="tedi-alert tedi-alert-info"><div class="tedi-alert-title">Kinnitatud reeglid puuduvad</div><div class="tedi-alert-body">Reeglid lisanduvad siia vajaduspõhiselt, kui kinnitate töölaual madala kindlusega või lahknevustega kirjeid.</div></div>', unsafe_allow_html=True)
         else:
             kb_df = pd.DataFrame(all_entries)
 
@@ -670,42 +795,48 @@ else:
                 kb_df.to_excel(towrite_kb, index=False, engine="openpyxl")
                 towrite_kb.seek(0)
                 st.download_button(
-                    label="💾 Laadi reeglid alla (.xlsx)",
+                    label="Laadi reeglid alla (.xlsx)",
                     data=towrite_kb,
                     file_name="kinnitatud_reeglid.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     use_container_width=True
                 )
 
-            display_kb_cols = [
-                "id",
-                "algne_nimetus",
-                "normaliseeritud_nimetus",
-                "ametlik_toode",
-                "iso_kood",
-                "maarusejargne_nimetus",
-                "usaldustase",
-                "kinnituste_arv",
-                "viimane_valideerimine"
+            kb_columns_config = [
+                {"key": "id", "label": "ID", "type": "mono", "width": "50px"},
+                {"key": "algne_nimetus", "label": "Arvel esitatud kirjapilt", "type": "text"},
+                {"key": "ametlik_toode", "label": "Kinnitatud ametlik toode", "type": "bold"},
+                {"key": "iso_kood", "label": "ISO kood", "type": "code_highlight", "width": "110px"},
+                {"key": "maarusejargne_nimetus", "label": "Määrusejärgne nimetus", "type": "text"},
+                {"key": "usaldustase", "label": "Usaldustase", "type": "mono", "width": "100px"},
+                {"key": "viimane_valideerimine", "label": "Kinnitamise aeg", "type": "muted"}
             ]
-            valid_kb = [c for c in display_kb_cols if c in kb_df.columns]
-            st.dataframe(kb_df[valid_kb], use_container_width=True, height=450)
+
+            tedi_kb_html = render_tedi_table(
+                df=kb_df,
+                columns_config=kb_columns_config,
+                current_page=st.session_state["page_kb"],
+                page_size=20,
+                table_id="tedi_kb_table"
+            )
+            st.markdown(tedi_kb_html, unsafe_allow_html=True)
 
     # 4. HALDUS JA SÜSTEEMIINFO
     with tab_admin:
-        st.subheader("⚙️ Haldus ja süsteemiinfo")
+        st.subheader("Haldus ja süsteemiinfo")
         st.caption("Tehnilised parameetrid ja arhitektuuri ülevaade administraatorile.")
 
         st.markdown("""
-        ### Süsteemi arhitektuur ja andmeallikad
-        - **Andmebaas:** Lokaalne SQLite (`data/valideer.db`)
-        - **Põhilised tõeallikad:**
-          1. `ametlik_klassifikaator`: Sotsiaalministeeriumi määruse nr 74 ametlik loetelu (alates 01.10.2026, 250 kirjet koos piirmäärade ja kitsendustega).
-          2. `tooteregister`: 4 115 kanoonilist toodet koos aliaste, imavusmahtude ja tarnijate infoga.
-          3. `teadmistebaas`: Spetsialisti kinnitatud seosed (vajaduspõhine õppiv kiht madala tuvastuskindluse korral).
-        
-        ### Valideerimise reeglimootor
-        - **1:1 determinism:** Iga toode registris vastab eranditult ühele kindlale ISO koodile.
-        - **RestrictionEngine:** Kontrollib toote füüsikalist ja keemilist vastavust määruse kitsendustele (nt tsinkoksiidi nõue, välistatud tootekategooriad).
-        - **Privaatsuspõhimõte:** Kasutaja üleslaaditud faile ega arveridu kettale ei salvestata; kogu valideerimine toimub turvaliselt sessioonimälus (RAM).
-        """)
+        <div class="tedi-inner-card" style="margin-top: 16px;">
+          <h5>Süsteemi arhitektuur ja andmeallikad</h5>
+          <div style="margin-bottom: 6px;">• <strong>Andmebaas:</strong> Lokaalne SQLite (<code>data/valideer.db</code>)</div>
+          <div style="margin-bottom: 6px;">• <strong>Põhilised tõeallikad:</strong>
+            <ul style="margin-top: 4px; padding-left: 20px;">
+              <li><code>ametlik_klassifikaator</code>: Sotsiaalministeeriumi määruse nr 74 ametlik loetelu (alates 01.10.2026, 250 kirjet koos piirmäärade ja kitsendustega).</li>
+              <li><code>tooteregister</code>: 4 115 kanoonilist toodet koos aliaste, imavusmahtude ja tarnijate infoga.</li>
+              <li><code>teadmistebaas</code>: Spetsialisti kinnitatud seosed (vajaduspõhine õppiv kiht madala tuvastuskindluse korral).</li>
+            </ul>
+          </div>
+          <div>• <strong>Valideerimise reeglimootor:</strong> 1:1 determinism (iga toode vastab ühele ISO koodile) ja RestrictionEngine määruse veergude C ja M kontrolliks. Kasutaja arveid kettale ei salvestata.</div>
+        </div>
+        """, unsafe_allow_html=True)
