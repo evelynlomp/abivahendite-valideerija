@@ -26,7 +26,7 @@ class KnowledgeBase:
 
     @contextmanager
     def _connection(self):
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=30.0)
         conn.row_factory = sqlite3.Row
         try:
             yield conn
@@ -37,6 +37,8 @@ class KnowledgeBase:
         """Loob teadmistebaasi tabeli ja indeksid, kui neid veel pole."""
         with self._connection() as conn:
             cursor = conn.cursor()
+            cursor.execute("PRAGMA journal_mode=WAL;")
+            cursor.execute("PRAGMA busy_timeout=30000;")
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS teadmistebaas (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,

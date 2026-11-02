@@ -1,12 +1,14 @@
 [theme]
 base = "dark"
-primaryColor = "#2A9D8F"
+primaryColor = "#66C7B8"
 backgroundColor = "#0B0F19"
-secondaryBackgroundColor = "#121D32"
+secondaryBackgroundColor = "#112D32"
 textColor = "#F4F6F9"
 font = "sans serif"
 
 [server]
 headless = true
-enableCORS = false
-enableXsrfProtection = false
+enableCORS = true
+enableXsrfProtection = true
+maxUploadSize = 200
+runOnSave = false

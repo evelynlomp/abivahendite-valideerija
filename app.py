@@ -550,6 +550,8 @@ with st.sidebar:
         if st.button("Uus fail / Tühjenda", use_container_width=True):
             st.session_state["df_input"] = None
             st.session_state["input_source_name"] = None
+            st.session_state.pop("cached_validation_results", None)
+            st.session_state.pop("last_validation_key", None)
             st.rerun()
 
 
@@ -613,11 +615,18 @@ if app_mode == "📋 Valideerimise töölaud":
 
         if uploaded_file is not None:
             try:
-                if uploaded_file.name.endswith(".csv"):
-                    st.session_state["df_input"] = pd.read_csv(uploaded_file)
+                if uploaded_file.name.lower().endswith(".csv"):
+                    # Tuvastame automaatselt eraldaja (koma või semikoolon) ja toetame Eesti tähti (utf-8 / windows-1257)
+                    try:
+                        st.session_state["df_input"] = pd.read_csv(uploaded_file, sep=None, engine='python')
+                    except Exception:
+                        uploaded_file.seek(0)
+                        st.session_state["df_input"] = pd.read_csv(uploaded_file, sep=None, engine='python', encoding='windows-1257')
                 else:
                     st.session_state["df_input"] = pd.read_excel(uploaded_file)
                 st.session_state["input_source_name"] = uploaded_file.name
+                st.session_state.pop("cached_validation_results", None)
+                st.session_state.pop("last_validation_key", None)
                 st.rerun()
             except Exception as e:
                 st.error(f"Viga faili lugemisel: {e}")
@@ -627,6 +636,8 @@ if app_mode == "📋 Valideerimise töölaud":
             if os.path.exists(sample_path):
                 st.session_state["df_input"] = pd.read_excel(sample_path)
                 st.session_state["input_source_name"] = "naidis_sisend_vigadega.xlsx (näidis)"
+                st.session_state.pop("cached_validation_results", None)
+                st.session_state.pop("last_validation_key", None)
                 st.rerun()
             else:
                 st.warning("Näidisfaili ei leitud kataloogist data/.")
@@ -635,22 +646,25 @@ if app_mode == "📋 Valideerimise töölaud":
     else:
         df_input = st.session_state["df_input"]
 
-        # Tuvasta nõutud veerud paindlikult
+        # Tuvasta nõutud veerud paindlikult (sh eesti raamatupidamistarkvarade pealkirjad)
         col_map = {}
         for c in df_input.columns:
             c_clean = str(c).strip().lower()
-            if "abivahendi" in c_clean or "toote" in c_clean or ("nimetus" in c_clean and "määrus" not in c_clean):
+            if any(term in c_clean for term in ["abivahend", "toote", "artikkel", "kirjeldus", "kaup", "teenus"]) or ("nimetus" in c_clean and "määrus" not in c_clean and "maaruse" not in c_clean):
                 if "name" not in col_map:
                     col_map["name"] = c
-            elif "iso" in c_clean:
-                col_map["iso"] = c
-            elif "määruse" in c_clean or "maaruse" in c_clean or "ametlik" in c_clean:
+            elif any(term in c_clean for term in ["iso", "kood", "klassifikaator"]):
+                if "name" not in col_map or c != col_map.get("name"):
+                    col_map["iso"] = c
+            elif any(term in c_clean for term in ["määruse", "maaruse", "ametlik"]):
                 col_map["statutory"] = c
 
         if "name" not in col_map or "iso" not in col_map:
             st.error(f"Exceli failist ei leitud kohustuslikke veerge (tootenimi, ISO kood)! Tuvastatud veerud: {list(df_input.columns)}")
             if st.button("Vali teine fail"):
                 st.session_state["df_input"] = None
+                st.session_state.pop("cached_validation_results", None)
+                st.session_state.pop("last_validation_key", None)
                 st.rerun()
             st.stop()
 
@@ -658,20 +672,26 @@ if app_mode == "📋 Valideerimise töölaud":
         iso_col = col_map["iso"]
         stat_col = col_map.get("statutory")
 
-        # Valideeri read
-        validation_results = []
-        for idx, row in df_input.iterrows():
-            raw_name = str(row[name_col]) if pd.notna(row[name_col]) else ""
-            raw_iso = str(row[iso_col]) if pd.notna(row[iso_col]) else ""
-            raw_stat = str(row[stat_col]) if stat_col and pd.notna(row[stat_col]) else ""
+        # Valideeri read (vahemäluga, et vältida tarbetut uuestiarvutust igal filtriklikil)
+        cache_key = f"{st.session_state['input_source_name']}_{len(df_input)}_{kb_count}"
+        if st.session_state.get("last_validation_key") == cache_key and "cached_validation_results" in st.session_state:
+            validation_results = st.session_state["cached_validation_results"]
+        else:
+            validation_results = []
+            for idx, row in df_input.iterrows():
+                raw_name = str(row[name_col]) if pd.notna(row[name_col]) else ""
+                raw_iso = str(row[iso_col]) if pd.notna(row[iso_col]) else ""
+                raw_stat = str(row[stat_col]) if stat_col and pd.notna(row[stat_col]) else ""
 
-            res = validator.validate_row(
-                excel_name=raw_name,
-                excel_iso=raw_iso,
-                excel_statutory_name=raw_stat,
-                row_index=idx + 1
-            )
-            validation_results.append(res)
+                res = validator.validate_row(
+                    excel_name=raw_name,
+                    excel_iso=raw_iso,
+                    excel_statutory_name=raw_stat,
+                    row_index=idx + 1
+                )
+                validation_results.append(res)
+            st.session_state["cached_validation_results"] = validation_results
+            st.session_state["last_validation_key"] = cache_key
 
         df_res = pd.DataFrame(validation_results)
 
@@ -900,7 +920,9 @@ if app_mode == "📋 Valideerimise töölaud":
                                     statutory_name=chosen_stat,
                                     confidence=1.0
                                 )
-                                st.success(f"Toote vaste kinnitatud! Tulevastes failides tuvastatakse '{raw_name}' kui '{chosen_product_name}'. Ametlikud koodid pärinevad tõeallikast.")
+                                st.session_state.pop("cached_validation_results", None)
+                                st.session_state.pop("last_validation_key", None)
+                                st.toast(f"✅ Toote vaste kinnitatud: '{raw_name}' ➔ '{chosen_product_name}'!", icon="✅")
                                 st.rerun()
 
                         # 5. KOKKUKLAPITAV TEHNILINE AUDITINFO
