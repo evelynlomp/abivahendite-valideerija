@@ -1283,7 +1283,19 @@
       ]
     ],
     "confidence": "KÕRGE KINDLUS",
-    "status_rationale": "Kõik Galeo mudelid on säärelainerid (TT), otsene vaste koodile 06.24.41.07."
+    "status_rationale": "Kõik Galeo mudelid on säärelainerid (TT), otsene vaste koodile 06.24.41.07.",
+    "learned_feedback": [
+      {
+        "iso_code": "06.24.41.07",
+        "statutory_name": "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "confirmed_count": 12,
+        "rejected_count": 0,
+        "confidence_pct": 98.3,
+        "last_confirmed_at": "2026-11-02 15:41:37",
+        "last_rejected_at": null,
+        "rationale": "Otsene vaste säärelainerile (TT: 6Y92, 6Y93, 6Y95)"
+      }
+    ]
   },
   {
     "canonical_id": "CP-OTTOBOCK-SKEO-TT",
@@ -1657,7 +1669,29 @@
       ]
     ],
     "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
-    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II).",
+    "learned_feedback": [
+      {
+        "iso_code": "22.06.15.01",
+        "statutory_name": "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "confirmed_count": 10,
+        "rejected_count": 0,
+        "confidence_pct": 98.0,
+        "last_confirmed_at": "2026-11-02 15:45:55",
+        "last_rejected_at": null,
+        "rationale": "Sobib aktiivsusgrupp I nõuetele"
+      },
+      {
+        "iso_code": "09.30.24.11",
+        "statutory_name": "inkontinentsisidemed",
+        "confirmed_count": 0,
+        "rejected_count": 1,
+        "confidence_pct": 0.0,
+        "last_confirmed_at": null,
+        "last_rejected_at": "2026-11-02 15:45:55",
+        "rationale": "Kuuldeaparaat ei ole mähkmed ega side"
+      }
+    ]
   },
   {
     "canonical_id": "CP-OTICON-VERIT",

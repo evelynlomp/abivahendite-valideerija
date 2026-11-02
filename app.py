@@ -32,6 +32,7 @@ from src.report import (
     format_tedi_badge
 )
 from src.tedi_table import render_tedi_table
+from src.canonical_learning import get_canonical_learning_service, calculate_confidence
 
 
 # --- LEHE SEADISTUS ---
@@ -74,6 +75,16 @@ classifier = get_classifier()
 kb = get_knowledge_base()
 registry_db = get_registry_db()
 product_agent = get_product_agent()
+learning_service = get_canonical_learning_service()
+
+def load_canonical_catalog():
+    c_path = "data/canonical_products.json"
+    if os.path.exists(c_path):
+        with open(c_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+canonical_products = load_canonical_catalog()
 
 class_count = classifier.count()
 kb_count = kb.count()
@@ -100,6 +111,8 @@ if "page_class" not in st.session_state:
     st.session_state["page_class"] = 1
 if "page_kb" not in st.session_state:
     st.session_state["page_kb"] = 1
+if "page_canon" not in st.session_state:
+    st.session_state["page_canon"] = 1
 
 
 # --- KÜLGRIBA NAVIGATSIOON (TEDI Sidenav spetsifikatsioon) ---
@@ -135,6 +148,10 @@ with st.sidebar:
       <div class="sidebar-source-row">
         <span class="source-name">Tooteregister</span>
         <span class="source-badge mono">{reg_stats['total_products']:,} toodet</span>
+      </div>
+      <div class="sidebar-source-row">
+        <span class="source-name">Õppiv tootekataloog</span>
+        <span class="source-badge mono">{len(canonical_products)} toodet</span>
       </div>
       <div class="sidebar-source-row">
         <span class="source-name">Kinnitatud reeglid</span>
@@ -631,12 +648,265 @@ else:
     st.title("Registrid ja haldus")
     st.caption("Püsivad tõeallikad ja andmebaasid. Kasutatavad igal ajal, ilma faili üleslaadimata.")
 
-    tab_reg, tab_class, tab_kb, tab_admin = st.tabs([
+    tab_canon, tab_reg, tab_class, tab_kb, tab_admin = st.tabs([
+        f"Õppiv tootekataloog ({len(canonical_products)})",
         f"Tooteregister ({reg_stats['total_products']:,} toodet)".replace(",", " "),
         f"Riiklik klassifikaator ({class_count} ISO koodi)",
         f"Kinnitatud reeglid ({kb_count})",
         "Haldus ja süsteemiinfo"
     ])
+
+    # 0. ÕPPIV KANOONILINE TOOTEKATALOOG
+    with tab_canon:
+        st.subheader("Õppiv Kanooniline Tootekataloog")
+        st.caption("Deduplitseeritud tooted, koondatud aliased ning spetsialisti poolt kinnitatud ja tagasi lükatud ISO-koodide usaldusbaas.")
+
+        all_learned = learning_service.get_all_learning_records()
+        total_confirms = sum(r.get("kinnitatud_arv", 0) for r in all_learned)
+        total_rejects = sum(r.get("tagasi_lukatud_arv", 0) for r in all_learned)
+
+        st.markdown(f"""
+        <div class="tedi-summary-grid">
+          <div class="tedi-summary-card primary">
+            <div class="tedi-summary-label">Kanoonilisi tooteid</div>
+            <div class="tedi-summary-value">{len(canonical_products)}</div>
+          </div>
+          <div class="tedi-summary-card">
+            <div class="tedi-summary-label">Kinnitatud ISO seoseid</div>
+            <div class="tedi-summary-value">{total_confirms}</div>
+          </div>
+          <div class="tedi-summary-card">
+            <div class="tedi-summary-label">Tagasi lükatud seoseid</div>
+            <div class="tedi-summary-value">{total_rejects}</div>
+          </div>
+          <div class="tedi-summary-card">
+            <div class="tedi-summary-label">Õpitud reegleid baasis</div>
+            <div class="tedi-summary-value">{len(all_learned)}</div>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_cf1, col_cf2 = st.columns([2, 1])
+        with col_cf1:
+            canon_search = st.text_input("Otsi kanoonilist toodet, mudelit või aliaset:", key="canon_search_input", placeholder="Nt Oticon Intent, Galeo, Skeo, ResMed...")
+        with col_cf2:
+            canon_filter = st.selectbox(
+                "Filtreeri staatuse järgi:",
+                [
+                    "Kõik tooted",
+                    "Ainult tagasisidega / õpitud tooted",
+                    "Ülevaatust vajavad kuulmisaparaadid",
+                    "Kõrge kindlusega SKA tooted",
+                    "Tervisekassa meditsiiniseadmed"
+                ],
+                key="canon_filter_sel"
+            )
+
+        learned_canon_names = set(r["canonical_name"] for r in all_learned)
+
+        filtered_canon = []
+        for p in canonical_products:
+            c_name = p.get("canonical_name", "")
+            brand = p.get("brand", "")
+            mfg = p.get("manufacturer", "")
+            aliases = p.get("aliases", [])
+            conf_status = p.get("confidence", "")
+
+            # Filtri kontroll
+            if canon_filter == "Ainult tagasisidega / õpitud tooted" and c_name not in learned_canon_names:
+                continue
+            elif canon_filter == "Ülevaatust vajavad kuulmisaparaadid" and "ÜLEVAATUST" not in conf_status:
+                continue
+            elif canon_filter == "Kõrge kindlusega SKA tooted" and conf_status != "KÕRGE KINDLUS":
+                continue
+            elif canon_filter == "Tervisekassa meditsiiniseadmed" and "TERVISEKASSA" not in conf_status:
+                continue
+
+            # Tekstiotsing
+            if canon_search:
+                s_up = canon_search.upper()
+                match = (
+                    s_up in c_name.upper() or
+                    s_up in brand.upper() or
+                    s_up in mfg.upper() or
+                    any(s_up in str(a).upper() for a in aliases)
+                )
+                if not match:
+                    continue
+
+            filtered_canon.append(p)
+
+        st.caption(f"Kuvatakse {len(filtered_canon)} kanoonilist toodet.")
+
+        if not filtered_canon:
+            st.markdown('<div class="tedi-alert tedi-alert-info"><div class="tedi-alert-title">Tooteid ei leitud</div><div class="tedi-alert-body">Valitud otsingule või filtrile vastavaid tooteid ei leitud.</div></div>', unsafe_allow_html=True)
+        else:
+            # Leheküljestamine kanoonilistele toodetele (10 tk lehel)
+            c_page_size = 10
+            total_c_rows = len(filtered_canon)
+            total_c_pages = max(1, math.ceil(total_c_rows / c_page_size))
+            if st.session_state["page_canon"] > total_c_pages:
+                st.session_state["page_canon"] = 1
+
+            start_idx = (st.session_state["page_canon"] - 1) * c_page_size
+            end_idx = min(start_idx + c_page_size, total_c_rows)
+            page_products = filtered_canon[start_idx:end_idx]
+
+            for p in page_products:
+                c_name = p.get("canonical_name", "")
+                c_id = p.get("canonical_id", c_name.replace(" ", "_"))
+                mfg = p.get("manufacturer", "Määramata")
+                brand = p.get("brand", "Määramata")
+                cat = p.get("category", "")
+                aliases = p.get("aliases", [])
+                matching_isos = p.get("matching_isos", [])
+                descriptions = p.get("descriptions", [])
+                price_str = p.get("price_range_str", "")
+                images = p.get("images", [])
+                conf_level = p.get("confidence", "")
+
+                # Seotud õppimisandmed sellele tootele
+                learned_recs = {r["iso_kood"]: r for r in learning_service.get_all_records_for_product(c_name)}
+
+                with st.expander(f"{c_name} — {brand} ({mfg})", expanded=(canon_search != "" or len(filtered_canon) <= 3)):
+                    col_info1, col_info2 = st.columns([3, 1])
+                    with col_info1:
+                        st.markdown(f"**Tootja:** {mfg} &nbsp;|&nbsp; **Bränd:** {brand} &nbsp;|&nbsp; **Kategooria:** {cat}")
+                        if price_str:
+                            st.markdown(f"**Hinnainfo:** {price_str}")
+                        if aliases:
+                            alias_badges = " ".join([f"<code>{html.escape(str(a))}</code>" for a in aliases])
+                            st.markdown(f"<div style='margin: 8px 0;'><strong>Koondatud aliased ({len(aliases)} tk):</strong><br/>{alias_badges}</div>", unsafe_allow_html=True)
+                        if descriptions:
+                            st.markdown("**Tõendid ja omadused:**")
+                            for d in descriptions:
+                                st.markdown(f"- {d}")
+                    with col_info2:
+                        if images:
+                            st.image(images[0], caption=c_name, use_container_width=True)
+
+                    st.markdown("---")
+                    st.markdown("##### Sotsiaalkindlustusameti määruse nr 74 ISO vastavus ja õppimine")
+
+                    # Kui tootel on ISO kandidaate
+                    if not matching_isos and not learned_recs:
+                        st.markdown(f"<div class='tedi-alert tedi-alert-info'><div class='tedi-alert-body'>Sellel tootel puudub määruse nr 74 ISO seos ({conf_level}).</div></div>", unsafe_allow_html=True)
+                    else:
+                        # Koondame kõik ISO koodid (nii kandidaadid kui juba õpitud)
+                        all_iso_entries = []
+                        seen_isos = set()
+
+                        for iso_item in matching_isos:
+                            iso_code = iso_item[0]
+                            iso_name = iso_item[1] if len(iso_item) > 1 else ""
+                            note = iso_item[2] if len(iso_item) > 2 else ""
+                            all_iso_entries.append((iso_code, iso_name, note))
+                            seen_isos.add(iso_code)
+
+                        for iso_kood, r_item in learned_recs.items():
+                            if iso_kood not in seen_isos:
+                                all_iso_entries.append((iso_kood, r_item.get("maarusejargne_nimetus", ""), "Spetsialisti lisatud"))
+                                seen_isos.add(iso_kood)
+
+                        for iso_code, iso_name, note in all_iso_entries:
+                            rec = learned_recs.get(iso_code)
+                            if rec:
+                                conf_count = rec.get("kinnitatud_arv", 0)
+                                rej_count = rec.get("tagasi_lukatud_arv", 0)
+                                conf_pct = rec.get("usaldus_protsent", 50.0)
+                                last_action = rec.get("viimane_kinnitus_aeg") or rec.get("viimane_tagasilukatus_aeg") or "Puudub"
+                                cur_rationale = rec.get("pohjendus") or note
+                                hist = rec.get("ajalugu", [])
+                            else:
+                                conf_count = 0
+                                rej_count = 0
+                                conf_pct = 50.0
+                                last_action = "Puudub"
+                                cur_rationale = note
+                                hist = []
+
+                            # Värv ja badge usaldusskoorile
+                            if conf_pct >= 90.0:
+                                badge_html = f'<span class="tedi-badge tedi-badge-success">Usaldus: {conf_pct:.0f}%</span>'
+                                border_col = "var(--tedi-status-success-border)"
+                            elif conf_pct >= 60.0:
+                                badge_html = f'<span class="tedi-badge tedi-badge-warning">Usaldus: {conf_pct:.0f}%</span>'
+                                border_col = "var(--tedi-status-warning-border)"
+                            else:
+                                badge_html = f'<span class="tedi-badge tedi-badge-danger">Usaldus: {conf_pct:.0f}%</span>'
+                                border_col = "var(--tedi-status-danger-border)"
+
+                            st.markdown(f"""
+                            <div class="tedi-inner-card" style="margin-top: 10px; border-left: 4px solid {border_col};">
+                              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                  <span style="font-size: 15px; font-weight: 700; color: var(--tedi-text-primary);">Pakutud ISO: </span>
+                                  <code style="font-size: 14px; font-weight: 700;">{iso_code}</code>
+                                  <span style="color: var(--tedi-text-secondary); margin-left: 6px;">— {iso_name}</span>
+                                </div>
+                                <div>
+                                  {badge_html}
+                                </div>
+                              </div>
+                              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 10px 0; font-size: 13px;">
+                                <div>Kinnitatud kasutaja poolt: <strong style="color: #64B5F6;">{conf_count} korda</strong></div>
+                                <div>Tagasi lükatud: <strong style="color: #EF5350;">{rej_count} korda</strong></div>
+                                <div>Viimase otsuse aeg: <strong style="color: var(--tedi-text-primary);">{last_action}</strong></div>
+                              </div>
+                              {f'<div style="font-size: 13px; color: var(--tedi-text-muted); margin-top: 6px;">Põhjendus: <span style="color: var(--tedi-text-secondary);">{cur_rationale}</span></div>' if cur_rationale else ''}
+                            </div>
+                            """, unsafe_allow_html=True)
+
+                            col_act1, col_act2, col_act3 = st.columns([2, 1, 1])
+                            with col_act1:
+                                input_reason = st.text_input(
+                                    f"Põhjendus ({iso_code}):",
+                                    key=f"reason_{c_id}_{iso_code}",
+                                    placeholder="Nt arstitõendi aktiivsusgrupp I",
+                                    label_visibility="collapsed"
+                                )
+                            with col_act2:
+                                if st.button(f"Kinnita ISO {iso_code}", key=f"btn_c_{c_id}_{iso_code}", use_container_width=True):
+                                    learning_service.record_decision(
+                                        canonical_name=c_name,
+                                        iso_code=iso_code,
+                                        statutory_name=iso_name,
+                                        action="CONFIRM",
+                                        rationale=input_reason or f"Kinnitatud kasutaja poolt tootele {c_name}",
+                                        user="Spetsialist"
+                                    )
+                                    st.toast(f"ISO {iso_code} kinnitatud tootele '{c_name}'!")
+                                    st.rerun()
+                            with col_act3:
+                                if st.button(f"Lükka tagasi", key=f"btn_r_{c_id}_{iso_code}", use_container_width=True):
+                                    learning_service.record_decision(
+                                        canonical_name=c_name,
+                                        iso_code=iso_code,
+                                        statutory_name=iso_name,
+                                        action="REJECT",
+                                        rationale=input_reason or f"Tagasi lükatud kasutaja poolt tootele {c_name}",
+                                        user="Spetsialist"
+                                    )
+                                    st.toast(f"ISO {iso_code} tagasi lükatud tootele '{c_name}'!")
+                                    st.rerun()
+
+                            if hist:
+                                with st.expander(f"Otsustuste ajalugu (audit): {len(hist)} kannet"):
+                                    for h in reversed(hist):
+                                        act_label = "Kinnitatud" if h.get("action") == "CONFIRM" else "Tagasi lükatud"
+                                        st.write(f"- **{h.get('timestamp')}** | {act_label} ({h.get('user', 'Spetsialist')}): {h.get('rationale', '-')} -> Usaldus: {h.get('confidence_after', '-')}%")
+
+            # Kanoonilise kataloogi lehevahetus
+            if total_c_pages > 1:
+                col_c1, col_c2, col_c3 = st.columns([1, 2, 1])
+                with col_c1:
+                    if st.button("Eelmine leht (Kataloog)", disabled=(st.session_state["page_canon"] <= 1), key="btn_cp_c_prev", use_container_width=True):
+                        st.session_state["page_canon"] -= 1
+                        st.rerun()
+                with col_c3:
+                    if st.button("Järgmine leht (Kataloog)", disabled=(st.session_state["page_canon"] >= total_c_pages), key="btn_cp_c_next", use_container_width=True):
+                        st.session_state["page_canon"] += 1
+                        st.rerun()
 
     # 1. TOOTEREGISTER
     with tab_reg:
