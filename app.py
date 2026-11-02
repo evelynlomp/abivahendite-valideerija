@@ -38,55 +38,63 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CVI & DISAINIPÕHIMÕTTED (DARK MODE WCAG 2.2 AA) ---
+# --- CVI & DISAINIPÕHIMÕTTED (VALIDEER DISAINISÜSTEEM 1.0 / DARK MODE WCAG 2.2 AA) ---
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Taustad */
-  --bg-dark-base: #0B0F19;      /* Peamine sügav tumesinine taust */
-  --bg-dark-surface: #121D32;   /* Kaardid, paneelid ja tabeliread */
-  --bg-dark-hover: #1A2E4C;     /* Interaktiivsete elementide hover-olek */
-  /* Brändi- ja aktsentvärvid */
-  --brand-primary: #2A9D8F;     /* Muted blue-green (kinnitused, primaarsed nupud) */
-  --brand-accent: #48CAE4;      /* Hele aktsentsinine (fookus, aktiivsed olekud, info) */
-  --brand-navy: #1D3557;        /* Tumesinine (tugevamad struktuurijooned) */
-  /* Tekstid */
-  --text-primary: #F4F6F9;      /* Selge, ligipääsetav valkjas tekst põhiinfole */
-  --text-secondary: #94A3B8;    /* Hallikas tekst lisainfole */
-  --text-success: #4ADC8C;      /* WCAG-sõbralik roheline staatuste jaoks */
-  /* Piirjooned ja fookus */
-  --border-subtle: #1E293B;     /* Peened eraldusjooned paneelide vahel */
-  --focus-outline: #48CAE4;     /* Kontrastne fookusäär klaviatuuriga navigeerimiseks */
+  color-scheme: dark;
+  /* Semantilised värvitokenid (valideer-disainisusteem-v1/tokens.json) */
+  --canvas: #0B0F19;
+  --surface: #112D32;
+  --panel: #152430;
+  --raised: #1B3340;
+  --text: #F4F6F9;
+  --muted: #B8C7D1;
+  --border: #72909D;
+  --divider: #344C59;
+  --accent: #66C7B8;
+  --accent-hover: #83D8CB;
+  --accent-pressed: #4FB3A5;
+  --link: #80D5E8;
+  --focus: #48CAE4;
+  --success: #8ED9B4;
+  --warning: #F2CD7E;
+  --error: #FFB4AB;
+  --info: #A7D4F2;
+  --ink: #0B0F19;
+  --brand-teal: #2A9D8F;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
+  --r-control: 4px;
+  --r-panel: 6px;
+  --r-badge: 3px;
 }
 
-/* 1. Üldine tüpograafia (Rakenda ainult tekstielementidele, MITTE ikoonidele) */
+/* 1. Üldine tüpograafia ja taustad */
 html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, select,
-.stMarkdown, div[data-testid="stMarkdownContainer"] {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  color: var(--text-primary);
+.stMarkdown, div[data-testid="stMarkdownContainer"], .stCaption {
+  font-family: var(--font-sans) !important;
+  color: var(--text) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 .stApp {
-  background-color: var(--bg-dark-base) !important;
+  background-color: var(--canvas) !important;
 }
 
 [data-testid="stSidebar"] {
-  background-color: var(--bg-dark-base) !important;
-  border-right: 1px solid var(--border-subtle) !important;
+  background-color: var(--surface) !important;
+  border-right: 1px solid var(--divider) !important;
 }
 
-/* 2. IKOONIDE & SÜMBOLITE KAITSE (Hoiab ära 'keyboard_double' ja 'uploadpload' vead) */
-span[class*="material-symbols"],
+/* 2. Ikoonide kaitse (AINULT tegelikud ikoonid, mitte üleslaadija teksti-spanid) */
 .material-symbols-rounded,
 .material-symbols-outlined,
+[class*="material-symbols"],
 [data-testid="stIconMaterial"],
-[data-testid*="Icon"],
-[data-testid="stSidebarCollapseButton"] span,
-[data-testid="stFileUploader"] span,
-button span[class*="material-symbols"],
-span[data-testid="stIconMaterial"] {
+[data-testid*="Icon"] {
   font-family: 'Material Symbols Rounded', 'Material Icons', sans-serif !important;
   font-weight: normal !important;
   font-style: normal !important;
@@ -102,22 +110,21 @@ span[data-testid="stIconMaterial"] {
   -webkit-font-smoothing: antialiased !important;
 }
 
-/* 3. KÜLGRIBA NAVIGATSIOON & KOKKUPAKKIMISNUPP */
+/* 3. Külgriba kokkupakkimisnupu viimistlus */
 [data-testid="stSidebarCollapseButton"] {
-  color: var(--text-secondary) !important;
+  color: var(--muted) !important;
   background: transparent !important;
   border: none !important;
   padding: 4px 8px !important;
-  border-radius: 6px !important;
+  border-radius: var(--r-control) !important;
   transition: all 0.15s ease-in-out !important;
 }
-
 [data-testid="stSidebarCollapseButton"]:hover {
-  color: var(--brand-accent) !important;
-  background: var(--bg-dark-hover) !important;
+  color: var(--accent) !important;
+  background: var(--raised) !important;
 }
 
-/* 4. LOGO JA PILTIDE MODAALI & TÄISEKRAANI NUPU KEELAMINE */
+/* 4. Täisekraani nupu peitmine piltidelt */
 [data-testid="StyledFullScreenButton"],
 button[title="View fullscreen"],
 button[aria-label="View fullscreen"],
@@ -131,248 +138,322 @@ div[data-testid="stImage"] button {
   height: 0 !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stImage"] {
-  pointer-events: none !important;
-  user-select: none !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.5rem !important;
-}
-
-[data-testid="stSidebar"] [data-testid="stImage"] img {
-  pointer-events: none !important;
-  cursor: default !important;
-  user-select: none !important;
-  max-width: 190px !important;
-  height: auto !important;
-}
-
-/* 5. CVI KAARDID (STRUKTUREERITUD TÖÖLAUA PANEELID) */
-.cvi-card {
-  background-color: var(--bg-dark-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 20px;
-  height: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25);
-  transition: border-color 0.15s ease-in-out;
-}
-
-.cvi-card:hover {
-  border-color: rgba(72, 202, 228, 0.4);
-}
-
-.cvi-card-header {
-  margin-bottom: 10px;
-}
-
-.cvi-card-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.cvi-card-body {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-
-.cvi-card-body ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.cvi-card-body li {
+/* 5. Külgriba bränd ja tõeallikate paneel */
+.sidebar-brand-svg {
+  width: 190px;
+  max-width: 100%;
+  margin-top: 4px;
   margin-bottom: 6px;
 }
+.sidebar-brand-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.sidebar-brand-sub {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
 
-/* 6. FAILI ÜLESLAADIMISE KONTEINER (DROPZONE) */
+[data-testid="stRadio"] label {
+  font-size: 0.875rem !important;
+  color: var(--text) !important;
+}
+[data-testid="stRadio"] > label {
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  color: var(--muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.sidebar-sources {
+  background-color: var(--panel);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-panel);
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+.sidebar-sources-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.sidebar-source-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(52, 76, 89, 0.4);
+}
+.sidebar-source-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.source-name {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.source-badge {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* 6. Avalehe 3 kaardi ruudustik (Võrdsed kõrgused!) */
+.valideer-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  margin: 20px 0 32px 0;
+}
+@media (max-width: 900px) {
+  .valideer-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.valideer-card {
+  background: var(--panel);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-panel);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+}
+.valideer-card h3 {
+  font-size: 1.125rem !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  margin: 0 0 12px 0 !important;
+}
+.valideer-card p {
+  font-size: 0.9375rem !important;
+  line-height: 1.55 !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+}
+.valideer-card ul {
+  margin: 0 !important;
+  padding-left: 20px !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.55 !important;
+  color: var(--muted) !important;
+}
+.valideer-card li {
+  margin-bottom: 6px !important;
+}
+.valideer-card li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 7. Faili üleslaadimise konteiner (Dropzone) */
 [data-testid="stFileUploader"] {
-  background-color: var(--bg-dark-surface) !important;
-  border: 1px dashed rgba(72, 202, 228, 0.35) !important;
-  border-radius: 10px !important;
-  padding: 16px 20px !important;
-  transition: all 0.2s ease-in-out !important;
+  background-color: var(--panel) !important;
+  border: 1px dashed var(--border) !important;
+  border-radius: var(--r-panel) !important;
+  padding: 24px !important;
+  transition: border-color 0.15s ease-in-out;
 }
-
 [data-testid="stFileUploader"]:hover {
-  border-color: var(--brand-accent) !important;
-  background-color: rgba(18, 29, 50, 0.9) !important;
+  border-color: var(--accent) !important;
 }
-
 [data-testid="stFileUploaderDropzone"] {
   background: transparent !important;
   border: none !important;
+  padding: 0 !important;
 }
-
-[data-testid="stFileUploaderDropzoneInstructions"] {
-  color: var(--text-secondary) !important;
+[data-testid="stFileUploaderDropzoneInstructions"],
+[data-testid="stFileUploader"] small,
+[data-testid="stFileUploader"] span:not([class*="material-symbols"]):not([data-testid*="Icon"]) {
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  color: var(--muted) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
-
 [data-testid="stFileUploader"] button {
-  background-color: var(--bg-dark-hover) !important;
-  border: 1px solid var(--border-subtle) !important;
-  color: var(--text-primary) !important;
-  border-radius: 6px !important;
-  font-weight: 500 !important;
+  min-height: 44px !important;
+  padding: 10px 18px !important;
+  background-color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--ink) !important;
+  border-radius: var(--r-control) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 0.9375rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
-
 [data-testid="stFileUploader"] button:hover {
-  border-color: var(--brand-accent) !important;
-  color: #FFFFFF !important;
-  background-color: var(--brand-navy) !important;
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--ink) !important;
 }
 
-/* 7. Pealkirjad */
+/* 8. Tüpograafiline skaala */
 h1 {
-  font-size: 1.85rem !important;
-  font-weight: 700 !important;
+  font-size: clamp(2rem, 1.6rem + 1vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--text-primary) !important;
+  color: var(--text) !important;
+  margin-bottom: 0.5rem !important;
 }
-
 h2 {
-  font-size: 1.35rem !important;
+  font-size: clamp(1.5rem, 1.3rem + 0.5vw, 1.75rem) !important;
+  line-height: 1.25 !important;
   font-weight: 600 !important;
   letter-spacing: -0.01em !important;
-  color: var(--text-primary) !important;
+  color: var(--text) !important;
+  margin-bottom: 0.5rem !important;
+}
+h3 {
+  font-size: 1.25rem !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+h4 {
+  font-size: 1.125rem !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
 }
 
-h3, h4, h5 {
-  color: var(--text-primary) !important;
-  letter-spacing: -0.01em !important;
-}
-
-.label-micro {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-}
-
-/* 8. Kaardid ja mõõdikud */
+/* 9. Mõõdikud (Metrics) */
 div[data-testid="stMetric"] {
-  background-color: var(--bg-dark-surface) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: 8px !important;
-  padding: 12px 16px !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.25) !important;
+  background-color: var(--panel) !important;
+  border: 1px solid var(--divider) !important;
+  border-radius: var(--r-panel) !important;
+  padding: 14px 18px !important;
+  box-shadow: none !important;
 }
-
 div[data-testid="stMetricLabel"] {
-  color: var(--text-secondary) !important;
+  color: var(--muted) !important;
   font-size: 0.8125rem !important;
   font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
-
 div[data-testid="stMetricValue"] {
-  color: var(--text-primary) !important;
-  font-size: 1.6rem !important;
-  font-weight: 700 !important;
+  color: var(--text) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.85rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
 }
 
-/* 9. Nupud */
+/* 10. Nupud */
 .stButton > button {
-  font-family: inherit !important;
-  font-size: 0.875rem !important;
+  min-height: 44px !important;
+  padding: 10px 18px !important;
+  border-radius: var(--r-control) !important;
+  border: 1px solid var(--border) !important;
+  background-color: transparent !important;
+  color: var(--text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.9375rem !important;
   font-weight: 600 !important;
-  border-radius: 6px !important;
-  border: 1px solid var(--border-subtle) !important;
-  background-color: var(--bg-dark-surface) !important;
-  color: var(--text-primary) !important;
   transition: all 0.15s ease-in-out !important;
 }
-
 .stButton > button:hover {
-  background-color: var(--bg-dark-hover) !important;
-  border-color: var(--brand-accent) !important;
-  color: var(--text-primary) !important;
+  background-color: var(--raised) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
 }
-
 .stButton > button:focus-visible {
-  outline: 3px solid var(--focus-outline) !important;
-  outline-offset: 2px !important;
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 3px !important;
+}
+.stButton > button[kind="primary"],
+.stDownloadButton > button {
+  background-color: var(--accent) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--accent) !important;
+  font-weight: 600 !important;
+}
+.stButton > button[kind="primary"]:hover,
+.stDownloadButton > button:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--ink) !important;
 }
 
-/* Primaarsed tegevusnupud ja raporti laadimine */
-.stButton > button[kind="primary"], .stDownloadButton > button {
-  background-color: var(--brand-primary) !important;
-  color: #FFFFFF !important;
-  border: 1px solid transparent !important;
-}
-
-.stButton > button[kind="primary"]:hover, .stDownloadButton > button:hover {
-  background-color: #238579 !important;
-}
-
-/* 10. Vahekaardid (Tabs) */
+/* 11. Vahekaardid (Tabs) */
 .stTabs [data-baseweb="tab-list"] {
   background-color: transparent !important;
-  border-bottom: 1px solid var(--border-subtle) !important;
-  gap: 8px !important;
+  border-bottom: 1px solid var(--divider) !important;
+  gap: 12px !important;
 }
-
 .stTabs [data-baseweb="tab"] {
-  color: var(--text-secondary) !important;
-  font-size: 0.875rem !important;
+  color: var(--muted) !important;
+  font-size: 0.9375rem !important;
   font-weight: 600 !important;
-  padding: 10px 16px !important;
+  padding: 12px 18px !important;
 }
-
 .stTabs [aria-selected="true"] {
-  color: var(--brand-accent) !important;
-  border-bottom: 2px solid var(--brand-accent) !important;
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent) !important;
 }
 
-/* 11. Laiendatavad paneelid (Expanders) */
+/* 12. Laiendatavad paneelid (Expanders) */
 div[data-testid="stExpander"] {
-  background-color: var(--bg-dark-surface) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: 8px !important;
-  margin-bottom: 8px !important;
+  background-color: var(--panel) !important;
+  border: 1px solid var(--divider) !important;
+  border-radius: var(--r-panel) !important;
+  margin-bottom: 12px !important;
 }
-
 div[data-testid="stExpander"] summary {
-  color: var(--text-primary) !important;
+  color: var(--text) !important;
+  font-size: 0.9375rem !important;
   font-weight: 600 !important;
+  padding: 12px 16px !important;
 }
-
 div[data-testid="stExpander"] summary:hover {
-  color: var(--brand-accent) !important;
+  color: var(--accent) !important;
 }
 
-/* 12. Tabelid */
+/* 13. Tabelid */
 div[data-testid="stDataFrame"] {
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: 8px !important;
-  background-color: var(--bg-dark-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--r-control) !important;
+  background-color: var(--panel) !important;
 }
 
-/* 13. Teavituskastid ja juhised */
+/* 14. Teavituskastid (Alerts) */
 div[data-testid="stAlert"] {
-  background-color: var(--bg-dark-surface) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-left: 4px solid var(--brand-accent) !important;
-  border-radius: 8px !important;
-  color: var(--text-primary) !important;
+  background-color: var(--panel) !important;
+  border: 1px solid var(--divider) !important;
+  border-left: 3px solid var(--info) !important;
+  border-radius: var(--r-panel) !important;
+  color: var(--text) !important;
 }
 
-/* 14. Koodimärgendid */
+/* 15. Mono- ja koodimärgendid */
+.mono {
+  font-family: var(--font-mono) !important;
+}
 code {
-  background-color: var(--bg-dark-base) !important;
-  color: var(--brand-accent) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: 4px !important;
+  font-family: var(--font-mono) !important;
+  background-color: var(--canvas) !important;
+  color: var(--link) !important;
+  border: 1px solid var(--divider) !important;
+  border-radius: var(--r-control) !important;
   padding: 2px 6px !important;
   font-size: 0.85em !important;
 }
 
-/* 15. Eraldusjooned */
 hr {
-  border-color: var(--border-subtle) !important;
+  border-color: var(--divider) !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -424,11 +505,16 @@ if "input_source_name" not in st.session_state:
 
 # --- KÜLGRIBA NAVIGATSIOON ---
 with st.sidebar:
-    if os.path.exists("assets/valideer_logo.png"):
+    logo_svg_path = "assets/valideer-logo-flat.svg"
+    if os.path.exists(logo_svg_path):
+        with open(logo_svg_path, "r", encoding="utf-8") as f:
+            logo_svg = f.read()
+        st.markdown(f'<div class="sidebar-brand-svg">{logo_svg}</div>', unsafe_allow_html=True)
+    elif os.path.exists("assets/valideer_logo.png"):
         st.image("assets/valideer_logo.png", width=190)
     else:
         st.title("Valideer")
-    st.caption("Abivahendite tehinguridade kontroll")
+    st.markdown('<div class="sidebar-brand-sub">Abivahendite tehinguridade kontroll</div>', unsafe_allow_html=True)
     st.divider()
 
     app_mode = st.radio(
@@ -439,16 +525,29 @@ with st.sidebar:
 
     st.divider()
 
-    # Süsteemi lühistatistika
-    st.caption("Püsivad tõeallikad:")
-    st.markdown(f"- **Määrus nr 74:** {class_count} ISO koodi")
-    st.markdown(f"- **Tooteregister:** {reg_stats['total_products']:,} toodet".replace(",", " "))
-    st.markdown(f"- **Kinnitatud reegleid:** {kb_count}")
+    # Süsteemi lühistatistika (valideer-disainisusteem-v1 kompaktne paneel)
+    st.markdown(f"""
+    <div class="sidebar-sources">
+      <div class="sidebar-sources-title">PÜSIVAD TÕEALLIKAD</div>
+      <div class="sidebar-source-row">
+        <span class="source-name">Määrus nr 74</span>
+        <span class="source-badge mono">{class_count} ISO koodi</span>
+      </div>
+      <div class="sidebar-source-row">
+        <span class="source-name">Tooteregister</span>
+        <span class="source-badge mono">{reg_stats['total_products']:,} toodet</span>
+      </div>
+      <div class="sidebar-source-row">
+        <span class="source-name">Kinnitatud reeglid</span>
+        <span class="source-badge mono">{kb_count} reeglit</span>
+      </div>
+    </div>
+    """.replace(",", " "), unsafe_allow_html=True)
 
     if st.session_state["df_input"] is not None:
         st.divider()
-        st.caption(f"Aktiivne fail: **{st.session_state['input_source_name']}**")
-        if st.button("🔄 Laadi uus fail / Tühjenda", use_container_width=True):
+        st.markdown(f'<div style="font-size: 0.8125rem; color: var(--muted); margin-bottom: 8px;">Aktiivne fail: <strong style="color: var(--text);">{st.session_state["input_source_name"]}</strong></div>', unsafe_allow_html=True)
+        if st.button("Uus fail / Tühjenda", use_container_width=True):
             st.session_state["df_input"] = None
             st.session_state["input_source_name"] = None
             st.rerun()
@@ -464,57 +563,38 @@ if app_mode == "📋 Valideerimise töölaud":
         st.title("Abivahendite andmete kontroll")
         st.caption("Sotsiaalministeeriumi määruse nr 74 tehinguridade automaatne vastavuskontroll")
 
-        # Selgitavad väärtuskaardid esmakordsele kasutajale
-        with st.container():
-            st.markdown("""
-            See tööriist kontrollib igakuiseid abivahendite tehingufaile (Excel, CSV) ja tuvastab automaatselt vead ning mittevastavused enne arve esitamist või kinnitamist.
-            """)
+        st.markdown("""
+        <p style="color: var(--muted); font-size: 1rem; line-height: 1.5; max-width: 68ch; margin-top: 8px; margin-bottom: 24px;">
+        See tööriist kontrollib igakuiseid abivahendite tehingufaile (Excel, CSV) ja tuvastab automaatselt vead ning mittevastavused enne arve esitamist või kinnitamist.
+        </p>
+        """, unsafe_allow_html=True)
 
-            col_inf1, col_inf2, col_inf3 = st.columns(3)
-            with col_inf1:
-                st.markdown("""
-                <div class="cvi-card">
-                  <div class="cvi-card-header">
-                    <h4 class="cvi-card-title">Mis süsteemiga on tegu?</h4>
-                  </div>
-                  <div class="cvi-card-body">
-                    Automaatne reeglimootor, mis võrdleb tehinguridu Sotsiaalministeeriumi määruse nr 74 ametliku loetelu ja Eesti tarnijate ühendatud tooteregistriga.
-                  </div>
-                </div>
-                """, unsafe_allow_html=True)
-
-            with col_inf2:
-                st.markdown("""
-                <div class="cvi-card">
-                  <div class="cvi-card-header">
-                    <h4 class="cvi-card-title">Mida kontrollitakse?</h4>
-                  </div>
-                  <div class="cvi-card-body">
-                    <ul>
-                      <li>Toote tuvastamine ja 1:1 ISO koodi kehtivus</li>
-                      <li>Imavusmahtude (ml) vastavus nõuetele</li>
-                      <li>Määruse veergude C ja M kitsendused (sh tsinkoksiid, välistused)</li>
-                      <li>Ametliku määrusejärgse nimetuse klapp</li>
-                    </ul>
-                  </div>
-                </div>
-                """, unsafe_allow_html=True)
-
-            with col_inf3:
-                st.markdown("""
-                <div class="cvi-card">
-                  <div class="cvi-card-header">
-                    <h4 class="cvi-card-title">Millist kasu saad?</h4>
-                  </div>
-                  <div class="cvi-card-body">
-                    <ul>
-                      <li>Käsitsitöö asendamine sekunditega</li>
-                      <li>Finantsiliste tagasinõuete ja tagasilükkamiste ennetamine</li>
-                      <li>Parandusettepanekutega allalaaditav kahe-tasemeline Exceli raport</li>
-                    </ul>
-                  </div>
-                </div>
-                """, unsafe_allow_html=True)
+        # Selgitavad väärtuskaardid esmakordsele kasutajale (3 võrdse kõrgusega kaarti!)
+        st.markdown("""
+        <div class="valideer-card-grid">
+          <div class="valideer-card">
+            <h3>Mis süsteemiga on tegu?</h3>
+            <p>Automaatne reeglimootor, mis võrdleb tehinguridu Sotsiaalministeeriumi määruse nr 74 ametliku loetelu ja Eesti tarnijate ühendatud tooteregistriga.</p>
+          </div>
+          <div class="valideer-card">
+            <h3>Mida kontrollitakse?</h3>
+            <ul>
+              <li>Toote tuvastamine ja 1:1 ISO koodi kehtivus</li>
+              <li>Imavusmahtude (ml) vastavus nõuetele</li>
+              <li>Määruse veergude C ja M kitsendused (tsinkoksiid jm)</li>
+              <li>Ametliku määrusejärgse nimetuse klapp</li>
+            </ul>
+          </div>
+          <div class="valideer-card">
+            <h3>Millist kasu saad?</h3>
+            <ul>
+              <li>Käsitsitöö asendamine sekunditega</li>
+              <li>Finantsiliste tagasinõuete ja tagasilükkamiste ennetamine</li>
+              <li>Parandusettepanekutega kahe-tasemeline Exceli raport</li>
+            </ul>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
 
         st.divider()
 
@@ -617,17 +697,17 @@ if app_mode == "📋 Valideerimise töölaud":
         st.caption(f"Töödeldud fail: **{st.session_state['input_source_name']}** ({total_rows} rida)")
 
         # ÜLEMISED KOONDMÕÕDIKUD JA CTA
-        c_kpi1, c_kpi2, c_kpi3, c_cta = st.columns([1.5, 1.5, 1.8, 2.5])
+        c_kpi1, c_kpi2, c_kpi3, c_cta = st.columns([1.5, 1.8, 1.8, 2.5])
         with c_kpi1:
             st.metric("Töödeldud ridu", total_rows)
         with c_kpi2:
-            st.metric("✅ Kõik korras", valid_count, f"{int(valid_count/total_rows*100)}%" if total_rows else "")
+            st.metric("Vastab reeglitele", valid_count, f"{int(valid_count/total_rows*100)}%" if total_rows else "")
         with c_kpi3:
-            st.metric("⚠️ Vajab otsust", problem_count, f"{int(problem_count/total_rows*100)}%" if total_rows else "")
+            st.metric("Vajab ülevaatust", problem_count, f"{int(problem_count/total_rows*100)}%" if total_rows else "")
         with c_cta:
             st.write("")  # nihutus joondamiseks
             st.download_button(
-                label="📥 Laadi valideerimise raport (.xlsx)",
+                label="Laadi valideerimise raport (.xlsx)",
                 data=report_bytes,
                 file_name=report_filename,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -638,11 +718,11 @@ if app_mode == "📋 Valideerimise töölaud":
         # Probleemide rahulik, astmeline jaotus
         st.markdown("**Tähelepanu vajavate kirjete ülevaade:**")
         cp1, cp2, cp3, cp4, cp5 = st.columns(5)
-        cp1.metric("🔴 Kitsenduse rikkumine", restriction_violations)
-        cp2.metric("🟠 Vale ISO kood", wrong_iso)
-        cp3.metric("🟠 Vale nimetus", wrong_stat)
-        cp4.metric("🔴 Vale ISO ja nimetus", wrong_both)
-        cp5.metric("🟡 Vajab kontrolli / Tundmatu", needs_review + unknown)
+        cp1.metric("Kitsenduse rikkumine", restriction_violations)
+        cp2.metric("Vale ISO kood", wrong_iso)
+        cp3.metric("Vale nimetus", wrong_stat)
+        cp4.metric("Vale ISO ja nimetus", wrong_both)
+        cp5.metric("Vajab kontrolli", needs_review + unknown)
 
         st.divider()
 
