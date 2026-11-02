@@ -500,7 +500,10 @@ class ProductRegistryDB:
 
         # 1. Laadi esmalt SQLite tooteregister (kui olemas)
         if os.path.exists(self.db_path):
-            conn = sqlite3.connect(self.db_path, timeout=30.0)
+            try:
+                conn = sqlite3.connect(self.db_path, timeout=30.0)
+            except sqlite3.OperationalError:
+                conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True, timeout=30.0)
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
             

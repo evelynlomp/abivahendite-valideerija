@@ -53,7 +53,10 @@ class CanonicalLearningService:
 
     @contextmanager
     def _connection(self):
-        conn = sqlite3.connect(self.db_path, timeout=30.0)
+        try:
+            conn = sqlite3.connect(self.db_path, timeout=30.0)
+        except sqlite3.OperationalError:
+            conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True, timeout=30.0)
         conn.row_factory = sqlite3.Row
         try:
             yield conn
@@ -61,30 +64,32 @@ class CanonicalLearningService:
             conn.close()
 
     def _init_db(self):
-        """Loob kanoonilise toote ISO-õppimise tabeli."""
-        with self._connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("PRAGMA journal_mode=WAL;")
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS kanooniline_toode_tagasiside (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    canonical_name TEXT NOT NULL,
-                    iso_kood TEXT NOT NULL,
-                    maarusejargne_nimetus TEXT,
-                    kinnitatud_arv INTEGER DEFAULT 0,
-                    tagasi_lukatud_arv INTEGER DEFAULT 0,
-                    usaldus_protsent REAL DEFAULT 50.0,
-                    viimane_kinnitus_aeg TEXT,
-                    viimane_tagasilukatus_aeg TEXT,
-                    viimane_tegevus_aeg TEXT,
-                    pohjendus TEXT,
-                    ajalugu TEXT DEFAULT '[]',
-                    CONSTRAINT unikaalne_kanooniline_iso UNIQUE (canonical_name, iso_kood)
-                );
-            """)
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_ctt_name ON kanooniline_toode_tagasiside(canonical_name);")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_ctt_iso ON kanooniline_toode_tagasiside(iso_kood);")
-            conn.commit()
+        """Loob kanoonilise toote ISO-õppimise tabeli (read-only kindel)."""
+        try:
+            with self._connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS kanooniline_toode_tagasiside (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        canonical_name TEXT NOT NULL,
+                        iso_kood TEXT NOT NULL,
+                        maarusejargne_nimetus TEXT,
+                        kinnitatud_arv INTEGER DEFAULT 0,
+                        tagasi_lukatud_arv INTEGER DEFAULT 0,
+                        usaldus_protsent REAL DEFAULT 50.0,
+                        viimane_kinnitus_aeg TEXT,
+                        viimane_tagasilukatus_aeg TEXT,
+                        viimane_tegevus_aeg TEXT,
+                        pohjendus TEXT,
+                        ajalugu TEXT DEFAULT '[]',
+                        CONSTRAINT unikaalne_kanooniline_iso UNIQUE (canonical_name, iso_kood)
+                    );
+                """)
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_ctt_name ON kanooniline_toode_tagasiside(canonical_name);")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_ctt_iso ON kanooniline_toode_tagasiside(iso_kood);")
+                conn.commit()
+        except sqlite3.OperationalError:
+            pass
 
     def record_decision(
         self,

@@ -26,12 +26,18 @@ class KnowledgeBase:
 
     def __init__(self, db_path: str = "data/valideer.db"):
         self.db_path = db_path
-        os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True)
+        try:
+            os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True)
+        except OSError:
+            pass
         self._init_db()
 
     @contextmanager
     def _connection(self):
-        conn = sqlite3.connect(self.db_path, timeout=30.0)
+        try:
+            conn = sqlite3.connect(self.db_path, timeout=30.0)
+        except sqlite3.OperationalError:
+            conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True, timeout=30.0)
         conn.row_factory = sqlite3.Row
         try:
             yield conn
@@ -39,117 +45,119 @@ class KnowledgeBase:
             conn.close()
 
     def _init_db(self) -> None:
-        """Loob teadmistebaasi tabelid, lisab puuduvad veerud ja loob indeksid."""
-        with self._connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("PRAGMA journal_mode=WAL;")
-            cursor.execute("PRAGMA busy_timeout=30000;")
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS teadmistebaas (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    algne_nimetus TEXT NOT NULL,
-                    normaliseeritud_nimetus TEXT NOT NULL,
-                    ametlik_toode TEXT NOT NULL,
-                    iso_kood TEXT NOT NULL,
-                    maarusejargne_nimetus TEXT NOT NULL,
-                    usaldustase REAL DEFAULT 0.85,
-                    kinnituste_arv INTEGER DEFAULT 1,
-                    viimane_valideerimine TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    valideerimise_ajalugu TEXT DEFAULT '[]',
-                    tooteperekond TEXT DEFAULT '',
-                    klassifitseeritav_variant TEXT DEFAULT '',
-                    source TEXT DEFAULT 'SPECIALIST_CONFIRMATION',
-                    confidence TEXT DEFAULT 'CONFIRMED',
-                    model TEXT DEFAULT 'DIRECT_ALIAS',
-                    import_batch_id TEXT DEFAULT NULL,
-                    algfaili_esinemisi INTEGER DEFAULT 1,
-                    CONSTRAINT unikaalne_kiri UNIQUE (normaliseeritud_nimetus, ametlik_toode)
-                )
-            """)
+        """Loob teadmistebaasi tabelid, lisab puuduvad veerud ja loob indeksid (read-only kindel)."""
+        try:
+            with self._connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("PRAGMA busy_timeout=30000;")
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS teadmistebaas (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        algne_nimetus TEXT NOT NULL,
+                        normaliseeritud_nimetus TEXT NOT NULL,
+                        ametlik_toode TEXT NOT NULL,
+                        iso_kood TEXT NOT NULL,
+                        maarusejargne_nimetus TEXT NOT NULL,
+                        usaldustase REAL DEFAULT 0.85,
+                        kinnituste_arv INTEGER DEFAULT 1,
+                        viimane_valideerimine TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        valideerimise_ajalugu TEXT DEFAULT '[]',
+                        tooteperekond TEXT DEFAULT '',
+                        klassifitseeritav_variant TEXT DEFAULT '',
+                        source TEXT DEFAULT 'SPECIALIST_CONFIRMATION',
+                        confidence TEXT DEFAULT 'CONFIRMED',
+                        model TEXT DEFAULT 'DIRECT_ALIAS',
+                        import_batch_id TEXT DEFAULT NULL,
+                        algfaili_esinemisi INTEGER DEFAULT 1,
+                        CONSTRAINT unikaalne_kiri UNIQUE (normaliseeritud_nimetus, ametlik_toode)
+                    )
+                """)
 
-            # Ohutu skeemimigratsioon olemasolevale teadmistebaas tabelile
-            cursor.execute("PRAGMA table_info(teadmistebaas)")
-            existing_cols = {row["name"] for row in cursor.fetchall()}
-            migrations = [
-                ("tooteperekond", "TEXT DEFAULT ''"),
-                ("klassifitseeritav_variant", "TEXT DEFAULT ''"),
-                ("source", "TEXT DEFAULT 'SPECIALIST_CONFIRMATION'"),
-                ("confidence", "TEXT DEFAULT 'CONFIRMED'"),
-                ("model", "TEXT DEFAULT 'DIRECT_ALIAS'"),
-                ("import_batch_id", "TEXT DEFAULT NULL"),
-                ("algfaili_esinemisi", "INTEGER DEFAULT 1"),
-            ]
-            for col_name, col_def in migrations:
-                if col_name not in existing_cols:
-                    cursor.execute(f"ALTER TABLE teadmistebaas ADD COLUMN {col_name} {col_def}")
+                # Ohutu skeemimigratsioon olemasolevale teadmistebaas tabelile
+                cursor.execute("PRAGMA table_info(teadmistebaas)")
+                existing_cols = {row["name"] for row in cursor.fetchall()}
+                migrations = [
+                    ("tooteperekond", "TEXT DEFAULT ''"),
+                    ("klassifitseeritav_variant", "TEXT DEFAULT ''"),
+                    ("source", "TEXT DEFAULT 'SPECIALIST_CONFIRMATION'"),
+                    ("confidence", "TEXT DEFAULT 'CONFIRMED'"),
+                    ("model", "TEXT DEFAULT 'DIRECT_ALIAS'"),
+                    ("import_batch_id", "TEXT DEFAULT NULL"),
+                    ("algfaili_esinemisi", "INTEGER DEFAULT 1"),
+                ]
+                for col_name, col_def in migrations:
+                    if col_name not in existing_cols:
+                        cursor.execute(f"ALTER TABLE teadmistebaas ADD COLUMN {col_name} {col_def}")
 
-            # Kahetasemeliste variandireeglite tabel (Tooteperekond + Klassifitseeritav variant -> ISO)
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS variandireeglid (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    tooteperekond TEXT NOT NULL,
-                    klassifitseeritav_variant TEXT NOT NULL,
-                    taielik_variandi_voti TEXT NOT NULL UNIQUE,
-                    iso_kood TEXT NOT NULL,
-                    maarusejargne_nimetus TEXT NOT NULL,
-                    iso_maaramise_reegel TEXT DEFAULT '',
-                    kirjapiltide_arv INTEGER DEFAULT 1,
-                    esinemisi_kokku INTEGER DEFAULT 1,
-                    naide_nimetus TEXT DEFAULT '',
-                    source TEXT DEFAULT 'VERIFIED_HISTORICAL_DATA',
-                    confidence TEXT DEFAULT 'CONFIRMED',
-                    model TEXT DEFAULT 'FAMILY_VARIANT_RULE',
-                    import_batch_id TEXT DEFAULT NULL,
-                    loodud_aeg TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            """)
+                # Kahetasemeliste variandireeglite tabel (Tooteperekond + Klassifitseeritav variant -> ISO)
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS variandireeglid (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        tooteperekond TEXT NOT NULL,
+                        klassifitseeritav_variant TEXT NOT NULL,
+                        taielik_variandi_voti TEXT NOT NULL UNIQUE,
+                        iso_kood TEXT NOT NULL,
+                        maarusejargne_nimetus TEXT NOT NULL,
+                        iso_maaramise_reegel TEXT DEFAULT '',
+                        kirjapiltide_arv INTEGER DEFAULT 1,
+                        esinemisi_kokku INTEGER DEFAULT 1,
+                        naide_nimetus TEXT DEFAULT '',
+                        source TEXT DEFAULT 'VERIFIED_HISTORICAL_DATA',
+                        confidence TEXT DEFAULT 'CONFIRMED',
+                        model TEXT DEFAULT 'FAMILY_VARIANT_RULE',
+                        import_batch_id TEXT DEFAULT NULL,
+                        loodud_aeg TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
+                """)
 
-            # Aliaste seoste tabel (kõik unikaalsed kirjapildid seotud tooteperekonna ja variandiga)
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS teadmiste_aliased (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    algne_kirjapilt TEXT NOT NULL,
-                    normaliseeritud_nimetus TEXT NOT NULL,
-                    tooteperekond TEXT NOT NULL,
-                    klassifitseeritav_variant TEXT NOT NULL,
-                    ametlik_toode TEXT NOT NULL,
-                    iso_kood TEXT NOT NULL,
-                    maarusejargne_nimetus TEXT NOT NULL,
-                    esinemisi_failis INTEGER DEFAULT 1,
-                    source TEXT DEFAULT 'VERIFIED_HISTORICAL_DATA',
-                    confidence TEXT DEFAULT 'CONFIRMED',
-                    model TEXT DEFAULT 'FAMILY_VARIANT_RULE',
-                    import_batch_id TEXT DEFAULT NULL,
-                    loodud_aeg TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    CONSTRAINT unikaalne_alias UNIQUE (algne_kirjapilt, iso_kood)
-                )
-            """)
+                # Aliaste seoste tabel (kõik unikaalsed kirjapildid seotud tooteperekonna ja variandiga)
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS teadmiste_aliased (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        algne_kirjapilt TEXT NOT NULL,
+                        normaliseeritud_nimetus TEXT NOT NULL,
+                        tooteperekond TEXT NOT NULL,
+                        klassifitseeritav_variant TEXT NOT NULL,
+                        ametlik_toode TEXT NOT NULL,
+                        iso_kood TEXT NOT NULL,
+                        maarusejargne_nimetus TEXT NOT NULL,
+                        esinemisi_failis INTEGER DEFAULT 1,
+                        source TEXT DEFAULT 'VERIFIED_HISTORICAL_DATA',
+                        confidence TEXT DEFAULT 'CONFIRMED',
+                        model TEXT DEFAULT 'FAMILY_VARIANT_RULE',
+                        import_batch_id TEXT DEFAULT NULL,
+                        loodud_aeg TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        CONSTRAINT unikaalne_alias UNIQUE (algne_kirjapilt, iso_kood)
+                    )
+                """)
 
-            # Impordi auditijälje tabel
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS impordi_audit (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    batch_id TEXT NOT NULL UNIQUE,
-                    impordi_kuupaev TIMESTAMP NOT NULL,
-                    allikas TEXT NOT NULL,
-                    imporditud_teadmiste_arv INTEGER NOT NULL,
-                    taiendatud_teadmiste_arv INTEGER NOT NULL,
-                    uute_aliaste_arv INTEGER NOT NULL,
-                    imporditud_variandireeglite_arv INTEGER NOT NULL,
-                    vahele_jaetud_kirjete_arv INTEGER NOT NULL,
-                    varukoopia_rada TEXT NOT NULL,
-                    audit_json_rada TEXT NOT NULL,
-                    staatus TEXT DEFAULT 'AKTIIVNE'
-                )
-            """)
+                # Impordi auditijälje tabel
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS impordi_audit (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        batch_id TEXT NOT NULL UNIQUE,
+                        impordi_kuupaev TIMESTAMP NOT NULL,
+                        allikas TEXT NOT NULL,
+                        imporditud_teadmiste_arv INTEGER NOT NULL,
+                        taiendatud_teadmiste_arv INTEGER NOT NULL,
+                        uute_aliaste_arv INTEGER NOT NULL,
+                        imporditud_variandireeglite_arv INTEGER NOT NULL,
+                        vahele_jaetud_kirjete_arv INTEGER NOT NULL,
+                        varukoopia_rada TEXT NOT NULL,
+                        audit_json_rada TEXT NOT NULL,
+                        staatus TEXT DEFAULT 'AKTIIVNE'
+                    )
+                """)
 
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_norm ON teadmistebaas(normaliseeritud_nimetus)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_algne ON teadmistebaas(algne_nimetus)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_batch ON teadmistebaas(import_batch_id)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_fam_var ON teadmistebaas(tooteperekond, klassifitseeritav_variant)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_vr_fvk ON variandireeglid(taielik_variandi_voti)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_al_norm ON teadmiste_aliased(normaliseeritud_nimetus)")
-            conn.commit()
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_norm ON teadmistebaas(normaliseeritud_nimetus)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_algne ON teadmistebaas(algne_nimetus)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_batch ON teadmistebaas(import_batch_id)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_kb_fam_var ON teadmistebaas(tooteperekond, klassifitseeritav_variant)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_vr_fvk ON variandireeglid(taielik_variandi_voti)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_al_norm ON teadmiste_aliased(normaliseeritud_nimetus)")
+                conn.commit()
+        except sqlite3.OperationalError:
+            pass
 
     @staticmethod
     def calculate_confidence(confirmations: int) -> float:

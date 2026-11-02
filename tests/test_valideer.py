@@ -2,6 +2,9 @@
 
 import os
 import sys
+import stat
+import shutil
+import sqlite3
 import unittest
 import tempfile
 
@@ -11,6 +14,8 @@ from src.normalizer import normalize_name, normalize_iso, compare_iso, compare_s
 from src.classifier import MinistryClassifier
 from src.knowledge_base import KnowledgeBase
 from src.product_agent import ProductIdentificationAgent
+from src.product_registry_db import ProductRegistryDB
+from src.canonical_learning import CanonicalLearningService
 from src.matcher import ProductMatcher
 from src.validator import Validator
 from src.restriction_engine import RestrictionEngine
@@ -165,6 +170,38 @@ def test_auto_learn_knowledge_base_and_restrictions():
     assert fail_no_zinc is False
 
 
+def test_readonly_db_and_cloud_security():
+    # 1. Kontrolli, et data/valideer.db ei ole WAL režiimis (mis nõuaks -wal/-shm kirjutamist read-only kettale)
+    conn = sqlite3.connect("data/valideer.db")
+    j_mode = conn.execute("PRAGMA journal_mode;").fetchone()[0].lower()
+    conn.close()
+    assert j_mode == "delete", f"Oodati journal_mode=delete, leiti {j_mode}"
+
+    # 2. Kontrolli rangelt read-only (S_IREAD) andmebaasifailiga kõigi teenuste tööd
+    with tempfile.TemporaryDirectory() as tmpdir:
+        ro_db = os.path.join(tmpdir, "readonly_valideer.db")
+        shutil.copy2("data/valideer.db", ro_db)
+        os.chmod(ro_db, stat.S_IREAD)
+        try:
+            clf_ro = MinistryClassifier(db_path=ro_db)
+            kb_ro = KnowledgeBase(db_path=ro_db)
+            reg_ro = ProductRegistryDB(db_path=ro_db)
+            learn_ro = CanonicalLearningService(db_path=ro_db)
+
+            assert clf_ro.count() == 250
+            assert kb_ro.count() >= 880
+            assert reg_ro.get_statistics()["total_products"] >= 3300
+            assert learn_ro.get_candidate_products([]) == []
+        finally:
+            os.chmod(ro_db, stat.S_IWRITE | stat.S_IREAD)
+
+    # 3. Kontrolli noindex/nofollow ja APP_PASSWORD kaitset app.py sees
+    with open("app.py", "r", encoding="utf-8") as f:
+        app_src = f.read()
+    assert "noindex, nofollow" in app_src, "noindex, nofollow kaitse puudub app.py failist"
+    assert "APP_PASSWORD" in app_src and "compare_digest" in app_src, "APP_PASSWORD kaitse puudub app.py failist"
+
+
 class TestValideerSuite(unittest.TestCase):
     def test_1_normalization(self):
         test_normalization()
@@ -180,6 +217,9 @@ class TestValideerSuite(unittest.TestCase):
 
     def test_5_auto_learn_kb_and_restrictions(self):
         test_auto_learn_knowledge_base_and_restrictions()
+
+    def test_6_readonly_db_and_cloud_security(self):
+        test_readonly_db_and_cloud_security()
 
 
 if __name__ == "__main__":

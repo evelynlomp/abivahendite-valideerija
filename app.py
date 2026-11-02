@@ -6,6 +6,7 @@ Visuaalne tõeallikas: assets/TEDI spetsifikatsioonid.
 
 import os
 import io
+import hmac
 import json
 import math
 import html
@@ -43,11 +44,67 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# --- NOINDEX / NOFOLLOW KAITSE OTSINGUMOOTORITE JA INDEKSEERIJATE VASTU ---
+st.markdown(
+    '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">'
+    '<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">',
+    unsafe_allow_html=True
+)
+
 # --- CVI & DISAINIPÕHIMÕTTED (TEDI / TEHIK DISAINISÜSTEEM — DARK MODE) ---
 css_path = os.path.join(os.path.dirname(__file__), "assets", "tedi-dark.css")
 if os.path.exists(css_path):
     with open(css_path, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+def _get_configured_app_password() -> str:
+    """Loeb APP_PASSWORD väärtuse keskkonnamuutujast või Streamlit secrets konfiguratsioonist."""
+    env_pw = os.environ.get("APP_PASSWORD", "").strip()
+    if env_pw:
+        return env_pw
+    try:
+        if "APP_PASSWORD" in st.secrets:
+            return str(st.secrets["APP_PASSWORD"]).strip()
+    except Exception:
+        pass
+    return ""
+
+
+def _enforce_password_gate() -> bool:
+    """Nõuab sisselogimist, kui APP_PASSWORD on seadistatud. Tagastab True, kui paroolikaitse on aktiivne."""
+    expected_pw = _get_configured_app_password()
+    if not expected_pw:
+        return False
+
+    if st.session_state.get("authenticated") is True:
+        return True
+
+    st.markdown(
+        '<div style="max-width: 440px; margin: 64px auto 16px auto;">'
+        '<div class="valideer-card">'
+        '<h3>Valideer — Kaitstud ligipääs</h3>'
+        '<p style="color: var(--tedi-text-secondary); font-size: 0.9rem;">'
+        'Rakenduse kasutamiseks sisesta ligipääsuparool.'
+        '</p>'
+        '</div></div>',
+        unsafe_allow_html=True
+    )
+    col_l, col_c, col_r = st.columns([1, 1.4, 1])
+    with col_c:
+        entered_pw = st.text_input("Ligipääsuparool", type="password", key="login_password_input")
+        login_clicked = st.button("Logi sisse", type="primary", use_container_width=True)
+        if login_clicked or entered_pw:
+            if hmac.compare_digest(entered_pw.encode("utf-8"), expected_pw.encode("utf-8")):
+                st.session_state["authenticated"] = True
+                st.rerun()
+            elif login_clicked:
+                st.error("Vale ligipääsuparool.")
+    st.stop()
+    return True
+
+
+_password_gate_active = _enforce_password_gate()
 
 
 # --- KOMPONENTIDE INITSIALISEERIMINE ---
@@ -179,6 +236,12 @@ with st.sidebar:
             st.session_state.pop("cached_validation_results", None)
             st.session_state.pop("last_validation_key", None)
             st.session_state["page_val"] = 1
+            st.rerun()
+
+    if _password_gate_active:
+        st.divider()
+        if st.button("Logi välja", use_container_width=True):
+            st.session_state["authenticated"] = False
             st.rerun()
 
 

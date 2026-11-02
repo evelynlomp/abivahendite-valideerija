@@ -24,7 +24,10 @@ class MinistryClassifier:
     def __init__(self, db_path: str = "data/valideer.db"):
         self.db_path = db_path
         self._iso_cache: Dict[str, Dict[str, Any]] = {}
-        os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True)
+        try:
+            os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True)
+        except OSError:
+            pass
         self._init_db()
         self.ensure_loaded()
         self._refresh_cache()
@@ -40,57 +43,66 @@ class MinistryClassifier:
 
     @contextmanager
     def _get_connection(self):
-        conn = sqlite3.connect(self.db_path, timeout=30.0)
+        try:
+            conn = sqlite3.connect(self.db_path, timeout=30.0)
+        except sqlite3.OperationalError:
+            conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True, timeout=30.0)
         conn.row_factory = sqlite3.Row
         try:
             yield conn
-            conn.commit()
+            try:
+                conn.commit()
+            except sqlite3.OperationalError:
+                pass
         finally:
             conn.close()
 
     def _init_db(self) -> None:
-        """Loob klassifikaatori tabeli andmebaasis täieliku 22-veerulise struktuuriga."""
-        with self._get_connection() as conn:
-            cursor = conn.cursor()
-            # Kontrollime, kas olemasolev tabel vajab uuendamist
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='ametlik_klassifikaator'")
-            if cursor.fetchone():
-                cursor.execute("PRAGMA table_info(ametlik_klassifikaator)")
-                cols = [r["name"] for r in cursor.fetchall()]
-                if "valdkond" not in cols:
+        """Loob klassifikaatori tabeli andmebaasis täieliku 22-veerulise struktuuriga (read-only kindel)."""
+        try:
+            with self._get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='ametlik_klassifikaator'")
+                if cursor.fetchone():
+                    cursor.execute("PRAGMA table_info(ametlik_klassifikaator)")
+                    cols = [r["name"] for r in cursor.fetchall()]
+                    if "valdkond" in cols:
+                        return
                     cursor.execute("DROP TABLE ametlik_klassifikaator")
 
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS ametlik_klassifikaator (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    iso_kood TEXT NOT NULL,
-                    iso_kood_puhas TEXT NOT NULL,
-                    maarusejargne_nimetus TEXT NOT NULL,
-                    maarusejargne_nimetus_norm TEXT NOT NULL,
-                    valdkond TEXT,
-                    liik TEXT,
-                    tapsustus TEXT,
-                    kasutusaeg TEXT,
-                    tehingu_liik TEXT,
-                    piirlimiit TEXT,
-                    piirmaar TEXT,
-                    piirhind_uur REAL,
-                    piirhind_muuk REAL,
-                    omaosaluse_miinimum TEXT,
-                    uhik TEXT,
-                    kirjeldus TEXT,
-                    eelduskood TEXT,
-                    valistav_kood TEXT,
-                    hooldus_sagedus TEXT,
-                    vajaduse_tuvastaja TEXT,
-                    individuaalne_i TEXT,
-                    hooldusteenus_h TEXT,
-                    CONSTRAINT unikaalne_iso UNIQUE (iso_kood_puhas)
-                )
-            """)
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_klass_iso ON ametlik_klassifikaator(iso_kood_puhas)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_klass_nimetus ON ametlik_klassifikaator(maarusejargne_nimetus_norm)")
-            conn.commit()
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS ametlik_klassifikaator (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        iso_kood TEXT NOT NULL,
+                        iso_kood_puhas TEXT NOT NULL,
+                        maarusejargne_nimetus TEXT NOT NULL,
+                        maarusejargne_nimetus_norm TEXT NOT NULL,
+                        valdkond TEXT,
+                        liik TEXT,
+                        tapsustus TEXT,
+                        kasutusaeg TEXT,
+                        tehingu_liik TEXT,
+                        piirlimiit TEXT,
+                        piirmaar TEXT,
+                        piirhind_uur REAL,
+                        piirhind_muuk REAL,
+                        omaosaluse_miinimum TEXT,
+                        uhik TEXT,
+                        kirjeldus TEXT,
+                        eelduskood TEXT,
+                        valistav_kood TEXT,
+                        hooldus_sagedus TEXT,
+                        vajaduse_tuvastaja TEXT,
+                        individuaalne_i TEXT,
+                        hooldusteenus_h TEXT,
+                        CONSTRAINT unikaalne_iso UNIQUE (iso_kood_puhas)
+                    )
+                """)
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_klass_iso ON ametlik_klassifikaator(iso_kood_puhas)")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_klass_nimetus ON ametlik_klassifikaator(maarusejargne_nimetus_norm)")
+                conn.commit()
+        except sqlite3.OperationalError:
+            pass
 
     def ensure_loaded(self, force: bool = False) -> int:
         """
