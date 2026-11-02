@@ -19,6 +19,7 @@ from src.normalizer import normalize_name
 from src.knowledge_base import KnowledgeBase
 from src.classifier import MinistryClassifier
 from src.product_agent import ProductIdentificationAgent
+from src.variant_classifier import VariantClassifier
 
 
 class ProductMatcher:
@@ -79,8 +80,8 @@ class ProductMatcher:
                 if self.product_agent and hasattr(self.product_agent, "registry_db") and self.product_agent.registry_db:
                     prod_obj = self.product_agent.registry_db.find_exact_alias(official_prod)
                     if prod_obj:
-                        iso_code = prod_obj.get("suggested_iso") or iso_code
-                        statutory_name = prod_obj.get("suggested_statutory_name") or statutory_name
+                        iso_code = iso_code or prod_obj.get("suggested_iso")
+                        statutory_name = statutory_name or prod_obj.get("suggested_statutory_name")
                         manufacturer = prod_obj.get("manufacturer")
                         category_type = prod_obj.get("category_type")
 
@@ -115,6 +116,52 @@ class ProductMatcher:
                     "reasoning": f"Kirjapilt '{raw_name}' on kinnitatud alias ametlikule tootele '{official_prod}'. Tõeallika ametlik ISO: '{iso_code}'.",
                     "kandidaadid": []
                 }
+
+            # 1B. SAMM: Otsing õpitud variandireeglitest (Tooteperekond + Klassifitseeritav variant -> ISO)
+            if hasattr(self.kb, "lookup_variant_rule"):
+                vc = VariantClassifier.analyze(raw_name)
+                fam = vc["product_family"]
+                var = vc["classifiable_variant"]
+                if (
+                    fam != "MUU BRÄND MUU TOODE"
+                    and "S/M" not in var
+                    and "L/XL" not in var
+                    and not any(tok in raw_name.upper() for tok in ("915832", "915833", "915834", "1778ML"))
+                ):
+                    vr_match = self.kb.lookup_variant_rule(fam, var)
+                    if vr_match:
+                        iso_code = vr_match["iso_kood"]
+                        statutory_name = vr_match["maarusejargne_nimetus"]
+                        if self.classifier and iso_code:
+                            official_record = self.classifier.get_by_iso(iso_code)
+                            if official_record:
+                                statutory_name = official_record["maarusejargne_nimetus"]
+                        official_prod = f"{fam} ({var})"
+                        return {
+                            "algne_nimetus": raw_name,
+                            "normaliseeritud_nimetus": normalized,
+                            "in_kb": True,
+                            "kb_id": None,
+                            "official_product": official_prod,
+                            "ametlik_toode": official_prod,
+                            "manufacturer": vc["brand"] if vc["brand"] != "MUU BRÄND" else None,
+                            "category_type": None,
+                            "iso_kood": iso_code,
+                            "maarusejargne_nimetus": statutory_name,
+                            "soovituslik_iso": iso_code,
+                            "soovituslik_nimetus": statutory_name,
+                            "usaldusskoor": 0.98,
+                            "confidence_score": 0.98,
+                            "kinnituste_arv": vr_match.get("esinemisi_kokku", 5),
+                            "allikas": "Õpitud variandireegel (FAMILY_VARIANT_RULE)",
+                            "evidence_sources": [
+                                f"Kahetasemeline variandireegel '{fam} :: {var}' ({vr_match.get('esinemisi_kokku', 5)} kinnitatud esinemist).",
+                                f"Tõeallika ametlik ISO: '{iso_code}' ({statutory_name})."
+                            ],
+                            "alternative_matches": [],
+                            "reasoning": f"Tuvastatud tooteperekond '{fam}' ja klassifitseeritav variant '{var}' viitavad üheselt ISO koodile '{iso_code}'.",
+                            "kandidaadid": []
+                        }
 
         # 2. SAMM: TOOTETUVASTUSE AGENT (Product Identification Agent)
         ident_res = self.product_agent.identify_product(raw_name)

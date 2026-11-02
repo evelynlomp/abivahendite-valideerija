@@ -12,7 +12,13 @@ from rapidfuzz import fuzz
 
 from src.normalizer import clean_text, normalize_name
 from src.product_registry import MANUFACTURER_CATALOGUE
-from src.product_registry_db import get_product_registry_db, ProductRegistryDB
+from src.product_registry_db import (
+    get_product_registry_db,
+    ProductRegistryDB,
+    ID_BRAND_VALID_RE,
+    infer_iso_and_statutory_name,
+    extract_size_token
+)
 
 
 class ProductIdentificationAgent:
@@ -39,22 +45,63 @@ class ProductIdentificationAgent:
 
     def extract_features(self, raw_name: str) -> Dict[str, Any]:
         """
-        Eraldab nimetusest tootja, tootesarja, mahu ml, tilgad, taseme, suuruse ja pakendi.
+        Eraldab nimetusest tootja, tootesarja, mahu ml, tilgad, taseme, suuruse, mõõdud, mudelikoodi ja pakendi.
         """
         text = clean_text(raw_name)
+        norm_text = normalize_name(raw_name)
 
         features: Dict[str, Any] = {
             "raw": raw_name,
-            "normalized": normalize_name(raw_name),
+            "normalized": norm_text,
             "brand": None,
             "line": None,
             "level": None,
             "volume_ml": None,
             "drops": None,
             "size": None,
+            "dimensions": None,
+            "model_code": None,
             "package_count": None,
             "gender": None
         }
+
+        # 0A. Tuvasta mõõdud (nt 40X60, 60X60, 60X90, 80X180, 90X210, 75X85)
+        dim_match = re.search(r"\b(\d{2,3}X\d{2,3})\b", norm_text)
+        if dim_match:
+            features["dimensions"] = dim_match.group(1)
+
+        # 0B. Tuvasta kuulmisabivahendite mudelikoodid ja seeriad
+        gn_model = re.search(
+            r"\b(RE\s*777|RE\s*588|RE\s*788|RE\s*577|RE\s*988|RE\s*767|KE\s*477|KE\s*488|KE\s*377|KE\s*388|KE\s*277|KE[34]\s*ITC|RU\s*777|NX\s*560S?|NX\s*960S?|SA\s*360|SA\s*362|EC\s*398|VI\s*906S?)\b",
+            norm_text
+        )
+        if gn_model:
+            mc = re.sub(r"\s+", "", gn_model.group(1).upper())
+            if mc in ("KE3ITC", "KE4ITC"):
+                mc = "KE3ITC"
+            elif mc == "NX560":
+                mc = "NX560S"
+            elif mc == "NX960":
+                mc = "NX960S"
+            elif mc == "VI906":
+                mc = "VI906S"
+            features["model_code"] = mc
+            features["brand"] = "GN RESOUND"
+        else:
+            oticon_model = re.search(r"\b(JET\s*1|JET\s*2|ZIRCON\s*1|ZIRCON\s*2|INTENT|XCEED)\b", norm_text)
+            if oticon_model:
+                features["model_code"] = re.sub(r"\s+", " ", oticon_model.group(1).upper())
+                features["brand"] = "OTICON"
+            else:
+                phonak_model = re.search(r"\b(TERRA|AUDEO\s*L|AUDEO\s*P|NAIDA)\b", norm_text)
+                if phonak_model:
+                    features["model_code"] = re.sub(r"\s+", " ", phonak_model.group(1).upper())
+                    features["brand"] = "PHONAK"
+                else:
+                    signia_model = re.search(r"\b(INTUIS|XTM)\b", norm_text)
+                    if signia_model:
+                        features["model_code"] = signia_model.group(1).upper()
+                        features["brand"] = "SIGNIA"
 
         # 1. Tuvasta maht ml (nt 340ML, 600 ML, 800ML)
         vol_match = re.search(r"\b(\d{2,4})\s*ML\b", text, re.IGNORECASE)
@@ -90,7 +137,7 @@ class ProductIdentificationAgent:
                 features["level"] = int(size_num_match.group(2))
             else:
                 num_match = re.search(r"\b([1-9])\b", text)
-                if num_match and not features["drops"]:
+                if num_match and not features["drops"] and not features["dimensions"]:
                     features["level"] = int(num_match.group(1))
 
         # 5. Tuvasta suurus (XS, S, M, L, XL, XXL)
@@ -105,47 +152,65 @@ class ProductIdentificationAgent:
         elif re.search(r"\bMEN\b", text, re.IGNORECASE):
             features["gender"] = "Meestele"
 
-        # 7. Tuvasta tuntud brändid
-        known_brands = {
-            "ABENA": "ABENA",
-            "ABRI": "ABENA",
-            "BAMBO": "ABENA",
-            "MOLICARE": "MOLICARE",
-            "HARTMANN": "MOLICARE",
-            "MENALIND": "MOLICARE",
-            "LILLE": "LILLE",
-            "ONTEX": "LILLE",
-            "ID": "LILLE",
-            "TENA": "TENA",
-            "ESSITY": "TENA",
-            "SENI": "SENI",
-            "TZMO": "SENI",
-            "ATTENDS": "ATTENDS",
-            "MEDI": "MEDI",
-            "MEDIVEN": "MEDI",
-            "SIGVARIS": "SIGVARIS",
-            "VERMEIREN": "VERMEIREN",
-            "ETAC": "ETAC",
-            "REBOTEC": "REBOTEC",
-            "INVACARE": "INVACARE",
-            "DIETZ": "DIETZ",
-            "BEURER": "BEURER",
-            "BAUERFEIND": "BAUERFEIND",
-            "THUASNE": "THUASNE",
-            "BORT": "BORT",
-            "ORLIMAN": "ORLIMAN",
-            "SWERECO": "SWERECO",
-            "CRISTALLO": "CRISTALLO",
-            "ERGODYNAMIC": "ERGODYNAMIC",
-            "FORMA-CARE": "FORMA-CARE",
-            "FORMA CARE": "FORMA-CARE",
-            "FORMA": "FORMA-CARE",
-            "SENSILIND": "SENSILIND"
-        }
-        for token, brand_key in known_brands.items():
-            if re.search(r"\b" + re.escape(token) + r"\b", text, re.IGNORECASE):
-                features["brand"] = brand_key
-                break
+        # 7. Tuvasta tuntud brändid (rangelt sõnapiiri põhiselt)
+        if re.search(r"\b(INDIVIDUAALNE|INDIV\.?|IND\.?)\s*(KÕRVAOTSIK|KÕRVAOTSAK|OTSAK|OTSIK|RIE\s+OTSIK|RIE\s+OTSAK)\b", text, re.IGNORECASE):
+            features["brand"] = "OTSAK"
+            return features
+
+        # Ontex iD bränd: ainult siis, kui esineb eraldi sõnana teadaolevas iD brändikujus (nt iD Pants, iD Slip, iD Expert)
+        if ID_BRAND_VALID_RE.search(text):
+            features["brand"] = "ID"
+            return features
+
+        if not features["brand"]:
+            known_brands = {
+                "GN RESOUND": "GN RESOUND",
+                "RESOUND": "GN RESOUND",
+                "LINX QUATTRO": "GN RESOUND",
+                "OTICON": "OTICON",
+                "PHONAK": "PHONAK",
+                "SIGNIA": "SIGNIA",
+                "BERNAFON": "BERNAFON",
+                "STARKEY": "STARKEY",
+                "COCHLEAR": "COCHLEAR",
+                "ABENA": "ABENA",
+                "ABRI": "ABENA",
+                "BAMBO": "ABENA",
+                "MOLICARE": "MOLICARE",
+                "HARTMANN": "MOLICARE",
+                "MENALIND": "MOLICARE",
+                "LILLE": "LILLE",
+                "ONTEX": "LILLE",
+                "TENA": "TENA",
+                "ESSITY": "TENA",
+                "SENI": "SENI",
+                "TZMO": "SENI",
+                "ATTENDS": "ATTENDS",
+                "MEDI": "MEDI",
+                "MEDIVEN": "MEDI",
+                "SIGVARIS": "SIGVARIS",
+                "VERMEIREN": "VERMEIREN",
+                "ETAC": "ETAC",
+                "REBOTEC": "REBOTEC",
+                "INVACARE": "INVACARE",
+                "DIETZ": "DIETZ",
+                "BEURER": "BEURER",
+                "BAUERFEIND": "BAUERFEIND",
+                "THUASNE": "THUASNE",
+                "BORT": "BORT",
+                "ORLIMAN": "ORLIMAN",
+                "SWERECO": "SWERECO",
+                "CRISTALLO": "CRISTALLO",
+                "ERGODYNAMIC": "ERGODYNAMIC",
+                "FORMA-CARE": "FORMA-CARE",
+                "FORMA CARE": "FORMA-CARE",
+                "FORMA": "FORMA-CARE",
+                "SENSILIND": "SENSILIND"
+            }
+            for token, brand_key in known_brands.items():
+                if re.search(r"\b" + re.escape(token) + r"\b", text, re.IGNORECASE):
+                    features["brand"] = brand_key
+                    break
 
         return features
 
@@ -163,20 +228,34 @@ class ProductIdentificationAgent:
         if self.registry_db:
             exact = self.registry_db.find_exact_alias(raw_name)
             if exact:
+                sug_iso = exact.get("suggested_iso")
+                sug_stat = exact.get("suggested_statutory_name")
+                off_name = exact["official_name"]
+
+                # Kui sisendis on mõõt (nt 40X60), kontrolli et kanooniline toode ja ISO vastaksid täpsele mõõdule
+                if features["dimensions"] and features["dimensions"] not in normalize_name(off_name):
+                    iso_d, stat_d = infer_iso_and_statutory_name(
+                        exact.get("brand", ""), f"{off_name} {features['dimensions']}", exact.get("category_type", ""),
+                        exact.get("absorption_ml"), exact.get("drops")
+                    )
+                    if iso_d:
+                        sug_iso, sug_stat = iso_d, stat_d
+                        off_name = f"{off_name} {features['dimensions']}"
+
                 reasoning = (
                     f"Tarnija nimetus '{raw_name}' leiti täpse vastena tooteregistrist: "
-                    f"tootja {exact['manufacturer']} ametlik toode '{exact['official_name']}' "
+                    f"tootja {exact['manufacturer']} ametlik toode '{off_name}' "
                     f"(Kategooria: {exact.get('category_type')}). Allikas: {exact.get('source_supplier')}."
                 )
                 evidence = [
-                    f"Täpne vastavus tooteregistri aliasele või ametlikule tootenimele '{exact['official_name']}'.",
+                    f"Täpne vastavus tooteregistri aliasele või ametlikule tootenimele '{off_name}'.",
                     f"Tootja: {exact['manufacturer']} | Allikad: {exact.get('source_supplier')}"
                 ]
                 
                 same_brand = self.registry_db.get_by_brand(exact['brand'])
                 alternatives = []
                 for p in same_brand:
-                    if p['official_name'] != exact['official_name']:
+                    if p['official_name'] != off_name:
                         alternatives.append({
                             "official_product": p["official_name"],
                             "confidence_score": 0.85,
@@ -187,12 +266,12 @@ class ProductIdentificationAgent:
 
                 return {
                     "identified": True,
-                    "official_product": exact["official_name"],
-                    "full_name": exact.get("full_name", exact["official_name"]),
+                    "official_product": off_name,
+                    "full_name": exact.get("full_name", off_name),
                     "manufacturer": exact["manufacturer"],
                     "confidence_score": 1.0,
-                    "suggested_iso": exact.get("suggested_iso"),
-                    "suggested_statutory_name": exact.get("suggested_statutory_name"),
+                    "suggested_iso": sug_iso,
+                    "suggested_statutory_name": sug_stat,
                     "evidence_sources": evidence,
                     "alternative_matches": alternatives,
                     "reasoning": reasoning,
@@ -201,7 +280,11 @@ class ProductIdentificationAgent:
 
         candidate_pool = self.registry
         if features["brand"] and self.registry_db:
-            brand_prods = self.registry_db.get_by_brand(features["brand"])
+            brand_prods = list(self.registry_db.get_by_brand(features["brand"]))
+            if features["brand"] == "ID":
+                brand_prods.extend(self.registry_db.get_by_brand("LILLE"))
+            elif features["brand"] == "LILLE":
+                brand_prods.extend(self.registry_db.get_by_brand("ID"))
             if brand_prods:
                 candidate_pool = brand_prods
 
@@ -213,16 +296,22 @@ class ProductIdentificationAgent:
             param_score = 0.0
             evidence_points = []
 
-            # 1. Brändi vastavus
-            prod_brand = prod["brand"].upper()
-            if features["brand"] == prod_brand:
+            # 1. Brändi vastavus (rangelt sõnapiiri ja brändikonteksti põhine)
+            prod_brand = (prod.get("brand") or "").upper()
+            if features["brand"] and (
+                features["brand"] == prod_brand
+                or (features["brand"] in ("ID", "LILLE") and prod_brand in ("ID", "LILLE"))
+            ):
                 brand_score = 1.0
                 evidence_points.append(f"Tootja bränd '{prod_brand}' kattub (Tootja: {prod['manufacturer']}).")
-            elif prod_brand in norm_name:
-                brand_score = 0.9
-                evidence_points.append(f"Tootja bränd '{prod_brand}' leidub tootenimes.")
-            else:
-                brand_score = 0.0
+            elif prod_brand and prod_brand != "MÄÄRAMATA":
+                if prod_brand == "ID":
+                    if ID_BRAND_VALID_RE.search(raw_name):
+                        brand_score = 0.9
+                        evidence_points.append("Ontex iD brändikuju leidub tootenimes.")
+                elif re.search(r"\b" + re.escape(prod_brand) + r"\b", norm_name):
+                    brand_score = 0.9
+                    evidence_points.append(f"Tootja bränd '{prod_brand}' leidub tootenimes.")
 
             # 2. Tootesarja ja kanooniliste aliase'te vastavus
             best_alias_score = 0.0
@@ -239,13 +328,38 @@ class ProductIdentificationAgent:
                     best_alias_score = s_comb
 
             line_score = best_alias_score / 100.0
-            if line_score > 0.6:
+            if features["model_code"] and prod.get("model_code") == features["model_code"]:
+                line_score = max(line_score, 0.98)
+                evidence_points.append(f"Mudelikood '{features['model_code']}' kattub täpselt.")
+            elif line_score > 0.6:
                 p_line = prod.get('product_line') or prod.get('product_family') or prod['official_name']
                 evidence_points.append(f"Tootesarja '{p_line}' sarnasusskoor: {int(line_score*100)}%.")
 
-            # 3. Spetsiifiliste parameetrite võrdlus (maht, tilgad, tase, suurus)
-            param_matches = 0
+            # 3. Spetsiifiliste parameetrite võrdlus (mõõdud, mudelikood, maht, tilgad, tase, suurus)
+            param_matches = 0.0
             param_checks = 0
+
+            # Mõõdud (nt 40X60 vs 60X90)
+            prod_dim = prod.get("dimensions")
+            if not prod_dim:
+                dm = re.search(r"\b(\d{2,3}X\d{2,3})\b", normalize_name(prod.get("official_name", "")))
+                if dm:
+                    prod_dim = dm.group(1)
+            if features["dimensions"] and prod_dim:
+                param_checks += 1
+                if features["dimensions"] == prod_dim:
+                    param_matches += 1.0
+                    evidence_points.append(f"Täpne mõõtude kattuvus: {features['dimensions']}.")
+                else:
+                    param_matches -= 1.0
+
+            # Mudelikood (nt RE777, KE477, JET 1)
+            if features["model_code"] and prod.get("model_code"):
+                param_checks += 1
+                if features["model_code"] == prod.get("model_code"):
+                    param_matches += 1.0
+                else:
+                    param_matches -= 1.0
 
             # Maht ml
             prod_ml = prod.get("absorption_ml") or prod.get("ml_capacity")
@@ -259,7 +373,7 @@ class ProductIdentificationAgent:
                     evidence_points.append(f"Lähedane mahu kattuvus: {features['volume_ml']} ml vs {prod_ml} ml.")
 
             # Tase / Number (nt Abena San 4)
-            if features["level"] is not None:
+            if features["level"] is not None and not features["model_code"]:
                 param_checks += 1
                 prod_num = re.search(r"\b(\d+)\b", prod["official_name"])
                 if prod_num and int(prod_num.group(1)) == features["level"]:
@@ -299,16 +413,28 @@ class ProductIdentificationAgent:
             else:
                 total_confidence = line_score * 0.5
 
+            sug_iso = prod.get("suggested_iso")
+            sug_stat = prod.get("suggested_statutory_name")
+            off_name = prod["official_name"]
+            if features["dimensions"] and not prod_dim:
+                iso_d, stat_d = infer_iso_and_statutory_name(
+                    prod_brand, f"{off_name} {features['dimensions']}", prod.get("category_type") or prod.get("product_type", ""),
+                    prod_ml, prod_drops
+                )
+                if iso_d and iso_d.startswith("09.30."):
+                    sug_iso, sug_stat = iso_d, stat_d
+                    off_name = f"{off_name} {features['dimensions']}"
+
             candidates.append({
-                "official_product": prod["official_name"],
-                "full_name": prod.get("full_name", prod["official_name"]),
+                "official_product": off_name,
+                "full_name": prod.get("full_name", off_name),
                 "manufacturer": prod["manufacturer"],
                 "product_line": prod.get("product_line") or prod.get("product_family"),
                 "confidence_score": round(min(1.0, max(0.0, total_confidence)), 3),
                 "category_type": prod.get("category_type") or prod.get("product_type", ""),
                 "absorption_ml": prod_ml,
-                "suggested_iso": prod.get("suggested_iso"),
-                "suggested_statutory_name": prod.get("suggested_statutory_name"),
+                "suggested_iso": sug_iso,
+                "suggested_statutory_name": sug_stat,
                 "evidence_sources": evidence_points + ([prod.get("evidence_notes")] if prod.get("evidence_notes") else []),
                 "source_supplier": prod.get("source_supplier"),
                 "source_url": prod.get("source_url")

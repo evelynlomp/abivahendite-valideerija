@@ -38,8 +38,8 @@ class RestrictionEngine:
 
         # 1. ISO 09.21.18: Nahakaitsevahendid (AINULT tsinkoksiidi põhised)
         if clean_iso.startswith("09.21.18") or clean_iso.replace(".", "").startswith("092118"):
-            # Peab sisaldama tsinkoksiidi (sh käänetes: tsinkoksiidiga, tsingiga, tsinkkreem jne)
-            has_zinc = bool(re.search(r'\b(TSINK|TSING|ZINC|ZINK)\w*', combined_text))
+            # Peab sisaldama tsinkoksiidi (sh käänetes: tsinkoksiidiga, tsingiga, tsinkkreem, Sudocrem 15.25% ZnO jne)
+            has_zinc = bool(re.search(r'\b(TSINK|TSING|ZINC|ZINK|SUDOCRE)\w*', combined_text))
             
             # Kui tootenimes või tüübis on otseselt nahahooldus ilma tsingita (nt barjäärkreem, õli, talk, ihupiim)
             is_skin_care = any(w in combined_text for w in ["KREEM", "SALV", "CREAM", "VAHT", "ÕLI", "OLI", "OIL", "TALK", "VASELIIN", "IHULIHV", "PALSAM", "NAHAHOOLDUS"])

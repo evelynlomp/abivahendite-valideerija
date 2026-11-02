@@ -1,142 +1,121 @@
-# Valideer — Abivahendite andmete kontroll
+# Valideer — Abivahendite andmete kontroll ja otsustustugi
 
-Valideer on spetsialiseeritud lahendus sotsiaal- ja tervishoiuvaldkonna abivahendite tehinguridade automaatseks kontrolliks ja vigade tuvastamiseks tuhandete ridadega failides (Excel, CSV) vastavalt **Sotsiaalministeeriumi määrusele nr 74**.
+**Valideer** on spetsialiseeritud otsustustoe- ja valideerimissüsteem sotsiaal- ja tervishoiuvaldkonna abivahendite tehinguridade automaatseks kontrolliks (Excel `.xlsx`/`.xls`, `.csv`) vastavalt **Sotsiaalministeeriumi määrusele nr 74**.
 
 GitHub repositoorium: **https://github.com/evelynlomp/abivahendite-valideerija**
 
 ---
 
-## Tõeallika otsustusmudel ja põhiprintsiibid
+## 1. Arhitektuur ja kahetasemeline otsustusmudel
 
-Rakenduse äriloogika ja soovituste esitus tugineb neljaastmelisele hierarhilisele tõeallika mudelile:
+Rakenduse tuvastus- ja valideerimisloogika töötab mitmetasemelise tõeallika mudelina (`ProductMatcher` $\rightarrow$ `Validator`):
 
 ```
-[Arverida / Esitatud sisend]
-        ↓
-[Tuvastatud ametlik toode] (Tooteregister: 4 115 kanoonilist toodet)
-        ↓
-[Ametlikud andmed tõeallikast] (Sotsiaalkindlustusameti määrus nr 74 alates 01.10.2026: 250 ISO koodi ja täielikud reeglid)
-        ↓
-[Leitud lahknevus ja soovitus] (Võrdlus tõeallika ja arvel esitatu vahel)
+[Arverida / Esitatud sisend (tootenimi, ISO, rühmanimetus)]
+        │
+        ├──► 1A. Kinnitatud teadmistebaas (KnowledgeBase: 881 AUTO_LEARN teadmist + 1 031 aliast)
+        │
+        ├──► 1B. Kahetasemeline variandireegel (VariantClassifier: Tooteperekond + Variant → 413 reeglit)
+        │
+        ├──► 2.  Tootetuvastuse agent (ProductIdentificationAgent: 3 413 toodet tooteregistris)
+        │
+        └──► 3.  Sotsiaalministeeriumi määrus nr 74 (MinistryClassifier: 250 ISO koodi + RestrictionEngine)
+                        ↓
+        [Valideerimise otsus + kahe-leheline Exceli raport (Spetsialisti raport + Tehniline audit)]
 ```
 
-1. **Excel ei ole tõeallikas**:
-   - Esitatud tootenimi ja koodid on arvel esitatud sisend.
-   - Süsteem tuvastab sisendi põhjal **ametliku toote**, mis seotakse **riikliku klassifikaatoriga (Määrus nr 74)**.
-   - Ametlik ISO-kood, määrusejärgne nimetus ja piirangud pärinevad **eranditult tõeallikatest**.
-   - Süsteem võib kasutaja kinnitustest õppida tootenime kirjutusvariante (aliaseid), kuid **ei õpi ega muuda kunagi riikliku määruse tõde**.
-
-2. **1:1 determinism (Üks toode = Täpselt üks ISO kood)**:
-   - Iga toode vastab registris eranditult ainult **ühele** ametlikule ISO koodile ja määrusejärgsele nimetusele.
-
-3. **Määruse sisuliste kitsenduste automaatkontroll (`RestrictionEngine`)**:
-   - Kontrollib Sotsiaalministeeriumi määruse nr 74 loetelu veergude **C** (*kitsendused*) ja **M** (*abistav kirjeldus*) välistusi:
-     - `09.21.18` (Nahakaitsevahendid): AINULT tsinkoksiidi baasil tooted (mitte-tsink kreemid blokeeritakse).
-     - `09.21.06` (Nahapesemisvahendid): Dušigeelid, šampoonid ja seebid on välistatud.
-     - `18.30.15` (Teisaldatavad kaldteed): Lävepaku kaldteed on välistatud.
-     - `04.33.06.01` (Lamatiste ennetamise madratsid): Standardsed poroloonmadratsid on välistatud.
-     - `18.03.15` (Voodilauad): Öökapid ja voodikapid on välistatud.
-     - `09.33.03` (Vanni- ja dušitoolid): Vannitõstukid ja -astmed on välistatud.
-     - `04.48.08.02` (Hingamistreeninguseadmed): Üldised treeningseadmed on välistatud.
-     - `09.33.30.01` (Niisutatud rätikud): Alkoholi- ja lõhnavabad tooted.
-
-4. **Andmeprivaatsus**:
-   - Valideeritavaid faile kettale ega välisserveritesse ei salvestata; töötlemine toimub sessioonimälus.
+### Põhiprintsiibid
+1. **Kahetasemeline mudel (`FAMILY_VARIANT_RULE`)**:
+   - **Tase A — Tooteperekond (`product_family`)**: nt `TENA PANTS MAXI`, `MOLICARE PAD LADY`, `SENI ACTIVE TRIO`, `TENA BED PLUS`.
+   - **Tase B — Klassifitseeritav variant (`classifiable_variant`)**: suurus (`XS`–`XXL`), imavus (`ml`), tilkade arv (`1`–`10 tilka`), mõõt (`40x60`, `60x90`, `80x180`), sugu (`MEN`/`LADY`) ja vanusegrupp (`JUNIOR`).
+   - Pakenditunnused (`N30`, `30tk`, koodisabad `*09.30.24.95`) eemaldatakse normaliseerimisel, kuid semantilised mõõdud ja mahud säilitatakse.
+2. **Määruse sisuliste kitsenduste automaatkontroll (`RestrictionEngine`)**:
+   - Kontrollib Sotsiaalministeeriumi määruse nr 74 veergude **C** (*kitsendused*) ja **M** (*abistav kirjeldus*) nõudeid:
+     - `09.21.18` (*nahakaitsevahendid*): lubatud ainult tsinkoksiidi baasil tooted.
+     - `09.21.06` (*nahapesemisvahendid*): tavalised dušigeelid, šampoonid ja seebid on välistatud.
+     - `09.33.30.01` (*niisutatud salvrätid*): alkoholi- ja lõhnavabad rätikud.
+     - `18.30.15` (*kaasaskantavad kaldteed*), `04.33.06.01` (*lamatisi ennetavad madratsid*), `18.03.15` (*voodilauad*), `09.33.03` (*vanni- ja dušitoolid*).
+3. **Andmeprivaatsus**:
+   - Üleslaetavaid tehingufaile töödeldakse ainult sessioonimälus; välistesse pilveteenustesse ega API-desse andmeid ei saadeta.
 
 ---
 
-## Kasutajaliides & Valideer Disainisüsteem 1.0
+## 2. Kasutajaliides (TEDI / TEHIK Disainisüsteem — Dark Mode)
 
-Kasutajaliides järgib **Valideer Disainisüsteem 1.0** (Dark Mode, WCAG 2.2 AA) põhimõtteid:
-- **Tüpograafia**: `IBM Plex Sans` (tekstid ja pealkirjad) ja `IBM Plex Mono` (koodid, mõõdikud, ISO-numbrid).
-- **Semantiline värvipalett**:
-  - Roheline (`#2EC4B6` / `#22C55E`): Korras, vastavuses.
-  - Merevaik / kollane (`#F59E0B`): Vajab tähelepanu / spetsialisti otsust.
-  - Punane (`#EF4444`): Kriitiline probleem / välistatud abivahend.
-  - Primaarne aktsent (`#66C7B8`): Nupud, fookus, aktiivsed olekud.
-- **Kahetasemeline infoarhitektuur**:
-  - **Töölaud**: Faili laadimine, valideerimine, lahendamist vajavate kirjete ülevaade, 2-tasemelise Exceli raporti allalaadimine.
-  - **Registrid ja haldus**: Tooteregister (4 115 toodet), Riiklik klassifikaator (Määrus nr 74), Kinnitatud reeglid ja süsteemiinfo.
+Rakendus sisaldab kolme töökeskkonda:
+1. **Valideerimise töölaud**:
+   - Igakuise tehingufaili (`.xlsx`, `.xls`, `.csv`) üleslaadimine või kohene testimine näidisfailiga (`Proovi näidisfailiga`).
+   - Automaatne valideerimine, filtreerimine staatuste kaupa, üksikrea inspektori vaade, spetsialisti kinnitused teadmistebaasi ja 2-lehelise Exceli raporti eksport.
+2. **Kandidaattoodete töölaud**:
+   - Kanooniliste kandidaattoodete (`data/canonical_products.json`) läbivaatus, ISO vastavuse kinnitamine või ümberklassifitseerimine koos otsuste ajalooga.
+3. **Registrid ja haldus**:
+   - Ülevaade ja otsing: **Tooteregister** (`3 413` toodet), **Riiklik klassifikaator (Määrus nr 74)** (`250` ISO koodi) ja **Õppiv teadmistebaas** (`881` kinnitatud kirjet, `413` variandireeglit).
 
 ---
 
-## Projekti failistruktuur
+## 3. Projekti kaustastruktuur (Release Candidate)
 
 ```
 valideer/
-├── app.py                           # Peamine Streamlit veebirakendus
-├── pyproject.toml                   # Projekti seadistus ja sõltuvused (uv)
+├── app.py                           # Peamine Streamlit veebirakendus (3 töölauda)
+├── pyproject.toml                   # Projekti konfiguratsioon ja sõltuvused (uv / PEP 621)
+├── requirements.txt                 # Tootmissõltuvused (pip)
 ├── uv.lock                          # Lukustatud sõltuvuste versioonid
+├── .python-version                  # Soovituslik Pythoni versioon
+├── .gitignore                       # Git välistusreeglid
 ├── README.md                        # Projekti dokumentatsioon
 │
-├── src/                             # Põhirakenduse moodulid
-│   ├── classifier.py                # Sotsiaalministeeriumi klassifikaatori haldur (Määrus nr 74)
-│   ├── knowledge_base.py            # Kinnitatud reeglite ja aliaste haldus (SQLite)
-│   ├── matcher.py                   # Mitmeastmeline toote ja koodi vastavuse tuvastaja
-│   ├── normalizer.py                # Teksti, nimetuste ja ISO-koodide normaliseerija
-│   ├── product_agent.py             # Toote tuvastamise agent ja argumenteeritud selgitused
-│   ├── product_registry.py          # Baaskataloogi konstandid ja tootjate spetsifikatsioonid
-│   ├── product_registry_db.py       # Tooteregistri andmebaasikiht (SQLite)
-│   ├── report.py                    # Kahetasemelise Exceli raporti genereerija
-│   ├── restriction_engine.py        # Määruse nr 74 sisuliste kitsenduste reeglimootor
-│   └── validator.py                 # Valideerimise põhireeglimootor (7 staatust)
+├── .streamlit/
+│   └── config.toml                  # Streamliti serveri ja TEDI tumeda teema seadistus
 │
-├── data/                            # Püsivad andmefailid ja tõeallikad
-│   ├── valideer.db                  # Ühtne SQLite andmebaas (tooteregister, klassifikaator, reeglid)
-│   ├── naidis_sisend_vigadega.xlsx  # Demofail vigaste tehinguridadega testimiseks
-│   ├── Abivahendite_otsimootor_al.01.10.2026.xlsx # SKA ametlik loetelu ja otsimootori reeglid (tõeallikas)
-│   └── Abivahendite_otsimootor_al.01.10.2026.xlsb # SKA ametlik loetelu binaarformaat
+├── src/                             # Rakenduse tuumikmoodulid
+│   ├── __init__.py
+│   ├── normalizer.py                # Nimetuste, mõõtude, ISO koodide ja rühmanimetuste normaliseerija
+│   ├── variant_classifier.py        # Kahetasemeline mudel (Tooteperekond + Variant -> ISO)
+│   ├── classifier.py                # Määruse nr 74 klassifikaatori mootor (O(1) vahemäluga)
+│   ├── knowledge_base.py            # Teadmistebaasi, variandireeglite, aliaste ja auditi SQLite kiht
+│   ├── product_agent.py             # Tootetuvastuse agent (täpne alias + kaalutud parameetriotsing)
+│   ├── product_registry.py          # Kureeritud tootjate baaskataloog (MANUFACTURER_CATALOGUE)
+│   ├── product_registry_db.py       # SQLite tooteregistri liides ja määruse nr 74 ISO tuletusreeglid
+│   ├── matcher.py                   # Mitmetasemeline tuvastusmootor (KB -> Variandireegel -> Agent)
+│   ├── restriction_engine.py        # Määruse nr 74 Tulp C ja Tulp M kitsenduste reeglimootor
+│   ├── validator.py                 # Tehinguridade vastavuskontrolli mootor
+│   ├── report.py                    # Kahetasemelise Exceli raporti ja TEDI märgendite generaator
+│   ├── tedi_table.py                # TEDI disainisüsteemi HTML-tabelite renderdaja
+│   └── canonical_learning.py        # Kandidaattoodete kinnitamise ja õppimise teenus
 │
-├── assets/                          # Disainisüsteemi visuaalsed varad
-│   ├── valideer-logo-flat.svg       # Ametlik lame vektorlogo
+├── data/                            # Püsivad tõeallikad ja näidisandmed
+│   ├── valideer.db                  # Ühtne SQLite andmebaas (klassifikaator, register, KB, variandireeglid)
+│   ├── canonical_products.json      # Kandidaattoodete töölaua kanooniline kataloog
+│   ├── Abivahendite_otsimootor_al.01.10.2026.xlsx # Määruse nr 74 ametlik algtabel
+│   └── naidis_sisend_vigadega.xlsx  # Demofail vigaste tehinguridadega testimiseks
+│
+├── assets/                          # Kasutajaliidese käitusaja stiilid ja graafika
+│   ├── tedi-dark.css                # TEDI disainisüsteemi Dark Mode stiilileht
+│   ├── valideer-logo-flat.svg       # Rakenduse vektorlogo
 │   ├── valideer-favicon-flat.svg    # Vektorfavicon
-│   ├── valideer_icon.png            # PNG ikoon
-│   └── icons/                       # 21 semantilist SVG ikooni
+│   └── valideer_icon.png            # Lehe ikoon
 │
-├── scripts/                         # Haldus-, sünkroonimis- ja auditiskriptid
-│   ├── cleanup_registry.py          # Registri duplikaatide puhastamine ja kanooniline liitmine
-│   ├── extract_suppliers.py         # Eesti 5 tarnija tootekataloogide sünkroniseerimine
-│   ├── audit_volume_ranges.py       # Imavusmahtude vahemike vastavuskontroll
-│   ├── audit_ml_registry.py         # Registri ml-mahtude ja ISO koodide audit
-│   ├── test_restrictions.py         # Kitsenduste mootori testid
-│   └── verify_restriction_integration.py # Kitsenduste integratsioonitestid
+├── scripts/                         # Haldusskriptid (pööratav teadmiste import ja rollback)
+│   ├── import_auto_learn.py         # AUTO_LEARN teadmiste ja variandireeglite auditeeritud import
+│   └── rollback_auto_learn.py       # AUTO_LEARN impordi täielik tagasivõtmine (rollback)
 │
 └── tests/                           # Automaattestid
-    └── test_valideer.py             # Agendi, normaliseerimise ja valideerimisahela testid
+    ├── test_valideer.py             # Normaliseerija, agendi, KB, variandireeglite ja valideerija testid
+    └── test_canonical_learning.py   # Kandidaattoodete õppimisteenuse ühiktestid
 ```
 
 ---
 
-## Kahetasemeline Exceli raport
+## 4. Paigaldamine ja käivitamine nullist
 
-Valideerimise järgselt eksporditav Exceli raport on jaotatud kaheks selgeks leheks:
+Projekt on täielikult iseseisev ega vaja väliseid andmebaasiservereid ega API-võtmeid. Kõik tõeallikad sisalduvad failis `data/valideer.db`.
 
-1. **Spetsialisti raport** (Põhivaade):
-   - Sisaldab ainult otsuse tegemiseks vajalikku infot:
-     - Arvel esitatud tootenimi ja koodid
-     - Valideerimise staatus (Vastab, Vale ISO, Vale määrusejärgne nimetus, Ei vasta määruse kitsendusele jne)
-     - Tõeallikast tuvastatud ametlik toode ja ametlik ISO kood
-     - Selge tegevussoovitus (nt *"Asendada ISO 09.30.24.16 -> 09.30.24.15"*)
-     - Lahknevuse selgitus arusaadavas keeles
-2. **Tehniline audit** (Ekspertvaade):
-   - Sisaldab täielikku auditijälge:
-     - Tuvastamise usaldusskoor (Confidence score)
-     - Tuvastusviis (Reegel, Täpne vaste, Mudel)
-     - Tõendite allikad (kataloogid, veebiviited)
-     - Alternatiivsed kandidaadid
-     - Normaliseeritud stringid ja tehniline põhjendus
+### Eeldused
+- **Python 3.10 – 3.14** (soovituslik Python 3.11 või 3.12)
+- **Git**
 
----
-
-## Paigaldamine ja käivitamine
-
-Projekt on täielikult iseseisev ja ei vaja väliseid andmebaasiserevereid ega API-võtmeid või keskkonnamuutujaid. Kõik vajalikud tõeallikad sisalduvad kaasasolevas SQLite baasis (`data/valideer.db`).
-
-### Nõuded
-- Python 3.10 kuni 3.14 (soovituslik: Python 3.11 või 3.12)
-- Git
-
-### Variant A: Standardne Python `pip` ja `requirements.txt` (sobib igasse keskkonda ja pilve)
+### Variant A: Standardne `venv` + `pip`
 ```bash
 # 1. Klooni repositoorium
 git clone https://github.com/evelynlomp/abivahendite-valideerija.git
@@ -145,36 +124,45 @@ cd abivahendite-valideerija
 # 2. Loo ja aktiveeri virtuaalkeskkond
 python -m venv .venv
 
-# Windows:
-.\.venv\Scripts\activate
+# Windows (PowerShell):
+.\.venv\Scripts\Activate.ps1
 # Linux / macOS:
 source .venv/bin/activate
 
 # 3. Paigalda sõltuvused
 pip install -r requirements.txt
 
-# 4. Käivita veebiliides
+# 4. Käivita rakendus
 streamlit run app.py
 ```
 
-### Variant B: Kiire käivitus `uv` abil
+### Variant B: Kiire käivitus `uv` paketihalduriga
 ```bash
 git clone https://github.com/evelynlomp/abivahendite-valideerija.git
 cd abivahendite-valideerija
 
-# Sünkroniseeri sõltuvused ja käivita
 uv sync
 uv run streamlit run app.py
 ```
 
-Veebirakendus avaneb aadressil **http://localhost:8501**.
+Rakendus avaneb brauseris aadressil **http://localhost:8501**.
 
-### Testide käivitamine
+---
+
+## 5. Automaattestide ja haldusskriptide käivitamine
+
+### Kõigi automaattestide käivitamine
 ```bash
-# Tuvastamisagendi, normaliseerimise ja ahela testid
-python tests/test_valideer.py
+# Käivitab kõik ühik- ja integratsioonitestid (9 testi: test_valideer.py + test_canonical_learning.py)
+python -m unittest discover -s tests -v
+```
 
-# Määruse kitsenduste mootori testid
-python scripts/test_restrictions.py
-python scripts/verify_restriction_integration.py
+### Teadmistebaasi `AUTO_LEARN` impordi tagasivõtmine (Rollback)
+Kui on vaja `AUTO_LEARN` import (`batch_id`) tagasi võtta:
+```bash
+# 1. Partii-põhine tagasivõtmine (kustutab ainult konkreetse impordipartii kirjed)
+python scripts/rollback_auto_learn.py --mode batch
+
+# 2. Täielik impordieelse SQLite varukoopia taastamine
+python scripts/rollback_auto_learn.py --mode backup
 ```

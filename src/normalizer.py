@@ -32,6 +32,10 @@ def normalize_name(raw_name: str) -> str:
 
     text = clean_text(raw_name)
 
+    # 0. Eemalda nimetuse lõpust või seest tärniga/eraldi lisatud ISO-koodi sabad (nt *09.21.06, *09.30.24.95)
+    text = re.sub(r"\*\s*\d{2}\.\d{2}\.\d{2}(?:\.\d{2})?\b", " ", text)
+    text = re.sub(r"\b\d{2}\.\d{2}\.\d{2}(?:\.\d{2})?\s*$", " ", text)
+
     # 1. Eemalda tootekoodid / EAN sulgudes, nt (168101), [4052199]
     text = re.sub(r"[\(\[\{]\s*\d+\s*[\)\]\}]", " ", text)
 
@@ -48,12 +52,28 @@ def normalize_name(raw_name: str) -> str:
         text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
 
     # 3. Eemalda pakendi kogusetähised:
+    # Mitmikpakend ainult juhul, kui sellele järgneb tükiühik: nt 3X48TK, 10X30 TK, 4X14 PCS
+    text = re.sub(r"\b\d+\s*[X*×]\s*\d+\s*(?:TK|TÜKKI|TUKKI|PCS|PC|PK|PACK|PAKK)\b", " ", text, flags=re.IGNORECASE)
     # N30, N 30, N-30, N14, N100 jne
     text = re.sub(r"\bN\s*[-–—]?\s*\d+\b", " ", text, flags=re.IGNORECASE)
     # 30TK, 30 TK, 30 TÜKKI, 30PCS, 30 PK, 30 PACK jne
     text = re.sub(r"\b\d+\s*(TK|TÜKKI|TUKKI|PCS|PC|PK|PACK|PAKK)\b", " ", text, flags=re.IGNORECASE)
-    # 10X30, 4X14 jne
-    text = re.sub(r"\b\d+\s*[X*×]\s*\d+\b", " ", text, flags=re.IGNORECASE)
+
+    # 3b. Säilita ja ühtlusta mõõdud (nt 40x60, 60x60, 60x90 cm, 60*90 CM, 75x85, 80x180 cm -> 40X60, 60X60, 60X90)
+    def _norm_dim(match: re.Match) -> str:
+        d1 = match.group(1).replace(",", ".")
+        d2 = match.group(2).replace(",", ".")
+        return f" {d1}X{d2} "
+
+    text = re.sub(
+        r"\b(\d{1,3}(?:[,\.]\d+)?)\s*[X*×]\s*(\d{1,3}(?:[,\.]\d+)?)\s*(?:CM|MM)?\b",
+        _norm_dim,
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # Ühtlusta komaga kümnendmurrud (nt 1,5 tilka -> 1.5 tilka, 4,5 -> 4.5)
+    text = re.sub(r"(\d),(\d)", r"\1.\2", text)
 
     # 4. Eemalda redundantsed tilga- ja imavussõnad (säilitades numbri):
     # nt "4 TILKA" -> "4", "3 TILK" -> "3", "5 DROPS" -> "5"
@@ -61,19 +81,23 @@ def normalize_name(raw_name: str) -> str:
     text = re.sub(r"\bDROPS?\b", " ", text, flags=re.IGNORECASE)
 
     # 5. Eemalda mittespetsiifilised soo-/bränditäiendid, kui need sageli varieeruvad
-    # nt 'LADY' või 'MEN' üldmähkmetel/sidemetel, kui tootesarjas on need samaväärsed
+    # nt 'LADY' üldmähkmetel/sidemetel, kui tootesarjas on need samaväärsed ('MEN' säilitatakse, kuna meeste sidemetel on eraldi ISO)
     # Märkus: asendame ainult siis, kui see ei ole toote ainus sõna
     tokens = text.split()
     cleaned_tokens = []
     for token in tokens:
         # Säilitame põhiterminid, eemaldame pehmed vahesõnad
-        if token in ("LADY", "MEN") and len(tokens) > 2:
+        if token == "LADY" and len(tokens) > 2:
             continue
         cleaned_tokens.append(token)
     text = " ".join(cleaned_tokens)
 
+    # Eemalda tühjaks jäänud sulud (nt kui "(14 tk)" seest eemaldati "14 tk")
+    text = re.sub(r"[\(\[\{]\s*[\)\]\}]", " ", text)
+
     # 6. Eemalda kirjavahemärgid, mis ei ole numbrite või tähtede vahel olulised
-    # Asendame sümbolid nagu / + , - _ . tühikutega, kui need ei kuulu tootenimesse
+    # Säilitame kümnendpunkti numbrite vahel (nt 1.5, 4.0), ülejäänud kirjavahemärgid asendame tühikuga
+    text = re.sub(r"(?<!\d)\.|\.(?!\d)", " ", text)
     text = re.sub(r"[,;:\-_/\\\"'#*~]+", " ", text)
 
     # 7. Viimane tühikute ja ääriste puhastus
@@ -115,11 +139,14 @@ def normalize_statutory_name(raw_name: str) -> str:
     """
     Normaliseerib määrusejärgse nimetuse võrdluseks:
     - Suurtähed
+    - Ühtlustab tühikud sidekriipsude ümber (nt 'XL - XXL' == 'XL-XXL')
     - Eemaldab liigsed kirjavahemärgid ja tühikud
     """
     if not raw_name:
         return ""
     text = clean_text(raw_name)
+    # Ühtlusta sidekriipsude ümber olevad tühikud
+    text = re.sub(r"\s*[-–—]\s*", "-", text)
     # Eemalda lõpupunktid või komad
     text = re.sub(r"[\.,;:!\?]+$", "", text)
     # Eemalda topelttühikud

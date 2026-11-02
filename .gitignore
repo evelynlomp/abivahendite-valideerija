@@ -13,12 +13,18 @@ wheels/
 # Streamlit
 .streamlit/secrets.toml
 
-# Temporary and test database files (valideer.db is tracked for standalone run)
+# Audit reports, backups, archives, and intermediate analysis files
+archive/
+data/audit_reports/
+data/backups/
 data/*_backup.db
 data/test_*.db
 data/knowledge_base.db
 data/raw_supplier_products.json
 data/invaru_variant_cache.json
+data/scanned_candidates_report.json
+data/vahearuanne*.md
+data/*.xls
 
 # OS and editor files
 .DS_Store
@@ -26,4 +32,3 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
-

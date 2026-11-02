@@ -4,6 +4,7 @@ import os
 import re
 import sqlite3
 import openpyxl
+from contextlib import contextmanager
 from typing import Optional, List, Dict, Any
 from src.normalizer import clean_text, normalize_iso, normalize_statutory_name
 
@@ -22,14 +23,30 @@ class MinistryClassifier:
 
     def __init__(self, db_path: str = "data/valideer.db"):
         self.db_path = db_path
+        self._iso_cache: Dict[str, Dict[str, Any]] = {}
         os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True)
         self._init_db()
         self.ensure_loaded()
+        self._refresh_cache()
 
-    def _get_connection(self) -> sqlite3.Connection:
+    def _refresh_cache(self) -> None:
+        self._iso_cache = {}
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM ametlik_klassifikaator")
+            for row in cursor.fetchall():
+                d = dict(row)
+                self._iso_cache[d["iso_kood_puhas"]] = d
+
+    @contextmanager
+    def _get_connection(self):
         conn = sqlite3.connect(self.db_path, timeout=30.0)
         conn.row_factory = sqlite3.Row
-        return conn
+        try:
+            yield conn
+            conn.commit()
+        finally:
+            conn.close()
 
     def _init_db(self) -> None:
         """Loob klassifikaatori tabeli andmebaasis täieliku 22-veerulise struktuuriga."""
@@ -205,6 +222,7 @@ class MinistryClassifier:
 
             conn.commit()
 
+        self._refresh_cache()
         return loaded
 
     def count(self) -> int:
@@ -215,17 +233,22 @@ class MinistryClassifier:
             return cursor.fetchone()[0]
 
     def get_by_iso(self, raw_iso: str) -> Optional[Dict[str, Any]]:
-        """Otsib ametlikku klassifikatsiooni ISO-koodi järgi."""
+        """Otsib ametlikku klassifikatsiooni ISO-koodi järgi (O(1) mälupuhvriga)."""
         clean_code = normalize_iso(raw_iso)
         if not clean_code:
             return None
+
+        if clean_code in self._iso_cache:
+            return self._iso_cache[clean_code]
 
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM ametlik_klassifikaator WHERE iso_kood_puhas = ?", (clean_code,))
             row = cursor.fetchone()
             if row:
-                return dict(row)
+                d = dict(row)
+                self._iso_cache[clean_code] = d
+                return d
         return None
 
     def is_valid_iso(self, raw_iso: str) -> bool:
