@@ -998,10 +998,10 @@ else:
 
     # 2. RIIKLIK KLASSIFIKAATOR
     with tab_class:
-        st.subheader("🏛️ Sotsiaalministeeriumi määruse nr 74 loetelu")
-        st.caption("Ametlik klassifikaator koos veergude C ja M tootekitsenduste ja kirjeldustega.")
+        st.subheader("🏛️ Sotsiaalkindlustusameti ja määruse nr 74 loetelu (alates 01.10.2026)")
+        st.caption("Ametlik tõeallikas koos valdkondade, liikide, tootekitsenduste ja piirhindadega.")
 
-        search_q = st.text_input("Otsi klassifikaatorist (ISO kood või märksõna):", key="haldus_class_search")
+        search_q = st.text_input("Otsi klassifikaatorist (ISO kood, valdkond, liik või märksõna):", key="haldus_class_search")
 
         all_classes_data = classifier.get_all_classifications()
         if all_classes_data:
@@ -1011,31 +1011,43 @@ else:
                 df_classes = df_classes[
                     df_classes["iso_kood"].str.upper().str.contains(q_up, na=False) |
                     df_classes["maarusejargne_nimetus"].str.upper().str.contains(q_up, na=False) |
-                    df_classes["tapsustus"].str.upper().str.contains(q_up, na=False)
+                    df_classes["tapsustus"].str.upper().str.contains(q_up, na=False) |
+                    df_classes.get("valdkond", pd.Series(dtype=str)).str.upper().str.contains(q_up, na=False) |
+                    df_classes.get("liik", pd.Series(dtype=str)).str.upper().str.contains(q_up, na=False)
                 ]
 
             show_cols = [
                 "iso_kood",
+                "valdkond",
+                "liik",
                 "maarusejargne_nimetus",
                 "tapsustus",
                 "kasutusaeg",
                 "tehingu_liik",
                 "piirlimiit",
-                "piirhind_uur",
+                "piirmaar",
                 "piirhind_muuk",
-                "uhik"
+                "piirhind_uur",
+                "omaosaluse_miinimum",
+                "uhik",
+                "hooldusteenus_h"
             ]
             valid_show = [c for c in show_cols if c in df_classes.columns]
             rename_classes = {
                 "iso_kood": "ISO kood",
+                "valdkond": "Valdkond",
+                "liik": "Liik",
                 "maarusejargne_nimetus": "Määrusejärgne nimetus",
                 "tapsustus": "Kitsendus / Täpsustus (Veerg C)",
                 "kasutusaeg": "Kasutusaeg",
                 "tehingu_liik": "Tehingu liik",
                 "piirlimiit": "Piirlimiit",
-                "piirhind_uur": "Üüri piirhind",
-                "piirhind_muuk": "Müügi piirhind",
-                "uhik": "Ühik"
+                "piirmaar": "Piirmäär",
+                "piirhind_muuk": "Müügi piirhind (€)",
+                "piirhind_uur": "Üüri piirhind (€/kuu)",
+                "omaosaluse_miinimum": "Omaosaluse miinimum",
+                "uhik": "Ühik",
+                "hooldusteenus_h": "Hooldekodu piirang (H)"
             }
             st.dataframe(df_classes[valid_show].rename(columns=rename_classes), use_container_width=True, height=500)
 

@@ -15,7 +15,7 @@ Rakenduse äriloogika ja soovituste esitus tugineb neljaastmelisele hierarhilise
         ↓
 [Tuvastatud ametlik toode] (Tooteregister: 4 115 kanoonilist toodet)
         ↓
-[Ametlikud andmed tõeallikast] (Määrus nr 74: 326 ISO koodi ja kitsendust)
+[Ametlikud andmed tõeallikast] (Sotsiaalkindlustusameti määrus nr 74 alates 01.10.2026: 250 ISO koodi ja täielikud reeglid)
         ↓
 [Leitud lahknevus ja soovitus] (Võrdlus tõeallika ja arvel esitatu vahel)
 ```
@@ -84,8 +84,8 @@ valideer/
 ├── data/                            # Püsivad andmefailid ja tõeallikad
 │   ├── valideer.db                  # Ühtne SQLite andmebaas (tooteregister, klassifikaator, reeglid)
 │   ├── naidis_sisend_vigadega.xlsx  # Demofail vigaste tehinguridadega testimiseks
-│   ├── Sotsiaalministeeriumi abivahendite loetelu.csv   # Ametlik määrus CSV-formaadis
-│   └── Sotsiaalministeeriumi abivahendite loetelu.xlsx  # Ametlik määrus Exceli formaadis
+│   ├── Abivahendite_otsimootor_al.01.10.2026.xlsx # SKA ametlik loetelu ja otsimootori reeglid (tõeallikas)
+│   └── Abivahendite_otsimootor_al.01.10.2026.xlsb # SKA ametlik loetelu binaarformaat
 │
 ├── assets/                          # Disainisüsteemi visuaalsed varad
 │   ├── valideer-logo-flat.svg       # Ametlik lame vektorlogo
