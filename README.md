@@ -128,27 +128,53 @@ Valideerimise järgselt eksporditav Exceli raport on jaotatud kaheks selgeks leh
 
 ---
 
-## Käivitamine ja testimine
+## Paigaldamine ja käivitamine
+
+Projekt on täielikult iseseisev ja ei vaja väliseid andmebaasiserevereid ega API-võtmeid või keskkonnamuutujaid. Kõik vajalikud tõeallikad sisalduvad kaasasolevas SQLite baasis (`data/valideer.db`).
 
 ### Nõuded
-- Python 3.11+
-- [uv](https://github.com/astral-sh/uv) või `pip`
+- Python 3.10 kuni 3.14 (soovituslik: Python 3.11 või 3.12)
+- Git
 
-### Rakenduse käivitamine
+### Variant A: Standardne Python `pip` ja `requirements.txt` (sobib igasse keskkonda ja pilve)
 ```bash
-# Aktiveeri virtuaalkeskkond ja käivita Streamlit
-.\.venv\Scripts\streamlit run app.py
+# 1. Klooni repositoorium
+git clone https://github.com/evelynlomp/abivahendite-valideerija.git
+cd abivahendite-valideerija
+
+# 2. Loo ja aktiveeri virtuaalkeskkond
+python -m venv .venv
+
+# Windows:
+.\.venv\Scripts\activate
+# Linux / macOS:
+source .venv/bin/activate
+
+# 3. Paigalda sõltuvused
+pip install -r requirements.txt
+
+# 4. Käivita veebiliides
+streamlit run app.py
 ```
-Rakendus avaneb veebilehitsejas aadressil **http://localhost:8501**.
+
+### Variant B: Kiire käivitus `uv` abil
+```bash
+git clone https://github.com/evelynlomp/abivahendite-valideerija.git
+cd abivahendite-valideerija
+
+# Sünkroniseeri sõltuvused ja käivita
+uv sync
+uv run streamlit run app.py
+```
+
+Veebirakendus avaneb aadressil **http://localhost:8501**.
 
 ### Testide käivitamine
 ```bash
-# 1. Tuvastamisagendi ja valideerimisahela testid
-.\.venv\Scripts\python tests/test_valideer.py
+# Tuvastamisagendi, normaliseerimise ja ahela testid
+python tests/test_valideer.py
 
-# 2. Määruse kitsenduste mootori ühiktestid
-.\.venv\Scripts\python scripts/test_restrictions.py
-
-# 3. Kitsenduste integratsioonitestid
-.\.venv\Scripts\python scripts/verify_restriction_integration.py
+# Määruse kitsenduste mootori testid
+python scripts/test_restrictions.py
+python scripts/verify_restriction_integration.py
 ```
