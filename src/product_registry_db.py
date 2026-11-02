@@ -338,6 +338,20 @@ def infer_iso_and_statutory_name(
             return "09.21.06", "nahapesemisvahendid"
         return "09.21.18", "nahakaitsevahendid"
 
+    # 11. Proteesi sisevoodrid (lainerid) (Sotsiaalministeeriumi määrus nr 74)
+    if "lainer" in type_lower or "sisevooder" in type_lower or any(w in name_upper for w in ["LAINER", "ICEROSS", "GALEO", "SKEO"]):
+        if any(w in name_upper for w in ["(TF)", " TF", "-TF", "TRANSFEMORAL", "REIE"]):
+            return "06.24.41.08", "proteesi sisevoodrid (lainerid) põlve- ja reieproteesidele"
+        elif any(w in name_upper for w in ["(TT)", " TT", "-TT", "TRANSTIBIAL", "SÄÄRE"]):
+            return "06.24.41.07", "proteesi sisevoodrid (lainerid) sääreproteesidele"
+        elif any(w in name_upper for w in ["KÄE", "UPPER", "ÜLAJÄSE"]):
+            return "06.18.00.02", "proteesi sisevoodrid (lainerid) ülajäsemeproteesidele"
+        return "06.24.41.07", "proteesi sisevoodrid (lainerid) sääreproteesidele"
+
+    # 12. Kuulmisabivahendid (CROS heliülekandesüsteemid)
+    if "cros" in name_upper or "cros" in type_lower:
+        return "22.06.15.05", "teise kõrva heli ülekande süsteemid (CROS)"
+
     return None, None
 
 
