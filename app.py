@@ -67,7 +67,7 @@ def get_registry_db():
 
 @st.cache_resource
 def get_product_agent():
-    return ProductIdentificationAgent(db_path="data/valideer.db")
+    return ProductIdentificationAgent()
 
 
 classifier = get_classifier()
@@ -75,9 +75,9 @@ kb = get_knowledge_base()
 registry_db = get_registry_db()
 product_agent = get_product_agent()
 
-class_count = classifier.get_total_count()
-kb_count = kb.get_total_count()
-reg_stats = registry_db.get_stats()
+class_count = classifier.count()
+kb_count = kb.count()
+reg_stats = registry_db.get_statistics()
 
 matcher = ProductMatcher(
     classifier=classifier,
