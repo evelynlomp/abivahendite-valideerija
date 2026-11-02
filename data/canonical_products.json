@@ -1,0 +1,3178 @@
+[
+  {
+    "canonical_id": "CP-KUULDEAPARAADI-TSINK-HK-PATAREID-10-13-312-675",
+    "canonical_name": "KUULDEAPARAADI TSINK-ÕHK PATAREID (10/13/312/675)",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendite toiteallikad",
+    "aliases": [
+      "Patarei 10",
+      "Patarei 13",
+      "Patarei 312",
+      "Patarei 675"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-OTICON-STANDARDOTSAKUD",
+    "canonical_name": "OTICON STANDARDOTSAKUD",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuuldeaparaadi otsakud",
+    "aliases": [
+      "Standardotsak (Oticon)"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-OTICON-CROS",
+    "canonical_name": "OTICON CROS",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid (CROS süsteem)",
+    "aliases": [
+      "Oticon Cros",
+      "Oticon CROS miniRITE",
+      "Oticon CROS heliülekandesüsteem"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-cros/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik piirhind 450.00 €",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2024/04/Oticon_CROS_miniRITE_shadows-1-640x534.webp"
+    ],
+    "descriptions": [
+      "Teise kõrva heli ülekande süsteem (CROS)",
+      "Spetsiaalne juhtmevaba heliülekandesüsteem ühepoolse kurtuse (Single-Sided Deafness) leevendamiseks.",
+      "Edastab halva kõrva poolelt saabuvad helid juhtmevabalt paremini kuulvasse kõrva."
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.05",
+        "teise kõrva heli ülekande süsteemid (CROS)",
+        "Standardne CROS heliülekandesüsteem"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene 1:1 vaste määruse nr 74 koodile 22.06.15.05."
+  },
+  {
+    "canonical_id": "CP-VANNIASTE-K-ETOETA",
+    "canonical_name": "VANNIASTE KÄETOETA",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Vanniaste käetoeta"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/wc-ja-vannituba/astmed/vanniaste-kaetoeta-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-COMPRITEX-TROMBIENNETUS",
+    "canonical_name": "COMPRITEX TROMBIENNETUS",
+    "brand": "CompriTex",
+    "manufacturer": "Vannini Medica S.r.l. (Itaalia)",
+    "category": "Ravikompressioontooted",
+    "aliases": [
+      "Trombiennetus sukad CompriTex XL valge, silikoon äärisega"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonsukad/trombiennetus-sukad-compritex-xl-valge-silikoon-aarisega/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-COMPRITEX-MEDITSIINILISED-KOMPRESSIOONSUKAD",
+    "canonical_name": "COMPRITEX MEDITSIINILISED KOMPRESSIOONSUKAD",
+    "brand": "CompriTex",
+    "manufacturer": "Vannini Medica S.r.l. (Itaalia)",
+    "category": "Ravikompressioontooted",
+    "aliases": [
+      "sukad CompriTex XXL, CCL1 varvas kinni beež"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonsukad/sukad-compritex-xxl-ccl1-varvas-kinni-beez/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-K-SIVARRE-FIKSAATOR-SUURUS-4",
+    "canonical_name": "KÄSIVARRE FIKSAATOR, SUURUS 4",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Käsivarre fiksaator, suurus 4"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/ortoosid-ja-tugitooted/ortoosid-ja-toed-kaele-olale/toed-katele/kasivarre-fiksaator-suurus-4/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-K-SIVARRE-FIKSAATOR-SUURUS-1",
+    "canonical_name": "KÄSIVARRE FIKSAATOR, SUURUS 1",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Käsivarre fiksaator, suurus 1"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/ortoosid-ja-tugitooted/ortoosid-ja-toed-kaele-olale/toed-katele/kasivarre-fiksaator-suurus-1/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-K-NARLIIGESE-TUGISIDE-SUURUS-2",
+    "canonical_name": "KÜÜNARLIIGESE TUGISIDE, SUURUS 2",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Küünarliigese tugiside, suurus 2"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/ortoosid-ja-tugitooted/ortoosid-ja-toed-kaele-olale/ola-ja-kuunarliigese-toed/kuunarliigese-tugiside-suurus-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-JOBST-FORMEN-AMBITION",
+    "canonical_name": "JOBST FORMEN AMBITION",
+    "brand": "JOBST",
+    "manufacturer": "Essity Hygiene and Health AB (Rootsi)",
+    "category": "Ravikompressioontooted",
+    "aliases": [
+      "JOBST ForMen Ambition kompressioonpõlvikud CCL2"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonpolvikud/jobst-formen-ambition-kompressioonpolvikud-ccl2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-JOBST-ULTRA-SHEER",
+    "canonical_name": "JOBST ULTRA SHEER",
+    "brand": "JOBST",
+    "manufacturer": "Essity Hygiene and Health AB (Rootsi)",
+    "category": "Ravikompressioontooted",
+    "aliases": [
+      "JOBST Ultra Sheer meditsiinilised kompressioonsukkpüksid CCL2"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonsukkpuksid/jobst-ultra-sheer-meditsiinilised-kompressioonsukkpuksid-ccl2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-PESEMISRAAM-TIMO",
+    "canonical_name": "PESEMISRAAM TIMO",
+    "brand": "Timo",
+    "manufacturer": "Määramata",
+    "category": "Hügieeni- ja pesemisabivahendid",
+    "aliases": [
+      "Pesemisraam Timo lühem (hüdrauliline)"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/meditsiiniline-inventar/pesemisraamid/pesemisraam-timo-luhem-hudrauliline/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "09.33.12",
+        "vanni-, duši- ja mähkimislauad",
+        "Hüdrauliline pesemisraam"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Vaste hügieeni pesemisraamide koodile 09.33.12."
+  },
+  {
+    "canonical_id": "CP-KARGU-JA-KEPI-J-OTSIKUD",
+    "canonical_name": "KARGU JA KEPI JÄÄOTSIKUD",
+    "brand": "Kid-Man",
+    "manufacturer": "Määramata",
+    "category": "Liikumisabivahendite lisatarvikud",
+    "aliases": [
+      "Kepi, kargu jääotsik-kroon",
+      "Kepi, kargu jääotsik-nael"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/kargud-ja-kepid/lisatarvikud-karkudele-ja-keppidele/kepi-kargu-jaaotsik-nael-kid-man/"
+      },
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/kargud-ja-kepid/lisatarvikud-karkudele-ja-keppidele/kepi-kargu-jaaotsik-kroon-kid-man/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-BODYGUARD-IMAV-ALUSPESU",
+    "canonical_name": "BODYGUARD IMAV ALUSPESU",
+    "brand": "Scabo",
+    "manufacturer": "Scabo Medical",
+    "category": "Imavad tooted ja pidamatuspesu",
+    "aliases": [
+      "Aluspesu imav (150ml) must Bodyguard , suurus 6 (L) Scabo"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/mahkmed-ja-imavad-tooted/imav-aluspesu/aluspesu-imav-150ml-must-bodyguard-suurus-6-l-scabo/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-ALUSPESU-IMAV-HIPSTER-XL-PV-TRADE",
+    "canonical_name": "ALUSPESU IMAV, HIPSTER XL PV TRADE",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Aluspesu imav, Hipster XL PV Trade"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/mahkmed-ja-imavad-tooted/imav-aluspesu/aluspesu-imav-hipster-xl-pv-trade/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-RULAATOR-JAGUAR",
+    "canonical_name": "RULAATOR JAGUAR",
+    "brand": "Jaguar",
+    "manufacturer": "Määramata",
+    "category": "Liikumisabivahendid (rulaatorid)",
+    "aliases": [
+      "Rulaator Jaguar šampanjakuldne"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/rulaatorid/rulaator-jaguar-lilla-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "12.06.06",
+        "neljarattalised käimistoolid / rulaatorid",
+        "Standardne rulaator"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste määruse nr 74 rulaatorite koodile 12.06.06."
+  },
+  {
+    "canonical_id": "CP-LIIGENDITEGA-AVATUD-PATELLA-JA-NDLAOSAGA-REKORDSAN-P-LVEKAITSE-30-CM",
+    "canonical_name": "LIIGENDITEGA AVATUD PATELLA- JA ÕNDLAOSAGA REKORDSAN PÕLVEKAITSE 30 CM",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Liigenditega avatud patella- ja õndlaosaga Rekordsan põlvekaitse 30 cm"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/ortoosid-ja-tugitooted/ortoosid-ja-toed-jalgadele/polveortoosid/liigenditega-avatud-patella-ja-ondlaosaga-rekordsan-polvekaitse-30-cm/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-LVIKUD-23-26-MMHG-180DEN",
+    "canonical_name": "PÕLVIKUD 23-26 MMHG, 180DEN",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Põlvikud 23-26 mmHg, 180DEN"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonpolvikud/polvikud-23-26-mmhg-180den/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-VARBAKAITSE-SILIKONIST-SIDAS",
+    "canonical_name": "VARBAKAITSE SILIKONIST SIDAS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Varbakaitse silikonist Sidas"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=203&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-AIRCAST-WALKER-H-PPELIIGESE-ORTOOS-SAABAS",
+    "canonical_name": "AIRCAST WALKER HÜPPELIIGESE ORTOOS-SAABAS",
+    "brand": "Aircast",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Hüppeliigese- ja jalaortoosid",
+    "aliases": [
+      "Walker, lühike",
+      "Walker, pikk"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=78&group_id=21"
+      },
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=190&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-REIETUGI",
+    "canonical_name": "REIETUGI",
+    "brand": "ProCare",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Reietugi"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=96&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-KIPSI-KAITSE-SAABAS",
+    "canonical_name": "KIPSI KAITSE SAABAS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Kipsi kaitse saabas"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=242&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-SUURE-VARBA-KAITSE-SILIKONIST-SIDAS",
+    "canonical_name": "SUURE VARBA KAITSE SILIKONIST SIDAS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Suure varba kaitse silikonist Sidas"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=204&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-SSUR-FOOT-UP-RIPPUVA-LABAJALA-ORTOOS",
+    "canonical_name": "ÖSSUR FOOT-UP RIPPUVA LABAJALA ORTOOS",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Jala- ja hüppeliigeseortoosid",
+    "aliases": [
+      "Jala ortoos Foot-Up"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=151&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €)",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-H-PPELIIGESE-ORTOOS",
+    "canonical_name": "HÜPPELIIGESE ORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Hüppeliigese ortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=69&group_id=21"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-LEGEND-P-LVEORTOOS",
+    "canonical_name": "DONJOY LEGEND PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "Legend põlveortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=91&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-TRU-PULL-LITE-P-LVEORTOOS",
+    "canonical_name": "DONJOY TRU-PULL LITE PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "Tru-Pull Lite põlveortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=88&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-COTEX-PATELLA-P-LVEORTOOS",
+    "canonical_name": "COTEX PATELLA PÕLVEORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "põlve ortoos CoTex Patella"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=139&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-QUICKFIT-LIIGENDITEGA-P-LVEORTOOS",
+    "canonical_name": "QUICKFIT LIIGENDITEGA PÕLVEORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "Põlveortoos liigenditega, QuickFit"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=254&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-DRYTEX-P-LVEORTOOS",
+    "canonical_name": "DONJOY DRYTEX PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "Drytex liigendi ja õhupadjaga põlveortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=39&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-REACTION-P-LVEORTOOS",
+    "canonical_name": "DONJOY REACTION PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "Põlveortoos Reaction"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=86&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-GENUFORCE-P-LVEORTOOS",
+    "canonical_name": "DONJOY GENUFORCE PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "GenuForce põlveortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=220&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-X-ACT-PIKENDATAV-P-LVEORTOOS",
+    "canonical_name": "DONJOY X-ACT PIKENDATAV PÕLVEORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Põlveortoosid",
+    "aliases": [
+      "X-Act pikenadatav põlveortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=221&group_id=22"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-SAKROILIAKAALLIIGESE-V-SI-V",
+    "canonical_name": "SAKROILIAKAALLIIGESE VÖÖ - SI VÖÖ",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Sakroiliakaalliigese vöö - SI vöö"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=101&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DJO-TLSO-L-LISAMBAORTOOS",
+    "canonical_name": "DJO TLSO LÜLISAMBAORTOOS",
+    "brand": "DJO",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Lülisamba- ja seljaortoosid",
+    "aliases": [
+      "DJO TLSO"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=255&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-ACTISTRAP-SELJAORTOOS",
+    "canonical_name": "DONJOY ACTISTRAP SELJAORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Seljaortoosid",
+    "aliases": [
+      "Selja ortoos Actistrap, kõrgus 21 cm"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=99&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-K-HUBANDAAZ",
+    "canonical_name": "KÕHUBANDAAZ",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Kõhubandaaz"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=188&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-CONFORSTRAP-SELJAORTOOS",
+    "canonical_name": "DONJOY CONFORSTRAP SELJAORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Seljaortoosid",
+    "aliases": [
+      "Selja ortoos Conforstrap kuuma-külmakoti võimalusega"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=97&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-SELJA-ORTOOS-LISARIHMAGA",
+    "canonical_name": "SELJA ORTOOS LISARIHMAGA",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Selja ortoos lisarihmaga"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=102&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DONJOY-IMMOSTRAP-SELJAORTOOS",
+    "canonical_name": "DONJOY IMMOSTRAP SELJAORTOOS",
+    "brand": "DonJoy",
+    "manufacturer": "DJO, LLC / Enovis (USA)",
+    "category": "Seljaortoosid",
+    "aliases": [
+      "Immostrap, seljaortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=224&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-SELJA-ORTOOS-TRAKSIDEGA",
+    "canonical_name": "SELJA ORTOOS TRAKSIDEGA",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Selja ortoos traksidega"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=176&group_id=24"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-POL-AX-P-IDLAORTOOS",
+    "canonical_name": "POL'AX PÖIDLAORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Käe- ja randmeortoosid",
+    "aliases": [
+      "Pol'Ax pöidlaortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=114&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-RANDMELAHAS-KOHALDATAV",
+    "canonical_name": "RANDMELAHAS KOHALDATAV",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Randmelahas kohaldatav"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=156&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-IDLA-ORTOOS",
+    "canonical_name": "PÖIDLA ORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pöidla ortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=196&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-RANDME-ORTOOOS-HUGA",
+    "canonical_name": "RANDME ORTOOOS ÕHUGA",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Randme ortooos õhuga"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=123&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-MANEX-OPUS-RANDMEORTOOS",
+    "canonical_name": "MANEX OPUS RANDMEORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Käe- ja randmeortoosid",
+    "aliases": [
+      "Manex Opus randmeortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=194&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-IDLA-ORTOOS-LASTELE",
+    "canonical_name": "PÖIDLA ORTOOS LASTELE",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pöidla ortoos lastele"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=145&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-IDLA-K-E-RANDME-ORTOOS-PLASTIST",
+    "canonical_name": "PÖIDLA-KÄE-RANDME ORTOOS PLASTIST",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pöidla-käe-randme ortoos plastist"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=116&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-ERGOFORM-P-IDLAORTOOS",
+    "canonical_name": "ERGOFORM PÖIDLAORTOOS",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Käe- ja randmeortoosid",
+    "aliases": [
+      "ErgoForm pöidlaortoos"
+    ],
+    "sources": [
+      {
+        "source_name": "Eesti Ortoosikeskus",
+        "url": "https://www.ortoosikeskus.ee/index.php?page=99&action=show_product_details&product_id=246&group_id=25"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-OTTOBOCK-GALEO",
+    "canonical_name": "OTTOBOCK GALEO",
+    "brand": "Ottobock",
+    "manufacturer": "Ottobock SE & Co. KGaA (Saksamaa)",
+    "category": "Proteesi sisevoodrid (lainerid sääreproteesile)",
+    "aliases": [
+      "OTTOBOCK Galeo 3D 6Y93 (TT)",
+      "OTTOBOCK Galeo 3D 6Y95 (TT)",
+      "OTTOBOCK Galeo 6Y92 (TT)",
+      "Galeo 3D TT",
+      "Galeo 6Y92",
+      "6Y93",
+      "6Y95",
+      "6Y92"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €, omaosalus: 40.00 €)",
+    "images": [],
+    "descriptions": [
+      "Ottobock anatoomilise kujuga 3D silikoonlainer transtibiaalsetele (TT) sääreproteesidele.",
+      "Mudelid 6Y92 (standardne kooniline), 6Y93 (3D anatoomiline distaalse kinnitusega) ja 6Y95 (3D kooniline)."
+    ],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "Transtibiaalsed (TT) silikoonlainerid (6Y92, 6Y93, 6Y95)"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Kõik Galeo mudelid on säärelainerid (TT), otsene vaste koodile 06.24.41.07."
+  },
+  {
+    "canonical_id": "CP-OTTOBOCK-SKEO-TT",
+    "canonical_name": "OTTOBOCK SKEO (TT)",
+    "brand": "Ottobock",
+    "manufacturer": "Ottobock SE & Co. KGaA (Saksamaa)",
+    "category": "Proteesi sisevoodrid (lainerid sääreproteesile)",
+    "aliases": [
+      "OTTOBOCK Skeo Skinguard TT 6Y75 (TT)",
+      "Skeo TT 6Y75",
+      "6Y75"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €, omaosalus: 40.00 €)",
+    "images": [],
+    "descriptions": [
+      "Ottobock Skinguard antibakteriaalne silikoonlainer transtibiaalsetele (TT) sääreproteesidele distaalse kinnitusega."
+    ],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "Transtibiaalne lainer TT"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste säärelaineri koodile 06.24.41.07."
+  },
+  {
+    "canonical_id": "CP-OTTOBOCK-SKEO-TF",
+    "canonical_name": "OTTOBOCK SKEO (TF)",
+    "brand": "Ottobock",
+    "manufacturer": "Ottobock SE & Co. KGaA (Saksamaa)",
+    "category": "Proteesi sisevoodrid (lainerid reieproteesile)",
+    "aliases": [
+      "OTTOBOCK Skeo 3D 6Y87 (TF)",
+      "OTTOBOCK Skeo 3D 6Y88 (TF)",
+      "OTTOBOCK Skeo 6Y80 (TF)",
+      "OTTOBOCK Skeo Sealing 6Y110 (TF)",
+      "OTTOBOCK Skeo Skinguard TF 6Y85 (TF)",
+      "6Y80",
+      "6Y85",
+      "6Y87",
+      "6Y88",
+      "6Y110"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €, omaosalus: 40.00 €)",
+    "images": [],
+    "descriptions": [
+      "Ottobock Skinguard antibakteriaalsed silikoonlainerid transfemoraalsetele (TF) reieproteesidele.",
+      "Mudelid: 6Y80 standardne, 6Y85 distaalse kinnitusega, 6Y87/6Y88 3D anatoomiline ja 6Y110 membraantihendiga."
+    ],
+    "matching_isos": [
+      [
+        "06.24.41.08",
+        "proteesi sisevoodrid (lainerid) põlve- ja reieproteesidele",
+        "Transfemoraalne lainer TF"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste reielaineri koodile 06.24.41.08."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-SEAL-IN-X",
+    "canonical_name": "ÖSSUR ICEROSS SEAL-IN X",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid)",
+    "aliases": [
+      "ÖSSUR Iceross Seal-in X I-4443 (TT)",
+      "ÖSSUR Iceross Seal-in X TF I-8532 (TF)",
+      "ÖSSUR Iceross Seal-in X locking I-SXL3 (TT)",
+      "ÖSSUR Iceross Seal-in X5 TF I-TF673 (TF)",
+      "I-4443",
+      "I-SXL3",
+      "I-8532",
+      "I-TF673"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €, omaosalus: 40.00 €)",
+    "images": [],
+    "descriptions": [
+      "Össuri patenteeritud vaakumtihendiga silikoonlainer (Seal-in membraantehnoloogia).",
+      "Välistab vajaduse välise põlvesuka järele, tagab parema vereringe ja liigeseliikuvuse."
+    ],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "TT mudelid"
+      ],
+      [
+        "06.24.41.08",
+        "proteesi sisevoodrid (lainerid) põlve- ja reieproteesidele",
+        "TF mudelid"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Seal-in X seeria katab nii sääre (TT) kui reie (TF) amputatsiooni."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-DERMO",
+    "canonical_name": "ÖSSUR ICEROSS DERMO",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid sääreproteesile)",
+    "aliases": [
+      "ÖSSUR Iceross Dermo locking With Wave I-4313 (TT)"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €)",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "Säärelainer (TT)"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste säärelaineri koodile 06.24.41.07."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-COMFORT",
+    "canonical_name": "ÖSSUR ICEROSS COMFORT",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid sääreproteesile)",
+    "aliases": [
+      "ÖSSUR Iceross Comfort locking I-5406 (TT)"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €)",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "Säärelainer (TT)"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste säärelaineri koodile 06.24.41.07."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-TRANSFEMORAL",
+    "canonical_name": "ÖSSUR ICEROSS TRANSFEMORAL",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid reieproteesile)",
+    "aliases": [
+      "ÖSSUR Iceross transfemoral locking I-7032 (TF)"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €)",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "06.24.41.08",
+        "proteesi sisevoodrid (lainerid) põlve- ja reieproteesidele",
+        "Reielainer (TF)"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste reielaineri koodile 06.24.41.08."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-SEAL-IN-X5",
+    "canonical_name": "ÖSSUR ICEROSS SEAL-IN X5",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid)",
+    "aliases": [
+      "ÖSSUR Iceross Seal-in X5 TF I-TF673 (TF)"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €)",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "06.24.41.07",
+        "proteesi sisevoodrid (lainerid) sääreproteesidele",
+        "TT mudelid"
+      ],
+      [
+        "06.24.41.08",
+        "proteesi sisevoodrid (lainerid) põlve- ja reieproteesidele",
+        "TF mudelid"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Seal-in X seeria katab nii sääre (TT) kui reie (TF) amputatsiooni."
+  },
+  {
+    "canonical_id": "CP-SSUR-ICEROSS-UPPER-X",
+    "canonical_name": "ÖSSUR ICEROSS UPPER-X",
+    "brand": "Össur",
+    "manufacturer": "Össur hf (Island)",
+    "category": "Proteesi sisevoodrid (lainerid ülajäsemeproteesile)",
+    "aliases": [
+      "ÖSSUR Iceross Upper-X locking I-8131 (käe)",
+      "Iceross Upper-X",
+      "I-8131"
+    ],
+    "sources": [
+      {
+        "source_name": "Ortopro",
+        "url": "https://www.ortopro.ee/hinnakiri"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "400.00 € (piirhind: 360.00 €, omaosalus: 40.00 €)",
+    "images": [],
+    "descriptions": [
+      "Spetsiaalne pehme silikoonlainer ülajäseme (käe ja käsivarre) proteesidele.",
+      "Varustatud distaalse lukustusmehhanismiga proteesihülsi turvaliseks fikseerimiseks."
+    ],
+    "matching_isos": [
+      [
+        "06.18.00.02",
+        "proteesi sisevoodrid (lainerid) ülajäsemeproteesile",
+        "Käeproteesi lainer"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste ülajäsemelaineri koodile 06.18.00.02."
+  },
+  {
+    "canonical_id": "CP-OTICON-ZEAL",
+    "canonical_name": "OTICON ZEAL",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid",
+    "aliases": [
+      "Oticon Zeal"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [
+      "UUS! Laetav kõrvasisene tipptehnoloogiline kuuldeaparaat • Ülimalt diskreetne ja vastupidav • Sobivuse korral saab keskusest kaasa juba esimesel vastuvõtul"
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-INTENT",
+    "canonical_name": "OTICON INTENT",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid",
+    "aliases": [
+      "Oticon Intent",
+      "Oticon Intent miniRITE",
+      "Oticon Intent miniRITE R",
+      "Oticon Intent 1",
+      "Oticon Intent 2",
+      "Oticon Intent 3",
+      "Oticon Intent 4"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-intent/"
+      },
+      {
+        "source_name": "Kuulmiskeskus",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik soodustus (piirmäär 90%)",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2024/03/Oticon_Intent_miniRITE_H1-2024_Binaural_C093ChestnutBrown_LEDgreen_Speaker60_OpenBassDome_500pctSize-640x640.png"
+    ],
+    "descriptions": [
+      "Tipptasemel kõrvatagune kuuldeaparaat, mis tagab 360° helipildi • Laetav aku peab vastu kuni 20 tundi • Parim ühenduvus erinevate seadmetega",
+      "Tipptasemel kõrvatagune kuuldeaparaat 4D-sensoritega, mis kohanduvad kasutaja kuulamiskavatsusega ja tagavad 360° helipildi.",
+      "Laetav liitium-ioonaku (kuni 20 tundi tööaega).",
+      "Bluetooth LE Audio ja Auracast valmidus otsestriiminguks iOS ja Android seadmetest."
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-VERIT",
+    "canonical_name": "OTICON VERIT",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid",
+    "aliases": [
+      "Oticon Verit"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [
+      "UUS! Premium kuuldeaparaat, mis töötab patareidega • Tipptasemel AI-helitöötlus, mis kohandub iga hetkega"
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-PLAY",
+    "canonical_name": "OTICON PLAY (LASTE APARAADID)",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid (lapsed)",
+    "aliases": [
+      "Oticon Play",
+      "Oticon Play SI",
+      "Oticon Play miniRITE R",
+      "Oticon Xceed Play",
+      "Oticon Xceed Play BTE UP"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-play-si/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-xceed-play/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik soodustus lastele (piirmäär 90%)",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2026/07/Oticon_Play_SI_miniRITE_R_H1-2026_Binaural_C113Lavender_OpenBassDome_500pctSize-640x640.png",
+      "https://heakuulmine.ee/wp-content/uploads/2024/04/Oticon_Xceed_Play_BTE_UP_JBP_1098-scaled.jpg"
+    ],
+    "descriptions": [
+      "UUS! Ainus laste kuuldeaparaat maailmas, mis \"loeb\" lapse kuulamiskavatsust • Tõestatult parandab lausemõistmist ja vähendab kuulamisraskust • Laetav, veekindel (IP68) ja 12 värvi valikus",
+      "Ainus laste kuuldeaparaat, mis toetab lapse loomulikku kõnearengut 360° helipildiga.",
+      "IP68 tolmu- ja veekindel, spetsiaalne lapsekindel patareipesa lukustus ja LED-olekutuli lapsevanemale.",
+      "Oticon Xceed Play on maailma võimsaim laste aparaat raske ja sügava kuulmislanguse korral."
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.03",
+        "kõrvatagused kuulmisabivahendid - lapsed",
+        "Spetsiaalne laste kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Lastele mõeldud mudel, otsene vaste määruse koodile 22.06.15.03."
+  },
+  {
+    "canonical_id": "CP-OTICON-REAL",
+    "canonical_name": "OTICON REAL",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid",
+    "aliases": [
+      "Oticon Real",
+      "Oticon Real miniRITE R",
+      "Oticon Real miniRITE T",
+      "Oticon Real miniBTE R",
+      "Oticon Real miniBTE T",
+      "Oticon Real 1",
+      "Oticon Real 2",
+      "Oticon Real 3"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-real/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik soodustus (piirmäär 90%)",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2024/03/miniRITE_R_H1-2023_RightLeft_C091SilverGrey_LEDgreen_Speaker60_OpenBassDome_500pctSize_w_shadow-640x640.png"
+    ],
+    "descriptions": [
+      "Kõrvatagune kuuldeaparaat kerge kuni sügava kuulmislanguse korral • Kaitseb ka ebameeldivate helide eest • BrainHearing™ ehk ajukuulmise tehnoloogiaga",
+      "Kõrvatagune kuuldeaparaat kerge kuni sügava kuulmislanguse korral. Polaris R platvorm ja RealSound tehnoloogia.",
+      "Kaitseb tuulemüra ja ootamatute teravate helide eest.",
+      "BrainHearing™ tehnoloogia toetab aju loomulikku helitöötlust."
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-OWN",
+    "canonical_name": "OTICON OWN",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid (kõrvasisesed)",
+    "aliases": [
+      "Oticon Own",
+      "Oticon Own SI",
+      "Oticon Own 1",
+      "Oticon Own 2",
+      "Oticon Own 3",
+      "Oticon Own ITE",
+      "Oticon Own ITC",
+      "Oticon Own CIC",
+      "Oticon Own IIC"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-own/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-own-si/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik soodustus (piirmäär 90%)",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2024/03/Oticon_Own_Left_line-up_C001Beige_casting_long_shadows_500pctSize-640x469.webp",
+      "https://heakuulmine.ee/wp-content/uploads/2026/01/Oticon_IIC_Transparent_MS_8559_cut-out-scaled.png"
+    ],
+    "descriptions": [
+      "Kõrvasisene kuuldeaparaat, mis on praktiliselt nähtamatu ja mugav • BrainHearing™ ja DNN tehnoloogiad aitavad sul kuulata loomulikumalt ja vähem pingutades.",
+      "Individuaalselt patsiendi kõrvakanali jäljendi järgi valmistatud kõrvasisesed kuuldeaparaadid (ITE, ITC, CIC, IIC).",
+      "Praktiliselt nähtamatud, sügavale kõrvakanalisse asetatavad mudelid.",
+      "Varustatud BrainHearing™ ja Deep Neural Network (DNN) tehisintellektiga."
+    ],
+    "matching_isos": [
+      [
+        "22.06.12.01",
+        "kõrvasisesed kuulmisabivahendid - aktiivsusgrupp I",
+        "Kõrvasisene aparaat, aktiivsusgrupp I"
+      ],
+      [
+        "22.06.12.02",
+        "kõrvasisesed kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrvasisene aparaat, aktiivsusgrupp II"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kohandatav kõrvasisene (ITE/ITC/CIC) mudel, ISO sõltub aktiivsusgrupist I vs II."
+  },
+  {
+    "canonical_id": "CP-OTICON-JET",
+    "canonical_name": "OTICON JET",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid",
+    "aliases": [
+      "Oticon Jet",
+      "Oticon Jet PX",
+      "Oticon Jet miniRITE",
+      "Oticon Jet miniBTE",
+      "Oticon Jet 1",
+      "Oticon Jet 2"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-jet/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/toode/oticon-jet-px/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Riiklik soodustus (piirmäär 90%)",
+    "images": [
+      "https://heakuulmine.ee/wp-content/uploads/2024/04/Oticon_Jet_miniRITE_Left_C091SilverGrey_Speaker60_PowerDome_900x900px-640x640.png"
+    ],
+    "descriptions": [
+      "Jet PX on mitmekülgne kuuldeaparaat, mis pakub suurepärast helikvaliteeti ja efektiivset müravähendust igapäevases keskkonnas.",
+      "Usaldusväärne kõrvatagune kuuldeaparaat kerge kuni sügava kuulmislangusega täiskasvanule.",
+      "Tõhus müravähendus ja 11-kanaliline direktsionaalsus igapäevases keskkonnas toimetulekuks."
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-XCEED",
+    "canonical_name": "OTICON XCEED",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid (ülisuur võimsus)",
+    "aliases": [
+      "Oticon Xceed"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [
+      {
+        "price": "Hinnakiri kokkuleppel / arstitõendiga",
+        "source": "Hea Kuulmine"
+      }
+    ],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [
+      "Võimas kuuldeaparaat raske ja sügava kuulmislangusega inimesele • 360° ligipääs helidele • Hea ühenduvus erinevate seadmetega"
+    ],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-OTICON-XCEED-PLAY",
+    "canonical_name": "OTICON XCEED PLAY",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuulmisabivahendid (lapsed / ülisuur võimsus)",
+    "aliases": [
+      "Oticon Xceed Play"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "22.06.15.01",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp I",
+        "Baastaseme digitaalne kõrvatagune kuuldeaparaat"
+      ],
+      [
+        "22.06.15.02",
+        "kõrvatagused kuulmisabivahendid - aktiivsusgrupp II",
+        "Kõrgema taseme digitaalne kõrvatagune kuuldeaparaat"
+      ]
+    ],
+    "confidence": "ÜLEVAATUST VAJAV (MITU ISO-D)",
+    "status_rationale": "Kuulub määrusesse nr 74, kuid konkreetne ISO sõltub patsiendi arstlikust aktiivsusgrupist (I vs II)."
+  },
+  {
+    "canonical_id": "CP-RESMED-AIRMINI-AUTO-CPAP-SEADE-JA-TARVIKUD",
+    "canonical_name": "RESMED AIRMINI AUTO-CPAP SEADE JA TARVIKUD",
+    "brand": "ResMed",
+    "manufacturer": "ResMed Inc. (USA/Austraalia)",
+    "category": "Uneapnoe seadmed ja tarvikud (Tervisekassa)",
+    "aliases": [
+      "AirMini kinnitussüsteem",
+      "Karp Resmed AirMinile"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/airmini-kinnitussusteem/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/karp-resmed-airminile/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-FRESCO-GEELPADJAD",
+    "canonical_name": "FRESCO GEELPADJAD",
+    "brand": "Fresco",
+    "manufacturer": "Määramata",
+    "category": "Rõhu ümberjaotuse geelpadjad",
+    "aliases": [
+      "Fresco rõhu ümberjaotus geelpadi",
+      "Fresco rõhu ümberjaotus geelpadjad 5-pakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/fresco-rohu-umberjaotuspadi/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/fresco-rohu-umberjaotuspadjad-5-pakk/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-MASKI-JA-VOOLIKU-SEEP-GREIP-JA-SIDRUN",
+    "canonical_name": "PÜRDOUX CPAP MASKI JA VOOLIKU SEEP GREIP JA SIDRUN",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP maski ja vooliku seep Greip ja Sidrun"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-maski-ja-vooliku-seep-lohnastatud/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-MASKI-JA-VOOLIKU-SEEP-ROHELINE-TEE-JA-PIPARM-NT",
+    "canonical_name": "PÜRDOUX CPAP MASKI JA VOOLIKU SEEP ROHELINE TEE JA PIPARMÜNT",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP maski ja vooliku seep Roheline tee ja Piparmünt"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-maski-ja-vooliku-seep-lohnastamata/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-PUHASTUSLAPID-ALOE-VERA-L-HNASTAMATA-70TK",
+    "canonical_name": "PÜRDOUX CPAP PUHASTUSLAPID ALOE VERA LÕHNASTAMATA 70TK",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP puhastuslapid Aloe Vera lõhnastamata 70tk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-puhastuslapid-aloe-vera/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-PUHASTUSLAPID-ALOE-VERA-REISIPAKK",
+    "canonical_name": "PÜRDOUX CPAP PUHASTUSLAPID ALOE VERA REISIPAKK",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP puhastuslapid Aloe Vera reisipakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-puhastuslapid-aloe-vera-reisimiseks/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-PUHASTUSLAPID-GREIP-JA-SIDRUN-70TK",
+    "canonical_name": "PÜRDOUX CPAP PUHASTUSLAPID GREIP JA SIDRUN 70TK",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP puhastuslapid Greip ja Sidrun 70tk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-puhastuslapid-greip-sidrun-lohnastatud/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-PUHASTUSLAPID-GREIP-JA-SIDRUN-REISIPAKK",
+    "canonical_name": "PÜRDOUX CPAP PUHASTUSLAPID GREIP JA SIDRUN REISIPAKK",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP puhastuslapid Greip ja Sidrun reisipakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-puhastuslapid-greip-sidrun-reisimiseks/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-PUHASTUSLAPID-SANDLIPUU-70TK",
+    "canonical_name": "PÜRDOUX CPAP PUHASTUSLAPID SANDLIPUU 70TK",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP puhastuslapid Sandlipuu 70tk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-puhastuslapid-sandlipuu-70tk/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-P-RDOUX-CPAP-VOOLIKUHARI",
+    "canonical_name": "PÜRDOUX CPAP VOOLIKUHARI",
+    "brand": "Pürdoux",
+    "manufacturer": "Pürdoux Health",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pürdoux CPAP voolikuhari"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/purdoux-cpap-voolikuhari/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-RESMED-AIR-SD-M-LUKAART",
+    "canonical_name": "RESMED AIR SD-MÄLUKAART",
+    "brand": "ResMed",
+    "manufacturer": "ResMed Inc. (USA/Austraalia)",
+    "category": "Uneapnoe seadmed ja tarvikud (Tervisekassa)",
+    "aliases": [
+      "Resmed Air mälukaart"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-air-malukaart/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-RESMED-AIR10-STANDARD-JA-H-POALLERGEENSED-FILTRID",
+    "canonical_name": "RESMED AIR10 STANDARD- JA HÜPOALLERGEENSED FILTRID",
+    "brand": "ResMed",
+    "manufacturer": "ResMed Inc. (USA/Austraalia)",
+    "category": "Uneapnoe seadmed ja tarvikud (Tervisekassa)",
+    "aliases": [
+      "Resmed Air10 hüpoallergeense filtri 2-pakk",
+      "Resmed Air10 standardfiltri 2-pakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-s9-hupoallergeense-filtri-2-pakk/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-s9-standard-filtri-2-pakk/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-RESMED-AIR11-STANDARD-JA-H-POALLERGEENSED-FILTRID",
+    "canonical_name": "RESMED AIR11 STANDARD- JA HÜPOALLERGEENSED FILTRID",
+    "brand": "ResMed",
+    "manufacturer": "ResMed Inc. (USA/Austraalia)",
+    "category": "Uneapnoe seadmed ja tarvikud (Tervisekassa)",
+    "aliases": [
+      "Resmed Air11 hüpoallergeense filtri 2-pakk",
+      "Resmed Air11 standardfiltri 2-pakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-air-11-hupoallergeense-filtri-2-pakk/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-air-11-standardfiltri-2-pakk/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-RESMED-AIRFIT-F20-T-ISN-OMASK",
+    "canonical_name": "RESMED AIRFIT F20 TÄISNÄOMASK",
+    "brand": "ResMed",
+    "manufacturer": "ResMed Inc. (USA/Austraalia)",
+    "category": "Uneapnoe seadmed ja tarvikud (Tervisekassa)",
+    "aliases": [
+      "Resmed AirFit F20",
+      "Resmed AirFit F20 Non Magnetic",
+      "Resmed AirFit F20 for Her",
+      "Resmed AirFit F20/F30 kinnitusklõpsud 2-pakk"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-airfit-f20/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-airfit-f20h/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-airfit-f20-non-magnetic/"
+      },
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/resmed-airfit-f20-f30-kinnitusklopsud-2-pakk/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Tervisekassa meditsiiniseade (90% hüvitis)",
+    "images": [],
+    "descriptions": [
+      "InfinitySeal silikoonpadjaga täisnäomask uneapnoe CPAP ja BiPAP raviks.",
+      "Magnetic ja Non-Magnetic kinnitusklambritega mudelid (MRI-ohutud variandid)."
+    ],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-HYDRO-TRACH-T-MK-II-TRAHHEANIISUTI",
+    "canonical_name": "HYDRO-TRACH T MK II TRAHHEANIISUTI",
+    "brand": "Hydro-Trach",
+    "manufacturer": "Intersurgical Ltd (Ühendkuningriik)",
+    "category": "Hingamisteede filtrid ja niisutid",
+    "aliases": [
+      "Trahheaniisuti Hydro-Trach T Mk II"
+    ],
+    "sources": [
+      {
+        "source_name": "Meditsiiniseadmed.ee",
+        "url": "https://meditsiiniseadmed.ee/toode/trahheaniisuti-hydrotrach-mk-ii/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA",
+        "Tervisekassa meditsiiniseadmete loetelu (CPAP/hingamisteraapia)",
+        "Kompenseerib Eesti Tervisekassa, mitte SKA"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "Kuulub Tervisekassa, mitte Sotsiaalkindlustusameti hüvitussüsteemi."
+  },
+  {
+    "canonical_id": "CP-STANDARDOTSAK-VANA-MUDEL",
+    "canonical_name": "STANDARDOTSAK (VANA MUDEL)",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Standardotsak (vana mudel)"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-PROWAX-MINIFIT-FILTRID",
+    "canonical_name": "PROWAX MINIFIT FILTRID",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "ProWax miniFit filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-PROWAX-FILTRID",
+    "canonical_name": "PROWAX FILTRID",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "ProWax filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-NOWAX-FILTRID",
+    "canonical_name": "NOWAX FILTRID",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "NoWax filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-WAXSTOP-FILTRID",
+    "canonical_name": "WAXSTOP FILTRID",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "WaxStop filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-O-CAP-MIKROFONI-FILTRID",
+    "canonical_name": "O-CAP MIKROFONI FILTRID",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "O-cap mikrofoni filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-T-CAP-MIKROFONI-FILTRID",
+    "canonical_name": "T-CAP MIKROFONI FILTRID",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "T-cap mikrofoni filtrid"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DOOMID-MINIFIT-OPENBASS",
+    "canonical_name": "DOOMID MINIFIT OPENBASS",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Doomid miniFit OpenBass"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DOOMID-BASS-DOUBLE-VENT",
+    "canonical_name": "DOOMID BASS DOUBLE VENT",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Doomid Bass Double vent"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-DOOMID-POWER",
+    "canonical_name": "DOOMID POWER",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Doomid Power"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-TORU-3-CM",
+    "canonical_name": "TORU (3 CM)",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Toru (3 cm)"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-PEHME-OTSAKU-TORU",
+    "canonical_name": "PEHME OTSAKU TORU",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Pehme otsaku toru"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-LUKUSTUSEGA-PEHME-OTSAKU-TORU",
+    "canonical_name": "LUKUSTUSEGA PEHME OTSAKU TORU",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Lukustusega pehme otsaku toru"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-EAR-GRIP-J-HV-RITE-V-LJAT-MBAMISEKS",
+    "canonical_name": "EAR GRIP (JÕHV RITE VÄLJATÕMBAMISEKS)",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Ear Grip (jõhv RITE väljatõmbamiseks)"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-MULTITOOL-KUULDEAPARAADI-PUHASTUSHARI",
+    "canonical_name": "MULTITOOL (KUULDEAPARAADI PUHASTUSHARI)",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "MultiTool (kuuldeaparaadi puhastushari)"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-HUTUSAVA-PUHASTUST-RIIST",
+    "canonical_name": "ÕHUTUSAVA PUHASTUSTÖÖRIIST",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Õhutusava puhastustööriist"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-TV-ADAPTER-3-0",
+    "canonical_name": "TV ADAPTER 3.0",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "TV adapter 3.0"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-OTICON-SAFELINE-KAELAPAEL",
+    "canonical_name": "OTICON SAFELINE KAELAPAEL",
+    "brand": "Oticon",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Kuuldeaparaadi tarvikud",
+    "aliases": [
+      "Kaelapael Oticon SafeLine",
+      "Oticon SafeLine™ kaelapael"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      },
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/kuuldeaparaadid/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-KUULDEAPARAADI-KARP",
+    "canonical_name": "KUULDEAPARAADI KARP",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Kuuldeaparaadi karp"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-TENA-RIIDEST-OSTUKOTT-KINGITUS",
+    "canonical_name": "TENA RIIDEST OSTUKOTT KINGITUS",
+    "brand": "TENA",
+    "manufacturer": "Essity Hygiene and Health AB (Rootsi)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Tena riidest ostukott KINGITUS"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/tena-riidest-ostukott-kingitus/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-SOOJENDUSKOTT-55-17-CM",
+    "canonical_name": "SOOJENDUSKOTT 55×17 CM",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Soojenduskott 55×17 cm"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/olmeabivahendid/kotid/soojenduskott-55x17-cm/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-S-SET-RJE-DIFFUSIL-FAMILY-S-SED-PUUGID-100ML",
+    "canonical_name": "SÄÄSETÕRJE DIFFUSIL FAMILY SÄÄSED PUUGID 100ML",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Sääsetõrje Diffusil Family sääsed puugid 100ml"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/olmeabivahendid/kaitse-ja-desovahendid/saasetorjevahendid/saasetorje-diffusil-family-saased-puugid-100ml-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-GEHWOL-SILIKOONIST-VARBAKAITSED",
+    "canonical_name": "GEHWOL SILIKOONIST VARBAKAITSED",
+    "brand": "Gehwol",
+    "manufacturer": "Eduard Gerlach GmbH (Saksamaa)",
+    "category": "Jalahoolduse jaemüügitooted",
+    "aliases": [
+      "Ümmargune kaitserõngas varvastele GEHWOL N9"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/ortoosid-ja-tugitooted/ortoosid-ja-toed-jalgadele/toed-jalgadele/ummargune-kaitserongas-varvastele-gehwol-n9-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-RATASTEL-RUUMISIRM",
+    "canonical_name": "RATASTEL RUUMISIRM",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Kliiniku ja hooldekodu sisustus",
+    "aliases": [
+      "Sirm 3-osaline, ratastel",
+      "Sirm 4-osaline, ratastel"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/meditsiiniline-inventar/sirmid/sirm-4-osaline-ratastel/"
+      },
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/meditsiiniline-inventar/sirmid/sirm-3-osaline-ratastel-2/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-EVERCARE-KAITSEMASKID",
+    "canonical_name": "EVERCARE KAITSEMASKID",
+    "brand": "Evercare",
+    "manufacturer": "OneMed Group",
+    "category": "Isikukaitsevahendid",
+    "aliases": [
+      "Mask Evercare tüüp II kõrvak. valge N1"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/olmeabivahendid/kaitse-ja-desovahendid/kindad-ja-muud-kaitsevahendid/mask-evercare-tuup-ii-korvak-valge-n1/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-MOLICARE-SKIN-HOOLDUSVAHT",
+    "canonical_name": "MOLICARE SKIN HOOLDUSVAHT",
+    "brand": "Molicare",
+    "manufacturer": "Paul Hartmann AG (Saksamaa)",
+    "category": "Nahahooldustooted",
+    "aliases": [
+      "Molicare Skin nahka kaitsev vaht 100ml"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/poetus-ja-hooldus/kehahooldus/hooldavad-kreemid-ja-salvid-kehahooldus/molicare-skin-nahka-kaitsev-vaht-100ml/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-VOOLIKU-SULGUR",
+    "canonical_name": "VOOLIKU SULGUR",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Vooliku sulgur"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/poetus-ja-hooldus/uriinikogujad-ja-kateetrid/kinnitusvahendid/vooliku-sulgur/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-PATAREI-TESTER",
+    "canonical_name": "PATAREI TESTER",
+    "brand": "Määramata",
+    "manufacturer": "Demant A/S (Taani)",
+    "category": "Muu kategooria",
+    "aliases": [
+      "Patarei tester"
+    ],
+    "sources": [
+      {
+        "source_name": "Hea Kuulmine",
+        "url": "https://heakuulmine.ee/pood/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  },
+  {
+    "canonical_id": "CP-JOBST-OPAQUE",
+    "canonical_name": "JOBST OPAQUE",
+    "brand": "JOBST",
+    "manufacturer": "Essity Hygiene and Health AB (Rootsi)",
+    "category": "Ravikompressioontooted",
+    "aliases": [
+      "JOBST Opaque meditsiinilised kompressioonsukad CCL1"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/treening-ja-teraapia/kompressioontooted-ja-ravisukad/kompressioonsukad/jobst-opaque-meditsiinilised-kompressioonsukad-ccl1/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [
+      [
+        "TERVISEKASSA / MEDITSIINISEADE",
+        "Ortoosid ja ravisukad (Tervisekassa loetelu)",
+        "Põhiortoose ja kompressioontooteid hüvitab Eestis Tervisekassa"
+      ]
+    ],
+    "confidence": "TERVISEKASSA MEDITSIINISEADE",
+    "status_rationale": "SKA määrus nr 74 ei sisalda standardseid liigeseortoose ega ravisukki (hüvitatakse Tervisekassa kaudu)."
+  },
+  {
+    "canonical_id": "CP-RULAATOR-FARGO",
+    "canonical_name": "RULAATOR FARGO",
+    "brand": "Fargo",
+    "manufacturer": "Meyra / MDH",
+    "category": "Liikumisabivahendid (rulaatorid)",
+    "aliases": [
+      "Rulaator Fargo",
+      "Rulaator Fargo 4",
+      "Fargo 4-rattaline käimistool"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/rulaatorid/rulaator-fargo/"
+      },
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/liikumine/rulaatorid/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Riiklik soodustus (ISO 12.06.06)",
+    "images": [],
+    "descriptions": [
+      "Kerge alumiiniumraamiga kokkupandav neljarattaline rulaator pidurite, koti ja istmega liikumispuudega inimestele sise- ja välitingimustes."
+    ],
+    "matching_isos": [
+      [
+        "12.06.06",
+        "neljarattalised käimistoolid / rulaatorid",
+        "Standardne rulaator"
+      ]
+    ],
+    "confidence": "KÕRGE KINDLUS",
+    "status_rationale": "Otsene vaste määruse nr 74 rulaatorite koodile 12.06.06."
+  },
+  {
+    "canonical_id": "CP-RAVIMIPOOLITAJA-PURUSTAJA-3IN1",
+    "canonical_name": "RAVIMIPOOLITAJA/PURUSTAJA 3IN1",
+    "brand": "Määramata",
+    "manufacturer": "Määramata",
+    "category": "Igapäevaelu abivahendid",
+    "aliases": [
+      "Ravimipoolitaja/purustaja 3in1"
+    ],
+    "sources": [
+      {
+        "source_name": "Teresa Abivahendikeskus",
+        "url": "https://teresa.ee/pood/olmeabivahendid/ravimikarbid-ja-tabletipoolitajad/ravimipoolitaja-purustaja-3in1/"
+      }
+    ],
+    "prices": [],
+    "price_range_str": "Täpsustamisel",
+    "images": [],
+    "descriptions": [],
+    "matching_isos": [],
+    "confidence": "MÄÄRUSEVÄLINE / JAEKAUP",
+    "status_rationale": "Ei kuulu riiklikult hüvitatavate abivahendite loetellu (jaemüügikaup, tarvik või kliiniku inventar)."
+  }
+]
