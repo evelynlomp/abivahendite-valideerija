@@ -1,9 +1,11 @@
 """Õppiva teadmistebaasi (Knowledge Base) moodul.
 
 PÕHIPRINTSIIP:
-Süsteem õpib AINULT aliasnimesid ja arvetel esinevaid kirjapilte seoses ametliku tootega.
-Süsteem EI ÕPI arvelt ISO-koode ega määrusejärgseid nimetusi: need pärinevad alati
-ametlikest tõeallikatest (ametlik_klassifikaator ja tooteregister).
+1. Reeglid on rangelt VAJADUSPÕHISED: reegel salvestatakse ainult siis, kui süsteemi automaatne
+   tuvastuskindlus on madal ja vajab spetsialisti kinnitust. 100% klappivaid tooteid ei dubleerita.
+2. Süsteem õpib AINULT aliasnimesid ja arvetel esinevaid ebatavalisi kirjapilte seoses ametliku tootega.
+3. Süsteem EI ÕPI arvelt ISO-koode ega määrusejärgseid nimetusi: need pärinevad alati
+   ametlikest tõeallikatest (ametlik_klassifikaator ja tooteregister).
 """
 
 import sqlite3

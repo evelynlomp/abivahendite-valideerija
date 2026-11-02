@@ -877,7 +877,7 @@ if app_mode == "📋 Valideerimise töölaud":
 
                         # 4. OTSUS: TOOTE IDENTITEEDI JA ALIASE KINNITAMINE
                         st.markdown("##### 4. 🎯 Sinu otsus: Toote vaste kinnitamine")
-                        st.caption("Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Ametlikku ISO-koodi ega nimetust käsitsi ei määrata — need rakenduvad automaatselt valitud toote tõeallikast.")
+                        st.caption("Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Reegleid salvestatakse vajaduspõhiselt (ainult madala süsteemikindluse või lahknevuse korral). Ametlikku ISO-koodi käsitsi ei määrata — see rakendub automaatselt valitud toote tõeallikast.")
 
                         col_btn, col_change = st.columns([1.5, 1])
                         with col_change:
@@ -1054,11 +1054,11 @@ else:
     # 3. KINNITATUD REEGLID (ENDINE TEADMISTEBAAS)
     with tab_kb:
         st.subheader("🧠 Kinnitatud reeglid ja erandid")
-        st.caption("Spetsialisti poolt kinnitatud reeglid, mida süsteem rakendab automaatselt eelisjärjekorras.")
+        st.caption("Vajaduspõhine õppiv kiht: Siia salvestatakse ainult need kirjapildid ja aliased, kus süsteemi automaatne tuvastuskindlus oli madal või vajas inimese kinnitust. 100% klappivaid tooteid siia ei dubleerita.")
 
         all_entries = kb.get_all()
         if not all_entries:
-            st.info("Kinnitatud reegleid ei ole veel lisatud. Reeglid lisanduvad siia, kui kinnitate töölaual lahknevustega kirjeid.")
+            st.info("Kinnitatud reegleid ei ole veel lisatud. Reeglid lisanduvad siia vajaduspõhiselt, kui kinnitate töölaual madala kindlusega või lahknevustega kirjeid.")
         else:
             kb_df = pd.DataFrame(all_entries)
 
@@ -1098,9 +1098,9 @@ else:
         ### Süsteemi arhitektuur ja andmeallikad
         - **Andmebaas:** Lokaalne SQLite (`data/valideer.db`)
         - **Põhilised tõeallikad:**
-          1. `ametlik_klassifikaator`: Sotsiaalministeeriumi määruse nr 74 ametlik loetelu (327 kirjet koos veergude C ja M kitsendustega).
+          1. `ametlik_klassifikaator`: Sotsiaalministeeriumi määruse nr 74 ametlik loetelu (alates 01.10.2026, 250 kirjet koos piirmäärade ja kitsendustega).
           2. `tooteregister`: 4 115 kanoonilist toodet koos aliaste, imavusmahtude ja tarnijate infoga.
-          3. `teadmistebaas`: Spetsialisti kinnitatud seosed (õppiv kiht).
+          3. `teadmistebaas`: Spetsialisti kinnitatud seosed (vajaduspõhine õppiv kiht madala tuvastuskindluse korral).
         
         ### Valideerimise reeglimootor
         - **1:1 determinism:** Iga toode registris vastab eranditult ühele kindlale ISO koodile.
