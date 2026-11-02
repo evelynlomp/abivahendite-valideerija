@@ -354,6 +354,33 @@ hr {
   margin-bottom: 0 !important;
 }
 
+/* TEDI Sisekaardid (Card.txt — Variant inner) */
+.tedi-inner-card {
+  background-color: var(--tedi-surface-raised);
+  border: 1px solid var(--tedi-border);
+  border-radius: var(--tedi-radius-md);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+.tedi-inner-card h5 {
+  font-family: var(--font-family) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--tedi-text-primary) !important;
+  margin: 0 0 10px 0 !important;
+}
+.tedi-inner-card p, .tedi-inner-card div {
+  font-family: var(--font-family) !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: var(--tedi-text-secondary);
+}
+.tedi-inner-card strong {
+  color: var(--tedi-text-primary);
+}
+
 /* ==============================================================================
    TEDI BUTTONS (buttons.txt — tedi-ready-components-buttons-button)
    ============================================================================== */

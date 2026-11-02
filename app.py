@@ -427,22 +427,30 @@ if app_mode == "📋 Valideerimise töölaud":
                     s_mfg = f" ({r['Tootja']})" if r.get('Tootja') else ""
 
                     with st.expander(f"Rida {row_id}: {raw_name}  —  [{st_label}]"):
-                        # 4-ASTMELINE VÕRDLUSMUDEL
+                        # 4-ASTMELINE VÕRDLUSMUDEL (TEDI Card.txt sisekaardid)
                         col_card1, col_card2 = st.columns(2)
 
                         with col_card1:
-                            st.markdown("##### 1. 📄 Esitatud arvel (Kontrollitav väide)")
-                            st.write(f"• **Arvel olev tootenimi:** {raw_name}")
-                            st.write(f"• **Arvel esitatud ISO:** `{r['ISO kood (Excel)']}`")
-                            st.write(f"• **Arvel esitatud nimetus:** {r['Määrusejärgne nimetus (Excel)']}")
+                            st.markdown(f"""
+                            <div class="tedi-inner-card">
+                              <h5>1. 📄 Esitatud arvel (Kontrollitav väide)</h5>
+                              <div style="margin-bottom: 4px;">• <strong>Arvel olev tootenimi:</strong> {raw_name}</div>
+                              <div style="margin-bottom: 4px;">• <strong>Arvel esitatud ISO:</strong> <code class="mono">{r['ISO kood (Excel)']}</code></div>
+                              <div>• <strong>Arvel esitatud nimetus:</strong> {r['Määrusejärgne nimetus (Excel)']}</div>
+                            </div>
+                            """, unsafe_allow_html=True)
 
                         with col_card2:
-                            st.markdown("##### 2. 🏛️ Tõeallikas (Ametlik toode & klassifikatsioon)")
-                            st.write(f"• **Tuvastatud toode:** **{s_prod}**{s_mfg}")
-                            st.write(f"• **Tõeallika ametlik ISO:** `{r['Ametlik ISO kood'] or 'Määramata'}`")
-                            st.write(f"• **Tõeallika ametlik nimetus:** *{r['Ametlik määrusejärgne nimetus'] or 'Määramata'}*")
-
-                        st.divider()
+                            off_iso = r['Ametlik ISO kood'] or 'Määramata'
+                            off_stat = r['Ametlik määrusejärgne nimetus'] or 'Määramata'
+                            st.markdown(f"""
+                            <div class="tedi-inner-card">
+                              <h5>2. 🏛️ Tõeallikas (Ametlik toode & klassifikatsioon)</h5>
+                              <div style="margin-bottom: 4px;">• <strong>Tuvastatud toode:</strong> <strong>{s_prod}</strong>{s_mfg}</div>
+                              <div style="margin-bottom: 4px;">• <strong>Tõeallika ametlik ISO:</strong> <code class="mono">{off_iso}</code></div>
+                              <div>• <strong>Tõeallika ametlik nimetus:</strong> <em>{off_stat}</em></div>
+                            </div>
+                            """, unsafe_allow_html=True)
 
                         # 3. LAHKNEVUSE PÕHJUS JA TEGEVUSJUHIS
                         rec_action = get_action_recommendation(
@@ -455,15 +463,23 @@ if app_mode == "📋 Valideerimise töölaud":
                             restriction_warning=str(r.get('Selgitus', ''))
                         )
 
-                        st.markdown(f"##### 3. 🔍 Tuvastatud lahknevus tõeallikaga")
-                        st.write(f"**Põhjus:** {r.get('Selgitus')}")
-                        st.caption(f"👉 **Soovitus menetlejale:** {rec_action}")
-
-                        st.divider()
+                        st.markdown(f"""
+                        <div class="tedi-inner-card" style="border-left: 4px solid var(--tedi-status-warning-border);">
+                          <h5>3. 🔍 Tuvastatud lahknevus tõeallikaga</h5>
+                          <div style="margin-bottom: 6px;"><strong>Põhjus:</strong> {r.get('Selgitus')}</div>
+                          <div style="color: var(--tedi-text-link);">👉 <strong>Soovitus menetlejale:</strong> {rec_action}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
                         # 4. OTSUS: TOOTE IDENTITEEDI JA ALIASE KINNITAMINE
-                        st.markdown("##### 4. 🎯 Sinu otsus: Toote vaste kinnitamine")
-                        st.caption("Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Reegleid salvestatakse vajaduspõhiselt (ainult madala süsteemikindluse või lahknevuse korral). Ametlikku ISO-koodi käsitsi ei määrata — see rakendub automaatselt valitud toote tõeallikast.")
+                        st.markdown("""
+                        <div class="tedi-inner-card" style="border-left: 4px solid var(--tedi-primary); margin-bottom: 8px;">
+                          <h5>4. 🎯 Sinu otsus: Toote vaste kinnitamine</h5>
+                          <div style="font-size: 13px; color: var(--tedi-text-secondary);">
+                            Kinnitades toote vaste, õpib süsteem antud kirjapildi aliast. Reegleid salvestatakse vajaduspõhiselt (ainult madala süsteemikindluse või lahknevuse korral). Ametlikku ISO-koodi käsitsi ei määrata — see rakendub automaatselt valitud toote tõeallikast.
+                          </div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
                         col_btn, col_change = st.columns([1.5, 1])
                         with col_change:
